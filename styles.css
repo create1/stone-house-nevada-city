@@ -1959,6 +1959,43 @@ body.clicking #cursor {
 .faq-list {
   margin-top: 44px;
 }
+.faq-intro {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--m);
+  line-height: 1.75;
+  max-width: 640px;
+  margin-bottom: 8px;
+}
+.faq-pdf {
+  margin: 0 0 28px;
+}
+.faq-cat {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--g);
+  font-weight: 500;
+  margin: 40px 0 18px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(201, 167, 107, 0.12);
+}
+.faq-list > h3.faq-cat:first-of-type {
+  margin-top: 28px;
+  padding-top: 0;
+  border-top: none;
+}
+.faq-a-inner ul {
+  margin: 12px 0 0;
+  padding-left: 1.15em;
+}
+.faq-a-inner li {
+  margin-bottom: 8px;
+}
+.faq-a-inner li:last-child {
+  margin-bottom: 0;
+}
 .faq-item {
   border-bottom: 1px solid rgba(201, 167, 107, 0.1);
 }
@@ -2023,7 +2060,7 @@ body.clicking #cursor {
   transition: max-height 0.4s var(--ease), padding 0.4s;
 }
 .faq-item.open .faq-a {
-  max-height: 200px;
+  max-height: 8000px;
 }
 .faq-a-inner {
   padding-bottom: 20px;
