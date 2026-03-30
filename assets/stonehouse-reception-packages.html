@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stone House Nevada City — Reception Packages</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #1a1714;
+    --gold: #c9a76b;
+    --gold-light: #d4b97e;
+    --cream: #f4ede0;
+    --cream-dark: #e8ddd0;
+    --stone: #2a2520;
+    --stone-mid: #3a352f;
+    --warm-gray: #8a7e72;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--charcoal);
+    color: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto;
+    background: var(--charcoal);
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    padding: 0.6in 0.7in;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(201,167,107,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(201,167,107,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Subtle stone texture overlay */
+  .page::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a76b' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
+
+  /* Header */
+  .venue-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .venue-sub {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 8px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .divider-top {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin-bottom: 24px;
+  }
+
+  .divider-thin {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 16px auto;
+  }
+
+  .divider-section {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,167,107,0.3), transparent);
+    margin: 14px 0;
+  }
+
+  /* Package Title */
+  .package-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 38px;
+    text-align: center;
+    color: var(--cream);
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+  }
+
+  .package-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 16px;
+    text-align: center;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  /* Pricing */
+  .pricing-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+  }
+
+  .price-item {
+    text-align: center;
+  }
+
+  .price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .price-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-top: 3px;
+  }
+
+  /* Sections */
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .section-body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--cream);
+    text-align: center;
+    max-width: 5.5in;
+    margin: 0 auto;
+  }
+
+  /* Included boxes */
+  .included-row {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .included-box {
+    flex: 1;
+    max-width: 3in;
+    border: 1px solid rgba(201,167,107,0.25);
+    padding: 14px 18px;
+    text-align: center;
+  }
+
+  .included-box-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .included-box-list {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 1.8;
+    color: var(--cream-dark);
+  }
+
+  /* Entrée Lists */
+  .entree-list {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+  }
+
+  .entree-list li {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--cream);
+    padding: 3px 0;
+  }
+
+  .entree-list li .desc {
+    font-style: italic;
+    font-size: 11px;
+    color: var(--warm-gray);
+    display: block;
+  }
+
+  /* Hors d'oeuvres grid */
+  .hors-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 30px;
+    max-width: 5.5in;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hors-grid .item {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 12.5px;
+    color: var(--cream);
+    padding: 2px 0;
+  }
+
+  .premium-note {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 9.5px;
+    color: var(--gold);
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  /* Menu instruction text */
+  .menu-instruction {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 1.7;
+    color: var(--warm-gray);
+    text-align: center;
+    max-width: 5in;
+    margin: 0 auto 14px auto;
+  }
+
+  /* Kids menu */
+  .kids-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .kids-price-sub {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  /* Footer */
+  .page-footer {
+    margin-top: auto;
+    padding-top: 16px;
+    text-align: center;
+  }
+
+  .footer-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,167,107,0.3), transparent);
+    margin-bottom: 10px;
+  }
+
+  .footer-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 8px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+  }
+
+  .upgrade-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--gold-light);
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .spacer-sm { height: 8px; }
+  .spacer-md { height: 14px; }
+</style>
+</head>
+<body>
+
+<!-- ===================== PAGE 1: BREWMASTER RECEPTION ===================== -->
+<div class="page">
+  <div class="content">
+    <div class="venue-name">Stone House</div>
+    <div class="venue-sub">Nevada City, California</div>
+    <div class="divider-top"></div>
+
+    <div class="package-title">Brewmaster</div>
+    <div class="package-subtitle">Reception Package</div>
+
+    <div class="pricing-row">
+      <div class="price-item">
+        <div class="price-amount">$79</div>
+        <div class="price-label">Per Guest · Buffet</div>
+      </div>
+      <div class="price-item">
+        <div class="price-amount">$89</div>
+        <div class="price-label">Per Guest · Plated</div>
+      </div>
+    </div>
+
+    <div class="divider-section"></div>
+
+    <div class="included-row">
+      <div class="included-box">
+        <div class="included-box-title">Included Amenities</div>
+        <div class="included-box-list">
+          Floor Length Tablecloths &amp; Linen Napkins<br>
+          China, Stemware &amp; Silverware
+        </div>
+      </div>
+      <div class="included-box">
+        <div class="included-box-title">Included Services</div>
+        <div class="included-box-list">
+          Cake Cutting<br>
+          Screen &amp; Microphone
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Food &amp; Beverage</div>
+    <div class="section-body">
+      Cocktail Hour Hors D'oeuvres: Choice of Three<br>
+      Buffet or Plated Meal Includes: Rolls &amp; Butter, Salad,<br>
+      Selection of Two Entrées, Chef's Choice Vegetarian/Vegan Entrée<br>
+      Beverage Station with Coffee, Hot Tea, Iced Tea &amp; Lemonade<br>
+      House Champagne &amp; Sparkling Cider for the Toasts
+    </div>
+
+    <div class="divider-thin"></div>
+
+    <div class="section-title">Entrées</div>
+    <div class="menu-instruction">
+      Please select one salad and two entrées for your guests.<br>
+      A seasonal vegetarian or vegan entrée is available upon request.<br>
+      Our Executive Chef will pair seasonal accompaniments<br>
+      (starch &amp; vegetable) to complement both chosen entrées.
+    </div>
+
+    <ul class="entree-list">
+      <li>Brown Ale Steak Medallions</li>
+      <li>Whiskey Steak with Fried Onions</li>
+      <li>Champagne Chicken</li>
+      <li>Riesling Chicken</li>
+      <li>Tri Tip with Zinfandel Sauce</li>
+      <li>Chicken Madeira</li>
+      <li>Mahi Mahi with a Rum Mango-Pineapple Salsa</li>
+      <li>Sea Bass with Lemon Chive Beurre Blanc</li>
+    </ul>
+
+    <div class="page-footer">
+      <div class="footer-line"></div>
+      <div class="footer-text">107 Sacramento Street · Nevada City, CA 95959 · stonehouse.io</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PAGE 2: MOTHER LODE RECEPTION ===================== -->
+<div class="page">
+  <div class="content">
+    <div class="venue-name">Stone House</div>
+    <div class="venue-sub">Nevada City, California</div>
+    <div class="divider-top"></div>
+
+    <div class="package-title">Mother Lode</div>
+    <div class="package-subtitle">Reception Package</div>
+
+    <div class="pricing-row">
+      <div class="price-item">
+        <div class="price-amount">$89</div>
+        <div class="price-label">Per Guest · Buffet</div>
+      </div>
+      <div class="price-item">
+        <div class="price-amount">$99</div>
+        <div class="price-label">Per Guest · Plated</div>
+      </div>
+    </div>
+
+    <div class="divider-section"></div>
+
+    <div class="included-row">
+      <div class="included-box">
+        <div class="included-box-title">Included Amenities</div>
+        <div class="included-box-list">
+          Floor Length Tablecloths &amp; Linen Napkins<br>
+          China, Stemware &amp; Silverware
+        </div>
+      </div>
+      <div class="included-box">
+        <div class="included-box-title">Included Services</div>
+        <div class="included-box-list">
+          Cake Cutting<br>
+          Screen &amp; Microphone
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Food &amp; Beverage</div>
+    <div class="section-body">
+      Cocktail Hour Hors D'oeuvres: Choice of Four<br>
+      Buffet or Plated Meal Includes: Rolls &amp; Butter, Salad,<br>
+      Selection of Two Entrées, Chef's Choice Vegetarian/Vegan Entrée<br>
+      Beverage Station with Coffee, Hot Tea, Iced Tea &amp; Lemonade<br>
+      House Champagne &amp; Sparkling Cider for the Toasts
+    </div>
+
+    <div class="divider-thin"></div>
+
+    <div class="section-title">Entrées</div>
+    <div class="menu-instruction">
+      Please select one salad and two entrées for your guests.<br>
+      A seasonal vegetarian or vegan entrée is available upon request.<br>
+      Our Executive Chef will pair seasonal accompaniments<br>
+      (starch &amp; vegetable) to complement both chosen entrées.
+    </div>
+
+    <ul class="entree-list">
+      <li>New York Steak <span class="desc">Roasted or Carved</span></li>
+      <li>Prime Rib <span class="desc">Roasted or Carved</span></li>
+      <li>Stuffed Chicken Cordon Bleu <span class="desc">Sliced Medallions with a Creamy Chardonnay Sauce</span></li>
+    </ul>
+
+    <div class="spacer-sm"></div>
+    <div class="upgrade-note">You may also select any entrées from the Prospector or Brewmaster menus.</div>
+
+    <div class="page-footer">
+      <div class="footer-line"></div>
+      <div class="footer-text">107 Sacramento Street · Nevada City, CA 95959 · stonehouse.io</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PAGE 3: PROSPECTOR RECEPTION ===================== -->
+<div class="page">
+  <div class="content">
+    <div class="venue-name">Stone House</div>
+    <div class="venue-sub">Nevada City, California</div>
+    <div class="divider-top"></div>
+
+    <div class="package-title">Prospector</div>
+    <div class="package-subtitle">Reception Package</div>
+
+    <div class="pricing-row">
+      <div class="price-item">
+        <div class="price-amount">$69</div>
+        <div class="price-label">Per Guest · Buffet</div>
+      </div>
+      <div class="price-item">
+        <div class="price-amount">$79</div>
+        <div class="price-label">Per Guest · Plated</div>
+      </div>
+    </div>
+
+    <div class="divider-section"></div>
+
+    <div class="included-row">
+      <div class="included-box">
+        <div class="included-box-title">Included Amenities</div>
+        <div class="included-box-list">
+          Floor Length Tablecloths &amp; Linen Napkins<br>
+          China, Stemware &amp; Silverware
+        </div>
+      </div>
+      <div class="included-box">
+        <div class="included-box-title">Included Services</div>
+        <div class="included-box-list">
+          Cake Cutting<br>
+          Screen &amp; Microphone
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Food &amp; Beverage</div>
+    <div class="section-body">
+      Cocktail Hour Hors D'oeuvres: Choice of Two<br>
+      Buffet or Plated Meal Includes: Rolls &amp; Butter, Salad,<br>
+      Selection of Two Entrées, Chef's Choice Vegetarian/Vegan Entrée<br>
+      Beverage Station with Coffee, Hot Tea, Iced Tea &amp; Lemonade<br>
+      House Champagne &amp; Sparkling Cider for the Toasts
+    </div>
+
+    <div class="divider-thin"></div>
+
+    <div class="section-title">Entrées</div>
+    <div class="menu-instruction">
+      Please select one salad and two entrées for your guests.<br>
+      A seasonal vegetarian or vegan entrée is available upon request.<br>
+      Our Executive Chef will pair seasonal accompaniments<br>
+      (starch &amp; vegetable) to complement both chosen entrées.
+    </div>
+
+    <ul class="entree-list">
+      <li>Lemon Chicken Piccata</li>
+      <li>Center Cut Sirloin with Demi Glaze</li>
+      <li>Herb Roasted Chicken</li>
+      <li>Herb Crusted Tilapia</li>
+      <li>Braised Beef Short Rib</li>
+      <li>Roasted Salmon with Dill Cream Sauce</li>
+    </ul>
+
+    <div class="spacer-md"></div>
+    <div class="menu-instruction" style="font-style: italic; color: var(--gold-light); max-width: 5.5in;">
+      Stone House offers customizable wedding menus featuring farm-to-fork, organic and culturally specific cuisine designed by our in-house culinary team. Options range from plated meals to buffets complemented by fine wines and specialized hors d'oeuvres with full custom menu development available.
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-line"></div>
+      <div class="footer-text">107 Sacramento Street · Nevada City, CA 95959 · stonehouse.io</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PAGE 4: HORS D'OEUVRES ===================== -->
+<div class="page">
+  <div class="content">
+    <div class="venue-name">Stone House</div>
+    <div class="venue-sub">Nevada City, California</div>
+    <div class="divider-top"></div>
+
+    <div class="package-title">Hors D'oeuvres</div>
+    <div class="package-subtitle">Selections for Reception Packages</div>
+
+    <div class="divider-section"></div>
+
+    <div class="section-title">Available for All Packages</div>
+    <div class="spacer-sm"></div>
+
+    <div class="hors-grid">
+      <div class="item">Caprese Kabob</div>
+      <div class="item">Chicken Satay</div>
+      <div class="item">Stuffed Mushrooms</div>
+      <div class="item">Spanakopita</div>
+      <div class="item">Seasonal Crostini</div>
+      <div class="item">Bruschetta</div>
+      <div class="item">BBQ or Swedish Meatballs</div>
+      <div class="item">Vegetable Spring Rolls</div>
+      <div class="item">Potstickers</div>
+      <div class="item">Potato Crêpe</div>
+      <div class="item">Cheese Quesadilla</div>
+      <div class="item">Ahi Tuna on Wonton Crisp</div>
+      <div class="item">Garden Vegetable Crudité</div>
+      <div class="item">Mango Fruit Salsa</div>
+      <div class="item">Domestic Cheeses, Crackers &amp; Fruit Display</div>
+      <div class="item">&nbsp;</div>
+    </div>
+
+    <div class="divider-thin"></div>
+
+    <div class="section-title">Brewmaster &amp; Mother Lode Exclusive</div>
+    <div class="spacer-sm"></div>
+
+    <div class="hors-grid">
+      <div class="item">Coconut Shrimp</div>
+      <div class="item">Poached Prawns with Cocktail Sauce</div>
+      <div class="item">Artisan Cheese Display</div>
+      <div class="item">Cured Meats &amp; Antipasto</div>
+      <div class="item">Salmon</div>
+      <div class="item">&nbsp;</div>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-line"></div>
+      <div class="footer-text">107 Sacramento Street · Nevada City, CA 95959 · stonehouse.io</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PAGE 5: KID'S MENU ===================== -->
+<div class="page">
+  <div class="content">
+    <div class="venue-name">Stone House</div>
+    <div class="venue-sub">Nevada City, California</div>
+    <div class="divider-top"></div>
+
+    <div class="package-title">Children's Menu</div>
+    <div class="package-subtitle">Ages 4–12</div>
+
+    <div class="kids-price">$20</div>
+    <div class="kids-price-sub">Per Child</div>
+
+    <div class="divider-section"></div>
+
+    <div class="menu-instruction">
+      This menu is not included in Reception Package pricing.<br>
+      Please select one main entrée for all of the children.
+    </div>
+
+    <div class="spacer-md"></div>
+
+    <ul class="entree-list">
+      <li>Chicken Tenders &amp; Fries</li>
+      <li>Cheese Quesadilla</li>
+      <li>Hamburger &amp; Fries</li>
+      <li>Macaroni &amp; Cheese</li>
+    </ul>
+
+    <div class="page-footer">
+      <div class="footer-line"></div>
+      <div class="footer-text">107 Sacramento Street · Nevada City, CA 95959 · stonehouse.io</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
