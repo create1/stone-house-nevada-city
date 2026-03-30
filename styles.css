@@ -1453,6 +1453,14 @@ body.clicking #cursor {
   gap: 11px;
   flex-wrap: wrap;
 }
+.wed-collateral {
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--m);
+  max-width: 400px;
+  line-height: 1.75;
+}
 
 /* ═══════════════════════════════════════
    PRICING
@@ -2102,6 +2110,11 @@ body.clicking #cursor {
 }
 .faq-pdf {
   margin: 0 0 28px;
+  line-height: 1.9;
+}
+.faq-pdf-sep {
+  color: var(--m);
+  font-weight: 300;
 }
 .faq-cat {
   font-family: var(--sans);
