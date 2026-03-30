@@ -73,6 +73,7 @@
     <a href="#catering" class="nav-link">Catering</a>
     <a href="#rw" class="nav-link">Gallery</a>
     <a href="#pricing" class="nav-link">Pricing</a>
+    <a href="#resources" class="nav-link">Library</a>
     <a href="#faq" class="nav-link">FAQ</a>
     <a href="#date-check" class="nav-cta">Check Availability</a>
   </div>
@@ -88,6 +89,7 @@
   <a href="#catering" class="mob-link" onclick="toggleMob()">Catering</a>
   <a href="#rw" class="mob-link" onclick="toggleMob()">Gallery</a>
   <a href="#pricing" class="mob-link" onclick="toggleMob()">Pricing</a>
+  <a href="#resources" class="mob-link" onclick="toggleMob()">Library</a>
   <a href="#faq" class="mob-link" onclick="toggleMob()">FAQ</a>
   <a href="#date-check" class="mob-cta-btn" onclick="toggleMob()">Check Availability</a>
 </div>
@@ -115,7 +117,7 @@
 </section>
 
 <!-- TRUST BAR -->
-<div class="trust-bar reveal">
+<div class="trust-bar reveal" id="trust">
   <div class="trust-item">
     <div class="trust-stars">
       <span class="trust-star">★</span><span class="trust-star">★</span><span class="trust-star">★</span><span class="trust-star">★</span><span class="trust-star">★</span>
@@ -142,7 +144,7 @@
 </div>
 
 <!-- STORY -->
-<section class="story">
+<section class="story" id="story">
   <div class="story-img reveal-l">
     <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/6793f72050b2690b8c799686_DSC00429.avif" alt="Stone House historic building Nevada City" onclick="openLightbox(this.src,'Stone House — 107 Sacramento Street, Nevada City, Est. 1857')">
     <div class="story-tag"><span>107 Sacramento Street · Nevada City</span></div>
@@ -408,7 +410,7 @@
 </section>
 
 <!-- PROCESS -->
-<section class="process">
+<section class="process" id="process">
   <p class="sl reveal" style="margin-bottom:14px">What Happens Next</p>
   <h2 class="dh reveal d1" style="font-size:clamp(32px,3.8vw,52px);max-width:480px">From first inquiry<br><em class="di">to your perfect day</em></h2>
   <div class="process-steps">
@@ -494,7 +496,7 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials">
+<section class="testimonials" id="testimonials">
   <p class="sl reveal" style="margin-bottom:14px">What Couples Say</p>
   <h2 class="dh reveal d1" style="font-size:clamp(32px,4vw,52px);max-width:480px">Stories that speak<br><em class="di">for themselves</em></h2>
   <div class="test-grid">
@@ -542,6 +544,103 @@
       <button class="oh-btn" onclick="submitOH()">Reserve My Spot →</button>
     </div>
     <p class="oh-note reveal d4">Free to attend · Light refreshments included · Only 20 spots per session</p>
+  </div>
+</section>
+
+<!-- PLANNING LIBRARY (content inventory slots) -->
+<section class="resources-section" id="resources">
+  <div class="resources-inner">
+    <p class="sl reveal" style="margin-bottom:14px">Planning Library</p>
+    <h2 class="dh reveal d1" style="font-size:clamp(32px,4vw,52px);max-width:520px">A home for every<br><em class="di">piece of content</em></h2>
+    <p class="resources-lead reveal d2">Fifty-seven planned assets across six categories — mapped to where they will live on (or off) this site. <strong style="color:var(--c);font-weight:500">Live</strong> links work today; <strong style="color:var(--m)">Coming soon</strong> is queued for production; <strong style="color:var(--m)">Coordinator</strong> items are shared during booking (not public downloads).</p>
+    <p class="reveal d2" style="margin-top:12px"><a href="assets/stonehouse_content_inventory_v2.html" class="body-link" target="_blank" rel="noopener">Full strategy deck (inventory UI) →</a> · <a href="https://stonehouse-wedding-cart.vercel.app" class="body-link" target="_blank" rel="noopener">Package Builder →</a></p>
+    <div class="res-cat reveal d3">
+      <h3 class="res-cat-title"><span class="res-cat-dot" aria-hidden="true"></span>Spaces &amp; Venue</h3>
+      <ul class="res-list">
+      <li class="res-li res-li--live"><span class="res-li-name">Photos of each space</span><span class="res-li-act"><a href="#spaces" class="res-a">View spaces</a></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Floor plans (annotated PDF)</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Room specs per space</span><span class="res-li-act"><a href="#spaces" class="res-a">Spaces</a></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Venue technical rider</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Capacity chart (all configs)</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Furniture layout diagrams</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">AV &amp; lighting spec per space</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Space combination guide</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Seasonal photo sets</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">360° virtual tour</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Parking &amp; load-in map</span><span class="res-li-act"><a href="#faq" class="res-a">See FAQ</a></span></li>
+      <li class="res-li res-li--internal"><span class="res-li-name">Noise ordinance one-pager</span><span class="res-li-act"><span class="res-internal">Via your coordinator</span></span></li>
+      </ul>
+    </div>
+    <div class="res-cat reveal d4">
+      <h3 class="res-cat-title"><span class="res-cat-dot" aria-hidden="true"></span>Weddings</h3>
+      <ul class="res-list">
+      <li class="res-li res-li--live"><span class="res-li-name">Wedding packages</span><span class="res-li-act"><a href="#pricing" class="res-a">Packages</a></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Wedding guide</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Pricing guide</span><span class="res-li-act"><a href="#pricing" class="res-a">Build quote</a></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Real wedding features</span><span class="res-li-act"><a href="#rw" class="res-a">Gallery</a></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Ceremony layout options</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Reception layout options</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Sample day-of timeline</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Getting ready space guide</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Elopement package info</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Rehearsal dinner package</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Day-after brunch options</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Styled shoot lookbook</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      </ul>
+    </div>
+    <div class="res-cat reveal d5">
+      <h3 class="res-cat-title"><span class="res-cat-dot" aria-hidden="true"></span>Catering &amp; Menus</h3>
+      <ul class="res-list">
+      <li class="res-li res-li--soon"><span class="res-li-name">Sample wedding menus (seasonal)</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Catering tiers &amp; pricing</span><span class="res-li-act"><a href="assets/stonehouse-reception-packages.html" class="res-a">Menus (PDF-style)</a></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Dietary accommodations guide</span><span class="res-li-act"><a href="#faq" class="res-a">See FAQ</a></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Seed oil free philosophy doc</span><span class="res-li-act"><a href="#catering" class="res-a">Catering</a></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Bar packages &amp; beverage menu</span><span class="res-li-act"><a href="#faq" class="res-a">See FAQ</a></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Chef bio &amp; culinary story</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Tasting event info</span><span class="res-li-act"><a href="#open-house" class="res-a">Open house</a></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Catering FAQ</span><span class="res-li-act"><a href="#faq" class="res-a">FAQ</a></span></li>
+      </ul>
+    </div>
+    <div class="res-cat reveal d6">
+      <h3 class="res-cat-title"><span class="res-cat-dot" aria-hidden="true"></span>Planning tools for couples</h3>
+      <ul class="res-list">
+      <li class="res-li res-li--live"><span class="res-li-name">FAQs</span><span class="res-li-act"><a href="#faq" class="res-a">FAQ</a></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Preferred vendor list</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Local accommodations guide</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Getting here &amp; parking guide</span><span class="res-li-act"><a href="#faq" class="res-a">See FAQ</a></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Nevada City local guide</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Transportation &amp; shuttles</span><span class="res-li-act"><a href="#faq" class="res-a">See FAQ</a></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Wedding timeline templates</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Weather &amp; seasonal guide</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Décor restrictions guide</span><span class="res-li-act"><a href="#faq" class="res-a">See FAQ</a></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Inquiry to booking roadmap</span><span class="res-li-act"><a href="#process" class="res-a">Process</a></span></li>
+      </ul>
+    </div>
+    <div class="res-cat reveal d6">
+      <h3 class="res-cat-title"><span class="res-cat-dot" aria-hidden="true"></span>SEO &amp; content marketing</h3>
+      <ul class="res-list">
+      <li class="res-li res-li--soon"><span class="res-li-name">Nevada City / Gold Country landing pages</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Gold Country venue comparison post</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Historic venue editorial</span><span class="res-li-act"><a href="#story" class="res-a">Our story</a></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Vendor spotlight posts</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">About / our story page</span><span class="res-li-act"><a href="#story" class="res-a">Our story</a></span></li>
+      <li class="res-li res-li--soon"><span class="res-li-name">Press &amp; media kit</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Testimonials &amp; reviews bank</span><span class="res-li-act"><a href="#testimonials" class="res-a">Reviews</a></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Awards &amp; recognition page</span><span class="res-li-act"><a href="#trust" class="res-a">Trust bar</a></span></li>
+      </ul>
+    </div>
+    <div class="res-cat reveal d6">
+      <h3 class="res-cat-title"><span class="res-cat-dot" aria-hidden="true"></span>Internal &amp; vendor ops</h3>
+      <ul class="res-list">
+      <li class="res-li res-li--internal"><span class="res-li-name">Vendor requirements doc</span><span class="res-li-act"><span class="res-internal">Via your coordinator</span></span></li>
+      <li class="res-li res-li--internal"><span class="res-li-name">Insurance requirements</span><span class="res-li-act"><span class="res-internal">Via your coordinator</span></span></li>
+      <li class="res-li res-li--internal"><span class="res-li-name">Event day run-of-show template</span><span class="res-li-act"><span class="res-internal">Via your coordinator</span></span></li>
+      <li class="res-li res-li--internal"><span class="res-li-name">Load-in / load-out procedures</span><span class="res-li-act"><span class="res-internal">Via your coordinator</span></span></li>
+      <li class="res-li res-li--internal"><span class="res-li-name">Catering prep &amp; kitchen specs</span><span class="res-li-act"><span class="res-internal">Via your coordinator</span></span></li>
+      <li class="res-li res-li--internal"><span class="res-li-name">Emergency &amp; safety protocols</span><span class="res-li-act"><span class="res-internal">Via your coordinator</span></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Availability &amp; booking calendar</span><span class="res-li-act"><a href="#date-check" class="res-a">Check date</a></span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -740,6 +839,7 @@
         <a href="#" class="footer-link">Corporate Events</a>
         <a href="#rw" class="footer-link">Real Weddings</a>
         <a href="assets/StoneHouse_Wedding_FAQ.pdf" class="footer-link" target="_blank" rel="noopener">Wedding FAQ (PDF)</a>
+        <a href="#resources" class="footer-link">Planning Library</a>
         <a href="#faq" class="footer-link">FAQs</a>
         <a href="#" class="footer-link">Vendor Partners</a>
       </div>

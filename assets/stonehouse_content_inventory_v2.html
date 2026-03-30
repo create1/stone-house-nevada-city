@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stone House — Content Inventory</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--s:#1a1714;--s2:#252219;--s3:#2d2820;--g:#c9a76b;--gd:#a88748;--c:#f4ede0;--m:#8a7e6f;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',-apple-system,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--s);color:var(--c);font-family:var(--sans);min-height:100vh}
+body{padding:36px 28px 60px}
+
+.wrap{max-width:960px;margin:0 auto}
+
+/* HEADER */
+.hd-eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--g);display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.hd-eyebrow::before{content:'';display:inline-block;width:22px;height:1px;background:var(--g)}
+h1{font-family:var(--serif);font-size:42px;font-weight:300;color:var(--c);line-height:1.1;margin-bottom:6px}
+h1 em{font-style:italic;color:var(--g)}
+.hd-sub{font-size:13px;font-weight:300;color:var(--m);margin-bottom:36px}
+
+/* TABS */
+.tabs{display:flex;gap:0;border-bottom:1px solid rgba(201,167,107,.18);margin-bottom:32px}
+.tab{padding:11px 22px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border:none;background:none;color:var(--m);border-bottom:2px solid transparent;margin-bottom:-1px;font-family:var(--sans);font-weight:400;transition:all .18s}
+.tab.active{color:var(--g);border-bottom-color:var(--g)}
+.tab:hover:not(.active){color:var(--c)}
+.panel{display:none}.panel.active{display:block}
+
+/* LEGEND */
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(201,167,107,.1)}
+.badge{font-size:9px;letter-spacing:.1em;padding:3px 9px;font-weight:500;white-space:nowrap;text-transform:uppercase}
+.b-have{background:rgba(29,158,117,.15);color:#4ecf9a;border:1px solid rgba(29,158,117,.3)}
+.b-build{background:rgba(55,138,221,.13);color:#7ab8f0;border:1px solid rgba(55,138,221,.28)}
+.b-quick{background:rgba(201,167,107,.14);color:var(--g);border:1px solid rgba(201,167,107,.3)}
+.b-seo{background:rgba(226,75,74,.13);color:#f08080;border:1px solid rgba(226,75,74,.28)}
+.b-int{background:rgba(138,126,111,.1);color:var(--m);border:1px solid rgba(138,126,111,.22)}
+
+/* CATEGORY */
+.cat{margin-bottom:32px}
+.cat-hd{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.cat-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.cat-rule{flex:1;height:1px;background:rgba(201,167,107,.1)}
+.cat-title{font-family:var(--serif);font-size:18px;font-weight:300;color:var(--c)}
+.cat-count{font-size:10px;letter-spacing:.1em;color:var(--m)}
+
+/* ITEMS GRID */
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px}
+.item{background:var(--s2);border:1px solid rgba(201,167,107,.1);padding:11px 13px;transition:border-color .18s}
+.item:hover{border-color:rgba(201,167,107,.28)}
+.item-name{font-size:13px;font-weight:300;color:var(--c);line-height:1.4;margin-bottom:7px}
+.item-badges{display:flex;gap:4px;flex-wrap:wrap}
+
+/* STORAGE */
+.arch-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.arch-card{background:var(--s2);border:1px solid rgba(201,167,107,.12);padding:0;overflow:hidden}
+.arch-stripe{height:3px}
+.arch-inner{padding:20px 22px}
+.arch-title{font-family:var(--serif);font-size:22px;font-weight:300;color:var(--c);margin-bottom:3px}
+.arch-sub{font-size:11px;letter-spacing:.08em;color:var(--m);margin-bottom:12px;text-transform:uppercase}
+.arch-tag{display:inline-block;font-size:9px;letter-spacing:.14em;padding:3px 10px;text-transform:uppercase;margin-bottom:14px;font-weight:500}
+.arch-row{font-size:12px;font-weight:300;color:rgba(244,237,224,.62);padding:6px 0;border-bottom:1px solid rgba(201,167,107,.07);line-height:1.5}
+.arch-row:last-of-type{border-bottom:none}
+.arch-row strong{color:var(--c);font-weight:400}
+.arch-note{font-size:11px;color:var(--m);margin-top:12px;padding-top:10px;border-top:1px solid rgba(201,167,107,.1);line-height:1.6;font-style:italic}
+
+/* PRIORITY */
+.pri-hd{font-size:12px;font-weight:300;color:var(--m);margin-bottom:20px;line-height:1.6}
+.pri-table{width:100%;border-collapse:collapse}
+.pri-table thead tr{border-bottom:1px solid rgba(201,167,107,.2)}
+.pri-table th{text-align:left;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--g);padding:0 12px 10px;font-weight:400}
+.pri-table th:first-child{padding-left:0}
+.pri-table tbody tr{border-bottom:1px solid rgba(201,167,107,.07);transition:background .15s}
+.pri-table tbody tr:hover{background:rgba(201,167,107,.04)}
+.pri-table tbody tr:last-child{border-bottom:none}
+.pri-table td{padding:12px;vertical-align:middle}
+.pri-table td:first-child{padding-left:0}
+.rank{font-family:var(--serif);font-size:22px;font-weight:300;color:rgba(201,167,107,.3);width:32px}
+.piece{font-size:13px;font-weight:400;color:var(--c);line-height:1.35}
+.dots{display:flex;gap:4px;align-items:center}
+.dot{width:7px;height:7px;border-radius:50%}
+.dot-on{background:var(--g)}
+.dot-off{background:rgba(201,167,107,.16)}
+.why{font-size:11px;font-weight:300;color:var(--m);line-height:1.55;max-width:280px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hd-eyebrow">Content Strategy</div>
+  <h1>Content Universe<br><em>& Asset Architecture</em></h1>
+  <p class="hd-sub">57 pieces across 6 categories · 4 storage destinations · prioritised build order</p>
+
+  <div class="tabs">
+    <button class="tab active" onclick="show('content',this)">Content Inventory</button>
+    <button class="tab" onclick="show('storage',this)">Storage Architecture</button>
+    <button class="tab" onclick="show('priority',this)">Build Order</button>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="panel active" id="panel-content">
+    <div class="legend">
+      <span class="badge b-have">You have it</span>
+      <span class="badge b-build">Build it</span>
+      <span class="badge b-quick">Quick win</span>
+      <span class="badge b-seo">SEO asset</span>
+      <span class="badge b-int">Internal only</span>
+    </div>
+
+    <div class="cat">
+      <div class="cat-hd"><div class="cat-dot" style="background:#c9a76b"></div><span class="cat-title">Spaces & Venue</span><div class="cat-rule"></div><span class="cat-count">12 items</span></div>
+      <div class="items">
+        <div class="item"><div class="item-name">Photos of each space</div><div class="item-badges"><span class="badge b-have">You have it</span></div></div>
+        <div class="item"><div class="item-name">Floor plans (annotated PDF)</div><div class="item-badges"><span class="badge b-have">You have it</span></div></div>
+        <div class="item"><div class="item-name">Room specs per space</div><div class="item-badges"><span class="badge b-have">You have it</span></div></div>
+        <div class="item"><div class="item-name">Venue technical rider</div><div class="item-badges"><span class="badge b-have">You have it</span></div></div>
+        <div class="item"><div class="item-name">Capacity chart (all configs)</div><div class="item-badges"><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Furniture layout diagrams</div><div class="item-badges"><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">AV & lighting spec per space</div><div class="item-badges"><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Space combination guide</div><div class="item-badges"><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Seasonal photo sets</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">360° virtual tour</div><div class="item-badges"><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Parking & load-in map</div><div class="item-badges"><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Noise ordinance one-pager</div><div class="item-badges"><span class="badge b-int">Internal only</span></div></div>
+      </div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-hd"><div class="cat-dot" style="background:#d4537e"></div><span class="cat-title">Weddings</span><div class="cat-rule"></div><span class="cat-count">12 items</span></div>
+      <div class="items">
+        <div class="item"><div class="item-name">Wedding packages</div><div class="item-badges"><span class="badge b-have">You have it</span></div></div>
+        <div class="item"><div class="item-name">Wedding guide</div><div class="item-badges"><span class="badge b-have">You have it</span></div></div>
+        <div class="item"><div class="item-name">Pricing guide</div><div class="item-badges"><span class="badge b-have">You have it</span></div></div>
+        <div class="item"><div class="item-name">Real wedding features</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Ceremony layout options</div><div class="item-badges"><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Reception layout options</div><div class="item-badges"><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Sample day-of timeline</div><div class="item-badges"><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Getting ready space guide</div><div class="item-badges"><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Elopement package info</div><div class="item-badges"><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Rehearsal dinner package</div><div class="item-badges"><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Day-after brunch options</div><div class="item-badges"><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Styled shoot lookbook</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-build">Build it</span></div></div>
+      </div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-hd"><div class="cat-dot" style="background:#1d9e75"></div><span class="cat-title">Catering & Menus</span><div class="cat-rule"></div><span class="cat-count">8 items</span></div>
+      <div class="items">
+        <div class="item"><div class="item-name">Sample wedding menus (seasonal)</div><div class="item-badges"><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Catering tiers & pricing</div><div class="item-badges"><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Dietary accommodations guide</div><div class="item-badges"><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Seed oil free philosophy doc</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Bar packages & beverage menu</div><div class="item-badges"><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Chef bio & culinary story</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Tasting event info</div><div class="item-badges"><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Catering FAQ</div><div class="item-badges"><span class="badge b-quick">Quick win</span></div></div>
+      </div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-hd"><div class="cat-dot" style="background:#378add"></div><span class="cat-title">Planning Tools for Couples</span><div class="cat-rule"></div><span class="cat-count">10 items</span></div>
+      <div class="items">
+        <div class="item"><div class="item-name">FAQs</div><div class="item-badges"><span class="badge b-have">You have it</span></div></div>
+        <div class="item"><div class="item-name">Preferred vendor list</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Local accommodations guide</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Getting here & parking guide</div><div class="item-badges"><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Nevada City local guide</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Transportation & shuttles</div><div class="item-badges"><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Wedding timeline templates</div><div class="item-badges"><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Weather & seasonal guide</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Décor restrictions guide</div><div class="item-badges"><span class="badge b-int">Internal only</span></div></div>
+        <div class="item"><div class="item-name">Inquiry to booking roadmap</div><div class="item-badges"><span class="badge b-build">Build it</span></div></div>
+      </div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-hd"><div class="cat-dot" style="background:#e24b4a"></div><span class="cat-title">SEO & Content Marketing</span><div class="cat-rule"></div><span class="cat-count">8 items</span></div>
+      <div class="items">
+        <div class="item"><div class="item-name">Nevada City / Gold Country landing pages</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Gold Country venue comparison post</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Historic venue editorial</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Vendor spotlight posts</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">About / our story page</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Press & media kit</div><div class="item-badges"><span class="badge b-build">Build it</span></div></div>
+        <div class="item"><div class="item-name">Testimonials & reviews bank</div><div class="item-badges"><span class="badge b-seo">SEO asset</span><span class="badge b-quick">Quick win</span></div></div>
+        <div class="item"><div class="item-name">Awards & recognition page</div><div class="item-badges"><span class="badge b-quick">Quick win</span></div></div>
+      </div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-hd"><div class="cat-dot" style="background:#8a7e6f"></div><span class="cat-title">Internal & Vendor Ops</span><div class="cat-rule"></div><span class="cat-count">7 items</span></div>
+      <div class="items">
+        <div class="item"><div class="item-name">Vendor requirements doc</div><div class="item-badges"><span class="badge b-int">Internal only</span></div></div>
+        <div class="item"><div class="item-name">Insurance requirements</div><div class="item-badges"><span class="badge b-int">Internal only</span></div></div>
+        <div class="item"><div class="item-name">Event day run-of-show template</div><div class="item-badges"><span class="badge b-int">Internal only</span></div></div>
+        <div class="item"><div class="item-name">Load-in / load-out procedures</div><div class="item-badges"><span class="badge b-int">Internal only</span></div></div>
+        <div class="item"><div class="item-name">Catering prep & kitchen specs</div><div class="item-badges"><span class="badge b-int">Internal only</span></div></div>
+        <div class="item"><div class="item-name">Emergency & safety protocols</div><div class="item-badges"><span class="badge b-int">Internal only</span></div></div>
+        <div class="item"><div class="item-name">Availability & booking calendar</div><div class="item-badges"><span class="badge b-build">Build it</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORAGE -->
+  <div class="panel" id="panel-storage">
+    <p style="font-size:13px;font-weight:300;color:var(--m);margin-bottom:24px;line-height:1.7">Four destinations, each with a clear job. Nothing lives in two places.</p>
+    <div class="arch-grid">
+
+      <div class="arch-card">
+        <div class="arch-stripe" style="background:var(--g)"></div>
+        <div class="arch-inner">
+          <div class="arch-title">Sanity CMS</div>
+          <div class="arch-sub">All structured content + images</div>
+          <span class="arch-tag" style="background:rgba(201,167,107,.14);color:var(--g);border:1px solid rgba(201,167,107,.28)">Primary store</span>
+          <div class="arch-row"><strong>Spaces</strong> — name, capacity, photos, specs, description</div>
+          <div class="arch-row"><strong>Real weddings</strong> — couple, date, photos, story, vendors</div>
+          <div class="arch-row"><strong>FAQs</strong> — question, answer, category</div>
+          <div class="arch-row"><strong>Packages & pricing</strong> — tiers, inclusions, prices</div>
+          <div class="arch-row"><strong>Testimonials</strong> — text, couple, date, rating</div>
+          <div class="arch-row"><strong>Menus</strong> — seasonal items, dietary tags</div>
+          <div class="arch-row"><strong>Vendor list</strong> — name, category, website</div>
+          <div class="arch-row"><strong>Blog / SEO posts</strong> — full editorial content</div>
+          <div class="arch-row"><strong>All photos & images</strong> — served via Sanity CDN</div>
+          <div class="arch-note">Images served from Sanity CDN — auto-resized, auto-WebP, zero extra infrastructure</div>
+        </div>
+      </div>
+
+      <div class="arch-card">
+        <div class="arch-stripe" style="background:#378add"></div>
+        <div class="arch-inner">
+          <div class="arch-title">Vercel Blob</div>
+          <div class="arch-sub">PDFs and downloadable files</div>
+          <span class="arch-tag" style="background:rgba(55,138,221,.12);color:#7ab8f0;border:1px solid rgba(55,138,221,.25)">File storage</span>
+          <div class="arch-row"><strong>Floor plans</strong> — high-res PDF per space</div>
+          <div class="arch-row"><strong>Venue technical rider</strong> — PDF download</div>
+          <div class="arch-row"><strong>Wedding guide</strong> — PDF for leads</div>
+          <div class="arch-row"><strong>Sample menus</strong> — designed PDF versions</div>
+          <div class="arch-row"><strong>Pricing guide</strong> — gated PDF (email capture)</div>
+          <div class="arch-row"><strong>Press & media kit</strong> — ZIP with assets</div>
+          <div class="arch-row"><strong>Capacity charts</strong> — printable PDF versions</div>
+          <div class="arch-note">Blob URLs are stable, CDN-served, and integrate natively with Next.js — no S3 needed</div>
+        </div>
+      </div>
+
+      <div class="arch-card">
+        <div class="arch-stripe" style="background:#1d9e75"></div>
+        <div class="arch-inner">
+          <div class="arch-title">Google Drive</div>
+          <div class="arch-sub">Working archive & internal ops</div>
+          <span class="arch-tag" style="background:rgba(29,158,117,.12);color:#4ecf9a;border:1px solid rgba(29,158,117,.25)">Internal ops</span>
+          <div class="arch-row"><strong>Vendor contracts</strong> — master template + signed</div>
+          <div class="arch-row"><strong>Insurance COI templates</strong></div>
+          <div class="arch-row"><strong>Event run-of-show templates</strong></div>
+          <div class="arch-row"><strong>Load-in / load-out procedures</strong></div>
+          <div class="arch-row"><strong>Emergency protocols</strong></div>
+          <div class="arch-row"><strong>All raw photo archives</strong> — every shoot unedited</div>
+          <div class="arch-row"><strong>Staff onboarding materials</strong></div>
+          <div class="arch-note">Shareable links for vendors — never public-facing on the website</div>
+        </div>
+      </div>
+
+      <div class="arch-card">
+        <div class="arch-stripe" style="background:#e24b4a"></div>
+        <div class="arch-inner">
+          <div class="arch-title">Notion</div>
+          <div class="arch-sub">Strategy, briefs & planning docs</div>
+          <span class="arch-tag" style="background:rgba(226,75,74,.12);color:#f08080;border:1px solid rgba(226,75,74,.25)">Knowledge base</span>
+          <div class="arch-row"><strong>Marketing strategy</strong> — living doc</div>
+          <div class="arch-row"><strong>Content calendar</strong> — social, blog, email</div>
+          <div class="arch-row"><strong>SEO keyword tracker</strong></div>
+          <div class="arch-row"><strong>Website PRD & design decisions</strong></div>
+          <div class="arch-row"><strong>Competitor research</strong></div>
+          <div class="arch-row"><strong>Brand guidelines</strong></div>
+          <div class="arch-row"><strong>Photo shoot briefs</strong></div>
+          <div class="arch-note">The "why" behind every decision — not ops, not public, just thinking</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRIORITY -->
+  <div class="panel" id="panel-priority">
+    <p class="pri-hd">Ordered by SEO impact × build effort. Do the top of this list before anything else.</p>
+    <table class="pri-table">
+      <thead>
+        <tr>
+          <th style="width:42px">#</th>
+          <th>Collateral piece</th>
+          <th style="width:100px">SEO impact</th>
+          <th style="width:100px">Effort</th>
+          <th>Why now</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="rank">1</td><td class="piece">Real wedding features (5–10)</td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div></div></td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td class="why">Unique indexed pages, long-tail keywords, photo alt text, social fuel for months</td></tr>
+        <tr><td class="rank">2</td><td class="piece">Nevada City / Gold Country landing pages</td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div></div></td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td class="why">Captures high-intent "wedding venue near me" searches from day one</td></tr>
+        <tr><td class="rank">3</td><td class="piece">Preferred vendor list (on-site page)</td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-off"></div></div></td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td class="why">Every vendor on the list links back to you — 20–40 free local backlinks</td></tr>
+        <tr><td class="rank">4</td><td class="piece">FAQs with JSON-LD schema</td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-off"></div></div></td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td class="why">Content already exists — schema unlocks SERP accordion with zero new writing</td></tr>
+        <tr><td class="rank">5</td><td class="piece">Pricing guide (gated PDF)</td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td class="why">Highest-converting lead magnet in venue marketing — builds email list from day one</td></tr>
+        <tr><td class="rank">6</td><td class="piece">Testimonials bank (structured in Sanity)</td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td class="why">Review schema = star ratings in SERPs, builds trust before a click</td></tr>
+        <tr><td class="rank">7</td><td class="piece">Nevada City local guide</td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td class="why">Captures destination searches, earns local backlinks, keeps couples on site longer</td></tr>
+        <tr><td class="rank">8</td><td class="piece">Seed oil free / culinary story</td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td class="why">No other venue in your market owns this — a genuine editorial differentiator</td></tr>
+        <tr><td class="rank">9</td><td class="piece">360° virtual tour</td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td class="why">Dwell time signal, closes out-of-town couples without needing a site visit</td></tr>
+        <tr><td class="rank">10</td><td class="piece">Styled shoot lookbook</td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td><div class="dots"><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-on"></div><div class="dot dot-off"></div><div class="dot dot-off"></div></div></td><td class="why">Pinterest traffic engine, shows seasonal range, photographer partnership opportunity</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+function show(id,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
