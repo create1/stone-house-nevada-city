@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stone House Nevada City — Historic Wedding & Event Venue Est. 1857</title>
+<meta name="description" content="A handbuilt 1857 stone building in Nevada City's historic district. Six unique spaces, elevated seed-oil-free cuisine, extraordinary weddings and events. Check your date.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- GRAIN -->
+<div id="grain"></div>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
+<!-- BACK TO TOP -->
+<button id="btt" title="Back to top">↑</button>
+
+<!-- EXIT INTENT POPUP -->
+<div id="exit-popup">
+  <div class="ep-box">
+    <button class="ep-close" onclick="closeExit()">×</button>
+    <p class="ep-eyebrow">Before you go</p>
+    <h2 class="ep-title">Get the complete<br><em>pricing guide</em></h2>
+    <p class="ep-sub">Download our full pricing guide — seasonal rates, package details, and add-ons. No commitment, just the information you need to plan.</p>
+    <div class="ep-form">
+      <input class="ep-input" type="email" placeholder="Your email address" id="ep-email">
+      <button class="ep-btn" onclick="submitExit()">Send It →</button>
+    </div>
+    <p class="ep-skip" onclick="closeExit()">No thanks, I'll figure it out on my own</p>
+  </div>
+</div>
+
+<!-- LEAD POPUP (timed, 30s) -->
+<div id="lead-popup">
+  <button class="lp-close" onclick="document.getElementById('lead-popup').classList.remove('show')">×</button>
+  <p class="lp-tag">Free Download</p>
+  <h3 class="lp-title">Get the 2026 Pricing Guide</h3>
+  <p class="lp-sub">Everything you need to know — packages, seasonal rates, and what's included.</p>
+  <div class="lp-row">
+    <input class="lp-input" type="email" placeholder="Email address">
+    <button class="lp-btn" onclick="this.textContent='✓ Sent!'">Get It</button>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox(event)">
+  <button id="lb-close" onclick="closeLightbox()">×</button>
+  <button id="lb-prev" onclick="lbNav(-1)">‹</button>
+  <img id="lb-img" src="" alt="">
+  <button id="lb-next" onclick="lbNav(1)">›</button>
+  <p id="lb-caption"></p>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">
+    <span class="nav-wm">STONE HOUSE</span>
+    <div class="nav-div"></div>
+    <span class="nav-est">Est. 1857</span>
+  </div>
+  <div class="nav-links">
+    <a href="#spaces" class="nav-link">Spaces</a>
+    <a href="#weddings" class="nav-link">Weddings</a>
+    <a href="#catering" class="nav-link">Catering</a>
+    <a href="#rw" class="nav-link">Gallery</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+    <a href="#date-check" class="nav-cta">Check Availability</a>
+  </div>
+  <button class="mob-btn" onclick="toggleMob()" id="mob-btn" aria-label="Menu">
+    <span id="mb1"></span><span id="mb2"></span><span id="mb3"></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mob-nav">
+  <a href="#spaces" class="mob-link" onclick="toggleMob()">Spaces</a>
+  <a href="#weddings" class="mob-link" onclick="toggleMob()">Weddings</a>
+  <a href="#catering" class="mob-link" onclick="toggleMob()">Catering</a>
+  <a href="#rw" class="mob-link" onclick="toggleMob()">Gallery</a>
+  <a href="#pricing" class="mob-link" onclick="toggleMob()">Pricing</a>
+  <a href="#faq" class="mob-link" onclick="toggleMob()">FAQ</a>
+  <a href="#date-check" class="mob-cta-btn" onclick="toggleMob()">Check Availability</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/68950a62c9bcf227c2629194_Sophie%2BNic-7983.webp" alt="Wedding at Stone House Nevada City">
+  </div>
+  <div class="hero-ov"></div>
+  <div class="hero-yr" id="hero-yr">1857</div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Nevada City, California · Historic District</p>
+    <h1 class="hero-h1">Where History<br><em>Meets Intention</em></h1>
+    <p class="hero-sub">A handbuilt 1857 stone building in the heart of Nevada City. Six unique spaces. Elevated seed-oil-free cuisine. Extraordinary celebrations.</p>
+    <div class="hero-btns">
+      <a href="#date-check" class="btn-gold">Check Your Date →</a>
+      <a href="#spaces" class="btn-ghost">Explore All Six Spaces</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-txt">Scroll</div>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar reveal">
+  <div class="trust-item">
+    <div class="trust-stars">
+      <span class="trust-star">★</span><span class="trust-star">★</span><span class="trust-star">★</span><span class="trust-star">★</span><span class="trust-star">★</span>
+    </div>
+    <span class="trust-txt"><strong>4.9</strong> on Google · 200+ Reviews</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-txt"><strong>The Knot</strong> Best of Weddings 2024</span></div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-txt"><strong>200+</strong> Celebrations</span></div>
+  <div class="trust-sep"></div>
+  <div class="trust-live">
+    <div class="live-dot"></div>
+    <span class="live-txt" id="live-count">8 couples viewing this week</span>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-text">Venue &nbsp;·&nbsp; Catering &nbsp;·&nbsp; Planning &nbsp;·&nbsp; Nevada City, California &nbsp;·&nbsp; Est. 1857 &nbsp;·&nbsp; 10,000 Sq Ft &nbsp;·&nbsp; Six Unique Spaces &nbsp;·&nbsp; Always Seed Oil Free &nbsp;·&nbsp; Historic Gold Country &nbsp;·&nbsp; Private Venue Tours Available &nbsp;·&nbsp;&nbsp;</span>
+    <span class="ticker-text">Venue &nbsp;·&nbsp; Catering &nbsp;·&nbsp; Planning &nbsp;·&nbsp; Nevada City, California &nbsp;·&nbsp; Est. 1857 &nbsp;·&nbsp; 10,000 Sq Ft &nbsp;·&nbsp; Six Unique Spaces &nbsp;·&nbsp; Always Seed Oil Free &nbsp;·&nbsp; Historic Gold Country &nbsp;·&nbsp; Private Venue Tours Available &nbsp;·&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story">
+  <div class="story-img reveal-l">
+    <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/6793f72050b2690b8c799686_DSC00429.avif" alt="Stone House historic building Nevada City" onclick="openLightbox(this.src,'Stone House — 107 Sacramento Street, Nevada City, Est. 1857')">
+    <div class="story-tag"><span>107 Sacramento Street · Nevada City</span></div>
+  </div>
+  <div class="story-body">
+    <div class="story-wm">1857</div>
+    <p class="sl reveal d1" style="margin-bottom:18px">Our Story</p>
+    <h2 class="dh reveal d2" style="font-size:clamp(34px,4vw,58px);margin-bottom:20px">Handbuilt in 1857.<br><em class="di">Reimagined for today.</em></h2>
+    <p class="reveal d3" style="font-size:14px;font-weight:300;line-height:1.92;color:var(--muted);margin-bottom:14px;max-width:400px">Within Nevada City's historic district, Stone House occupies one of Gold Country's most extraordinary structures — a mid-19th century building constructed by hand from the very stone it stands upon.</p>
+    <p class="reveal d4" style="font-size:14px;font-weight:300;line-height:1.92;color:var(--muted);max-width:400px">Today, 10,000 square feet of beautifully restored space hosts weddings, celebrations, and gatherings where elevated cuisine and irreplaceable architecture converge.</p>
+    <div class="story-stats reveal d5">
+      <div><div class="stat-n" data-count="6">0</div><div class="stat-l">Unique Spaces</div></div>
+      <div><div class="stat-n" data-count="200">0</div><div class="stat-l">Guest Capacity</div></div>
+      <div><div class="stat-n" style="font-size:36px">1857</div><div class="stat-l">Est. Nevada City</div></div>
+    </div>
+    <a href="#" class="body-link reveal d6">Discover the Full History →</a>
+  </div>
+</section>
+
+<!-- SEASON SELECTOR -->
+<div class="season-bar">
+  <span class="season-lbl">View in season:</span>
+  <button class="season-btn active" onclick="setSeason(this)">Spring</button>
+  <button class="season-btn" onclick="setSeason(this)">Summer</button>
+  <button class="season-btn" onclick="setSeason(this)">Fall</button>
+  <button class="season-btn" onclick="setSeason(this)">Winter</button>
+</div>
+
+<!-- SPACES -->
+<section class="spaces-section" id="spaces">
+  <div class="spaces-hd">
+    <p class="sl reveal" style="margin-bottom:14px">Six Distinctive Spaces</p>
+    <h2 class="dh reveal d1" style="font-size:clamp(38px,5vw,68px);max-width:500px">Every space tells<br><em class="di">a different story</em></h2>
+  </div>
+  <div class="spaces-grid" id="spaces-grid">
+    <div class="space-card reveal d1" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/697e61f92beaf320fb3c45ea_thegreathall5.webp','The Great Hall — up to 200 guests')">
+      <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/697e61f92beaf320fb3c45ea_thegreathall5.webp" alt="The Great Hall">
+      <div class="space-ov"></div>
+      <div class="space-expand">⤢</div>
+      <div class="space-info">
+        <p class="space-cap">Up to 200 guests</p>
+        <h3 class="space-name">The Great Hall</h3>
+        <p class="space-desc">Soaring ceilings. Original stone.</p>
+        <span class="space-cta">Check availability →</span>
+      </div>
+    </div>
+    <div class="space-card reveal d2" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/678ed8ba7186bc93b18ebc73_A91A3219.avif','The Cavern — up to 40 guests')">
+      <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/678ed8ba7186bc93b18ebc73_A91A3219.avif" alt="The Cavern">
+      <div class="space-ov"></div>
+      <div class="space-expand">⤢</div>
+      <div class="space-info">
+        <p class="space-cap">Up to 40 guests</p>
+        <h3 class="space-name">The Cavern</h3>
+        <p class="space-desc">Ancient arches. Candlelit warmth.</p>
+        <span class="space-cta">Check availability →</span>
+      </div>
+    </div>
+    <div class="space-card reveal d3" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/676f1d3fad7f4e1e69498074_DSC06116-Enhanced-NR.avif','The Penthouse — up to 80 guests')">
+      <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/676f1d3fad7f4e1e69498074_DSC06116-Enhanced-NR.avif" alt="The Penthouse">
+      <div class="space-ov"></div>
+      <div class="space-expand">⤢</div>
+      <div class="space-info">
+        <p class="space-cap">Up to 80 guests</p>
+        <h3 class="space-name">The Penthouse</h3>
+        <p class="space-desc">City views. Historic Nevada City.</p>
+        <span class="space-cta">Check availability →</span>
+      </div>
+    </div>
+    <div class="space-card reveal d4" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/690e568a11efed90d02312f9_Wedding%20Venue%20Patio.jpg','The Courtyard — up to 150 guests')">
+      <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/690e568a11efed90d02312f9_Wedding%20Venue%20Patio.jpg" alt="The Courtyard">
+      <div class="space-ov"></div>
+      <div class="space-expand">⤢</div>
+      <div class="space-info">
+        <p class="space-cap">Up to 150 guests</p>
+        <h3 class="space-name">The Courtyard</h3>
+        <p class="space-desc">Open sky. Stone walls. Golden light.</p>
+        <span class="space-cta">Check availability →</span>
+      </div>
+    </div>
+    <div class="space-card reveal d5" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/676f1d4446c1224360c2eb95_DSC06359.avif','The Showroom — up to 60 guests')">
+      <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/676f1d4446c1224360c2eb95_DSC06359.avif" alt="The Showroom">
+      <div class="space-ov"></div>
+      <div class="space-expand">⤢</div>
+      <div class="space-info">
+        <p class="space-cap">Up to 60 guests</p>
+        <h3 class="space-name">The Showroom</h3>
+        <p class="space-desc">Light-filled. Flexible. Yours.</p>
+        <span class="space-cta">Check availability →</span>
+      </div>
+    </div>
+    <div class="space-card reveal d6" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/697e61fadb5d8151f8e2afa5_Nevada%20City%20WeddingsScreenshot%202023-12-26%20at%205.45.19%20PM.webp','The Parlor — up to 30 guests')">
+      <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/697e61fadb5d8151f8e2afa5_Nevada%20City%20WeddingsScreenshot%202023-12-26%20at%205.45.19%20PM.webp" alt="The Parlor">
+      <div class="space-ov"></div>
+      <div class="space-expand">⤢</div>
+      <div class="space-info">
+        <p class="space-cap">Up to 30 guests</p>
+        <h3 class="space-name">The Parlor</h3>
+        <p class="space-desc">Two bars. First toast to last dance.</p>
+        <span class="space-cta">Check availability →</span>
+      </div>
+    </div>
+  </div>
+  <div class="spaces-foot reveal"><a href="#" class="btn-gold">View All Spaces & Floor Plans</a></div>
+</section>
+
+<!-- DATE CHECK -->
+<section class="date-check" id="date-check">
+  <div class="dc-inner">
+    <div class="dc-copy">
+      <p class="sl reveal" style="margin-bottom:14px">Availability</p>
+      <h2 class="dc-title reveal d1">Is your date<br><em style="font-style:italic;color:var(--g)">still open?</em></h2>
+      <p class="dc-sub reveal d2" style="margin-top:12px">Our most popular dates book 12–18 months out. Check your date in 30 seconds — no commitment required.</p>
+    </div>
+    <div class="reveal d1">
+      <div class="dc-form" id="dc-form">
+        <div class="dc-row">
+          <div>
+            <input class="dc-input" type="text" placeholder="Your first name" id="dc-name">
+            <p class="form-error" id="err-name">Please enter your name</p>
+          </div>
+          <div>
+            <input class="dc-input" type="email" placeholder="Email address" id="dc-email">
+            <p class="form-error" id="err-email">Please enter a valid email</p>
+          </div>
+        </div>
+        <div>
+          <input class="dc-input" type="date" id="dc-date">
+          <p class="form-error" id="err-date">Please select a date</p>
+        </div>
+        <select class="dc-select">
+          <option value="">Approximate guest count</option>
+          <option>Under 50</option>
+          <option>50–100</option>
+          <option>100–150</option>
+          <option>150–200</option>
+          <option>200+</option>
+        </select>
+        <button class="dc-btn" id="dc-btn" onclick="submitDC()">Check My Date →</button>
+        <p class="urgency">
+          <span class="urgency-dot"></span>
+          Only 14 Saturday dates remain in 2026–2027
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY STONE HOUSE -->
+<section class="why-section">
+  <div class="why-inner">
+    <p class="sl reveal" style="margin-bottom:14px">Why Stone House</p>
+    <h2 class="dh reveal d1" style="font-size:clamp(34px,4vw,58px);max-width:500px">Nothing else in<br><em class="di">Gold Country compares</em></h2>
+    <div class="why-grid">
+      <div class="why-card reveal d1">
+        <span class="why-icon">🏛</span>
+        <h3 class="why-title">Genuinely Historic</h3>
+        <p class="why-text">Handbuilt in 1857 — not a barn conversion or a modern venue with vintage props. The stone walls are original. The history is real.</p>
+      </div>
+      <div class="why-card reveal d2">
+        <span class="why-icon">🌿</span>
+        <h3 class="why-title">Seed Oil Free Cuisine</h3>
+        <p class="why-text">The only wedding venue in Gold Country committed to 100% seed-oil-free cooking. Real ingredients, extraordinary food.</p>
+      </div>
+      <div class="why-card reveal d3">
+        <span class="why-icon">🏠</span>
+        <h3 class="why-title">Six Spaces, One Roof</h3>
+        <p class="why-text">Ceremony, cocktail hour, reception, rehearsal dinner — all under one historic roof. No shuttles, no logistics headaches.</p>
+      </div>
+      <div class="why-card reveal d4">
+        <span class="why-icon">📍</span>
+        <h3 class="why-title">Downtown Nevada City</h3>
+        <p class="why-text">Walkable to boutique hotels, restaurants, and the charm of one of California's most beloved historic towns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEDDINGS -->
+<section class="weddings" id="weddings">
+  <div class="wed-img reveal-l">
+    <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/697e61f963c8e4a1ebb0ffbe_S%26J-0026.webp" alt="Wedding ceremony at Stone House Nevada City">
+    <div class="wed-accent"></div>
+  </div>
+  <div class="wed-body">
+    <p class="sl reveal" style="margin-bottom:18px">Weddings</p>
+    <h2 class="dh reveal d1" style="font-size:clamp(32px,3.8vw,54px);margin-bottom:20px">Your ceremony deserves<br><em class="di">an epic backdrop</em></h2>
+    <p class="reveal d2" style="font-size:14px;font-weight:300;line-height:1.9;color:var(--muted);max-width:380px">From intimate elopements to 200-guest celebrations. In-house catering, planning support, and six unique spaces under one historic roof.</p>
+    <div class="wed-list reveal d3">
+      <div class="wed-item"><span class="wed-dash">—</span><span>Full venue buyout available</span></div>
+      <div class="wed-item"><span class="wed-dash">—</span><span>In-house catering, always seed oil free</span></div>
+      <div class="wed-item"><span class="wed-dash">—</span><span>Day-Of Coordinator included</span></div>
+      <div class="wed-item"><span class="wed-dash">—</span><span>Two full-service bars on-site</span></div>
+      <div class="wed-item"><span class="wed-dash">—</span><span>Ceremony & reception under one roof</span></div>
+    </div>
+    <div class="wed-btns reveal d4">
+      <a href="#date-check" class="btn-gold">Check 2026 & 2027 Availability</a>
+      <a href="#rw" class="btn-ghost">See Real Weddings</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-hd">
+    <p class="sl reveal" style="justify-content:center;margin-bottom:14px">Investment</p>
+    <h2 class="dh reveal d1" style="font-size:clamp(34px,4vw,58px);text-align:center">Transparent pricing.<br><em class="di">No surprises.</em></h2>
+    <p class="reveal d2" style="font-size:13px;font-weight:300;color:var(--m);max-width:420px;margin:12px auto 0;line-height:1.8;text-align:center">Every package includes the space, in-house catering, and your Day-Of Coordinator.</p>
+  </div>
+  <div class="pkg-toggle reveal d2">
+    <button class="pkg-toggle-btn active" onclick="togglePkg('weddings',this)">Weddings</button>
+    <button class="pkg-toggle-btn" onclick="togglePkg('corporate',this)">Corporate</button>
+    <button class="pkg-toggle-btn" onclick="togglePkg('private',this)">Private Events</button>
+  </div>
+  <div class="pricing-grid" id="pricing-grid">
+    <div class="price-card reveal d1">
+      <div class="price-tier">Essential</div>
+      <div class="price-name">The Foundation</div>
+      <div class="price-from">Starting from</div>
+      <div class="price-n" id="p1-n">$8,500</div>
+      <div class="price-note" id="p1-note">up to 50 guests</div>
+      <ul class="price-items" id="p1-items">
+        <li>Single space of your choice</li>
+        <li>6-hour rental window</li>
+        <li>In-house catering team</li>
+        <li>Day-Of Coordinator</li>
+        <li>One full-service bar</li>
+      </ul>
+      <a href="#date-check" class="price-cta">Check This Date</a>
+    </div>
+    <div class="price-card feat reveal d2">
+      <div class="price-badge">Most Popular</div>
+      <div class="price-tier">Signature</div>
+      <div class="price-name">The Experience</div>
+      <div class="price-from">Starting from</div>
+      <div class="price-n" id="p2-n">$14,500</div>
+      <div class="price-note" id="p2-note">up to 120 guests</div>
+      <ul class="price-items" id="p2-items">
+        <li>Two spaces (ceremony + reception)</li>
+        <li>10-hour rental window</li>
+        <li>Full catering package</li>
+        <li>Day-Of Coordinator</li>
+        <li>Both full-service bars</li>
+        <li>Getting ready suite</li>
+      </ul>
+      <a href="#date-check" class="price-cta">Check This Date</a>
+    </div>
+    <div class="price-card reveal d3">
+      <div class="price-tier">Full House</div>
+      <div class="price-name">The Complete Stone House</div>
+      <div class="price-from">Starting from</div>
+      <div class="price-n" id="p3-n">$22,000</div>
+      <div class="price-note" id="p3-note">up to 200 guests</div>
+      <ul class="price-items" id="p3-items">
+        <li>All six spaces — full buyout</li>
+        <li>12-hour exclusive access</li>
+        <li>Premium catering experience</li>
+        <li>Dedicated planning support</li>
+        <li>Both full-service bars</li>
+        <li>Rehearsal dinner option</li>
+      </ul>
+      <a href="#date-check" class="price-cta">Check This Date</a>
+    </div>
+  </div>
+  <p class="pricing-footer reveal">All packages fully customisable. Download the <a href="#" onclick="event.preventDefault();showExit()">complete pricing guide</a> for seasonal rates, add-ons, and full details.</p>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <p class="sl reveal" style="margin-bottom:14px">What Happens Next</p>
+  <h2 class="dh reveal d1" style="font-size:clamp(32px,3.8vw,52px);max-width:480px">From first inquiry<br><em class="di">to your perfect day</em></h2>
+  <div class="process-steps">
+    <div class="process-step reveal d1">
+      <div class="ps-num">01</div>
+      <div class="ps-title">Check Your Date</div>
+      <p class="ps-desc">Submit your date and guest count. We respond within 24 hours with availability and a personalised quote.</p>
+    </div>
+    <div class="process-step reveal d2">
+      <div class="ps-num">02</div>
+      <div class="ps-title">Private Tour</div>
+      <p class="ps-desc">Walk all six spaces with our team. See the stone, feel the history. Most couples book within 48 hours of their tour.</p>
+    </div>
+    <div class="process-step reveal d3">
+      <div class="ps-num">03</div>
+      <div class="ps-title">Customise</div>
+      <p class="ps-desc">Choose your spaces, build your menu with our chef, and personalise every detail to match your vision.</p>
+    </div>
+    <div class="process-step reveal d4">
+      <div class="ps-num">04</div>
+      <div class="ps-title">Secure Your Date</div>
+      <p class="ps-desc">A deposit holds your date exclusively. No surprises — everything is in writing before you commit to a thing.</p>
+    </div>
+    <div class="process-step reveal d5">
+      <div class="ps-num">05</div>
+      <div class="ps-title">Your Day</div>
+      <p class="ps-desc">Arrive. Celebrate. Your Day-Of Coordinator handles every detail so you can be fully present for the moment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CATERING -->
+<section class="catering" id="catering">
+  <div class="cat-inner">
+    <div>
+      <p class="sl reveal" style="margin-bottom:18px">Catering & Cuisine</p>
+      <h2 class="dh reveal d1" style="font-size:clamp(32px,3.8vw,54px);margin-bottom:20px">Food that honors<br><em class="di">the occasion</em></h2>
+      <p class="reveal d2" style="font-size:14px;font-weight:300;line-height:1.92;color:var(--muted);margin-bottom:28px;max-width:390px">Our culinary team crafts every dish with the highest quality, locally sourced ingredients. The only venue in Gold Country committed to 100% seed-oil-free cooking.</p>
+      <div class="cat-tags reveal d3">
+        <span class="cat-tag">Always Seed Oil Free</span>
+        <span class="cat-tag">Locally Sourced</span>
+        <span class="cat-tag">In-House Team</span>
+        <span class="cat-tag">Seasonal Menus</span>
+      </div>
+      <a href="#" class="body-link reveal d4">Explore the Seasonal Menu →</a>
+    </div>
+    <div class="cat-photos reveal-r">
+      <div class="cat-main" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/67a4fe5ce9353387ba8e1420_steak.avif','Stone House signature steak course')">
+        <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/67a4fe5ce9353387ba8e1420_steak.avif" alt="Signature steak">
+      </div>
+      <div class="cat-sm" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/67a4fe3e64dcdb217c319786_fishflatlay.avif','Stone House fresh fish course')">
+        <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/67a4fe3e64dcdb217c319786_fishflatlay.avif" alt="Fresh fish">
+      </div>
+      <div class="cat-sm" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/697e63f40eb87a09cf2edcf5_Wedding%20Shoot%207.webp','Wedding reception dinner at Stone House')">
+        <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/697e63f40eb87a09cf2edcf5_Wedding%20Shoot%207.webp" alt="Reception dinner">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REAL WEDDINGS -->
+<section class="rw" id="rw">
+  <div class="rw-hdr">
+    <div>
+      <p class="sl reveal" style="margin-bottom:12px">Real Weddings</p>
+      <h2 class="dh reveal d1" style="font-size:clamp(32px,4vw,54px)">Every love story<br><em class="di">written in stone</em></h2>
+    </div>
+    <a href="#" class="body-link reveal">View All Stories →</a>
+  </div>
+  <div class="rw-grid">
+    <div class="rw-main reveal-l" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/68950a62c9bcf227c2629194_Sophie%2BNic-7983.webp','Sophie & Nicolas — Summer 2024')">
+      <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/68950a62c9bcf227c2629194_Sophie%2BNic-7983.webp" alt="Sophie and Nicolas wedding">
+      <div class="rw-cap"><div class="rw-cap-date">Summer 2024</div><div class="rw-cap-name">Sophie & Nicolas</div></div>
+    </div>
+    <div class="rw-sm reveal d1" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/690e568a11efed90d02312f9_Wedding%20Venue%20Patio.jpg','The Courtyard — Stone House Nevada City')"><img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/690e568a11efed90d02312f9_Wedding%20Venue%20Patio.jpg" alt="The Courtyard"></div>
+    <div class="rw-sm reveal d2" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/678ed8ba7186bc93b18ebc73_A91A3219.avif','The Cavern — Stone House Nevada City')"><img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/678ed8ba7186bc93b18ebc73_A91A3219.avif" alt="The Cavern"></div>
+    <div class="rw-sm reveal d3" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/676f1d3fad7f4e1e69498074_DSC06116-Enhanced-NR.avif','The Penthouse — Stone House Nevada City')"><img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/676f1d3fad7f4e1e69498074_DSC06116-Enhanced-NR.avif" alt="The Penthouse"></div>
+    <div class="rw-sm reveal d4" style="position:relative" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/697e61f963c8e4a1ebb0ffbe_S%26J-0026.webp','Sarah & Jordan — Fall 2024')">
+      <img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/697e61f963c8e4a1ebb0ffbe_S%26J-0026.webp" alt="Sarah and Jordan wedding">
+      <div class="rw-cap" style="right:16px;left:unset"><div class="rw-cap-date">Fall 2024</div><div class="rw-cap-name">Sarah & Jordan</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <p class="sl reveal" style="margin-bottom:14px">What Couples Say</p>
+  <h2 class="dh reveal d1" style="font-size:clamp(32px,4vw,52px);max-width:480px">Stories that speak<br><em class="di">for themselves</em></h2>
+  <div class="test-grid">
+    <div class="test-card reveal d1">
+      <div class="test-avatar">A</div>
+      <div class="test-stars"><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span></div>
+      <p class="test-q">"The stone walls, the candlelight, the food — our guests still talk about it a year later. There is nowhere else in Gold Country like this."</p>
+      <div class="test-auth">Amanda & Thomas R.</div>
+      <div class="test-src">Google Review · September 2024</div>
+    </div>
+    <div class="test-card reveal d2">
+      <div class="test-avatar">C</div>
+      <div class="test-stars"><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span></div>
+      <p class="test-q">"We toured six venues. The moment we walked into The Great Hall we knew. The history in the walls is palpable. The food was extraordinary."</p>
+      <div class="test-auth">Claire & Marcus W.</div>
+      <div class="test-src">The Knot · July 2024</div>
+    </div>
+    <div class="test-card reveal d3">
+      <div class="test-avatar">P</div>
+      <div class="test-stars"><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span></div>
+      <p class="test-q">"Stone House gave us something no modern venue could — a genuine sense of history. The Courtyard at sunset is pure magic. Book it."</p>
+      <div class="test-auth">Priya & Daniel K.</div>
+      <div class="test-src">WeddingWire · May 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN HOUSE -->
+<section class="open-house" id="open-house">
+  <div class="oh-inner">
+    <p class="sl reveal" style="justify-content:center;margin-bottom:14px">Open House</p>
+    <h2 class="dh reveal d1" style="font-size:clamp(32px,4vw,52px);margin-bottom:12px">Tour the venue in person<br><em class="di">— Saturday, June 14th, 2026</em></h2>
+    <p class="reveal d2" style="font-size:14px;font-weight:300;color:var(--m);max-width:440px;margin:0 auto;line-height:1.78">Walk all six spaces, taste our menu, meet the team. Limited spots available.</p>
+    <div class="oh-countdown reveal d2" id="countdown">
+      <div class="oh-unit"><div class="oh-num" id="cd-d">82</div><div class="oh-lbl">Days</div></div>
+      <div class="oh-sep">·</div>
+      <div class="oh-unit"><div class="oh-num" id="cd-h">14</div><div class="oh-lbl">Hours</div></div>
+      <div class="oh-sep">·</div>
+      <div class="oh-unit"><div class="oh-num" id="cd-m">27</div><div class="oh-lbl">Minutes</div></div>
+      <div class="oh-sep">·</div>
+      <div class="oh-unit"><div class="oh-num" id="cd-s">00</div><div class="oh-lbl">Seconds</div></div>
+    </div>
+    <div class="oh-form reveal d3">
+      <input class="oh-input" type="email" placeholder="Your email address" id="oh-email">
+      <button class="oh-btn" onclick="submitOH()">Reserve My Spot →</button>
+    </div>
+    <p class="oh-note reveal d4">Free to attend · Light refreshments included · Only 20 spots per session</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
+    <p class="sl reveal" style="margin-bottom:14px">Frequently Asked</p>
+    <h2 class="dh reveal d1" style="font-size:clamp(32px,4vw,52px);margin-bottom:0">Everything you need<br><em class="di">to know</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How far in advance should I book Stone House?</span><div class="faq-icon"></div></div>
+        <div class="faq-a"><div class="faq-a-inner">We recommend booking 12–18 months in advance for Saturday dates, especially for spring and fall. Summer Saturdays are typically the first to go. That said, we do have some last-minute availability — check your date and we'll let you know within 24 hours.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What does "seed oil free" mean for the catering?</span><div class="faq-icon"></div></div>
+        <div class="faq-a"><div class="faq-a-inner">We cook exclusively with high-quality fats — butter, olive oil, avocado oil, tallow, and coconut oil. No vegetable oil, canola oil, soybean oil, or other industrial seed oils. This isn't a trend for us — it's a genuine commitment to serving food that tastes better and is better for your guests.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can we bring our own vendors?</span><div class="faq-icon"></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely. You're welcome to work with any licensed and insured vendors. We also have a preferred vendor list of photographers, florists, DJs, and planners who know the venue well and consistently deliver exceptional work. We're happy to make introductions.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Is there parking on-site?</span><div class="faq-icon"></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. We have dedicated parking adjacent to the venue, with additional public parking within one block. For larger events, we recommend coordinating a shuttle from nearby hotels — we can connect you with trusted transportation partners.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can we do the ceremony and reception at Stone House?</span><div class="faq-icon"></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — and this is one of our most popular arrangements. With six unique spaces, you can have your ceremony in The Courtyard, cocktail hour in The Parlor, and reception in The Great Hall — all without your guests ever leaving the building. No shuttles, no logistics, no stress.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What's the deposit and payment structure?</span><div class="faq-icon"></div></div>
+        <div class="faq-a"><div class="faq-a-inner">We require a 25% deposit to hold your date, with the balance due 60 days before your event. We accept all major credit cards and ACH transfers. Download our complete pricing guide for full details on payment schedules and cancellation policies.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="cta-bg"><img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/690e568a11efed90d02312f9_Wedding%20Venue%20Patio.jpg" alt="The Courtyard at Stone House"></div>
+  <div class="cta-ov"></div>
+  <div class="cta-content">
+    <p class="sl reveal" style="justify-content:center;margin-bottom:18px">Let's Build Something Extraordinary</p>
+    <h2 class="dh reveal d1" style="font-size:clamp(38px,6vw,84px);margin-bottom:20px">Your celebration awaits<br><em class="di">within these walls</em></h2>
+    <p class="reveal d2" style="font-size:15px;font-weight:300;color:var(--muted);max-width:440px;margin:0 auto;line-height:1.85">We respond within 24 hours. Most peak Saturdays book early — check your date today.</p>
+    <div class="cta-btns reveal d3">
+      <a href="#date-check" class="btn-gold" style="padding:16px 46px;font-size:12px">Check Your Date →</a>
+      <a href="tel:+15302655050" class="btn-ghost" style="padding:16px 46px;font-size:12px">(530) 265-5050</a>
+    </div>
+    <div class="cta-trust reveal d4">
+      <span class="cta-trust-item">Free Private Tour</span>
+      <span style="color:rgba(201,167,107,.2)">·</span>
+      <span class="cta-trust-item">24hr Response</span>
+      <span style="color:rgba(201,167,107,.2)">·</span>
+      <span class="cta-trust-item">Flexible Packages</span>
+      <span style="color:rgba(201,167,107,.2)">·</span>
+      <span class="cta-trust-item">No Hidden Fees</span>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM STRIP -->
+<section class="ig-section">
+  <div class="ig-hdr">
+    <div>
+      <p class="sl reveal" style="margin-bottom:6px">Follow Along</p>
+      <p class="ig-handle reveal d1">Latest from <a href="#">@stonehousenevadacity</a></p>
+    </div>
+    <a href="#" class="body-link reveal">Follow on Instagram →</a>
+  </div>
+  <div class="ig-grid">
+    <div class="ig-cell reveal d1" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/68950a62c9bcf227c2629194_Sophie%2BNic-7983.webp','@stonehousenevadacity')"><img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/68950a62c9bcf227c2629194_Sophie%2BNic-7983.webp" alt="Instagram"><div class="ig-ov"><span class="ig-heart">♡</span></div></div>
+    <div class="ig-cell reveal d2" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/67a4fe5ce9353387ba8e1420_steak.avif','@stonehousenevadacity')"><img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/67a4fe5ce9353387ba8e1420_steak.avif" alt="Instagram"><div class="ig-ov"><span class="ig-heart">♡</span></div></div>
+    <div class="ig-cell reveal d3" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/690e568a11efed90d02312f9_Wedding%20Venue%20Patio.jpg','@stonehousenevadacity')"><img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/690e568a11efed90d02312f9_Wedding%20Venue%20Patio.jpg" alt="Instagram"><div class="ig-ov"><span class="ig-heart">♡</span></div></div>
+    <div class="ig-cell reveal d4" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/676f1d3fad7f4e1e69498074_DSC06116-Enhanced-NR.avif','@stonehousenevadacity')"><img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/676f1d3fad7f4e1e69498074_DSC06116-Enhanced-NR.avif" alt="Instagram"><div class="ig-ov"><span class="ig-heart">♡</span></div></div>
+    <div class="ig-cell reveal d5" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/697e61f963c8e4a1ebb0ffbe_S%26J-0026.webp','@stonehousenevadacity')"><img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/697e61f963c8e4a1ebb0ffbe_S%26J-0026.webp" alt="Instagram"><div class="ig-ov"><span class="ig-heart">♡</span></div></div>
+    <div class="ig-cell reveal d6" onclick="openLightbox('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/67a4fe3e64dcdb217c319786_fishflatlay.avif','@stonehousenevadacity')"><img src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/67a4fe3e64dcdb217c319786_fishflatlay.avif" alt="Instagram"><div class="ig-ov"><span class="ig-heart">♡</span></div></div>
+  </div>
+</section>
+
+<!-- FOOTER QUOTE -->
+<div class="footer-quote">
+  <p class="footer-quote-text"><em>107 Sacramento Street</em> &nbsp;·&nbsp; Nevada City, California &nbsp;·&nbsp; <em>Est. 1857</em></p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">STONE HOUSE</div>
+      <p class="footer-desc">Historic event venue in Nevada City, California. Where history meets intention since 1857.</p>
+      <div class="footer-addr">
+        107 Sacramento Street<br>Nevada City, CA 95959<br>
+        <a href="tel:+15302655050">(530) 265-5050</a><br>
+        <a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="footer-col-title">Spaces</h4>
+      <div class="footer-links">
+        <a href="#spaces" class="footer-link">The Great Hall</a>
+        <a href="#spaces" class="footer-link">The Cavern</a>
+        <a href="#spaces" class="footer-link">The Penthouse</a>
+        <a href="#spaces" class="footer-link">The Courtyard</a>
+        <a href="#spaces" class="footer-link">The Showroom</a>
+        <a href="#spaces" class="footer-link">The Parlor</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="footer-col-title">Plan</h4>
+      <div class="footer-links">
+        <a href="#date-check" class="footer-link">Check Your Date</a>
+        <a href="#pricing" class="footer-link">Wedding Packages</a>
+        <a href="#" class="footer-link">Corporate Events</a>
+        <a href="#rw" class="footer-link">Real Weddings</a>
+        <a href="#" class="footer-link">Pricing Guide</a>
+        <a href="#faq" class="footer-link">FAQs</a>
+        <a href="#" class="footer-link">Vendor Partners</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="footer-col-title">Connect</h4>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Instagram</a>
+        <a href="#" class="footer-link">Pinterest</a>
+        <a href="#" class="footer-link">TikTok</a>
+        <a href="#" class="footer-link">Facebook</a>
+      </div>
+      <div style="margin-top:22px">
+        <h4 class="footer-col-title">Open House</h4>
+        <p style="font-size:12px;font-weight:300;color:var(--m);line-height:1.72;margin-bottom:10px">Next open house: <span style="color:var(--g)">June 14, 2026</span><br>Limited spots — RSVP required</p>
+        <a href="#open-house" class="body-link" style="font-size:10px">Reserve a Spot →</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Stone House Nevada City. All rights reserved.</span>
+    <span class="footer-est">Est. 1857 · Nevada City, California</span>
+  </div>
+</footer>
+
+<!-- MOBILE FLOAT CTA -->
+<a href="#date-check" id="float-cta">Check Your Date</a>
+
+<script src="app.js"></script>
+</body>
+</html>
