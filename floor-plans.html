@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Floor Plans — Stone House Nevada City</title>
+<meta name="description" content="Annotated first- and second-floor plans for Stone House Nevada City. Download PDFs for layout and capacity planning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --s: #1a1714;
+  --s2: #1e1c18;
+  --s3: #252219;
+  --g: #c9a76b;
+  --gd: #a88748;
+  --gl: #e2c088;
+  --c: #f4ede0;
+  --m: #8a7e6f;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Jost', -apple-system, sans-serif;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--s);
+  color: var(--c);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 0;
+}
+.fp-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 28px 22px 80px;
+}
+.fp-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(201, 167, 107, 0.12);
+  margin-bottom: 40px;
+}
+.fp-brand {
+  font-family: var(--serif);
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--c);
+  text-decoration: none;
+  transition: color 0.25s var(--ease);
+}
+.fp-brand:hover { color: var(--g); }
+.fp-brand span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--m);
+  margin-top: 6px;
+}
+.fp-back {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--g);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 167, 107, 0.35);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.fp-back:hover { color: var(--gl); border-color: var(--gl); }
+.fp-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--g);
+  margin-bottom: 14px;
+}
+.fp-h1 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5.5vw, 56px);
+  font-weight: 400;
+  line-height: 1.12;
+  margin-bottom: 16px;
+}
+.fp-h1 em {
+  font-style: italic;
+  color: var(--g);
+  font-weight: 300;
+}
+.fp-lead {
+  max-width: 520px;
+  font-size: 15px;
+  color: var(--m);
+  margin-bottom: 10px;
+}
+.fp-note {
+  font-size: 13px;
+  color: rgba(138, 126, 111, 0.85);
+  margin-bottom: 48px;
+}
+.fp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+}
+@media (min-width: 880px) {
+  .fp-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+}
+.fp-card {
+  background: linear-gradient(165deg, var(--s2) 0%, var(--s3) 100%);
+  border: 1px solid rgba(201, 167, 107, 0.18);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.fp-card:hover {
+  border-color: rgba(201, 167, 107, 0.38);
+  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.42);
+}
+.fp-card a.fp-figure {
+  display: block;
+  position: relative;
+  background: #141210;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.fp-card a.fp-figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(201, 167, 107, 0.08);
+  pointer-events: none;
+}
+.fp-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+.fp-card a.fp-figure:hover img { transform: scale(1.02); }
+.fp-card a.fp-figure .fp-open {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c);
+  background: rgba(26, 23, 20, 0.82);
+  border: 1px solid rgba(201, 167, 107, 0.35);
+  padding: 8px 12px;
+  backdrop-filter: blur(8px);
+}
+.fp-body { padding: 22px 22px 26px; }
+.fp-card h2 {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.fp-card p {
+  font-size: 14px;
+  color: var(--m);
+  margin-bottom: 20px;
+}
+.fp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.fp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 2px;
+  transition: background 0.25s, color 0.25s, gap 0.25s var(--ease);
+}
+.fp-btn--gold {
+  background: var(--g);
+  color: var(--s);
+}
+.fp-btn--gold:hover {
+  background: var(--gl);
+  gap: 14px;
+}
+.fp-btn--ghost {
+  background: transparent;
+  color: var(--g);
+  border: 1px solid rgba(201, 167, 107, 0.45);
+}
+.fp-btn--ghost:hover {
+  border-color: var(--g);
+  color: var(--gl);
+}
+.fp-foot {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(201, 167, 107, 0.12);
+  font-size: 12px;
+  color: var(--m);
+  text-align: center;
+}
+.fp-foot a { color: var(--g); text-decoration: none; }
+.fp-foot a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="fp-wrap">
+  <header class="fp-top">
+    <a href="index.html" class="fp-brand">Stone House <span>Est. 1857 · Nevada City</span></a>
+    <a href="index.html#spaces" class="fp-back">← Back to site</a>
+  </header>
+
+  <p class="fp-eyebrow">Venue reference</p>
+  <h1 class="fp-h1">Floor plans<br><em>for your layout</em></h1>
+  <p class="fp-lead">Measured, annotated drawings — open the PDF for full detail and zoom. Previews below are quick reference; dimensions and notes are in the files.</p>
+  <p class="fp-note">Additional levels and exterior maps will be added here as they are finalized.</p>
+
+  <div class="fp-grid">
+    <article class="fp-card">
+      <a class="fp-figure" href="assets/floor-plans/stone-house-first-floor.pdf" target="_blank" rel="noopener" title="Open first-floor PDF">
+        <img src="assets/floor-plans/first-floor-preview.png" width="1600" height="1200" alt="Stone House first floor plan preview">
+        <span class="fp-open">Open PDF</span>
+      </a>
+      <div class="fp-body">
+        <h2>First floor</h2>
+        <p>Main level layout with room flow and key dimensions — ideal for ceremony-to-reception planning.</p>
+        <div class="fp-actions">
+          <a class="fp-btn fp-btn--gold" href="assets/floor-plans/stone-house-first-floor.pdf" download>Download PDF</a>
+          <a class="fp-btn fp-btn--ghost" href="assets/floor-plans/stone-house-first-floor.pdf" target="_blank" rel="noopener">View in browser</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="fp-card">
+      <a class="fp-figure" href="assets/floor-plans/stone-house-second-floor.pdf" target="_blank" rel="noopener" title="Open second-floor PDF">
+        <img src="assets/floor-plans/second-floor-preview.png" width="1600" height="1200" alt="Stone House second floor plan preview">
+        <span class="fp-open">Open PDF</span>
+      </a>
+      <div class="fp-body">
+        <h2>Second floor</h2>
+        <p>Upper level — use alongside the first-floor plan for full-building guest flow and vendor load-in.</p>
+        <div class="fp-actions">
+          <a class="fp-btn fp-btn--gold" href="assets/floor-plans/stone-house-second-floor.pdf" download>Download PDF</a>
+          <a class="fp-btn fp-btn--ghost" href="assets/floor-plans/stone-house-second-floor.pdf" target="_blank" rel="noopener">View in browser</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <p class="fp-foot">Questions about a specific space? <a href="index.html#date-check">Check your date</a> or call <a href="tel:+15302655050">(530) 265-5050</a>.</p>
+</div>
+</body>
+</html>
