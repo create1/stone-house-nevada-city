@@ -7,6 +7,10 @@
   "scripts": {
     "build": "node scripts/build-all.mjs",
     "build:studio": "node scripts/studio-only-build.mjs",
-    "dev:studio": "node scripts/run-studio-dev.mjs"
+    "dev:studio": "node scripts/run-studio-dev.mjs",
+    "migrate:photos": "node scripts/migrate-photos.mjs"
+  },
+  "devDependencies": {
+    "@sanity/client": "^6.24.1"
   }
 }

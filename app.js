@@ -107,6 +107,14 @@ function openLightbox(src, caption = '') {
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
+/** Resolve image URL from Sanity map (if loaded) or first matching img[data-sh-key]. */
+function openLightboxKey(key, captionFallback) {
+  const row = window.__SH_PHOTO_MAP?.[key];
+  const img = document.querySelector(`img[data-sh-key="${key}"]`);
+  const url = row?.imageUrl || img?.getAttribute('src') || '';
+  const cap = captionFallback || row?.lightboxCaption || '';
+  openLightbox(url, cap);
+}
 function closeLightbox(e) {
   if (
     !e ||
@@ -356,3 +364,37 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     }
   });
 });
+
+// ─── SANITY SITE PHOTOS (replaces img src with CDN URLs when map loads) ───
+(function initSanityPhotos() {
+  const root = document.documentElement;
+  const projectId = root.dataset.sanityProjectId?.trim();
+  const dataset = root.dataset.sanityDataset?.trim() || 'production';
+  if (!projectId) return;
+
+  const q =
+    '*[_type == "sitePhoto" && defined(key.current)]{ "key": key.current, lightboxCaption, "imageUrl": image.asset->url }';
+  const endpoint = `https://${projectId}.apicdn.sanity.io/v2024-01-01/data/query/${encodeURIComponent(
+    dataset
+  )}?query=${encodeURIComponent(q)}`;
+
+  function applySanityPhotoMap(map) {
+    window.__SH_PHOTO_MAP = map;
+    document.querySelectorAll('img[data-sh-key]').forEach((img) => {
+      const key = img.dataset.shKey;
+      const row = map[key];
+      if (row?.imageUrl) img.src = row.imageUrl;
+    });
+  }
+
+  fetch(endpoint)
+    .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+    .then((body) => {
+      const map = {};
+      (body.result || []).forEach((row) => {
+        map[row.key] = row;
+      });
+      applySanityPhotoMap(map);
+    })
+    .catch(() => {});
+})();

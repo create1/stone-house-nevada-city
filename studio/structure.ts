@@ -10,7 +10,9 @@ export const structure: StructureResolver = (S) =>
         .child(
           S.document().schemaType("siteSettings").documentId("siteSettings")
         ),
+      S.documentTypeListItem("sitePhoto").title("Site photos"),
       ...S.documentTypeListItems().filter(
-        (item) => item.getId() !== "siteSettings"
+        (item) =>
+          item.getId() !== "siteSettings" && item.getId() !== "sitePhoto"
       ),
     ]);
