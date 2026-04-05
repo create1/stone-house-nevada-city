@@ -4,10 +4,7 @@
   "outputDirectory": "dist",
   "installCommand": "npm install && cd studio && npm install",
   "rewrites": [
-    {
-      "source": "/studio/:path*",
-      "destination": "/studio/index.html",
-      "missing": [{ "type": "file", "value": "/studio/:path*" }]
-    }
+    { "source": "/studio", "destination": "/studio/index.html" },
+    { "source": "/studio/(.*)", "destination": "/studio/index.html" }
   ]
 }
