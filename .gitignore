@@ -1,2 +1,9 @@
 .DS_Store
 .vercel
+node_modules/
+dist/
+studio/node_modules/
+studio/.sanity/
+studio/.env
+.env
+.env.local
