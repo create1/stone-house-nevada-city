@@ -14,7 +14,7 @@ function cp(src, dest) {
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
 
-const topLevel = ["index.html", "styles.css", "app.js", "floor-plans.html", "assets", "docs"];
+const topLevel = ["index.html", "styles.css", "app.js", "floor-plans.html", "assets", "docs", "robots.txt", "sitemap.xml"];
 for (const name of topLevel) {
   const p = path.join(root, name);
   if (fs.existsSync(p)) {

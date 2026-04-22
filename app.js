@@ -162,7 +162,7 @@ function submitDC() {
   fetch('/api/lead', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, email, date, guests, source: 'Website - Date Checker' }),
+    body: JSON.stringify({ name, email, date, guests, source: 'Website - Date Checker', _honeypot: '' }),
   })
     .then((r) => r.json())
     .then(() => {
@@ -325,7 +325,7 @@ function submitOH() {
     fetch('/api/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: inp.value, source: 'Website - Open House RSVP' }),
+      body: JSON.stringify({ email: inp.value, source: 'Website - Open House RSVP', _honeypot: '' }),
     })
       .then(() => {
         btn.textContent = "✓ You're on the list!";
@@ -362,7 +362,7 @@ function submitExit() {
     fetch('/api/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: em.value, source: 'Website - Exit Intent (Pricing Guide)' }),
+      body: JSON.stringify({ email: em.value, source: 'Website - Exit Intent (Pricing Guide)', _honeypot: '' }),
     }).catch(() => {});
     em.parentElement.innerHTML =
       '<p style="color:#4ecf9a;font-size:14px;font-weight:300;padding:12px 0">✓ Pricing guide on its way to your inbox!</p>';
@@ -377,7 +377,7 @@ function submitLead(btn) {
     fetch('/api/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: inp.value, source: 'Website - Pricing Guide Popup' }),
+      body: JSON.stringify({ email: inp.value, source: 'Website - Pricing Guide Popup', _honeypot: '' }),
     }).catch(() => {});
     btn.textContent = '✓ Sent!';
     inp.disabled = true;
