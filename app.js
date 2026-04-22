@@ -105,11 +105,6 @@ function toggleMob() {
   b3.style.transform = mobOpen ? 'rotate(-45deg) translate(5px,-5px)' : '';
 }
 
-// ─── SEASON SELECTOR ───
-function setSeason(btn) {
-  document.querySelectorAll('.season-btn').forEach((b) => b.classList.remove('active'));
-  btn.classList.add('active');
-}
 
 // ─── LIGHTBOX ───
 function openLightbox(src, caption = '') {
