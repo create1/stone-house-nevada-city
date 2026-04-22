@@ -106,7 +106,7 @@ export default async function handler(req, res) {
           properties["Event Date"] = { date: { start: date } };
         }
         if (guests) {
-          properties["Guest Count"] = { number: Number(guests) || null };
+          properties["Guest Count"] = { rich_text: [{ text: { content: guests } }] };
         }
 
         await notion.pages.create({ parent: { database_id: LEADS_DB }, properties });
