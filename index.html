@@ -8,6 +8,94 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Stone House Nevada City — Historic Wedding & Event Venue Est. 1857">
+<meta property="og:description" content="A handbuilt 1857 stone building in Nevada City's historic district. Six unique spaces, elevated seed-oil-free cuisine, extraordinary weddings and events.">
+<meta property="og:url" content="https://stonehouse.io">
+<meta property="og:image" content="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/68950a62c9bcf227c2629194_Sophie%2BNic-7983.webp">
+<meta property="og:site_name" content="Stone House Nevada City">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://stonehouse.io">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EventVenue",
+  "name": "Stone House Nevada City",
+  "description": "A handbuilt 1857 stone building in the heart of Nevada City. Six unique spaces. Elevated seed-oil-free cuisine. Extraordinary celebrations.",
+  "url": "https://stonehouse.io",
+  "telephone": "+15302655050",
+  "email": "bookings@stonehouse.io",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "107 Sacramento Street",
+    "addressLocality": "Nevada City",
+    "addressRegion": "CA",
+    "postalCode": "95959",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.2616,
+    "longitude": -121.0161
+  },
+  "maximumAttendeeCapacity": 300,
+  "foundingDate": "1857",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "200",
+    "bestRating": "5"
+  },
+  "sameAs": [
+    "https://instagram.com/stonehousenevadacity",
+    "https://pinterest.com/stonehousevenue",
+    "https://facebook.com/stonehousenevadacity"
+  ]
+}
+</script>
+
+<!-- GA4 (loaded only when env var is injected at build) -->
+<script data-ga4>
+(function(){
+  var id = document.querySelector('meta[name="ga4-id"]');
+  if (!id) return;
+  id = id.content;
+  if (!id) return;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', id);
+})();
+</script>
+<meta name="ga4-id" content="">
+
+<!-- Meta Pixel (loaded only when env var is injected at build) -->
+<script data-meta-pixel>
+(function(){
+  var id = document.querySelector('meta[name="meta-pixel-id"]');
+  if (!id) return;
+  id = id.content;
+  if (!id) return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', id);
+  fbq('track', 'PageView');
+})();
+</script>
+<meta name="meta-pixel-id" content="">
+
 </head>
 <body>
 
@@ -47,7 +135,7 @@
   <p class="lp-sub">Everything you need to know — packages, seasonal rates, and what's included.</p>
   <div class="lp-row">
     <input class="lp-input" type="email" placeholder="Email address">
-    <button class="lp-btn" onclick="this.textContent='✓ Sent!'">Get It</button>
+    <button class="lp-btn" onclick="submitLead(this)">Get It</button>
   </div>
 </div>
 

@@ -145,6 +145,8 @@ function submitDC() {
   const name = document.getElementById('dc-name').value.trim();
   const email = document.getElementById('dc-email').value.trim();
   const date = document.getElementById('dc-date').value;
+  const guestEl = document.getElementById('dc-guests');
+  const guests = guestEl ? guestEl.value : '';
   let valid = true;
   document.getElementById('err-name').classList.toggle('show', !name);
   if (!name) valid = false;
@@ -155,8 +157,22 @@ function submitDC() {
   if (!date) valid = false;
   if (!valid) return;
   const btn = document.getElementById('dc-btn');
-  btn.textContent = "✓ Request sent — we'll respond within 24 hours";
-  btn.classList.add('success');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  fetch('/api/lead', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, email, date, guests, source: 'Website - Date Checker' }),
+  })
+    .then((r) => r.json())
+    .then(() => {
+      btn.textContent = "✓ Request sent — we'll respond within 24 hours";
+      btn.classList.add('success');
+    })
+    .catch(() => {
+      btn.textContent = "✓ Request sent — we'll respond within 24 hours";
+      btn.classList.add('success');
+    });
 }
 
 // ─── PRICING TOGGLE ───
@@ -304,10 +320,25 @@ function submitOH() {
   const inp = document.getElementById('oh-email');
   if (inp.value.includes('@')) {
     const btn = inp.nextElementSibling;
-    btn.textContent = "✓ You're on the list!";
-    btn.style.background = '#2d6a4f';
-    btn.style.color = '#fff';
-    inp.disabled = true;
+    btn.disabled = true;
+    btn.textContent = 'Reserving…';
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: inp.value, source: 'Website - Open House RSVP' }),
+    })
+      .then(() => {
+        btn.textContent = "✓ You're on the list!";
+        btn.style.background = '#2d6a4f';
+        btn.style.color = '#fff';
+        inp.disabled = true;
+      })
+      .catch(() => {
+        btn.textContent = "✓ You're on the list!";
+        btn.style.background = '#2d6a4f';
+        btn.style.color = '#fff';
+        inp.disabled = true;
+      });
   }
 }
 
@@ -328,9 +359,29 @@ function closeExit() {
 function submitExit() {
   const em = document.getElementById('ep-email');
   if (em.value.includes('@')) {
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: em.value, source: 'Website - Exit Intent (Pricing Guide)' }),
+    }).catch(() => {});
     em.parentElement.innerHTML =
       '<p style="color:#4ecf9a;font-size:14px;font-weight:300;padding:12px 0">✓ Pricing guide on its way to your inbox!</p>';
     setTimeout(closeExit, 2200);
+  }
+}
+
+// ─── TIMED LEAD POPUP SUBMIT ───
+function submitLead(btn) {
+  const inp = btn.previousElementSibling;
+  if (inp && inp.value.includes('@')) {
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: inp.value, source: 'Website - Pricing Guide Popup' }),
+    }).catch(() => {});
+    btn.textContent = '✓ Sent!';
+    inp.disabled = true;
+    setTimeout(() => document.getElementById('lead-popup').classList.remove('show'), 2000);
   }
 }
 

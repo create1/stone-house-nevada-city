@@ -44,6 +44,21 @@ if (fs.existsSync(indexOut)) {
     /data-sanity-dataset="[^"]*"/,
     `data-sanity-dataset="${sanityDataset.replace(/"/g, "")}"`
   );
+
+  // Inject GA4 measurement ID
+  const ga4Id = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID || "";
+  html = html.replace(
+    /<meta name="ga4-id" content="">/,
+    `<meta name="ga4-id" content="${ga4Id}">`
+  );
+
+  // Inject Meta Pixel ID
+  const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID || "";
+  html = html.replace(
+    /<meta name="meta-pixel-id" content="">/,
+    `<meta name="meta-pixel-id" content="${metaPixelId}">`
+  );
+
   fs.writeFileSync(indexOut, html);
 }
 
