@@ -15,15 +15,18 @@
     <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
 
-  <!-- Classical columns (historic) -->
+  <!-- Stone arch (genuinely historic) -->
   <symbol id="icon-columns" viewBox="0 0 24 24">
-    <path d="M4 3h16v2H4zM4 19h16v2H4zM6 5v14M10 5v14M14 5v14M18 5v14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M4 21V11a8 8 0 0116 0v10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M8 21v-6a4 4 0 018 0v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="4" y1="21" x2="20" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="4" y1="14" x2="8" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="16" y1="14" x2="20" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
   </symbol>
 
-  <!-- Botanical leaf / sprig (cuisine) -->
-  <symbol id="icon-leaf" viewBox="0 0 24 24">
-    <path d="M12 22c-4-4-8-8.5-8-13a8 8 0 0116 0c0 4.5-4 9-8 13z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-    <path d="M12 22V9M8 13c2-1 3-3 4-4M16 13c-2-1-3-3-4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Seed-oil-free cuisine -->
+  <symbol id="icon-leaf" viewBox="0 0 512 512">
+    <path d="M510.79 480.45 32.76 0 1.21 31.55l116.47 116.47c-50.96 65.52-80.08 165-65.52 315.45 26.69 2.43 53.38 4.85 77.65 4.85 109.19 0 186.84-26.69 240.23-67.94L481.67 512zM144.38 371.26s0-80.08 46.1-150.45l31.55 31.55c-26.69 31.55-53.39 70.37-77.65 118.9M256 162.58l-75.22-75.22c67.94-46.1 150.45-55.81 211.11-55.81 50.96 0 84.93 7.28 84.93 7.28s33.97 169.86-48.53 296.04L285.12 191.7c55.81-48.53 101.91-63.09 101.91-63.09-55.81 0-99.48 12.13-131.03 33.97" fill="currentColor" stroke="none"/>
   </symbol>
 
   <!-- Venue / six spaces under one roof -->
