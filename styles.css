@@ -591,6 +591,12 @@ body.clicking #cursor {
   align-items: center;
   gap: 10px;
 }
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  opacity: 0.9;
+  filter: brightness(1.15);
+}
 .nav-wm {
   font-family: var(--serif);
   font-size: 19px;
@@ -2373,6 +2379,15 @@ footer {
   font-size: 22px;
   letter-spacing: 0.14em;
   margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-logo-img {
+  height: 40px;
+  width: auto;
+  opacity: 0.85;
+  filter: brightness(1.15);
 }
 .footer-desc {
   font-size: 13px;
