@@ -1,3 +1,15 @@
+// ─── CONVERSION TRACKING ───
+function trackLead(source) {
+  // GA4 generate_lead event
+  if (typeof gtag === 'function') {
+    gtag('event', 'generate_lead', { event_category: 'Lead', event_label: source });
+  }
+  // Meta Pixel Lead event
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead', { content_name: source });
+  }
+}
+
 // ─── CURSOR ───
 const cur = document.getElementById('cursor'),
   ring = document.getElementById('cursor-ring');
@@ -168,10 +180,12 @@ function submitDC() {
     .then(() => {
       btn.textContent = "✓ Request sent — we'll respond within 24 hours";
       btn.classList.add('success');
+      trackLead('Website - Date Checker');
     })
     .catch(() => {
       btn.textContent = "✓ Request sent — we'll respond within 24 hours";
       btn.classList.add('success');
+      trackLead('Website - Date Checker');
     });
 }
 
@@ -332,12 +346,14 @@ function submitOH() {
         btn.style.background = '#2d6a4f';
         btn.style.color = '#fff';
         inp.disabled = true;
+        trackLead('Website - Open House RSVP');
       })
       .catch(() => {
         btn.textContent = "✓ You're on the list!";
         btn.style.background = '#2d6a4f';
         btn.style.color = '#fff';
         inp.disabled = true;
+        trackLead('Website - Open House RSVP');
       });
   }
 }
@@ -364,6 +380,7 @@ function submitExit() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: em.value, source: 'Website - Exit Intent (Pricing Guide)', _honeypot: '' }),
     }).catch(() => {});
+    trackLead('Website - Exit Intent (Pricing Guide)');
     em.parentElement.innerHTML =
       '<p style="color:#4ecf9a;font-size:14px;font-weight:300;padding:12px 0">✓ Pricing guide on its way to your inbox!</p>';
     setTimeout(closeExit, 2200);
@@ -379,6 +396,7 @@ function submitLead(btn) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: inp.value, source: 'Website - Pricing Guide Popup', _honeypot: '' }),
     }).catch(() => {});
+    trackLead('Website - Pricing Guide Popup');
     btn.textContent = '✓ Sent!';
     inp.disabled = true;
     setTimeout(() => document.getElementById('lead-popup').classList.remove('show'), 2000);

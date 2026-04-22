@@ -893,7 +893,9 @@ body.clicking #cursor {
 }
 .trust-star {
   color: var(--g);
-  font-size: 11px;
+  width: 13px;
+  height: 13px;
+  vertical-align: middle;
 }
 .trust-txt {
   font-size: 11px;
@@ -1207,7 +1209,6 @@ body.clicking #cursor {
   align-items: center;
   justify-content: center;
   color: rgba(201, 167, 107, 0.6);
-  font-size: 14px;
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -1376,10 +1377,11 @@ body.clicking #cursor {
   background: var(--s3);
 }
 .why-icon {
-  font-size: 28px;
+  width: 28px;
+  height: 28px;
   margin-bottom: 16px;
   display: block;
-  line-height: 1;
+  color: var(--sage, #7a9a8a);
 }
 .why-title {
   font-family: var(--serif);
@@ -1844,7 +1846,9 @@ body.clicking #cursor {
 }
 .test-star {
   color: var(--g);
-  font-size: 11px;
+  width: 13px;
+  height: 13px;
+  vertical-align: middle;
 }
 .test-q {
   font-family: var(--serif);
@@ -2333,7 +2337,8 @@ body.clicking #cursor {
 .ig-heart {
   opacity: 0;
   color: var(--g);
-  font-size: 20px;
+  width: 20px;
+  height: 20px;
   transition: opacity 0.3s;
 }
 .ig-cell:hover .ig-heart {
