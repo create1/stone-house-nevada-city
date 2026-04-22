@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 520" font-family="'Jost', 'Helvetica Neue', sans-serif">
+  <defs>
+    <style>
+      .wall { stroke: #c9a76b; stroke-width: 2; fill: none; stroke-dasharray: 8,4; }
+      .dim { font-size: 11px; fill: #8a7e6f; }
+      .dim-line { stroke: #8a7e6f; stroke-width: 0.7; stroke-dasharray: 3,2; }
+      .table-round { fill: #d4cfc6; stroke: #a09888; stroke-width: 1; }
+      .chair { fill: none; stroke: #a09888; stroke-width: 0.8; }
+      .bar { fill: #c9a76b; opacity: 0.2; stroke: #c9a76b; stroke-width: 1.5; }
+      .bar-label { font-size: 11px; fill: #c9a76b; font-weight: 500; letter-spacing: 0.1em; }
+      .lounge-piece { fill: #d4cfc6; stroke: #a09888; stroke-width: 1; rx: 6; }
+      .label { font-size: 28px; font-weight: 300; fill: #1a1714; }
+      .config-label { font-size: 13px; fill: #c9a76b; font-weight: 500; letter-spacing: 0.1em; }
+      .door { stroke: #8a7e6f; stroke-width: 1; fill: none; stroke-dasharray: 2,2; }
+      .water { fill: #b8b0a4; stroke: #a09888; stroke-width: 0.8; opacity: 0.5; }
+      .water-label { font-size: 9px; fill: #8a7e6f; }
+    </style>
+  </defs>
+
+  <rect width="500" height="520" fill="#f4ede0" rx="8"/>
+
+  <!-- Room outline - roughly rectangular -->
+  <rect x="60" y="60" width="380" height="370" class="wall" rx="0"/>
+
+  <!-- Dimension lines -->
+  <line x1="60" y1="40" x2="440" y2="40" class="dim-line"/>
+  <text x="250" y="35" text-anchor="middle" class="dim">30' 3"</text>
+  <line x1="40" y1="60" x2="40" y2="430" class="dim-line"/>
+  <text x="30" y="245" class="dim" transform="rotate(-90,30,245)" text-anchor="middle">45' 0"</text>
+  <line x1="60" y1="450" x2="440" y2="450" class="dim-line"/>
+  <text x="250" y="465" text-anchor="middle" class="dim">29' 0"</text>
+  <line x1="460" y1="60" x2="460" y2="430" class="dim-line"/>
+  <text x="472" y="245" class="dim" transform="rotate(90,472,245)" text-anchor="middle">38' 6"</text>
+
+  <!-- L-shaped bar along right side -->
+  <path d="M 350,160 L 420,160 L 420,360 L 380,360 L 380,200 L 350,200 Z" class="bar"/>
+  <text x="400" y="270" text-anchor="middle" class="bar-label" transform="rotate(90,400,270)">BAR</text>
+  <!-- Bar stools -->
+  <ellipse cx="342" cy="170" rx="5" ry="5" class="chair"/>
+  <ellipse cx="342" cy="190" rx="5" ry="5" class="chair"/>
+  <ellipse cx="390" cy="200" rx="5" ry="5" class="chair"/>
+  <ellipse cx="390" cy="220" rx="5" ry="5" class="chair"/>
+  <ellipse cx="390" cy="240" rx="5" ry="5" class="chair"/>
+  <ellipse cx="390" cy="260" rx="5" ry="5" class="chair"/>
+  <ellipse cx="390" cy="280" rx="5" ry="5" class="chair"/>
+  <ellipse cx="390" cy="300" rx="5" ry="5" class="chair"/>
+  <ellipse cx="390" cy="320" rx="5" ry="5" class="chair"/>
+  <ellipse cx="390" cy="340" rx="5" ry="5" class="chair"/>
+
+  <!-- Water station upper right -->
+  <rect x="400" y="80" width="25" height="18" class="water" rx="3"/>
+  <text x="412" y="93" text-anchor="middle" class="water-label">H₂O</text>
+
+  <!-- 3 round cocktail tables in center -->
+  <circle cx="180" cy="200" r="18" class="table-round"/>
+  <ellipse cx="162" cy="185" rx="5" ry="5" class="chair"/>
+  <ellipse cx="198" cy="185" rx="5" ry="5" class="chair"/>
+  <ellipse cx="162" cy="215" rx="5" ry="5" class="chair"/>
+  <ellipse cx="198" cy="215" rx="5" ry="5" class="chair"/>
+
+  <circle cx="260" cy="270" r="18" class="table-round"/>
+  <ellipse cx="242" cy="255" rx="5" ry="5" class="chair"/>
+  <ellipse cx="278" cy="255" rx="5" ry="5" class="chair"/>
+  <ellipse cx="242" cy="285" rx="5" ry="5" class="chair"/>
+  <ellipse cx="278" cy="285" rx="5" ry="5" class="chair"/>
+
+  <circle cx="170" cy="340" r="18" class="table-round"/>
+  <ellipse cx="152" cy="325" rx="5" ry="5" class="chair"/>
+  <ellipse cx="188" cy="325" rx="5" ry="5" class="chair"/>
+  <ellipse cx="152" cy="355" rx="5" ry="5" class="chair"/>
+  <ellipse cx="188" cy="355" rx="5" ry="5" class="chair"/>
+
+  <!-- Lounge seating upper left -->
+  <rect x="80" y="85" width="70" height="25" class="lounge-piece" rx="6"/>
+  <rect x="80" y="115" width="30" height="50" class="lounge-piece" rx="6"/>
+  <!-- Side table -->
+  <circle cx="130" cy="130" r="8" class="table-round"/>
+
+  <!-- Additional lounge cluster -->
+  <rect x="170" y="85" width="60" height="22" class="lounge-piece" rx="6"/>
+  <rect x="170" y="112" width="25" height="40" class="lounge-piece" rx="6"/>
+  <rect x="205" y="112" width="25" height="40" class="lounge-piece" rx="6"/>
+
+  <!-- Bottom wall seating -->
+  <rect x="80" y="395" width="60" height="20" class="lounge-piece" rx="6"/>
+  <rect x="160" y="395" width="60" height="20" class="lounge-piece" rx="6"/>
+  <rect x="240" y="395" width="60" height="20" class="lounge-piece" rx="6"/>
+
+  <!-- Room label -->
+  <text x="80" y="490" class="label">The Parlor</text>
+  <text x="80" y="507" class="config-label">COCKTAIL LOUNGE — 40-60 GUESTS</text>
+</svg>

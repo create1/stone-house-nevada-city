@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 560" font-family="'Jost', 'Helvetica Neue', sans-serif">
+  <defs>
+    <style>
+      .wall { stroke: #c9a76b; stroke-width: 2; fill: none; stroke-dasharray: 8,4; }
+      .dim { font-size: 11px; fill: #8a7e6f; }
+      .dim-line { stroke: #8a7e6f; stroke-width: 0.7; stroke-dasharray: 3,2; }
+      .chair { fill: none; stroke: #a09888; stroke-width: 0.8; }
+      .label { font-size: 28px; font-weight: 300; fill: #1a1714; }
+      .config-label { font-size: 13px; fill: #c9a76b; font-weight: 500; letter-spacing: 0.1em; }
+      .stage { fill: #c9a76b; opacity: 0.15; stroke: #c9a76b; stroke-width: 1.5; }
+      .altar-label { font-size: 12px; fill: #c9a76b; font-weight: 500; letter-spacing: 0.1em; }
+      .aisle { stroke: #c9a76b; stroke-width: 0.5; fill: none; stroke-dasharray: 4,4; opacity: 0.5; }
+      .curtain { stroke: #c9a76b; stroke-width: 1; fill: none; stroke-dasharray: 4,3; }
+      .door { stroke: #8a7e6f; stroke-width: 1; fill: none; stroke-dasharray: 2,2; }
+      .table-round { fill: #d4cfc6; stroke: #a09888; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="460" height="560" fill="#f4ede0" rx="8"/>
+
+  <!-- Room outline -->
+  <path d="M 100,60 L 380,60 L 380,200 L 380,420 L 60,420 L 60,200 L 100,60 Z" class="wall"/>
+
+  <!-- Altar area at top (near stage) -->
+  <rect x="160" y="70" width="120" height="50" class="stage" rx="4"/>
+  <text x="220" y="100" text-anchor="middle" class="altar-label">ALTAR</text>
+
+  <!-- Alcove on right side -->
+  <path d="M 380,280 L 410,280 L 410,370 L 380,370" class="wall"/>
+
+  <!-- Dimension lines -->
+  <line x1="100" y1="40" x2="380" y2="40" class="dim-line"/>
+  <text x="240" y="35" text-anchor="middle" class="dim">22' 0"</text>
+  <line x1="400" y1="60" x2="400" y2="200" class="dim-line"/>
+  <text x="412" y="135" class="dim" transform="rotate(90,412,135)" text-anchor="middle">13' 5"</text>
+  <line x1="40" y1="200" x2="40" y2="420" class="dim-line"/>
+  <text x="30" y="310" class="dim" transform="rotate(-90,30,310)" text-anchor="middle">20' 0"</text>
+
+  <!-- Center aisle -->
+  <line x1="220" y1="130" x2="220" y2="410" class="aisle"/>
+
+  <!-- Left section - ceremony chairs (6 wide, 10 rows) -->
+  <!-- Row 1 -->
+  <g transform="translate(90,145)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="110" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(90,170)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="110" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(85,195)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="110" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(80,220)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="110" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="132" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(75,245)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="110" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="132" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(72,270)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="110" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="132" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(70,295)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="110" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="132" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(68,320)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="110" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="132" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(66,345)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="110" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="132" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(66,370)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="110" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="132" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+
+  <!-- Right section - ceremony chairs (5 wide, 10 rows) -->
+  <g transform="translate(240,145)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(240,170)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(240,195)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(240,220)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(240,245)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(240,270)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(240,295)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(240,320)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(240,345)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+  <g transform="translate(240,370)">
+    <ellipse cx="0" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="22" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="44" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="66" cy="0" rx="7" ry="5" class="chair"/>
+    <ellipse cx="88" cy="0" rx="7" ry="5" class="chair"/>
+  </g>
+
+  <!-- Room label -->
+  <text x="60" y="500" class="label">The Showroom</text>
+  <text x="60" y="518" class="config-label">CEREMONY SEATING — 120-150 GUESTS</text>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 560" font-family="'Jost', 'Helvetica Neue', sans-serif">
+  <defs>
+    <style>
+      .wall { stroke: #c9a76b; stroke-width: 2; fill: none; stroke-dasharray: 8,4; }
+      .dim { font-size: 11px; fill: #8a7e6f; }
+      .dim-line { stroke: #8a7e6f; stroke-width: 0.7; stroke-dasharray: 3,2; }
+      .hightop { fill: #b8b0a4; stroke: #a09888; stroke-width: 0.8; }
+      .chair { fill: none; stroke: #a09888; stroke-width: 0.8; }
+      .bar { fill: #c9a76b; opacity: 0.2; stroke: #c9a76b; stroke-width: 1.5; }
+      .bar-label { font-size: 10px; fill: #c9a76b; font-weight: 500; letter-spacing: 0.1em; }
+      .lounge-piece { fill: #d4cfc6; stroke: #a09888; stroke-width: 1; }
+      .table-round { fill: #d4cfc6; stroke: #a09888; stroke-width: 1; }
+      .label { font-size: 28px; font-weight: 300; fill: #1a1714; }
+      .config-label { font-size: 13px; fill: #c9a76b; font-weight: 500; letter-spacing: 0.1em; }
+    </style>
+  </defs>
+
+  <rect width="460" height="560" fill="#f4ede0" rx="8"/>
+
+  <!-- Room outline -->
+  <rect x="60" y="60" width="340" height="400" class="wall"/>
+
+  <!-- Dimension lines -->
+  <line x1="60" y1="40" x2="400" y2="40" class="dim-line"/>
+  <text x="230" y="35" text-anchor="middle" class="dim">26' 5"</text>
+  <line x1="40" y1="60" x2="40" y2="460" class="dim-line"/>
+  <text x="30" y="260" class="dim" transform="rotate(-90,30,260)" text-anchor="middle">34' 1"</text>
+
+  <!-- High-top tables scattered -->
+  <rect x="120" y="100" width="14" height="14" class="hightop" rx="3"/>
+  <rect x="200" y="90" width="14" height="14" class="hightop" rx="3"/>
+  <rect x="300" y="100" width="14" height="14" class="hightop" rx="3"/>
+  <rect x="150" y="180" width="14" height="14" class="hightop" rx="3"/>
+  <rect x="250" y="170" width="14" height="14" class="hightop" rx="3"/>
+  <rect x="340" y="180" width="14" height="14" class="hightop" rx="3"/>
+  <rect x="110" y="260" width="14" height="14" class="hightop" rx="3"/>
+  <rect x="220" y="250" width="14" height="14" class="hightop" rx="3"/>
+  <rect x="330" y="260" width="14" height="14" class="hightop" rx="3"/>
+
+  <!-- Lounge clusters -->
+  <rect x="85" y="320" width="55" height="22" class="lounge-piece" rx="6"/>
+  <rect x="85" y="348" width="22" height="35" class="lounge-piece" rx="6"/>
+  <circle cx="125" cy="360" r="10" class="table-round"/>
+
+  <rect x="200" y="320" width="55" height="22" class="lounge-piece" rx="6"/>
+  <rect x="258" y="320" width="22" height="35" class="lounge-piece" rx="6"/>
+  <circle cx="240" cy="360" r="10" class="table-round"/>
+
+  <rect x="310" y="320" width="55" height="22" class="lounge-piece" rx="6"/>
+  <rect x="310" y="348" width="22" height="35" class="lounge-piece" rx="6"/>
+  <circle cx="350" cy="360" r="10" class="table-round"/>
+
+  <!-- Bar 1 - L-shaped bottom left -->
+  <path d="M 75,400 L 75,440 L 180,440 L 180,420 L 95,420 L 95,400 Z" class="bar"/>
+  <text x="135" y="435" text-anchor="middle" class="bar-label">BAR</text>
+
+  <!-- Bar 2 - straight bottom right -->
+  <rect x="280" y="420" width="100" height="25" class="bar" rx="3"/>
+  <text x="330" y="437" text-anchor="middle" class="bar-label">BAR</text>
+
+  <!-- Room label -->
+  <text x="60" y="510" class="label">The Penthouse</text>
+  <text x="60" y="528" class="config-label">COCKTAIL RECEPTION — 80-100 GUESTS</text>
+</svg>

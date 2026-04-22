@@ -54,6 +54,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(26,23,20,0.95);backdrop-fi
 .floor-plan-svg{background:var(--s3);border-radius:8px;padding:1rem;text-align:center;border:1px solid rgba(201,167,107,0.04)}
 .floor-plan-svg svg{max-width:100%;height:auto}
 .floor-plan-svg .fp-label{font-size:.78rem;color:var(--m);margin-top:.5rem;text-align:center}
+.fp-download{display:inline-block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--g);border:1px solid rgba(201,167,107,0.25);padding:5px 14px;border-radius:4px;margin-top:.5rem;transition:all .2s;text-decoration:none}.fp-download:hover{background:rgba(201,167,107,0.08);border-color:var(--g)}
 
 footer{border-top:1px solid rgba(201,167,107,0.08);padding:clamp(2rem,4vw,3rem) clamp(1rem,4vw,3rem);text-align:center}.footer-brand{font-family:var(--sans);font-size:.85rem;letter-spacing:.18em;color:var(--m);margin-bottom:.5rem}.footer-copy{font-size:.78rem;color:rgba(244,237,224,0.3)}.footer-links{display:flex;justify-content:center;gap:1.5rem;margin:1rem 0;flex-wrap:wrap}.footer-links a{font-size:.82rem;color:var(--m)}.footer-links a:hover{color:var(--g)}
 </style>
@@ -188,6 +189,25 @@ footer{border-top:1px solid rgba(201,167,107,0.08);padding:clamp(2rem,4vw,3rem) 
     </div>
   </div>
 
+  <h3 style="font-family:var(--serif);font-size:1.15rem;color:var(--g);margin-top:2rem;margin-bottom:.75rem">Floor Plan Diagrams</h3>
+  <div class="floor-plan-row">
+    <div class="floor-plan-svg">
+      <img src="assets/floor-plans/great-hall-full.svg" alt="The Great Hall — Full Banquet layout, 90-108 guests" loading="lazy">
+      <div class="fp-label">Full Banquet · 9 tables</div>
+      <a href="assets/floor-plans/great-hall-full.svg" download class="fp-download">Download SVG</a>
+    </div>
+    <div class="floor-plan-svg">
+      <img src="assets/floor-plans/great-hall-medium.svg" alt="The Great Hall — Medium Banquet layout, 60-72 guests" loading="lazy">
+      <div class="fp-label">Medium Banquet · 6 tables</div>
+      <a href="assets/floor-plans/great-hall-medium.svg" download class="fp-download">Download SVG</a>
+    </div>
+    <div class="floor-plan-svg">
+      <img src="assets/floor-plans/great-hall-buffet.svg" alt="The Great Hall — Buffet Service layout, 80-96 guests" loading="lazy">
+      <div class="fp-label">Buffet Service · 8 tables</div>
+      <a href="assets/floor-plans/great-hall-buffet.svg" download class="fp-download">Download SVG</a>
+    </div>
+  </div>
+
   <p style="font-size:.88rem;margin-top:1.5rem"><strong style="color:var(--g)">Dimensions:</strong> 45'1" left wall · 35'5" back wall · 26'0" upper right · 19'0" entrance · 14'8" lower right. Service corridor along the right wall leads to the kitchen.</p>
 </div>
 
@@ -209,6 +229,20 @@ footer{border-top:1px solid rgba(201,167,107,0.08);padding:clamp(2rem,4vw,3rem) 
       <span class="cap-num">80 – 100</span>
       <h4>Theater Seating</h4>
       <p>Rows of chairs facing the stage. Ideal for presentations, live performances, or speeches during the reception.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:var(--serif);font-size:1.15rem;color:var(--g);margin-top:2rem;margin-bottom:.75rem">Floor Plan Diagrams</h3>
+  <div class="floor-plan-row">
+    <div class="floor-plan-svg">
+      <img src="assets/floor-plans/showroom-ceremony.svg" alt="The Showroom — Ceremony layout, 120-150 guests" loading="lazy">
+      <div class="fp-label">Ceremony · center aisle</div>
+      <a href="assets/floor-plans/showroom-ceremony.svg" download class="fp-download">Download SVG</a>
+    </div>
+    <div class="floor-plan-svg">
+      <img src="assets/floor-plans/showroom-theater.svg" alt="The Showroom — Theater Seating layout, 80-100 guests" loading="lazy">
+      <div class="fp-label">Theater Seating · rows facing stage</div>
+      <a href="assets/floor-plans/showroom-theater.svg" download class="fp-download">Download SVG</a>
     </div>
   </div>
 
@@ -248,6 +282,30 @@ footer{border-top:1px solid rgba(201,167,107,0.08);padding:clamp(2rem,4vw,3rem) 
     </div>
   </div>
 
+  <h3 style="font-family:var(--serif);font-size:1.15rem;color:var(--g);margin-top:2rem;margin-bottom:.75rem">Floor Plan Diagrams</h3>
+  <div class="floor-plan-row">
+    <div class="floor-plan-svg">
+      <img src="assets/floor-plans/penthouse-full.svg" alt="The Penthouse — Full Banquet layout, 70-80 guests" loading="lazy">
+      <div class="fp-label">Full Banquet + Head Table</div>
+      <a href="assets/floor-plans/penthouse-full.svg" download class="fp-download">Download SVG</a>
+    </div>
+    <div class="floor-plan-svg">
+      <img src="assets/floor-plans/penthouse-buffet.svg" alt="The Penthouse — Buffet Banquet layout, 75-85 guests" loading="lazy">
+      <div class="fp-label">Buffet Banquet</div>
+      <a href="assets/floor-plans/penthouse-buffet.svg" download class="fp-download">Download SVG</a>
+    </div>
+    <div class="floor-plan-svg">
+      <img src="assets/floor-plans/penthouse-intimate.svg" alt="The Penthouse — Intimate Dinner layout, 55-65 guests" loading="lazy">
+      <div class="fp-label">Intimate Dinner</div>
+      <a href="assets/floor-plans/penthouse-intimate.svg" download class="fp-download">Download SVG</a>
+    </div>
+    <div class="floor-plan-svg">
+      <img src="assets/floor-plans/penthouse-cocktail.svg" alt="The Penthouse — Cocktail Reception layout, 80-100 guests" loading="lazy">
+      <div class="fp-label">Cocktail Reception</div>
+      <a href="assets/floor-plans/penthouse-cocktail.svg" download class="fp-download">Download SVG</a>
+    </div>
+  </div>
+
   <p style="font-size:.88rem;margin-top:1.5rem"><strong style="color:var(--g)">Dimensions:</strong> 26'5" x 34'1" (rectangular). Two bar stations with full cocktail service at the lower end of the room.</p>
 </div>
 
@@ -269,6 +327,15 @@ footer{border-top:1px solid rgba(201,167,107,0.08);padding:clamp(2rem,4vw,3rem) 
       <span class="cap-num">30 – 40</span>
       <h4>After-Party Lounge</h4>
       <p>Reconfigured for late-night vibes — lounge seating forward, bar in full swing. When the reception wraps, the party moves here.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:var(--serif);font-size:1.15rem;color:var(--g);margin-top:2rem;margin-bottom:.75rem">Floor Plan Diagram</h3>
+  <div class="floor-plan-row" style="grid-template-columns:minmax(280px,420px)">
+    <div class="floor-plan-svg">
+      <img src="assets/floor-plans/parlor-cocktail.svg" alt="The Parlor — Cocktail Lounge layout, 40-60 guests" loading="lazy">
+      <div class="fp-label">Cocktail Lounge · L-shaped bar</div>
+      <a href="assets/floor-plans/parlor-cocktail.svg" download class="fp-download">Download SVG</a>
     </div>
   </div>
 

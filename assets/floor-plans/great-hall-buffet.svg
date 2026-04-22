@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 560" font-family="'Jost', 'Helvetica Neue', sans-serif">
+  <defs>
+    <style>
+      .wall { stroke: #c9a76b; stroke-width: 2; fill: none; stroke-dasharray: 8,4; }
+      .dim { font-size: 11px; fill: #8a7e6f; }
+      .dim-line { stroke: #8a7e6f; stroke-width: 0.7; stroke-dasharray: 3,2; }
+      .table { fill: #d4cfc6; stroke: #a09888; stroke-width: 1; rx: 3; }
+      .chair { fill: none; stroke: #a09888; stroke-width: 0.8; }
+      .hightop { fill: #b8b0a4; stroke: #a09888; stroke-width: 0.8; }
+      .label { font-size: 28px; font-weight: 300; fill: #1a1714; }
+      .config-label { font-size: 13px; fill: #c9a76b; font-weight: 500; letter-spacing: 0.1em; }
+      .door { stroke: #8a7e6f; stroke-width: 1; fill: none; stroke-dasharray: 2,2; }
+      .service { fill: #b8b0a4; stroke: #a09888; stroke-width: 1; }
+      .buffet { fill: #c9a76b; stroke: #a09888; stroke-width: 1; opacity: 0.4; }
+      .buffet-label { font-size: 10px; fill: #8a7e6f; font-weight: 500; letter-spacing: 0.05em; }
+    </style>
+  </defs>
+
+  <rect width="500" height="560" fill="#f4ede0" rx="8"/>
+
+  <!-- Room outline -->
+  <path d="M 60,80 L 400,80 L 440,80 L 440,260 L 440,400 L 300,440 L 60,440 Z" class="wall"/>
+
+  <!-- Curved entrance -->
+  <path d="M 60,440 Q 60,400 90,390" class="door"/>
+
+  <!-- Service corridor -->
+  <rect x="420" y="260" width="20" height="180" class="service" opacity="0.3"/>
+
+  <!-- Buffet station along right wall -->
+  <rect x="390" y="140" width="30" height="100" class="buffet" rx="3"/>
+  <text x="405" y="195" text-anchor="middle" class="buffet-label" transform="rotate(-90,405,195)">BUFFET</text>
+
+  <!-- Dimension lines -->
+  <line x1="60" y1="55" x2="440" y2="55" class="dim-line"/>
+  <text x="250" y="50" text-anchor="middle" class="dim">35' 5"</text>
+  <line x1="460" y1="80" x2="460" y2="260" class="dim-line"/>
+  <text x="472" y="175" class="dim" transform="rotate(90,472,175)" text-anchor="middle">26' 0"</text>
+  <line x1="40" y1="80" x2="40" y2="440" class="dim-line"/>
+  <text x="32" y="260" class="dim" transform="rotate(-90,32,260)" text-anchor="middle">45' 1"</text>
+  <line x1="200" y1="460" x2="300" y2="460" class="dim-line"/>
+  <text x="250" y="475" text-anchor="middle" class="dim">19' 0"</text>
+  <line x1="460" y1="300" x2="460" y2="400" class="dim-line"/>
+  <text x="472" y="355" class="dim" transform="rotate(90,472,355)" text-anchor="middle">14' 8"</text>
+
+  <!-- Row 1 - 3 tables -->
+  <g transform="translate(110,110)">
+    <rect x="0" y="0" width="60" height="30" class="table"/>
+    <ellipse cx="10" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="-8" rx="7" ry="5" class="chair"/>
+    <ellipse cx="10" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="38" rx="7" ry="5" class="chair"/>
+    <ellipse cx="-8" cy="15" rx="5" ry="7" class="chair"/><ellipse cx="68" cy="15" rx="5" ry="7" class="chair"/>
+  </g>
+
+  <g transform="translate(210,110)">
+    <rect x="0" y="0" width="60" height="30" class="table"/>
+    <ellipse cx="10" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="-8" rx="7" ry="5" class="chair"/>
+    <ellipse cx="10" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="38" rx="7" ry="5" class="chair"/>
+    <ellipse cx="-8" cy="15" rx="5" ry="7" class="chair"/><ellipse cx="68" cy="15" rx="5" ry="7" class="chair"/>
+  </g>
+
+  <g transform="translate(310,110)">
+    <rect x="0" y="0" width="60" height="30" class="table"/>
+    <ellipse cx="10" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="-8" rx="7" ry="5" class="chair"/>
+    <ellipse cx="10" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="38" rx="7" ry="5" class="chair"/>
+    <ellipse cx="-8" cy="15" rx="5" ry="7" class="chair"/><ellipse cx="68" cy="15" rx="5" ry="7" class="chair"/>
+  </g>
+
+  <!-- High-tops -->
+  <rect x="95" y="195" width="10" height="10" class="hightop" rx="2"/>
+  <rect x="240" y="195" width="10" height="10" class="hightop" rx="2"/>
+
+  <!-- Row 2 - 3 tables -->
+  <g transform="translate(110,230)">
+    <rect x="0" y="0" width="60" height="30" class="table"/>
+    <ellipse cx="10" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="-8" rx="7" ry="5" class="chair"/>
+    <ellipse cx="10" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="38" rx="7" ry="5" class="chair"/>
+    <ellipse cx="-8" cy="15" rx="5" ry="7" class="chair"/><ellipse cx="68" cy="15" rx="5" ry="7" class="chair"/>
+  </g>
+
+  <g transform="translate(210,230)">
+    <rect x="0" y="0" width="60" height="30" class="table"/>
+    <ellipse cx="10" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="-8" rx="7" ry="5" class="chair"/>
+    <ellipse cx="10" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="38" rx="7" ry="5" class="chair"/>
+    <ellipse cx="-8" cy="15" rx="5" ry="7" class="chair"/><ellipse cx="68" cy="15" rx="5" ry="7" class="chair"/>
+  </g>
+
+  <g transform="translate(310,230)">
+    <rect x="0" y="0" width="60" height="30" class="table"/>
+    <ellipse cx="10" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="-8" rx="7" ry="5" class="chair"/>
+    <ellipse cx="10" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="38" rx="7" ry="5" class="chair"/>
+    <ellipse cx="-8" cy="15" rx="5" ry="7" class="chair"/><ellipse cx="68" cy="15" rx="5" ry="7" class="chair"/>
+  </g>
+
+  <!-- Row 3 - 2 tables (narrower bottom) -->
+  <g transform="translate(120,350)">
+    <rect x="0" y="0" width="60" height="30" class="table"/>
+    <ellipse cx="10" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="-8" rx="7" ry="5" class="chair"/>
+    <ellipse cx="10" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="38" rx="7" ry="5" class="chair"/>
+    <ellipse cx="-8" cy="15" rx="5" ry="7" class="chair"/><ellipse cx="68" cy="15" rx="5" ry="7" class="chair"/>
+  </g>
+
+  <g transform="translate(230,350)">
+    <rect x="0" y="0" width="60" height="30" class="table"/>
+    <ellipse cx="10" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="-8" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="-8" rx="7" ry="5" class="chair"/>
+    <ellipse cx="10" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="30" cy="38" rx="7" ry="5" class="chair"/><ellipse cx="50" cy="38" rx="7" ry="5" class="chair"/>
+    <ellipse cx="-8" cy="15" rx="5" ry="7" class="chair"/><ellipse cx="68" cy="15" rx="5" ry="7" class="chair"/>
+  </g>
+
+  <!-- Room label -->
+  <text x="80" y="510" class="label">The Great Hall</text>
+  <text x="80" y="528" class="config-label">BUFFET SERVICE — 80-96 GUESTS</text>
+</svg>
