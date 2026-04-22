@@ -15,18 +15,34 @@
     <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
 
-  <!-- Stone arch (genuinely historic) -->
+  <!-- Stone arch with voussoir stones (genuinely historic) -->
   <symbol id="icon-columns" viewBox="0 0 24 24">
-    <path d="M4 21V11a8 8 0 0116 0v10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M8 21v-6a4 4 0 018 0v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <line x1="4" y1="21" x2="20" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="4" y1="14" x2="8" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="16" y1="14" x2="20" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Left pillar -->
+    <rect x="4" y="14" width="3" height="8" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+    <line x1="5.5" y1="14" x2="5.5" y2="22" stroke="currentColor" stroke-width="0.7"/>
+    <line x1="4" y1="17" x2="7" y2="17" stroke="currentColor" stroke-width="0.7"/>
+    <line x1="4" y1="20" x2="7" y2="20" stroke="currentColor" stroke-width="0.7"/>
+    <!-- Right pillar -->
+    <rect x="17" y="14" width="3" height="8" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+    <line x1="18.5" y1="14" x2="18.5" y2="22" stroke="currentColor" stroke-width="0.7"/>
+    <line x1="17" y1="17" x2="20" y2="17" stroke="currentColor" stroke-width="0.7"/>
+    <line x1="17" y1="20" x2="20" y2="20" stroke="currentColor" stroke-width="0.7"/>
+    <!-- Outer arch -->
+    <path d="M4 14 A8 8 0 0 1 20 14" fill="none" stroke="currentColor" stroke-width="1.1"/>
+    <!-- Inner arch -->
+    <path d="M7 14 A5 5 0 0 1 17 14" fill="none" stroke="currentColor" stroke-width="1.1"/>
+    <!-- Voussoir stone dividers -->
+    <line x1="16.5" y1="11.8" x2="19.2" y2="10.5" stroke="currentColor" stroke-width="0.7"/>
+    <line x1="15.1" y1="10.1" x2="17.0" y2="7.8" stroke="currentColor" stroke-width="0.7"/>
+    <line x1="13.1" y1="9.1" x2="13.8" y2="6.2" stroke="currentColor" stroke-width="0.7"/>
+    <line x1="10.9" y1="9.1" x2="10.2" y2="6.2" stroke="currentColor" stroke-width="0.7"/>
+    <line x1="8.9" y1="10.1" x2="7.0" y2="7.8" stroke="currentColor" stroke-width="0.7"/>
+    <line x1="7.5" y1="11.8" x2="4.8" y2="10.5" stroke="currentColor" stroke-width="0.7"/>
   </symbol>
 
-  <!-- Seed-oil-free cuisine -->
+  <!-- Seed-oil-free cuisine (outline) -->
   <symbol id="icon-leaf" viewBox="0 0 512 512">
-    <path d="M510.79 480.45 32.76 0 1.21 31.55l116.47 116.47c-50.96 65.52-80.08 165-65.52 315.45 26.69 2.43 53.38 4.85 77.65 4.85 109.19 0 186.84-26.69 240.23-67.94L481.67 512zM144.38 371.26s0-80.08 46.1-150.45l31.55 31.55c-26.69 31.55-53.39 70.37-77.65 118.9M256 162.58l-75.22-75.22c67.94-46.1 150.45-55.81 211.11-55.81 50.96 0 84.93 7.28 84.93 7.28s33.97 169.86-48.53 296.04L285.12 191.7c55.81-48.53 101.91-63.09 101.91-63.09-55.81 0-99.48 12.13-131.03 33.97" fill="currentColor" stroke="none"/>
+    <path d="M510.79 480.45 32.76 0 1.21 31.55l116.47 116.47c-50.96 65.52-80.08 165-65.52 315.45 26.69 2.43 53.38 4.85 77.65 4.85 109.19 0 186.84-26.69 240.23-67.94L481.67 512zm-380.97-60.66H98.27c-4.85-101.91 12.13-181.99 53.38-237.8l38.82 38.82c-46.1 70.37-46.1 150.45-46.1 150.45 24.27-48.53 50.96-87.36 77.65-118.9l111.62 111.62c-48.52 36.4-116.46 55.81-203.82 55.81m87.36-296.04-36.4-36.4c67.94-46.1 150.45-55.81 211.11-55.81 50.96 0 84.93 7.28 84.93 7.28s33.97 169.86-48.53 296.04l-36.4-36.4c46.1-75.22 43.68-167.43 41.25-215.96-12.13-2.43-26.69-2.43-41.25-2.43-50.96.01-118.9 7.29-174.71 43.68m67.94 67.95L256 162.58c31.55-21.84 75.22-33.97 131.03-33.97 0 0-46.1 14.56-101.91 63.09" fill="currentColor" stroke="none"/>
   </symbol>
 
   <!-- Venue / six spaces under one roof -->
