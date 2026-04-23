@@ -212,7 +212,7 @@ body.clicking #cursor {
 }
 .ep-btn {
   background: var(--g);
-  color: var(--s);
+  color: #fff;
   border: none;
   padding: 12px 20px;
   font-family: var(--sans);
@@ -326,7 +326,7 @@ body.clicking #cursor {
 }
 .lp-btn {
   background: var(--g);
-  color: var(--s);
+  color: #fff;
   border: none;
   padding: 10px 14px;
   font-family: var(--sans);
@@ -594,8 +594,8 @@ body.clicking #cursor {
 .nav-logo-img {
   height: 36px;
   width: auto;
-  opacity: 0.9;
-  filter: brightness(1.15);
+  opacity: 0.85;
+  filter: brightness(0);
 }
 .nav-wm {
   font-family: var(--serif);
@@ -635,7 +635,7 @@ body.clicking #cursor {
 .nav-cta {
   padding: 10px 22px;
   background: var(--g);
-  color: var(--s);
+  color: #fff;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -704,7 +704,7 @@ body.clicking #cursor {
   display: inline-block;
   padding: 16px 36px;
   background: var(--g);
-  color: var(--s);
+  color: #fff;
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -817,7 +817,7 @@ body.clicking #cursor {
   gap: 8px;
   padding: 15px 32px;
   background: var(--g);
-  color: var(--s);
+  color: #fff;
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -946,7 +946,7 @@ body.clicking #cursor {
   font-family: var(--serif);
   font-size: 13px;
   letter-spacing: 0.2em;
-  color: var(--s);
+  color: #fff;
   text-transform: uppercase;
   white-space: nowrap;
   font-style: italic;
@@ -1030,7 +1030,7 @@ body.clicking #cursor {
 .story-tag span {
   font-size: 10px;
   letter-spacing: 0.2em;
-  color: var(--s);
+  color: #fff;
   text-transform: uppercase;
 }
 .story-body {
@@ -1261,7 +1261,7 @@ body.clicking #cursor {
 }
 .dc-btn {
   background: var(--g);
-  color: var(--s);
+  color: #fff;
   border: none;
   padding: 14px;
   font-family: var(--sans);
@@ -1465,7 +1465,7 @@ body.clicking #cursor {
 }
 .pkg-toggle-btn.active {
   background: var(--g);
-  color: var(--s);
+  color: #fff;
   border-color: var(--g);
 }
 .pricing-grid {
@@ -1501,7 +1501,7 @@ body.clicking #cursor {
   font-size: 9px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--s);
+  color: #fff;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -1575,7 +1575,7 @@ body.clicking #cursor {
 .price-cta:hover,
 .price-card.feat .price-cta {
   background: var(--g);
-  color: var(--s);
+  color: #fff;
   border-color: var(--g);
 }
 .pricing-footer {
@@ -1903,7 +1903,7 @@ body.clicking #cursor {
 }
 .oh-btn {
   background: var(--g);
-  color: var(--s);
+  color: #fff;
   border: none;
   padding: 13px 22px;
   font-family: var(--sans);
@@ -2353,8 +2353,8 @@ footer {
 .footer-logo-img {
   height: 40px;
   width: auto;
-  opacity: 0.85;
-  filter: brightness(1.15);
+  opacity: 0.8;
+  filter: brightness(0);
 }
 .footer-desc {
   font-size: 13px;
@@ -2427,7 +2427,7 @@ footer {
   right: 20px;
   z-index: 90;
   background: var(--g);
-  color: var(--s);
+  color: #fff;
   padding: 13px 22px;
   font-size: 11px;
   letter-spacing: 0.15em;
