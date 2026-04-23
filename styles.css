@@ -595,23 +595,39 @@ body.clicking #cursor {
   height: 36px;
   width: auto;
   opacity: 0.85;
+  transition: filter 0.35s, opacity 0.35s;
+}
+#nav.scrolled .nav-logo-img {
   filter: brightness(0);
+  opacity: 0.85;
 }
 .nav-wm {
   font-family: var(--serif);
   font-size: 19px;
   font-weight: 400;
   letter-spacing: 0.18em;
+  color: rgba(244, 237, 224, 0.85);
+  transition: color 0.35s;
+}
+#nav.scrolled .nav-wm {
   color: var(--c);
 }
 .nav-div {
   width: 1px;
   height: 16px;
+  background: rgba(244, 237, 224, 0.3);
+  transition: background 0.35s;
+}
+#nav.scrolled .nav-div {
   background: rgba(154, 125, 66, 0.3);
 }
 .nav-est {
   font-size: 10px;
   letter-spacing: 0.22em;
+  color: rgba(244, 237, 224, 0.6);
+  transition: color 0.35s;
+}
+#nav.scrolled .nav-est {
   color: var(--g);
   font-weight: 300;
 }
@@ -624,12 +640,18 @@ body.clicking #cursor {
   font-size: 11px;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: rgba(26, 23, 20, 0.55);
+  color: rgba(244, 237, 224, 0.5);
   font-weight: 400;
-  transition: color 0.2s;
+  transition: color 0.35s;
   text-decoration: none;
 }
 .nav-link:hover {
+  color: var(--g);
+}
+#nav.scrolled .nav-link {
+  color: rgba(26, 23, 20, 0.55);
+}
+#nav.scrolled .nav-link:hover {
   color: var(--g);
 }
 .nav-cta {
