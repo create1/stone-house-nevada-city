@@ -3,6 +3,10 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install && cd studio && npm install",
+  "redirects": [
+    { "source": "/blog/setting-a-new-standard-our-commitment-to-a-healthier-farm-to-table-dining-experience", "destination": "/blog.html", "statusCode": 301 },
+    { "source": "/blog/a-new-era-of-dining-at-stone-house-northern-california", "destination": "/blog.html", "statusCode": 301 }
+  ],
   "rewrites": [
     { "source": "/studio", "destination": "/studio/index.html" },
     { "source": "/studio/(.*)", "destination": "/studio/index.html" }
