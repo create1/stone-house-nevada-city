@@ -1,0 +1,332 @@
+/* ============================================
+   Stone House — Shared Subpage Styles (Light Mode)
+   ============================================ */
+
+/* --- Variables --- */
+:root {
+  --s: #faf7f2;
+  --s2: #f0ebe3;
+  --s3: #e8e2d8;
+  --s4: #ddd7cc;
+  --g: #9a7d42;
+  --gd: #7d6433;
+  --gl: #b8944e;
+  --c: #1a1714;
+  --m: #5a5347;
+  --md: rgba(26,23,20,0.6);
+  --muted: rgba(26,23,20,0.65);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Jost', -apple-system, sans-serif;
+  --nav-h: 72px;
+}
+
+/* --- Reset --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--s);
+  color: var(--c);
+  font-family: var(--sans);
+  line-height: 1.7;
+}
+
+/* --- Links --- */
+a {
+  color: var(--g);
+  text-decoration: none;
+  transition: color .2s;
+}
+
+a:hover {
+  color: var(--gl);
+}
+
+/* --- Navigation --- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250,247,242,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(154,125,66,0.12);
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1rem,4vw,3rem);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  height: 32px;
+  width: auto;
+  filter: brightness(0);
+  opacity: 0.85;
+}
+
+.nav-wm {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: .85rem;
+  letter-spacing: .22em;
+  color: var(--c);
+}
+
+.nav-div {
+  width: 1px;
+  height: 20px;
+  background: rgba(154,125,66,0.30);
+  margin: 0 4px;
+}
+
+.nav-est {
+  font-family: var(--serif);
+  font-size: .8rem;
+  color: var(--m);
+  font-style: italic;
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(.5rem,2vw,1.5rem);
+  align-items: center;
+}
+
+.nav-link {
+  font-size: .82rem;
+  letter-spacing: .06em;
+  color: var(--md);
+  font-weight: 400;
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.nav-link:hover {
+  color: var(--c);
+}
+
+.nav-cta {
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border: 1px solid var(--g);
+  color: var(--g);
+  text-decoration: none;
+  transition: all .3s;
+}
+
+.nav-cta:hover {
+  background: var(--g);
+  color: #fff;
+}
+
+/* --- Hamburger Menu (Mobile) --- */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--g);
+  transition: transform .2s;
+}
+
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  background: rgba(250,247,242,0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(154,125,66,0.15);
+  padding: 1rem 0;
+  flex-direction: column;
+  z-index: 99;
+}
+
+.nav-mobile a {
+  display: block;
+  padding: .65rem clamp(1rem,4vw,3rem);
+  font-size: .88rem;
+  color: rgba(26,23,20,0.65);
+  text-decoration: none;
+  transition: color .2s, background .2s;
+}
+
+.nav-mobile a:hover {
+  color: #1a1714;
+  background: rgba(154,125,66,0.08);
+}
+
+.nav-mobile.open {
+  display: flex;
+}
+
+/* --- Page Hero --- */
+.page-hero {
+  padding: clamp(4rem,10vw,8rem) clamp(1rem,4vw,3rem) clamp(3rem,6vw,5rem);
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem,5.5vw,4rem);
+  font-weight: 300;
+  color: var(--c);
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+
+.page-hero h1 em {
+  font-style: italic;
+  color: var(--g);
+}
+
+.page-hero .subtitle {
+  font-size: clamp(1rem,2vw,1.2rem);
+  color: var(--m);
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+/* --- Section --- */
+.section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem,4vw,3rem) clamp(3rem,6vw,5rem);
+}
+
+.section-label {
+  font-size: .75rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--g);
+  margin-bottom: .5rem;
+}
+
+.section h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem,3.5vw,2.4rem);
+  font-weight: 300;
+  color: var(--c);
+  margin-bottom: .75rem;
+}
+
+.section p {
+  color: var(--m);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  max-width: 700px;
+}
+
+/* --- Tip Block --- */
+.tip {
+  background: rgba(154,125,66,0.10);
+  border-left: 3px solid var(--g);
+  border-radius: 0 8px 8px 0;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  font-size: .92rem;
+  color: var(--m);
+}
+
+.tip strong {
+  color: var(--g);
+}
+
+/* --- Hero Image --- */
+.hero-img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 2rem;
+  display: block;
+}
+
+/* --- Footer --- */
+footer {
+  border-top: 1px solid rgba(154,125,66,0.12);
+  padding: clamp(2rem,4vw,3rem) clamp(1rem,4vw,3rem);
+  text-align: center;
+}
+
+.footer-brand {
+  font-family: var(--sans);
+  font-size: .85rem;
+  letter-spacing: .18em;
+  color: var(--m);
+  margin-bottom: .5rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-size: .82rem;
+  color: var(--m);
+}
+
+.footer-links a:hover {
+  color: var(--g);
+}
+
+.footer-contact {
+  font-size: .82rem;
+  color: rgba(26,23,20,0.4);
+  margin: .75rem 0;
+}
+
+.footer-copy {
+  font-size: .78rem;
+  color: rgba(26,23,20,0.3);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+
+  nav {
+    position: relative;
+  }
+}
