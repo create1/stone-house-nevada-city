@@ -5,6 +5,10 @@
   "installCommand": "npm install && cd studio && npm install",
   "rewrites": [
     {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
       "source": "/studio",
       "destination": "/studio/index.html"
     },
