@@ -5,16 +5,16 @@
   --s: #faf7f2;
   --s2: #f0ebe3;
   --s3: #e8e2d8;
-  --s4: #2d2820;
-  --s5: #332f29;
+  --s4: #ddd7cc;
+  --s5: #d4cec4;
   --g: #9a7d42;
-  --gd: #a88748;
-  --gl: #e2c088;
-  --gll: #f0d9a8;
+  --gd: #7d6433;
+  --gl: #b8944e;
+  --gll: #e2c088;
   --c: #1a1714;
   --m: #5a5347;
-  --md: rgba(244, 237, 224, 0.45);
-  --muted: rgba(244, 237, 224, 0.58);
+  --md: rgba(26, 23, 20, 0.6);
+  --muted: rgba(26, 23, 20, 0.65);
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Jost', -apple-system, sans-serif;
   --nav-h: 72px;
@@ -56,7 +56,7 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid rgba(201, 167, 107, 0.45);
+  border: 1px solid rgba(154, 125, 66, 0.45);
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
@@ -70,7 +70,7 @@ body.hovering #cursor {
 body.hovering #cursor-ring {
   width: 50px;
   height: 50px;
-  border-color: rgba(201, 167, 107, 0.7);
+  border-color: rgba(154, 125, 66, 0.7);
 }
 body.clicking #cursor {
   transform: translate(-50%, -50%) scale(0.7);
@@ -131,7 +131,7 @@ body.clicking #cursor {
 }
 .ep-box {
   background: var(--s3);
-  border: 1px solid rgba(201, 167, 107, 0.25);
+  border: 1px solid rgba(154, 125, 66, 0.25);
   max-width: 520px;
   width: 100%;
   padding: 52px 48px;
@@ -196,8 +196,8 @@ body.clicking #cursor {
 }
 .ep-input {
   flex: 1;
-  background: rgba(201, 167, 107, 0.07);
-  border: 1px solid rgba(201, 167, 107, 0.2);
+  background: rgba(154, 125, 66, 0.07);
+  border: 1px solid rgba(154, 125, 66, 0.2);
   padding: 12px 14px;
   color: var(--c);
   font-family: var(--sans);
@@ -250,7 +250,7 @@ body.clicking #cursor {
   right: 24px;
   z-index: 800;
   background: var(--s3);
-  border: 1px solid rgba(201, 167, 107, 0.22);
+  border: 1px solid rgba(154, 125, 66, 0.22);
   max-width: 340px;
   padding: 24px 28px;
   animation: slideUp 0.4s var(--ease);
@@ -310,8 +310,8 @@ body.clicking #cursor {
 }
 .lp-input {
   flex: 1;
-  background: rgba(201, 167, 107, 0.07);
-  border: 1px solid rgba(201, 167, 107, 0.2);
+  background: rgba(154, 125, 66, 0.07);
+  border: 1px solid rgba(154, 125, 66, 0.2);
   padding: 10px 12px;
   color: var(--c);
   font-family: var(--sans);
@@ -378,7 +378,7 @@ body.clicking #cursor {
   position: fixed;
   top: 20px;
   right: 24px;
-  color: var(--c);
+  color: #f4ede0;
   font-size: 28px;
   background: none;
   border: none;
@@ -396,8 +396,8 @@ body.clicking #cursor {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(201, 167, 107, 0.15);
-  border: 1px solid rgba(201, 167, 107, 0.25);
+  background: rgba(154, 125, 66, 0.15);
+  border: 1px solid rgba(154, 125, 66, 0.25);
   color: var(--g);
   font-size: 20px;
   width: 46px;
@@ -418,7 +418,7 @@ body.clicking #cursor {
 }
 #lb-prev:hover,
 #lb-next:hover {
-  background: rgba(201, 167, 107, 0.28);
+  background: rgba(154, 125, 66, 0.28);
 }
 #lb-caption {
   position: fixed;
@@ -443,7 +443,7 @@ body.clicking #cursor {
   width: 40px;
   height: 40px;
   background: var(--s3);
-  border: 1px solid rgba(201, 167, 107, 0.25);
+  border: 1px solid rgba(154, 125, 66, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -582,8 +582,8 @@ body.clicking #cursor {
   border-bottom: 1px solid transparent;
 }
 #nav.scrolled {
-  background: rgba(26, 23, 20, 0.97);
-  border-bottom-color: rgba(201, 167, 107, 0.12);
+  background: rgba(250, 247, 242, 0.97);
+  border-bottom-color: rgba(154, 125, 66, 0.12);
   backdrop-filter: blur(14px);
 }
 .nav-logo {
@@ -607,7 +607,7 @@ body.clicking #cursor {
 .nav-div {
   width: 1px;
   height: 16px;
-  background: rgba(201, 167, 107, 0.3);
+  background: rgba(154, 125, 66, 0.3);
 }
 .nav-est {
   font-size: 10px;
@@ -624,7 +624,7 @@ body.clicking #cursor {
   font-size: 11px;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: rgba(244, 237, 224, 0.5);
+  color: rgba(26, 23, 20, 0.55);
   font-weight: 400;
   transition: color 0.2s;
   text-decoration: none;
@@ -690,7 +690,7 @@ body.clicking #cursor {
   font-weight: 300;
   color: var(--c);
   padding: 14px 0;
-  border-bottom: 1px solid rgba(201, 167, 107, 0.1);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.1);
   display: block;
   text-decoration: none;
   transition: color 0.2s, padding-left 0.2s;
@@ -753,7 +753,7 @@ body.clicking #cursor {
   font-family: var(--serif);
   font-size: clamp(140px, 24vw, 360px);
   font-weight: 300;
-  color: rgba(201, 167, 107, 0.052);
+  color: rgba(154, 125, 66, 0.052);
   line-height: 1;
   user-select: none;
   pointer-events: none;
@@ -791,6 +791,7 @@ body.clicking #cursor {
   line-height: 1.06;
   margin-bottom: 24px;
   animation: fadeUp 1s var(--ease) 0.55s both;
+  color: #f4ede0;
 }
 .hero-h1 em {
   font-style: italic;
@@ -799,7 +800,7 @@ body.clicking #cursor {
 .hero-sub {
   font-size: 15px;
   font-weight: 300;
-  color: var(--muted);
+  color: rgba(244, 237, 224, 0.58);
   line-height: 1.9;
   margin-bottom: 40px;
   max-width: 460px;
@@ -833,7 +834,7 @@ body.clicking #cursor {
 .btn-ghost {
   display: inline-block;
   padding: 15px 32px;
-  border: 1px solid rgba(201, 167, 107, 0.35);
+  border: 1px solid rgba(154, 125, 66, 0.35);
   color: var(--c);
   font-size: 11px;
   letter-spacing: 0.2em;
@@ -847,6 +848,14 @@ body.clicking #cursor {
   border-color: var(--g);
   color: var(--g);
 }
+#hero .btn-ghost {
+  color: #f4ede0;
+  border-color: rgba(154, 125, 66, 0.35);
+}
+#hero .btn-ghost:hover {
+  color: var(--g);
+  border-color: var(--g);
+}
 .hero-scroll {
   position: absolute;
   bottom: 30px;
@@ -858,7 +867,7 @@ body.clicking #cursor {
 .hero-scroll-txt {
   font-size: 9px;
   letter-spacing: 0.24em;
-  color: rgba(201, 167, 107, 0.45);
+  color: rgba(154, 125, 66, 0.45);
   margin-bottom: 7px;
 }
 .hero-scroll-line {
@@ -873,8 +882,8 @@ body.clicking #cursor {
 ═══════════════════════════════════════ */
 .trust-bar {
   background: var(--s2);
-  border-top: 1px solid rgba(201, 167, 107, 0.08);
-  border-bottom: 1px solid rgba(201, 167, 107, 0.08);
+  border-top: 1px solid rgba(154, 125, 66, 0.08);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.08);
   padding: 13px 5%;
   display: flex;
   justify-content: center;
@@ -909,7 +918,7 @@ body.clicking #cursor {
 .trust-sep {
   width: 1px;
   height: 14px;
-  background: rgba(201, 167, 107, 0.18);
+  background: rgba(154, 125, 66, 0.18);
 }
 .trust-live {
   display: flex;
@@ -926,7 +935,7 @@ body.clicking #cursor {
 .live-txt {
   font-size: 10px;
   letter-spacing: 0.08em;
-  color: rgba(244, 237, 224, 0.45);
+  color: rgba(26, 23, 20, 0.45);
 }
 
 /* ═══════════════════════════════════════
@@ -987,7 +996,7 @@ body.clicking #cursor {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--g);
-  border-bottom: 1px solid rgba(201, 167, 107, 0.4);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.4);
   padding-bottom: 1px;
   display: inline-block;
   transition: border-color 0.2s, opacity 0.2s;
@@ -1049,7 +1058,7 @@ body.clicking #cursor {
   font-family: var(--serif);
   font-size: clamp(160px, 22vw, 280px);
   font-weight: 300;
-  color: rgba(201, 167, 107, 0.032);
+  color: rgba(154, 125, 66, 0.032);
   line-height: 1;
   user-select: none;
   pointer-events: none;
@@ -1058,8 +1067,8 @@ body.clicking #cursor {
   display: flex;
   gap: 44px;
   padding: 28px 0;
-  border-top: 1px solid rgba(201, 167, 107, 0.13);
-  border-bottom: 1px solid rgba(201, 167, 107, 0.13);
+  border-top: 1px solid rgba(154, 125, 66, 0.13);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.13);
   margin: 28px 0;
 }
 .stat-n {
@@ -1136,7 +1145,7 @@ body.clicking #cursor {
   font-family: var(--serif);
   font-size: 28px;
   font-weight: 400;
-  color: var(--c);
+  color: #f4ede0;
   margin-bottom: 5px;
   line-height: 1.1;
 }
@@ -1154,7 +1163,7 @@ body.clicking #cursor {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--g);
-  border-bottom: 1px solid rgba(201, 167, 107, 0.5);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.5);
   padding-bottom: 1px;
 }
 .space-card:hover .space-cta {
@@ -1166,11 +1175,11 @@ body.clicking #cursor {
   right: 16px;
   width: 34px;
   height: 34px;
-  border: 1px solid rgba(201, 167, 107, 0.3);
+  border: 1px solid rgba(154, 125, 66, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(201, 167, 107, 0.6);
+  color: rgba(154, 125, 66, 0.6);
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -1186,8 +1195,8 @@ body.clicking #cursor {
 ═══════════════════════════════════════ */
 .date-check {
   background: var(--s3);
-  border-top: 1px solid rgba(201, 167, 107, 0.08);
-  border-bottom: 1px solid rgba(201, 167, 107, 0.08);
+  border-top: 1px solid rgba(154, 125, 66, 0.08);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.08);
   padding: 56px 5.5%;
 }
 .dc-inner {
@@ -1218,8 +1227,8 @@ body.clicking #cursor {
   gap: 9px;
 }
 .dc-input {
-  background: rgba(201, 167, 107, 0.06);
-  border: 1px solid rgba(201, 167, 107, 0.18);
+  background: rgba(154, 125, 66, 0.06);
+  border: 1px solid rgba(154, 125, 66, 0.18);
   padding: 13px 16px;
   color: var(--c);
   font-family: var(--sans);
@@ -1235,7 +1244,7 @@ body.clicking #cursor {
   color: var(--m);
 }
 .dc-input[type='date'] {
-  color-scheme: dark;
+  color-scheme: light;
 }
 .dc-row {
   display: grid;
@@ -1243,8 +1252,8 @@ body.clicking #cursor {
   gap: 9px;
 }
 .dc-select {
-  background: rgba(201, 167, 107, 0.06);
-  border: 1px solid rgba(201, 167, 107, 0.18);
+  background: rgba(154, 125, 66, 0.06);
+  border: 1px solid rgba(154, 125, 66, 0.18);
   padding: 13px 16px;
   color: var(--m);
   font-family: var(--sans);
@@ -1286,7 +1295,7 @@ body.clicking #cursor {
 .urgency {
   font-size: 10px;
   letter-spacing: 0.07em;
-  color: rgba(201, 167, 107, 0.5);
+  color: rgba(154, 125, 66, 0.5);
   text-align: center;
   display: flex;
   align-items: center;
@@ -1392,13 +1401,13 @@ body.clicking #cursor {
 }
 .wed-body {
   padding: 78px 60px;
-  background: var(--s4);
+  background: var(--s3);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .wed-list {
-  border-top: 1px solid rgba(201, 167, 107, 0.14);
+  border-top: 1px solid rgba(154, 125, 66, 0.14);
   padding-top: 20px;
   margin: 22px 0 32px;
   display: flex;
@@ -1438,7 +1447,7 @@ body.clicking #cursor {
 .pricing-section {
   background: var(--s);
   padding: 88px 5.5%;
-  border-top: 1px solid rgba(201, 167, 107, 0.07);
+  border-top: 1px solid rgba(154, 125, 66, 0.07);
 }
 .pricing-hd {
   text-align: center;
@@ -1457,7 +1466,7 @@ body.clicking #cursor {
   text-transform: uppercase;
   font-family: var(--sans);
   background: var(--s2);
-  border: 1px solid rgba(201, 167, 107, 0.18);
+  border: 1px solid rgba(154, 125, 66, 0.18);
   color: var(--m);
   cursor: pointer;
   cursor: none;
@@ -1476,12 +1485,12 @@ body.clicking #cursor {
 .price-card {
   background: var(--s2);
   padding: 32px 28px;
-  border: 1px solid rgba(201, 167, 107, 0.1);
+  border: 1px solid rgba(154, 125, 66, 0.1);
   position: relative;
   transition: border-color 0.3s, transform 0.3s;
 }
 .price-card:hover {
-  border-color: rgba(201, 167, 107, 0.28);
+  border-color: rgba(154, 125, 66, 0.28);
   transform: translateY(-3px);
 }
 .price-card.feat {
@@ -1564,7 +1573,7 @@ body.clicking #cursor {
   display: block;
   text-align: center;
   padding: 11px;
-  border: 1px solid rgba(201, 167, 107, 0.28);
+  border: 1px solid rgba(154, 125, 66, 0.28);
   color: var(--g);
   font-size: 10px;
   letter-spacing: 0.16em;
@@ -1588,7 +1597,7 @@ body.clicking #cursor {
 }
 .pricing-footer a {
   color: var(--g);
-  border-bottom: 1px solid rgba(201, 167, 107, 0.35);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.35);
   text-decoration: none;
 }
 
@@ -1598,7 +1607,7 @@ body.clicking #cursor {
 .process {
   background: var(--s3);
   padding: 80px 5.5%;
-  border-top: 1px solid rgba(201, 167, 107, 0.08);
+  border-top: 1px solid rgba(154, 125, 66, 0.08);
 }
 .process-steps {
   display: grid;
@@ -1614,7 +1623,7 @@ body.clicking #cursor {
   left: 10%;
   right: 10%;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(201, 167, 107, 0.25), transparent);
+  background: linear-gradient(to right, transparent, rgba(154, 125, 66, 0.25), transparent);
 }
 .process-step {
   text-align: center;
@@ -1624,7 +1633,7 @@ body.clicking #cursor {
   font-family: var(--serif);
   font-size: 40px;
   font-weight: 300;
-  color: rgba(201, 167, 107, 0.2);
+  color: rgba(154, 125, 66, 0.2);
   line-height: 1;
   margin-bottom: 14px;
 }
@@ -1663,7 +1672,7 @@ body.clicking #cursor {
   margin-bottom: 32px;
 }
 .cat-tag {
-  border: 1px solid rgba(201, 167, 107, 0.28);
+  border: 1px solid rgba(154, 125, 66, 0.28);
   padding: 7px 13px;
   font-size: 9px;
   letter-spacing: 0.18em;
@@ -1759,7 +1768,7 @@ body.clicking #cursor {
 .rw-cap-name {
   font-family: var(--serif);
   font-size: 18px;
-  color: var(--c);
+  color: #f4ede0;
   font-weight: 300;
   font-style: italic;
 }
@@ -1780,18 +1789,18 @@ body.clicking #cursor {
 .test-card {
   background: var(--s2);
   padding: 28px 26px;
-  border: 1px solid rgba(201, 167, 107, 0.08);
+  border: 1px solid rgba(154, 125, 66, 0.08);
   transition: border-color 0.3s;
 }
 .test-card:hover {
-  border-color: rgba(201, 167, 107, 0.22);
+  border-color: rgba(154, 125, 66, 0.22);
 }
 .test-avatar {
   width: 44px;
   height: 44px;
   border-radius: 50%;
   background: var(--s4);
-  border: 1px solid rgba(201, 167, 107, 0.25);
+  border: 1px solid rgba(154, 125, 66, 0.25);
   overflow: hidden;
   margin-bottom: 14px;
   display: flex;
@@ -1829,7 +1838,7 @@ body.clicking #cursor {
 }
 .test-src {
   font-size: 10px;
-  color: rgba(201, 167, 107, 0.45);
+  color: rgba(154, 125, 66, 0.45);
   margin-top: 3px;
 }
 
@@ -1839,8 +1848,8 @@ body.clicking #cursor {
 .open-house {
   background: var(--s3);
   padding: 64px 5.5%;
-  border-top: 1px solid rgba(201, 167, 107, 0.1);
-  border-bottom: 1px solid rgba(201, 167, 107, 0.1);
+  border-top: 1px solid rgba(154, 125, 66, 0.1);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.1);
 }
 .oh-inner {
   max-width: 800px;
@@ -1874,7 +1883,7 @@ body.clicking #cursor {
   font-family: var(--serif);
   font-size: 40px;
   font-weight: 300;
-  color: rgba(201, 167, 107, 0.25);
+  color: rgba(154, 125, 66, 0.25);
   align-self: flex-start;
   padding-top: 8px;
 }
@@ -1886,8 +1895,8 @@ body.clicking #cursor {
 }
 .oh-input {
   flex: 1;
-  background: rgba(201, 167, 107, 0.07);
-  border: 1px solid rgba(201, 167, 107, 0.18);
+  background: rgba(154, 125, 66, 0.07);
+  border: 1px solid rgba(154, 125, 66, 0.18);
   padding: 13px 16px;
   color: var(--c);
   font-family: var(--sans);
@@ -1931,8 +1940,8 @@ body.clicking #cursor {
 .resources-section {
   background: var(--s2);
   padding: 88px 5.5%;
-  border-top: 1px solid rgba(201, 167, 107, 0.08);
-  border-bottom: 1px solid rgba(201, 167, 107, 0.08);
+  border-top: 1px solid rgba(154, 125, 66, 0.08);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.08);
 }
 .resources-inner {
   max-width: 920px;
@@ -1973,7 +1982,7 @@ body.clicking #cursor {
   list-style: none;
   margin: 0;
   padding: 0;
-  border: 1px solid rgba(201, 167, 107, 0.12);
+  border: 1px solid rgba(154, 125, 66, 0.12);
   background: var(--s3);
 }
 .res-li {
@@ -1982,7 +1991,7 @@ body.clicking #cursor {
   gap: 16px;
   align-items: center;
   padding: 12px 16px;
-  border-bottom: 1px solid rgba(201, 167, 107, 0.08);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.08);
   font-size: 13px;
   font-weight: 300;
 }
@@ -2003,7 +2012,7 @@ body.clicking #cursor {
   text-transform: uppercase;
   color: var(--g);
   text-decoration: none;
-  border-bottom: 1px solid rgba(201, 167, 107, 0.35);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.35);
   padding-bottom: 1px;
   white-space: nowrap;
   transition: opacity 0.2s, border-color 0.2s;
@@ -2016,7 +2025,7 @@ body.clicking #cursor {
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(244, 237, 224, 0.38);
+  color: rgba(26, 23, 20, 0.38);
   white-space: nowrap;
 }
 .res-internal {
@@ -2035,7 +2044,7 @@ body.clicking #cursor {
   margin-left: -12px;
 }
 .res-li--soon .res-li-name {
-  border-left: 2px solid rgba(201, 167, 107, 0.2);
+  border-left: 2px solid rgba(154, 125, 66, 0.2);
   padding-left: 12px;
   margin-left: -12px;
 }
@@ -2097,7 +2106,7 @@ body.clicking #cursor {
   font-weight: 500;
   margin: 40px 0 18px;
   padding-top: 28px;
-  border-top: 1px solid rgba(201, 167, 107, 0.12);
+  border-top: 1px solid rgba(154, 125, 66, 0.12);
 }
 .faq-list > h3.faq-cat:first-of-type {
   margin-top: 28px;
@@ -2115,7 +2124,7 @@ body.clicking #cursor {
   margin-bottom: 0;
 }
 .faq-item {
-  border-bottom: 1px solid rgba(201, 167, 107, 0.1);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.1);
 }
 .faq-q {
   display: flex;
@@ -2145,7 +2154,7 @@ body.clicking #cursor {
   height: 24px;
   flex-shrink: 0;
   position: relative;
-  border: 1px solid rgba(201, 167, 107, 0.25);
+  border: 1px solid rgba(154, 125, 66, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2218,6 +2227,24 @@ body.clicking #cursor {
   text-align: center;
   padding: 80px 5%;
   max-width: 760px;
+  color: #f4ede0;
+}
+.cta-content .dh {
+  color: #f4ede0;
+}
+.cta-content .btn-ghost {
+  color: #f4ede0;
+  border-color: rgba(154, 125, 66, 0.35);
+}
+.cta-content .btn-ghost:hover {
+  color: var(--g);
+  border-color: var(--g);
+}
+.cta-content .sl {
+  color: var(--g);
+}
+.cta-content p {
+  color: rgba(244, 237, 224, 0.65);
 }
 .cta-trust {
   display: flex;
@@ -2229,7 +2256,7 @@ body.clicking #cursor {
 .cta-trust-item {
   font-size: 10px;
   letter-spacing: 0.12em;
-  color: rgba(201, 167, 107, 0.55);
+  color: rgba(154, 125, 66, 0.55);
   text-transform: uppercase;
 }
 .cta-btns {
@@ -2260,7 +2287,7 @@ body.clicking #cursor {
 }
 .ig-handle a {
   color: var(--g);
-  border-bottom: 1px solid rgba(201, 167, 107, 0.35);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.35);
   text-decoration: none;
 }
 .ig-grid {
@@ -2314,14 +2341,14 @@ body.clicking #cursor {
   background: var(--s);
   padding: 50px 5.5%;
   text-align: center;
-  border-top: 1px solid rgba(201, 167, 107, 0.08);
+  border-top: 1px solid rgba(154, 125, 66, 0.08);
 }
 .footer-quote-text {
   font-family: var(--serif);
   font-size: clamp(18px, 2.8vw, 32px);
   font-weight: 300;
   font-style: italic;
-  color: rgba(244, 237, 224, 0.35);
+  color: rgba(26, 23, 20, 0.35);
   letter-spacing: 0.04em;
   line-height: 1.4;
 }
@@ -2331,9 +2358,9 @@ body.clicking #cursor {
 }
 
 footer {
-  background: #0f0e0c;
+  background: var(--s2);
   padding: 60px 5.5% 28px;
-  border-top: 1px solid rgba(201, 167, 107, 0.09);
+  border-top: 1px solid rgba(154, 125, 66, 0.12);
 }
 .footer-grid {
   display: grid;
@@ -2366,11 +2393,11 @@ footer {
 }
 .footer-addr {
   font-size: 13px;
-  color: rgba(201, 167, 107, 0.68);
+  color: rgba(154, 125, 66, 0.68);
   line-height: 1.84;
 }
 .footer-addr a {
-  color: rgba(201, 167, 107, 0.68);
+  color: rgba(154, 125, 66, 0.68);
   text-decoration: none;
 }
 .footer-col-title {
@@ -2397,7 +2424,7 @@ footer {
   color: var(--c);
 }
 .footer-bottom {
-  border-top: 1px solid rgba(201, 167, 107, 0.08);
+  border-top: 1px solid rgba(154, 125, 66, 0.08);
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
