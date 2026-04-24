@@ -6,7 +6,7 @@
 <title>Stone House — Content Inventory</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--s:#1a1714;--s2:#252219;--s3:#2d2820;--g:#c9a76b;--gd:#a88748;--c:#f4ede0;--m:#8a7e6f;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',-apple-system,sans-serif}
+:root{--s:#faf7f2;--s2:#f0ebe3;--s3:#e8e2d8;--g:#9a7d42;--gd:#7d6433;--c:#1a1714;--m:#5a5347;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',-apple-system,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--s);color:var(--c);font-family:var(--sans);min-height:100vh}
 body{padding:36px 28px 60px}
@@ -21,66 +21,66 @@ h1 em{font-style:italic;color:var(--g)}
 .hd-sub{font-size:13px;font-weight:300;color:var(--m);margin-bottom:36px}
 
 /* TABS */
-.tabs{display:flex;gap:0;border-bottom:1px solid rgba(201,167,107,.18);margin-bottom:32px}
+.tabs{display:flex;gap:0;border-bottom:1px solid rgba(154,125,66,.18);margin-bottom:32px}
 .tab{padding:11px 22px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border:none;background:none;color:var(--m);border-bottom:2px solid transparent;margin-bottom:-1px;font-family:var(--sans);font-weight:400;transition:all .18s}
 .tab.active{color:var(--g);border-bottom-color:var(--g)}
 .tab:hover:not(.active){color:var(--c)}
 .panel{display:none}.panel.active{display:block}
 
 /* LEGEND */
-.legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(201,167,107,.1)}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(154,125,66,.1)}
 .badge{font-size:9px;letter-spacing:.1em;padding:3px 9px;font-weight:500;white-space:nowrap;text-transform:uppercase}
-.b-have{background:rgba(29,158,117,.15);color:#4ecf9a;border:1px solid rgba(29,158,117,.3)}
-.b-build{background:rgba(55,138,221,.13);color:#7ab8f0;border:1px solid rgba(55,138,221,.28)}
-.b-quick{background:rgba(201,167,107,.14);color:var(--g);border:1px solid rgba(201,167,107,.3)}
-.b-seo{background:rgba(226,75,74,.13);color:#f08080;border:1px solid rgba(226,75,74,.28)}
+.b-have{background:rgba(29,158,117,.15);color:#1d9e75;border:1px solid rgba(29,158,117,.3)}
+.b-build{background:rgba(55,138,221,.13);color:#2a6db5;border:1px solid rgba(55,138,221,.28)}
+.b-quick{background:rgba(154,125,66,.14);color:var(--g);border:1px solid rgba(154,125,66,.3)}
+.b-seo{background:rgba(226,75,74,.13);color:#c23b3a;border:1px solid rgba(226,75,74,.28)}
 .b-int{background:rgba(138,126,111,.1);color:var(--m);border:1px solid rgba(138,126,111,.22)}
 
 /* CATEGORY */
 .cat{margin-bottom:32px}
 .cat-hd{display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .cat-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.cat-rule{flex:1;height:1px;background:rgba(201,167,107,.1)}
+.cat-rule{flex:1;height:1px;background:rgba(154,125,66,.1)}
 .cat-title{font-family:var(--serif);font-size:18px;font-weight:300;color:var(--c)}
 .cat-count{font-size:10px;letter-spacing:.1em;color:var(--m)}
 
 /* ITEMS GRID */
 .items{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px}
-.item{background:var(--s2);border:1px solid rgba(201,167,107,.1);padding:11px 13px;transition:border-color .18s}
-.item:hover{border-color:rgba(201,167,107,.28)}
+.item{background:var(--s2);border:1px solid rgba(154,125,66,.1);padding:11px 13px;transition:border-color .18s}
+.item:hover{border-color:rgba(154,125,66,.28)}
 .item-name{font-size:13px;font-weight:300;color:var(--c);line-height:1.4;margin-bottom:7px}
 .item-badges{display:flex;gap:4px;flex-wrap:wrap}
 
 /* STORAGE */
 .arch-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.arch-card{background:var(--s2);border:1px solid rgba(201,167,107,.12);padding:0;overflow:hidden}
+.arch-card{background:var(--s2);border:1px solid rgba(154,125,66,.12);padding:0;overflow:hidden}
 .arch-stripe{height:3px}
 .arch-inner{padding:20px 22px}
 .arch-title{font-family:var(--serif);font-size:22px;font-weight:300;color:var(--c);margin-bottom:3px}
 .arch-sub{font-size:11px;letter-spacing:.08em;color:var(--m);margin-bottom:12px;text-transform:uppercase}
 .arch-tag{display:inline-block;font-size:9px;letter-spacing:.14em;padding:3px 10px;text-transform:uppercase;margin-bottom:14px;font-weight:500}
-.arch-row{font-size:12px;font-weight:300;color:rgba(244,237,224,.62);padding:6px 0;border-bottom:1px solid rgba(201,167,107,.07);line-height:1.5}
+.arch-row{font-size:12px;font-weight:300;color:rgba(26,23,20,.62);padding:6px 0;border-bottom:1px solid rgba(154,125,66,.07);line-height:1.5}
 .arch-row:last-of-type{border-bottom:none}
 .arch-row strong{color:var(--c);font-weight:400}
-.arch-note{font-size:11px;color:var(--m);margin-top:12px;padding-top:10px;border-top:1px solid rgba(201,167,107,.1);line-height:1.6;font-style:italic}
+.arch-note{font-size:11px;color:var(--m);margin-top:12px;padding-top:10px;border-top:1px solid rgba(154,125,66,.1);line-height:1.6;font-style:italic}
 
 /* PRIORITY */
 .pri-hd{font-size:12px;font-weight:300;color:var(--m);margin-bottom:20px;line-height:1.6}
 .pri-table{width:100%;border-collapse:collapse}
-.pri-table thead tr{border-bottom:1px solid rgba(201,167,107,.2)}
+.pri-table thead tr{border-bottom:1px solid rgba(154,125,66,.2)}
 .pri-table th{text-align:left;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--g);padding:0 12px 10px;font-weight:400}
 .pri-table th:first-child{padding-left:0}
-.pri-table tbody tr{border-bottom:1px solid rgba(201,167,107,.07);transition:background .15s}
-.pri-table tbody tr:hover{background:rgba(201,167,107,.04)}
+.pri-table tbody tr{border-bottom:1px solid rgba(154,125,66,.07);transition:background .15s}
+.pri-table tbody tr:hover{background:rgba(154,125,66,.04)}
 .pri-table tbody tr:last-child{border-bottom:none}
 .pri-table td{padding:12px;vertical-align:middle}
 .pri-table td:first-child{padding-left:0}
-.rank{font-family:var(--serif);font-size:22px;font-weight:300;color:rgba(201,167,107,.3);width:32px}
+.rank{font-family:var(--serif);font-size:22px;font-weight:300;color:rgba(154,125,66,.3);width:32px}
 .piece{font-size:13px;font-weight:400;color:var(--c);line-height:1.35}
 .dots{display:flex;gap:4px;align-items:center}
 .dot{width:7px;height:7px;border-radius:50%}
 .dot-on{background:var(--g)}
-.dot-off{background:rgba(201,167,107,.16)}
+.dot-off{background:rgba(154,125,66,.16)}
 .why{font-size:11px;font-weight:300;color:var(--m);line-height:1.55;max-width:280px}
 </style>
 </head>
@@ -108,7 +108,7 @@ h1 em{font-style:italic;color:var(--g)}
     </div>
 
     <div class="cat">
-      <div class="cat-hd"><div class="cat-dot" style="background:#c9a76b"></div><span class="cat-title">Spaces & Venue</span><div class="cat-rule"></div><span class="cat-count">12 items</span></div>
+      <div class="cat-hd"><div class="cat-dot" style="background:#9a7d42"></div><span class="cat-title">Spaces & Venue</span><div class="cat-rule"></div><span class="cat-count">12 items</span></div>
       <div class="items">
         <div class="item"><div class="item-name">Photos of each space</div><div class="item-badges"><span class="badge b-have">You have it</span></div></div>
         <div class="item"><div class="item-name">Floor plans (annotated PDF)</div><div class="item-badges"><span class="badge b-have">You have it</span></div></div>
@@ -211,7 +211,7 @@ h1 em{font-style:italic;color:var(--g)}
         <div class="arch-inner">
           <div class="arch-title">Sanity CMS</div>
           <div class="arch-sub">All structured content + images</div>
-          <span class="arch-tag" style="background:rgba(201,167,107,.14);color:var(--g);border:1px solid rgba(201,167,107,.28)">Primary store</span>
+          <span class="arch-tag" style="background:rgba(154,125,66,.14);color:var(--g);border:1px solid rgba(154,125,66,.28)">Primary store</span>
           <div class="arch-row"><strong>Spaces</strong> — name, capacity, photos, specs, description</div>
           <div class="arch-row"><strong>Real weddings</strong> — couple, date, photos, story, vendors</div>
           <div class="arch-row"><strong>FAQs</strong> — question, answer, category</div>
@@ -230,7 +230,7 @@ h1 em{font-style:italic;color:var(--g)}
         <div class="arch-inner">
           <div class="arch-title">Vercel Blob</div>
           <div class="arch-sub">PDFs and downloadable files</div>
-          <span class="arch-tag" style="background:rgba(55,138,221,.12);color:#7ab8f0;border:1px solid rgba(55,138,221,.25)">File storage</span>
+          <span class="arch-tag" style="background:rgba(55,138,221,.12);color:#2a6db5;border:1px solid rgba(55,138,221,.25)">File storage</span>
           <div class="arch-row"><strong>Floor plans</strong> — high-res PDF per space</div>
           <div class="arch-row"><strong>Venue technical rider</strong> — PDF download</div>
           <div class="arch-row"><strong>Wedding guide</strong> — PDF for leads</div>
@@ -247,7 +247,7 @@ h1 em{font-style:italic;color:var(--g)}
         <div class="arch-inner">
           <div class="arch-title">Google Drive</div>
           <div class="arch-sub">Working archive & internal ops</div>
-          <span class="arch-tag" style="background:rgba(29,158,117,.12);color:#4ecf9a;border:1px solid rgba(29,158,117,.25)">Internal ops</span>
+          <span class="arch-tag" style="background:rgba(29,158,117,.12);color:#1d9e75;border:1px solid rgba(29,158,117,.25)">Internal ops</span>
           <div class="arch-row"><strong>Vendor contracts</strong> — master template + signed</div>
           <div class="arch-row"><strong>Insurance COI templates</strong></div>
           <div class="arch-row"><strong>Event run-of-show templates</strong></div>
@@ -264,7 +264,7 @@ h1 em{font-style:italic;color:var(--g)}
         <div class="arch-inner">
           <div class="arch-title">Notion</div>
           <div class="arch-sub">Strategy, briefs & planning docs</div>
-          <span class="arch-tag" style="background:rgba(226,75,74,.12);color:#f08080;border:1px solid rgba(226,75,74,.25)">Knowledge base</span>
+          <span class="arch-tag" style="background:rgba(226,75,74,.12);color:#c23b3a;border:1px solid rgba(226,75,74,.25)">Knowledge base</span>
           <div class="arch-row"><strong>Marketing strategy</strong> — living doc</div>
           <div class="arch-row"><strong>Content calendar</strong> — social, blog, email</div>
           <div class="arch-row"><strong>SEO keyword tracker</strong></div>

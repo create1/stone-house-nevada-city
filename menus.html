@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sample Wedding Menus — Stone House Nevada City | Seasonal Farm-to-Table Dining</title>
-<meta name="description" content="Sample seasonal wedding menus at Stone House Nevada City. Three tiers of farm-to-table cuisine — Prospector, Brewmaster, and Empire — featuring seed-oil-free cooking with locally sourced ingredients.">
+<meta name="description" content="Sample seasonal wedding menus at Stone House Nevada City. Three tiers of farm-to-table cuisine — Prospector, Brewmaster, and Mother Lode — featuring seed-oil-free cooking with locally sourced ingredients.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="subpage-styles.css">
 <link rel="icon" href="assets/favicon.ico" sizes="any">
 <link rel="icon" href="assets/favicon-32x32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -16,21 +17,16 @@
 <meta property="og:description" content="Seasonal farm-to-table menus across three tiers. Seed-oil-free, locally sourced, endlessly customizable.">
 <meta property="og:url" content="https://stonehouse.io/menus.html">
 <meta property="og:site_name" content="Stone House Nevada City">
+<meta property="og:image" content="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/68950a62c9bcf227c2629194_Sophie%2BNic-7983.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <style>
-:root{--s:#1a1714;--s2:#1e1c18;--s3:#252219;--s4:#2d2820;--g:#c9a76b;--gd:#a88748;--gl:#e2c088;--c:#f4ede0;--m:#8a7e6f;--md:rgba(244,237,224,0.45);--muted:rgba(244,237,224,0.58);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',-apple-system,sans-serif;--nav-h:72px}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--s);color:var(--c);font-family:var(--sans);line-height:1.7}a{color:var(--g);text-decoration:none;transition:color .2s}a:hover{color:var(--gl)}
-nav{position:sticky;top:0;z-index:100;background:rgba(26,23,20,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,167,107,0.08);height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,4vw,3rem)}.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}.nav-logo-img{height:32px;width:auto}.nav-wm{font-family:var(--sans);font-weight:400;font-size:.85rem;letter-spacing:.22em;color:var(--c)}.nav-div{width:1px;height:20px;background:rgba(201,167,107,0.25);margin:0 4px}.nav-est{font-family:var(--serif);font-size:.8rem;color:var(--m);font-style:italic}.nav-links{display:flex;gap:clamp(.5rem,2vw,1.5rem);align-items:center}.nav-link{font-size:.82rem;letter-spacing:.06em;color:var(--md);font-weight:400;text-decoration:none;transition:color .2s}.nav-link:hover{color:var(--c)}.nav-cta{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:10px 22px;border:1px solid var(--g);color:var(--g);text-decoration:none;transition:all .3s}.nav-cta:hover{background:var(--g);color:var(--s)}@media(max-width:900px){.nav-links{display:none}}
-.page-hero{padding:clamp(4rem,10vw,8rem) clamp(1rem,4vw,3rem) clamp(3rem,6vw,5rem);max-width:900px;margin:0 auto;text-align:center}.page-hero h1{font-family:var(--serif);font-size:clamp(2.2rem,5.5vw,4rem);font-weight:300;color:var(--c);line-height:1.1;margin-bottom:1.25rem}.page-hero h1 em{font-style:italic;color:var(--g)}.page-hero .subtitle{font-size:clamp(1rem,2vw,1.2rem);color:var(--m);max-width:640px;margin:0 auto 2rem;line-height:1.7}
-.section{max-width:900px;margin:0 auto;padding:0 clamp(1rem,4vw,3rem) clamp(3rem,6vw,5rem)}.section-label{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin-bottom:.5rem}.section h2{font-family:var(--serif);font-size:clamp(1.5rem,3.5vw,2.4rem);font-weight:300;color:var(--c);margin-bottom:.75rem}.section p{color:var(--m);line-height:1.8;margin-bottom:1.25rem;max-width:700px}
-.tip{background:rgba(201,167,107,0.06);border-left:3px solid var(--g);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:2rem 0;font-size:.92rem;color:var(--m)}.tip strong{color:var(--g)}
-.menu-tier{background:var(--s2);border:1px solid rgba(201,167,107,0.06);border-radius:12px;padding:clamp(1.5rem,3vw,2.5rem);margin:2rem 0;transition:border-color .25s}.menu-tier:hover{border-color:rgba(201,167,107,0.15)}
+.menu-tier{background:var(--s2);border:1px solid rgba(154,125,66,0.10);border-radius:12px;padding:clamp(1.5rem,3vw,2.5rem);margin:2rem 0;transition:border-color .25s}.menu-tier:hover{border-color:rgba(154,125,66,0.20)}
 .tier-header{display:flex;align-items:baseline;gap:1rem;margin-bottom:.25rem;flex-wrap:wrap}.tier-name{font-family:var(--serif);font-size:clamp(1.3rem,3vw,1.8rem);font-weight:300;color:var(--c)}.tier-price{font-family:var(--serif);font-size:1.3rem;color:var(--g)}.tier-desc{font-size:.88rem;color:var(--m);margin-bottom:1.5rem}
-.menu-season{margin-bottom:2rem}.season-name{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:.75rem;padding-bottom:.35rem;border-bottom:1px solid rgba(201,167,107,0.1)}
+.menu-season{margin-bottom:2rem}.season-name{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:.75rem;padding-bottom:.35rem;border-bottom:1px solid rgba(154,125,66,0.15)}
 .course{margin-bottom:1.25rem}.course-name{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--m);margin-bottom:.35rem}.course-items{font-size:.9rem;color:var(--c);line-height:1.8}
 .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.hero-img{width:100%;max-height:420px;object-fit:cover;border-radius:12px;margin:0 auto 2rem;display:block}
 .img-pair{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}.img-pair img{width:100%;height:260px;object-fit:cover;border-radius:10px}@media(max-width:640px){.img-pair{grid-template-columns:1fr}.img-pair img{height:200px}}
-footer{border-top:1px solid rgba(201,167,107,0.08);padding:clamp(2rem,4vw,3rem) clamp(1rem,4vw,3rem);text-align:center}.footer-brand{font-family:var(--sans);font-size:.85rem;letter-spacing:.18em;color:var(--m);margin-bottom:.5rem}.footer-copy{font-size:.78rem;color:rgba(244,237,224,0.3)}.footer-links{display:flex;justify-content:center;gap:1.5rem;margin:1rem 0;flex-wrap:wrap}.footer-links a{font-size:.82rem;color:var(--m)}.footer-links a:hover{color:var(--g)}
 </style>
 </head>
 <body>
@@ -50,8 +46,6 @@ footer{border-top:1px solid rgba(201,167,107,0.08);padding:clamp(2rem,4vw,3rem) 
     <a href="vendors.html" class="nav-link">Vendors</a>
     <a href="/#date-check" class="nav-cta">Check Availability</a>
   </div>
-<<<<<<< Updated upstream
-=======
   <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.nav-mobile').classList.toggle('open')">
     <span></span><span></span><span></span>
   </button>
@@ -65,7 +59,6 @@ footer{border-top:1px solid rgba(201,167,107,0.08);padding:clamp(2rem,4vw,3rem) 
     <a href="local-guide.html">Local Guide</a>
     <a href="/#date-check">Check Availability</a>
   </div>
->>>>>>> Stashed changes
 </nav>
 
 <div class="page-hero">
@@ -84,7 +77,7 @@ footer{border-top:1px solid rgba(201,167,107,0.08);padding:clamp(2rem,4vw,3rem) 
   <div class="menu-tier" id="prospector">
     <div class="tier-header">
       <span class="tier-name">The Prospector</span>
-      <span class="tier-price">$49 / guest</span>
+      <span class="tier-price">$69–$79 / guest</span>
     </div>
     <p class="tier-desc">Classic elegance. A focused, beautifully executed meal with seasonal ingredients that let the celebration — not the menu — be the centerpiece.</p>
 
@@ -129,7 +122,7 @@ footer{border-top:1px solid rgba(201,167,107,0.08);padding:clamp(2rem,4vw,3rem) 
   <div class="menu-tier" id="brewmaster">
     <div class="tier-header">
       <span class="tier-name">The Brewmaster</span>
-      <span class="tier-price">$59 / guest</span>
+      <span class="tier-price">$79–$89 / guest</span>
     </div>
     <p class="tier-desc">The most popular tier. An additional course, premium proteins, and the kind of meal that has guests asking "who catered this?" for months.</p>
 
@@ -180,11 +173,11 @@ footer{border-top:1px solid rgba(201,167,107,0.08);padding:clamp(2rem,4vw,3rem) 
     </div>
   </div>
 
-  <!-- EMPIRE TIER -->
-  <div class="menu-tier" id="empire">
+  <!-- MOTHER LODE TIER -->
+  <div class="menu-tier" id="mother-lode">
     <div class="tier-header">
-      <span class="tier-name">The Empire</span>
-      <span class="tier-price">$75 / guest</span>
+      <span class="tier-name">The Mother Lode</span>
+      <span class="tier-price">$89–$99 / guest</span>
     </div>
     <p class="tier-desc">The full experience. Multiple courses, premium cuts, interactive stations, and the kind of meal that turns a wedding into a culinary event.</p>
 
@@ -271,11 +264,12 @@ footer{border-top:1px solid rgba(201,167,107,0.08);padding:clamp(2rem,4vw,3rem) 
     <a href="accommodations.html">Where to Stay</a>
     <a href="local-guide.html">Local Guide</a>
   </div>
+  <div class="footer-contact">(530) 265-5050 · <a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a></div>
   <div class="footer-copy">© 2026 Stone House Nevada City. All rights reserved.</div>
 </footer>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Menu","name":"Stone House Wedding Menus","description":"Seasonal farm-to-table wedding menus in three tiers.","url":"https://stonehouse.io/menus","hasMenuSection":[{"@type":"MenuSection","name":"The Prospector","description":"Classic elegance — $49/guest"},{"@type":"MenuSection","name":"The Brewmaster","description":"Premium dining — $59/guest"},{"@type":"MenuSection","name":"The Empire","description":"Full culinary experience — $75/guest"}]}
+{"@context":"https://schema.org","@type":"Menu","name":"Stone House Wedding Menus","description":"Seasonal farm-to-table wedding menus in three tiers.","url":"https://stonehouse.io/menus","hasMenuSection":[{"@type":"MenuSection","name":"The Prospector","description":"Classic elegance — $69–$79/guest"},{"@type":"MenuSection","name":"The Brewmaster","description":"Premium dining — $79–$89/guest"},{"@type":"MenuSection","name":"The Mother Lode","description":"Full culinary experience — $89–$99/guest"}]}
 </script>
 </body>
 </html>
