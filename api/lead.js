@@ -1,5 +1,6 @@
 import { Client } from "@notionhq/client";
 import { Resend } from "resend";
+import { createHash } from "crypto";
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -14,7 +15,6 @@ const ALLOWED_ORIGINS = [
 
 function getAllowedOrigin(req) {
   const origin = req.headers.origin || "";
-  // Allow exact matches and Vercel preview URLs
   if (ALLOWED_ORIGINS.includes(origin)) return origin;
   if (origin.match(/^https:\/\/stone-house-nevada-city[a-z0-9-]*\.vercel\.app$/)) return origin;
   return null;
@@ -32,8 +32,8 @@ function setCors(req, res) {
 
 // --- Rate limiting (in-memory, per serverless instance) ---
 const rateMap = new Map();
-const RATE_WINDOW_MS = 60 * 1000; // 1 minute
-const RATE_LIMIT = 5; // max 5 submissions per IP per minute
+const RATE_WINDOW_MS = 60 * 1000;
+const RATE_LIMIT = 5;
 
 function isRateLimited(ip) {
   const now = Date.now();
@@ -47,7 +47,6 @@ function isRateLimited(ip) {
   return false;
 }
 
-// Clean up stale entries periodically (prevent memory leak)
 setInterval(() => {
   const now = Date.now();
   for (const [ip, entry] of rateMap) {
@@ -55,10 +54,104 @@ setInterval(() => {
   }
 }, RATE_WINDOW_MS * 2);
 
+// --- Hashing for Meta CAPI (SHA-256, lowercase, trimmed) ---
+function hashForMeta(value) {
+  if (!value) return null;
+  return createHash("sha256").update(value.trim().toLowerCase()).digest("hex");
+}
+
+// --- Meta Conversions API ---
+async function sendMetaCAPI({ email, name, ip, userAgent, sourceUrl, fbc, fbp }) {
+  const pixelId = process.env.META_PIXEL_ID;
+  const accessToken = process.env.META_ACCESS_TOKEN;
+  if (!pixelId || !accessToken) return "skipped (no credentials)";
+
+  const eventData = {
+    event_name: "Lead",
+    event_time: Math.floor(Date.now() / 1000),
+    event_source_url: sourceUrl || "https://stonehouse.io",
+    action_source: "website",
+    user_data: {
+      em: [hashForMeta(email)],
+      client_ip_address: ip,
+      client_user_agent: userAgent,
+    },
+  };
+
+  // Add hashed name if provided
+  if (name) {
+    const parts = name.trim().split(/\s+/);
+    if (parts[0]) eventData.user_data.fn = [hashForMeta(parts[0])];
+    if (parts.length > 1) eventData.user_data.ln = [hashForMeta(parts[parts.length - 1])];
+  }
+
+  // Add Facebook click ID and browser ID if present
+  if (fbc) eventData.user_data.fbc = fbc;
+  if (fbp) eventData.user_data.fbp = fbp;
+
+  try {
+    const resp = await fetch(
+      `https://graph.facebook.com/v21.0/${pixelId}/events?access_token=${accessToken}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data: [eventData] }),
+      }
+    );
+    if (!resp.ok) {
+      const err = await resp.text();
+      console.error("Meta CAPI error:", err);
+      return `error: ${resp.status}`;
+    }
+    return "ok";
+  } catch (err) {
+    console.error("Meta CAPI fetch failed:", err.message);
+    return `error: ${err.message}`;
+  }
+}
+
+// --- GoHighLevel Webhook ---
+async function sendToGHL({ name, email, date, guests, source, utm_source, utm_medium, utm_campaign, utm_content, utm_term }) {
+  const webhookUrl = process.env.GHL_WEBHOOK_URL;
+  if (!webhookUrl) return "skipped (no webhook URL)";
+
+  const payload = {
+    first_name: name ? name.trim().split(/\s+/)[0] : "",
+    last_name: name && name.trim().split(/\s+/).length > 1 ? name.trim().split(/\s+/).slice(1).join(" ") : "",
+    email: email,
+    source: source || "Website",
+    tags: ["stonehouse.io", source || "website-form"].map(t => t.toLowerCase().replace(/\s+/g, "-")),
+    customField: {
+      event_date: date || "",
+      guest_count: guests || "",
+      utm_source: utm_source || "",
+      utm_medium: utm_medium || "",
+      utm_campaign: utm_campaign || "",
+      utm_content: utm_content || "",
+      utm_term: utm_term || "",
+    },
+  };
+
+  try {
+    const resp = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!resp.ok) {
+      console.error("GHL webhook error:", resp.status);
+      return `error: ${resp.status}`;
+    }
+    return "ok";
+  } catch (err) {
+    console.error("GHL webhook failed:", err.message);
+    return `error: ${err.message}`;
+  }
+}
+
 export default async function handler(req, res) {
   setCors(req, res);
 
-  // CORS preflight
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
@@ -67,63 +160,75 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  // Rate limiting
   const ip = req.headers["x-forwarded-for"]?.split(",")[0]?.trim() || req.socket?.remoteAddress || "unknown";
   if (isRateLimited(ip)) {
     return res.status(429).json({ error: "Too many requests. Please try again later." });
   }
 
   try {
-    const { name, email, date, guests, source, _honeypot } = req.body;
+    const {
+      name, email, date, guests, source, _honeypot,
+      // UTM parameters
+      utm_source, utm_medium, utm_campaign, utm_content, utm_term,
+      // Meta tracking IDs (passed from client)
+      fbc, fbp, source_url
+    } = req.body;
 
-    // Honeypot — if this hidden field has a value, it's a bot
+    // Honeypot
     if (_honeypot) {
-      // Return 200 so bots think it worked, but do nothing
       return res.status(200).json({ ok: true, results: { notion: "ok", notifyEmail: "ok", autoReply: "ok" } });
     }
 
     if (!email || !email.includes("@")) {
       return res.status(400).json({ error: "Valid email required" });
     }
-
-    // Basic email format validation
     if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return res.status(400).json({ error: "Valid email required" });
     }
 
-    const results = { notion: null, notifyEmail: null, autoReply: null };
+    const userAgent = req.headers["user-agent"] || "";
+    const results = { notion: null, notifyEmail: null, autoReply: null, capi: null, ghl: null };
 
-    // 1. Write to Notion leads database (non-blocking — don't kill the whole request)
-    if (LEADS_DB && process.env.NOTION_API_KEY) {
-      try {
+    // --- Run integrations in parallel ---
+    const [notionResult, capiResult, ghlResult] = await Promise.allSettled([
+      // 1. Notion
+      (async () => {
+        if (!LEADS_DB || !process.env.NOTION_API_KEY) return "skipped (no DB ID or API key)";
         const properties = {
           Name: { title: [{ text: { content: (name || "Unknown").slice(0, 200) } }] },
           Email: { email: email.slice(0, 254) },
           "Lead Source": { select: { name: (source || "Website - Date Checker").slice(0, 100) } },
           Status: { select: { name: "New" } },
         };
-        if (date) {
-          properties["Event Date"] = { date: { start: date } };
-        }
-        if (guests) {
-          properties["Guest Count"] = { rich_text: [{ text: { content: guests } }] };
-        }
+        if (date) properties["Event Date"] = { date: { start: date } };
+        if (guests) properties["Guest Count"] = { rich_text: [{ text: { content: guests } }] };
+        // Store UTM data in Notion
+        if (utm_source) properties["UTM Source"] = { rich_text: [{ text: { content: utm_source.slice(0, 100) } }] };
+        if (utm_medium) properties["UTM Medium"] = { rich_text: [{ text: { content: utm_medium.slice(0, 100) } }] };
+        if (utm_campaign) properties["UTM Campaign"] = { rich_text: [{ text: { content: utm_campaign.slice(0, 200) } }] };
 
         await notion.pages.create({ parent: { database_id: LEADS_DB }, properties });
-        results.notion = "ok";
-      } catch (notionErr) {
-        console.error("Notion write failed:", notionErr.code, notionErr.message);
-        results.notion = `error: ${notionErr.code || notionErr.message}`;
-      }
-    } else {
-      results.notion = "skipped (no DB ID or API key)";
-    }
+        return "ok";
+      })(),
 
-    // 2. Send notification email to bookings team
+      // 2. Meta Conversions API
+      sendMetaCAPI({ email, name, ip, userAgent, sourceUrl: source_url, fbc, fbp }),
+
+      // 3. GoHighLevel CRM
+      sendToGHL({ name, email, date, guests, source, utm_source, utm_medium, utm_campaign, utm_content, utm_term }),
+    ]);
+
+    results.notion = notionResult.status === "fulfilled" ? notionResult.value : `error: ${notionResult.reason?.message}`;
+    results.capi = capiResult.status === "fulfilled" ? capiResult.value : `error: ${capiResult.reason?.message}`;
+    results.ghl = ghlResult.status === "fulfilled" ? ghlResult.value : `error: ${ghlResult.reason?.message}`;
+
+    // 4. Notification + auto-reply emails (sequential — both use Resend)
     const fromAddr = process.env.RESEND_FROM_EMAIL || "Stone House <admin@stonehouse.io>";
 
     if (process.env.RESEND_API_KEY) {
+      // Notification to bookings team
       try {
+        const utmInfo = utm_source ? `\n<p style="color:#666;font-size:11px;margin-top:12px;"><strong>Attribution:</strong> ${utm_source || ""}/${utm_medium || ""}/${utm_campaign || ""}</p>` : "";
         await resend.emails.send({
           from: fromAddr,
           to: "bookings@stonehouse.io",
@@ -135,6 +240,7 @@ export default async function handler(req, res) {
             <p><strong>Date:</strong> ${date || "Not specified"}</p>
             <p><strong>Guests:</strong> ${guests || "Not specified"}</p>
             <p><strong>Source:</strong> ${source || "Website"}</p>
+            ${utmInfo}
             <p style="color:#888;font-size:12px;">Submitted ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })}</p>
           `,
         });
@@ -144,7 +250,7 @@ export default async function handler(req, res) {
         results.notifyEmail = `error: ${emailErr.message}`;
       }
 
-      // 3. Auto-reply to the lead
+      // Auto-reply to the lead
       try {
         await resend.emails.send({
           from: fromAddr,
@@ -171,7 +277,6 @@ export default async function handler(req, res) {
       results.autoReply = "skipped (no API key)";
     }
 
-    // Return 200 with details — the lead was captured even if some steps failed
     return res.status(200).json({ ok: true, results });
   } catch (err) {
     console.error("Lead API unexpected error:", err);

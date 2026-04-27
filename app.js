@@ -1,3 +1,47 @@
+// ─── UTM PARAMETER CAPTURE ───
+// Reads UTM params from URL on page load + stores fbc/fbp cookies for Meta CAPI
+const __utmParams = (function() {
+  const params = new URLSearchParams(window.location.search);
+  const utm = {
+    utm_source: params.get('utm_source') || '',
+    utm_medium: params.get('utm_medium') || '',
+    utm_campaign: params.get('utm_campaign') || '',
+    utm_content: params.get('utm_content') || '',
+    utm_term: params.get('utm_term') || '',
+  };
+  // Persist in sessionStorage so they survive page navigation within the session
+  if (utm.utm_source) {
+    try { sessionStorage.setItem('sh_utm', JSON.stringify(utm)); } catch(e) {}
+  } else {
+    try {
+      const stored = sessionStorage.getItem('sh_utm');
+      if (stored) Object.assign(utm, JSON.parse(stored));
+    } catch(e) {}
+  }
+  return utm;
+})();
+
+// Get Meta fbc (click ID) and fbp (browser ID) cookies for server-side deduplication
+function getMetaCookies() {
+  const cookies = document.cookie.split(';').reduce((acc, c) => {
+    const [k, v] = c.trim().split('=');
+    acc[k] = v;
+    return acc;
+  }, {});
+  return { fbc: cookies._fbc || '', fbp: cookies._fbp || '' };
+}
+
+// Build the tracking payload that gets included in every form POST
+function getTrackingPayload() {
+  const meta = getMetaCookies();
+  return {
+    ...__utmParams,
+    fbc: meta.fbc,
+    fbp: meta.fbp,
+    source_url: window.location.href,
+  };
+}
+
 // ─── CONVERSION TRACKING ───
 function trackLead(source) {
   // GA4 generate_lead event
@@ -169,7 +213,7 @@ function submitDC() {
   fetch('/api/lead', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, email, date, guests, source: 'Website - Date Checker', _honeypot: '' }),
+    body: JSON.stringify({ name, email, date, guests, source: 'Website - Date Checker', _honeypot: '', ...getTrackingPayload() }),
   })
     .then((r) => r.json())
     .then(() => {
@@ -334,7 +378,7 @@ function submitOH() {
     fetch('/api/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: inp.value, source: 'Website - Open House RSVP', _honeypot: '' }),
+      body: JSON.stringify({ email: inp.value, source: 'Website - Open House RSVP', _honeypot: '', ...getTrackingPayload() }),
     })
       .then(() => {
         btn.textContent = "✓ You're on the list!";
@@ -373,7 +417,7 @@ function submitExit() {
     fetch('/api/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: em.value, source: 'Website - Exit Intent (Pricing Guide)', _honeypot: '' }),
+      body: JSON.stringify({ email: em.value, source: 'Website - Exit Intent (Pricing Guide)', _honeypot: '', ...getTrackingPayload() }),
     }).catch(() => {});
     trackLead('Website - Exit Intent (Pricing Guide)');
     em.parentElement.innerHTML =
@@ -389,7 +433,7 @@ function submitLead(btn) {
     fetch('/api/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: inp.value, source: 'Website - Pricing Guide Popup', _honeypot: '' }),
+      body: JSON.stringify({ email: inp.value, source: 'Website - Pricing Guide Popup', _honeypot: '', ...getTrackingPayload() }),
     }).catch(() => {});
     trackLead('Website - Pricing Guide Popup');
     btn.textContent = '✓ Sent!';
