@@ -21,10 +21,10 @@ fbq('track','PageView');
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=314527259200604&ev=PageView&noscript=1"/></noscript>
 
 <!-- GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6H210CVEHL"></script>
 <script>
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-XXXXXXXXXX');
+gtag('js',new Date());gtag('config','G-6H210CVEHL');
 </script>
 
 <style>
@@ -507,8 +507,23 @@ body::before {
       });
     }
 
-    // TODO: Send lead data to your backend / n8n webhook
-    // fetch('/api/lead', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({name,email,phone}) });
+    // Send lead data to backend API
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone: phone,
+        source: 'Venue Pricing Form',
+        source_url: window.location.href,
+        fbc: (document.cookie.match(/_fbc=([^;]+)/) || [])[1] || '',
+        fbp: (document.cookie.match(/_fbp=([^;]+)/) || [])[1] || '',
+        utm_source: new URLSearchParams(window.location.search).get('utm_source') || '',
+        utm_medium: new URLSearchParams(window.location.search).get('utm_medium') || '',
+        utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign') || ''
+      })
+    }).catch(function() {});
 
     // Hide form, show success + event choices
     formCard.style.display = 'none';

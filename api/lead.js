@@ -111,7 +111,7 @@ async function sendMetaCAPI({ email, name, ip, userAgent, sourceUrl, fbc, fbp })
 }
 
 // --- GoHighLevel Webhook ---
-async function sendToGHL({ name, email, date, guests, source, utm_source, utm_medium, utm_campaign, utm_content, utm_term }) {
+async function sendToGHL({ name, email, phone, date, guests, source, utm_source, utm_medium, utm_campaign, utm_content, utm_term }) {
   const webhookUrl = process.env.GHL_WEBHOOK_URL;
   if (!webhookUrl) return "skipped (no webhook URL)";
 
@@ -119,6 +119,7 @@ async function sendToGHL({ name, email, date, guests, source, utm_source, utm_me
     first_name: name ? name.trim().split(/\s+/)[0] : "",
     last_name: name && name.trim().split(/\s+/).length > 1 ? name.trim().split(/\s+/).slice(1).join(" ") : "",
     email: email,
+    phone: phone || "",
     source: source || "Website",
     tags: ["stonehouse.io", source || "website-form"].map(t => t.toLowerCase().replace(/\s+/g, "-")),
     customField: {
@@ -167,7 +168,7 @@ export default async function handler(req, res) {
 
   try {
     const {
-      name, email, date, guests, source, _honeypot,
+      name, email, phone, date, guests, source, _honeypot,
       // UTM parameters
       utm_source, utm_medium, utm_campaign, utm_content, utm_term,
       // Meta tracking IDs (passed from client)
@@ -202,6 +203,7 @@ export default async function handler(req, res) {
         };
         if (date) properties["Event Date"] = { date: { start: date } };
         if (guests) properties["Guest Count"] = { rich_text: [{ text: { content: guests } }] };
+        if (phone) properties["Phone"] = { phone_number: phone.slice(0, 20) };
         // Store UTM data in Notion
         if (utm_source) properties["UTM Source"] = { rich_text: [{ text: { content: utm_source.slice(0, 100) } }] };
         if (utm_medium) properties["UTM Medium"] = { rich_text: [{ text: { content: utm_medium.slice(0, 100) } }] };
@@ -215,7 +217,7 @@ export default async function handler(req, res) {
       sendMetaCAPI({ email, name, ip, userAgent, sourceUrl: source_url, fbc, fbp }),
 
       // 3. GoHighLevel CRM
-      sendToGHL({ name, email, date, guests, source, utm_source, utm_medium, utm_campaign, utm_content, utm_term }),
+      sendToGHL({ name, email, phone, date, guests, source, utm_source, utm_medium, utm_campaign, utm_content, utm_term }),
     ]);
 
     results.notion = notionResult.status === "fulfilled" ? notionResult.value : `error: ${notionResult.reason?.message}`;
@@ -237,6 +239,7 @@ export default async function handler(req, res) {
             <h2>New Lead from stonehouse.io</h2>
             <p><strong>Name:</strong> ${name || "Not provided"}</p>
             <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
             <p><strong>Date:</strong> ${date || "Not specified"}</p>
             <p><strong>Guests:</strong> ${guests || "Not specified"}</p>
             <p><strong>Source:</strong> ${source || "Website"}</p>
