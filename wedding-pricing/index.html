@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Venue Pricing — Stone House Nevada City</title>
-<meta name="description" content="Wedding venue pricing and availability at Stone House in historic Nevada City, California. Ceremonies, receptions, and full venue buyouts.">
+<title>Wedding Pricing — Stone House Nevada City</title>
+<meta name="description" content="Wedding venue pricing, catering packages, and beverage options at Stone House — a historic 1857 venue in Nevada City, California.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -29,14 +29,9 @@ gtag('js',new Date());gtag('config','G-6H210CVEHL');
 
 <style>
 :root {
-  --s: #faf7f2;
-  --s2: #f0ebe3;
-  --s3: #e8e2d8;
-  --g: #9a7d42;
-  --gd: #7d6433;
-  --gl: #b8944e;
-  --c: #1a1714;
-  --m: #5a5347;
+  --s: #faf7f2; --s2: #f0ebe3; --s3: #e8e2d8;
+  --g: #9a7d42; --gd: #7d6433; --gl: #b8944e;
+  --c: #1a1714; --m: #5a5347;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Jost', -apple-system, sans-serif;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -44,289 +39,116 @@ gtag('js',new Date());gtag('config','G-6H210CVEHL');
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  background: var(--s);
-  color: var(--c);
-  font-family: var(--sans);
-  font-weight: 300;
-  line-height: 1.75;
-  min-height: 100vh;
+  background: var(--s); color: var(--c);
+  font-family: var(--sans); font-weight: 300;
+  line-height: 1.75; min-height: 100vh;
 }
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.04;
+  content: ""; position: fixed; inset: 0;
+  pointer-events: none; opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   z-index: 0;
 }
+.page-wrap { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 40px 22px 80px; }
 
-.page-wrap {
-  position: relative;
-  z-index: 1;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 40px 22px 80px;
-}
-
-/* Header */
-.lp-top {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 36px;
-  border-bottom: 1px solid rgba(154, 125, 66, 0.12);
-  margin-bottom: 48px;
-}
-.lp-brand {
-  font-family: var(--serif);
-  font-size: 13px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--c);
-  text-decoration: none;
-  transition: color 0.25s var(--ease);
-}
+/* Nav */
+.lp-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 36px; border-bottom: 1px solid rgba(154,125,66,0.12); margin-bottom: 48px; }
+.lp-brand { font-family: var(--serif); font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--c); text-decoration: none; transition: color 0.25s var(--ease); }
 .lp-brand:hover { color: var(--g); }
-.lp-brand span {
-  display: block;
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  color: var(--m);
-  margin-top: 6px;
-}
-.lp-back {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--m);
-  text-decoration: none;
-  transition: color 0.25s var(--ease);
-}
+.lp-brand span { display: block; font-size: 10px; letter-spacing: 0.22em; color: var(--m); margin-top: 6px; }
+.lp-back { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--m); text-decoration: none; transition: color 0.25s var(--ease); }
 .lp-back:hover { color: var(--g); }
 
 /* Hero */
-.hero {
-  text-align: center;
-  margin-bottom: 56px;
-}
-.hero .label {
-  display: inline-block;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--g);
-  margin-bottom: 16px;
-}
-.hero h1 {
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  color: var(--c);
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
-.hero p {
-  font-size: 15px;
-  color: var(--m);
-  max-width: 540px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
+.hero { text-align: center; margin-bottom: 56px; }
+.hero .label { display: inline-block; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--g); margin-bottom: 16px; }
+.hero h1 { font-family: var(--serif); font-weight: 300; font-size: clamp(2rem,5vw,2.8rem); color: var(--c); letter-spacing: 0.04em; line-height: 1.2; margin-bottom: 16px; }
+.hero p { font-size: 15px; color: var(--m); max-width: 560px; margin: 0 auto; line-height: 1.7; }
 
-/* Venue spaces */
-.spaces {
-  margin-bottom: 56px;
-}
-.spaces h2 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 8px;
-}
-.spaces .sub {
-  text-align: center;
-  font-size: 14px;
-  color: var(--m);
-  margin-bottom: 32px;
-}
-.space-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-}
-.space-card {
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(154, 125, 66, 0.10);
-  border-radius: 6px;
-  padding: 28px 24px;
-  text-align: center;
-}
-.space-card h3 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 1.15rem;
-  margin-bottom: 6px;
-}
-.space-card p {
-  font-size: 13px;
-  color: var(--m);
-  line-height: 1.5;
-}
+/* Section shared */
+.section { margin-bottom: 64px; }
+.section-title { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; text-align: center; margin-bottom: 8px; letter-spacing: 0.02em; }
+.section-sub { text-align: center; font-size: 14px; color: var(--m); margin-bottom: 32px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.6; }
 
-/* What's included */
-.included {
-  margin-bottom: 56px;
-}
-.included h2 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 28px;
-}
-.included-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-.included-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-.included-item .inc-icon {
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: rgba(154, 125, 66, 0.08);
-  color: var(--g);
-  margin-top: 2px;
-}
-.included-item .inc-icon svg {
-  width: 16px;
-  height: 16px;
-}
-.included-item .inc-text {
-  font-size: 14px;
-  color: var(--c);
-  line-height: 1.6;
-}
+/* Divider */
+.divider { border: none; border-top: 1px solid rgba(154,125,66,0.10); margin: 0 auto 64px; max-width: 200px; }
 
-/* CTA section */
-.cta-section {
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(154, 125, 66, 0.10);
-  border-radius: 6px;
-  padding: 48px 32px;
-  text-align: center;
-  margin-bottom: 32px;
-}
-.cta-section h2 {
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  margin-bottom: 12px;
-}
-.cta-section p {
-  font-size: 14px;
-  color: var(--m);
-  margin-bottom: 28px;
-  max-width: 420px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px;
-}
-.btn-primary {
-  display: inline-block;
-  padding: 16px 32px;
-  background: var(--g);
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background 0.3s var(--ease), transform 0.2s var(--ease);
-}
+/* Space cards */
+.space-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
+.space-card { background: rgba(255,255,255,0.55); border: 1px solid rgba(154,125,66,0.10); border-radius: 6px; padding: 28px 24px; }
+.space-card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.15rem; margin-bottom: 8px; color: var(--c); }
+.space-card p { font-size: 13px; color: var(--m); line-height: 1.6; }
+.space-card .capacity { display: inline-block; margin-top: 10px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--g); font-weight: 400; }
+
+/* Package box */
+.pkg-box { background: rgba(255,255,255,0.55); border: 1px solid rgba(154,125,66,0.10); border-radius: 6px; padding: 40px 32px; margin-bottom: 20px; }
+.pkg-box h3 { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; margin-bottom: 6px; }
+.pkg-box .pkg-price { font-family: var(--serif); font-size: 1.6rem; color: var(--g); font-weight: 300; margin-bottom: 4px; }
+.pkg-box .pkg-note { font-size: 12px; color: var(--m); margin-bottom: 20px; font-style: italic; }
+.pkg-box .pkg-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--g); font-weight: 400; margin-bottom: 12px; margin-top: 24px; }
+.pkg-box ul { list-style: none; padding: 0; }
+.pkg-box ul li { font-size: 14px; color: var(--c); line-height: 1.7; padding-left: 20px; position: relative; }
+.pkg-box ul li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--gl); opacity: 0.6; }
+
+/* Catering cards */
+.catering-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.catering-card { background: rgba(255,255,255,0.55); border: 1px solid rgba(154,125,66,0.10); border-radius: 6px; padding: 36px 32px; }
+.catering-card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; margin-bottom: 4px; }
+.catering-card .pkg-price { font-family: var(--serif); font-size: 1.1rem; color: var(--g); font-weight: 300; margin-bottom: 4px; line-height: 1.5; }
+.catering-card .pkg-note { font-size: 12px; color: var(--m); margin-bottom: 20px; font-style: italic; }
+.catering-card .pkg-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--g); font-weight: 400; margin-bottom: 10px; margin-top: 20px; }
+.catering-card ul { list-style: none; padding: 0; }
+.catering-card ul li { font-size: 14px; color: var(--c); line-height: 1.7; padding-left: 20px; position: relative; }
+.catering-card ul li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--gl); opacity: 0.6; }
+.catering-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+/* Beverage tier grid */
+.bev-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 16px; }
+.bev-card { background: rgba(255,255,255,0.55); border: 1px solid rgba(154,125,66,0.10); border-radius: 6px; padding: 28px 24px; text-align: center; }
+.bev-card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.15rem; margin-bottom: 8px; }
+.bev-card .pkg-price { font-family: var(--serif); font-size: 1.2rem; color: var(--g); font-weight: 300; margin-bottom: 12px; }
+.bev-card p { font-size: 13px; color: var(--m); line-height: 1.6; }
+
+/* Hors d'oeuvres columns */
+.hors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px 32px; }
+.hors-grid li { font-size: 14px; color: var(--c); line-height: 1.8; padding-left: 20px; position: relative; list-style: none; }
+.hors-grid li::before { content: ""; position: absolute; left: 0; top: 12px; width: 5px; height: 5px; border-radius: 50%; background: var(--gl); opacity: 0.5; }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid rgba(154,125,66,0.08); padding: 20px 0; }
+.faq-item:first-child { border-top: 1px solid rgba(154,125,66,0.08); }
+.faq-item h3 { font-family: var(--serif); font-weight: 400; font-size: 1.1rem; margin-bottom: 8px; color: var(--c); }
+.faq-item p { font-size: 14px; color: var(--m); line-height: 1.7; }
+
+/* CTA */
+.cta-section { background: rgba(255,255,255,0.55); border: 1px solid rgba(154,125,66,0.10); border-radius: 6px; padding: 48px 32px; text-align: center; margin-bottom: 32px; }
+.cta-section h2 { font-family: var(--serif); font-weight: 300; font-size: clamp(1.5rem,4vw,2rem); margin-bottom: 12px; }
+.cta-section p { font-size: 14px; color: var(--m); margin-bottom: 28px; max-width: 440px; margin-left: auto; margin-right: auto; }
+.cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.btn-primary { display: inline-block; padding: 16px 32px; background: var(--g); color: #fff; border: none; border-radius: 4px; font-family: var(--sans); font-size: 12px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; transition: background 0.3s var(--ease); }
 .btn-primary:hover { background: var(--gd); }
-.btn-secondary {
-  display: inline-block;
-  padding: 16px 32px;
-  background: transparent;
-  color: var(--g);
-  border: 1px solid var(--g);
-  border-radius: 4px;
-  font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background 0.3s var(--ease), color 0.3s var(--ease);
-}
-.btn-secondary:hover {
-  background: var(--g);
-  color: #fff;
-}
+.btn-secondary { display: inline-block; padding: 16px 32px; background: transparent; color: var(--g); border: 1px solid var(--g); border-radius: 4px; font-family: var(--sans); font-size: 12px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; transition: background 0.3s var(--ease), color 0.3s var(--ease); }
+.btn-secondary:hover { background: var(--g); color: #fff; }
 
-/* Other event types */
-.other-events {
-  text-align: center;
-  margin-bottom: 32px;
-}
-.other-events p {
-  font-size: 13px;
-  color: var(--m);
-  margin-bottom: 12px;
-}
-.other-events a {
-  color: var(--g);
-  text-decoration: none;
-  font-size: 13px;
-  margin: 0 10px;
-  transition: color 0.25s var(--ease);
-}
+/* Other events */
+.other-events { text-align: center; margin-bottom: 32px; }
+.other-events p { font-size: 13px; color: var(--m); margin-bottom: 12px; }
+.other-events a { color: var(--g); text-decoration: none; font-size: 13px; margin: 0 10px; transition: color 0.25s var(--ease); }
 .other-events a:hover { color: var(--gd); }
 
 /* Footer */
-.lp-footer {
-  margin-top: 64px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(154, 125, 66, 0.08);
-  text-align: center;
-  font-size: 12px;
-  color: var(--m);
-  line-height: 1.8;
-}
-.lp-footer a {
-  color: var(--m);
-  text-decoration: none;
-  transition: color 0.25s var(--ease);
-}
+.lp-footer { margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(154,125,66,0.08); text-align: center; font-size: 12px; color: var(--m); line-height: 1.8; }
+.lp-footer a { color: var(--m); text-decoration: none; transition: color 0.25s var(--ease); }
 .lp-footer a:hover { color: var(--g); }
 
 @media (max-width: 640px) {
   .page-wrap { padding: 28px 18px 60px; }
+  .catering-cols { grid-template-columns: 1fr; }
   .cta-section { padding: 36px 20px; }
   .cta-row { flex-direction: column; align-items: stretch; }
   .btn-primary, .btn-secondary { text-align: center; }
+  .pkg-box { padding: 28px 20px; }
+  .catering-card { padding: 28px 20px; }
 }
 </style>
 </head>
@@ -340,70 +162,297 @@ body::before {
   </nav>
 
   <div class="hero">
-    <div class="label">Weddings</div>
-    <h1>Your Wedding at Stone House</h1>
-    <p>A one-of-a-kind venue in historic Nevada City, California — with multiple distinct spaces for ceremonies, receptions, and everything in between.</p>
+    <div class="label">Wedding Pricing</div>
+    <h1>Wedding Pricing Pamphlet</h1>
+    <p>Within a beautifully restored 1857 historic building, Stone House blends timeless charm with a modern event venue and elevated hospitality. Our catering is crafted with the highest quality ingredients and always seed oil free.</p>
   </div>
 
-  <div class="spaces">
-    <h2>Venue Spaces</h2>
-    <p class="sub">Multiple rooms and atmospheres under one roof.</p>
+  <!-- ═══════════ VENUE SPACES ═══════════ -->
+  <div class="section">
+    <h2 class="section-title">Our Spaces</h2>
+    <p class="section-sub">Six distinct spaces with four rooms, all under one roof.</p>
     <div class="space-grid">
       <div class="space-card">
         <h3>The Showroom</h3>
-        <p>Grand main space for ceremonies and receptions with soaring ceilings and a built-in stage.</p>
+        <p>Featuring a state-of-the-art sound and lighting system and wooden dance floor, there is no better place in the Sierra Foothills to dance the night away.</p>
+        <span class="capacity">Up to 300 cocktails &middot; 50 seated dinner</span>
       </div>
       <div class="space-card">
-        <h3>The Parlor</h3>
-        <p>Intimate lounge setting for cocktail hours, welcome drinks, or a cozy after-party.</p>
+        <h3>The Parlour</h3>
+        <p>A mesmerizing bar and exquisite cocktails await you in a casual and riveting space downstairs. Cocktail service or connect to the Showroom for a larger event.</p>
+        <span class="capacity">Up to 100 &middot; 200 combined w/ Showroom</span>
       </div>
       <div class="space-card">
-        <h3>The Penthouse</h3>
-        <p>Elevated private space for bridal suites, VIP areas, or smaller gatherings.</p>
+        <h3>The Lounge</h3>
+        <p>The finest craft cocktails, plush leather seating, and gorgeous wood tables. This majestic room will leave your guests in awe.</p>
+        <span class="capacity">Up to 50 &middot; 150 combined w/ Great Hall</span>
+      </div>
+      <div class="space-card">
+        <h3>The Great Hall</h3>
+        <p>Stone walls, timber beams and elegant lighting set the backdrop for your group's formal dining experience at rustic wooden tables.</p>
+        <span class="capacity">Up to 100 seated guests</span>
+      </div>
+      <div class="space-card">
+        <h3>The Courtyard</h3>
+        <p>Perfect for an outdoor ceremony and al fresco dining. Framed by romantic stone walls, an intimate wine cavern, and a picturesque brick stairway against the backdrop of Nevada City's nature.</p>
+        <span class="capacity">130 ceremony &middot; 100 seated dinner</span>
       </div>
       <div class="space-card">
         <h3>The Cavern</h3>
-        <p>Underground stone-walled space with an atmosphere unlike anything else in Gold Country.</p>
+        <p>Built in the late 1800s as a brewery, make it your wedding hideaway, invite guests for wine and whiskey tastings, or host a small dinner.</p>
+        <span class="capacity">Up to 30 guests</span>
       </div>
     </div>
   </div>
 
-  <div class="included">
-    <h2>What's Included</h2>
-    <div class="included-grid">
-      <div class="included-item">
-        <div class="inc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="inc-text">Exclusive full-venue access for your event</div>
-      </div>
-      <div class="included-item">
-        <div class="inc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="inc-text">Multiple distinct rooms and atmospheres</div>
-      </div>
-      <div class="included-item">
-        <div class="inc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="inc-text">Built-in sound system and stage</div>
-      </div>
-      <div class="included-item">
-        <div class="inc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="inc-text">Historic downtown Nevada City location</div>
-      </div>
-      <div class="included-item">
-        <div class="inc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="inc-text">Flexible floor plans and layout options</div>
-      </div>
-      <div class="included-item">
-        <div class="inc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="inc-text">Coordination with your preferred vendors</div>
-      </div>
+  <hr class="divider">
+
+  <!-- ═══════════ THE SUITE ═══════════ -->
+  <div class="section">
+    <h2 class="section-title">The Penthouse Suite</h2>
+    <p class="section-sub">Our 3-bedroom penthouse suite is the perfect place to accommodate your daytime relaxation and overnight stay. Equipped with a steam shower, copper tub, and kitchen for your every need.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════ ALL-INCLUSIVE VENUE PACKAGE ═══════════ -->
+  <div class="section">
+    <h2 class="section-title">All-Inclusive Venue Package</h2>
+    <p class="section-sub">Everything you need for your wedding day, all in one place.</p>
+
+    <div class="pkg-box">
+      <h3>Venue Rental</h3>
+      <div class="pkg-price">$6,000++</div>
+      <div class="pkg-note">Pricing is before tax and service fee</div>
+
+      <div class="pkg-label">What's Included</div>
+      <ul>
+        <li>Full access to the venue for 12 hours (11 AM to 11 PM)</li>
+        <li>6 spaces with 4 rooms</li>
+        <li>Penthouse bridal suite</li>
+        <li>Tables and chairs</li>
+        <li>China, stemware, and silverware for up to 200 guests</li>
+        <li>Cake cutting service</li>
+        <li>Screen and microphone</li>
+      </ul>
+
+      <div class="pkg-label" style="margin-top: 28px;">Overnight Bridal Suite</div>
+      <div class="pkg-price" style="font-size: 1.2rem;">$1,000++</div>
+      <div class="pkg-note">Pricing is before tax and service fee</div>
     </div>
   </div>
 
+  <hr class="divider">
+
+  <!-- ═══════════ CATERING PACKAGES ═══════════ -->
+  <div class="section">
+    <h2 class="section-title">Catering Packages</h2>
+    <p class="section-sub">Stone House offers customizable wedding menus with organic and culturally inspired cuisine, featuring plated or buffet options, fine wines, and curated hors d'oeuvres.</p>
+
+    <div class="catering-grid">
+
+      <!-- Prospector -->
+      <div class="catering-card">
+        <h3>Prospector</h3>
+        <div class="pkg-price">$69++ per guest &middot; Buffet&ensp;|&ensp;$79++ per guest &middot; Plated</div>
+        <div class="pkg-note">Pricing is before tax and service fee</div>
+
+        <div class="catering-cols">
+          <div>
+            <div class="pkg-label">Food &amp; Beverage</div>
+            <ul>
+              <li>Cocktail hour hors d'oeuvres: choice of 2</li>
+              <li>Buffet or plated meal</li>
+              <li>Rolls &amp; butter</li>
+              <li>Salad</li>
+              <li>Selection of 2 entr&eacute;es, chef's choice vegetarian/vegan entr&eacute;e</li>
+              <li>Beverage station: coffee, hot tea, iced tea, lemonade</li>
+              <li>House champagne &amp; sparkling cider for the toasts</li>
+            </ul>
+          </div>
+          <div>
+            <div class="pkg-label">Entr&eacute;e Selections</div>
+            <ul>
+              <li>Lemon Chicken Piccata</li>
+              <li>Center Cut Sirloin with Demi Glaze</li>
+              <li>Herb Roasted Chicken</li>
+              <li>Herb Crusted Tilapia</li>
+              <li>Braised Beef Short Rib</li>
+              <li>Roasted Salmon with Dill Cream Sauce</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brewmaster -->
+      <div class="catering-card">
+        <h3>Brewmaster</h3>
+        <div class="pkg-price">$79++ per guest &middot; Buffet&ensp;|&ensp;$89++ per guest &middot; Plated</div>
+        <div class="pkg-note">Pricing is before tax and service fee</div>
+
+        <div class="catering-cols">
+          <div>
+            <div class="pkg-label">Food &amp; Beverage</div>
+            <ul>
+              <li>Cocktail hour hors d'oeuvres: choice of 3</li>
+              <li>Buffet or plated meal</li>
+              <li>Rolls &amp; butter</li>
+              <li>Salad</li>
+              <li>Selection of 2 entr&eacute;es, chef's choice vegetarian/vegan entr&eacute;e</li>
+              <li>Beverage station: coffee, hot tea, iced tea, lemonade</li>
+              <li>House champagne &amp; sparkling cider for the toasts</li>
+            </ul>
+          </div>
+          <div>
+            <div class="pkg-label">Entr&eacute;e Selections</div>
+            <ul>
+              <li>Brown Ale Steak Medallions</li>
+              <li>Whiskey Steak with Fried Onions</li>
+              <li>Champagne Chicken</li>
+              <li>Riesling Chicken</li>
+              <li>Tri Tip with Zinfandel Sauce</li>
+              <li>Chicken Madeira</li>
+              <li>Mahi Mahi with Rum Mango-Pineapple Salsa</li>
+              <li>Sea Bass with Lemon Chive Beurre Blanc</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mother Lode -->
+      <div class="catering-card">
+        <h3>Mother Lode</h3>
+        <div class="pkg-price">$89++ per guest &middot; Buffet&ensp;|&ensp;$99++ per guest &middot; Plated</div>
+        <div class="pkg-note">Pricing is before tax and service fee</div>
+
+        <div class="catering-cols">
+          <div>
+            <div class="pkg-label">Food &amp; Beverage</div>
+            <ul>
+              <li>Cocktail hour hors d'oeuvres: choice of 4</li>
+              <li>Buffet or plated meal</li>
+              <li>Rolls &amp; butter</li>
+              <li>Salad</li>
+              <li>Selection of 2 entr&eacute;es, chef's choice vegetarian/vegan entr&eacute;e</li>
+              <li>Beverage station: coffee, hot tea, iced tea, lemonade</li>
+              <li>House champagne &amp; sparkling cider for the toasts</li>
+            </ul>
+          </div>
+          <div>
+            <div class="pkg-label">Entr&eacute;e Selections</div>
+            <ul>
+              <li>New York Steak (Roasted or Carved)</li>
+              <li>Prime Rib (Roasted or Carved)</li>
+              <li>Stuffed Chicken Cordon Bleu with Creamy Chardonnay Sauce</li>
+              <li>Plus any entr&eacute;es from the Prospector or Brewmaster menus</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════ HORS D'OEUVRES ═══════════ -->
+  <div class="section">
+    <h2 class="section-title">Hors d'Oeuvres</h2>
+    <p class="section-sub">Available for all catering packages. Select from our curated list based on your package tier.</p>
+
+    <div class="pkg-box">
+      <ul class="hors-grid">
+        <li>Caprese Kabob</li>
+        <li>Chicken Satay</li>
+        <li>Stuffed Mushrooms</li>
+        <li>Spanakopita</li>
+        <li>Seasonal Crostini</li>
+        <li>Bruschetta</li>
+        <li>BBQ or Swedish Meatballs</li>
+        <li>Vegetable Spring Rolls</li>
+        <li>Potstickers</li>
+        <li>Potato Cr&ecirc;pe</li>
+        <li>Cheese Quesadilla</li>
+        <li>Ahi Tuna on Wonton Crisp</li>
+        <li>Garden Vegetable Crudit&eacute;</li>
+        <li>Mango Fruit Salsa</li>
+        <li>Domestic Cheeses, Crackers &amp; Fruit Display</li>
+        <li>Coconut Shrimp</li>
+        <li>Poached Prawns with Cocktail Sauce</li>
+        <li>Artisan Cheese Display</li>
+        <li>Cured Meats &amp; Antipasto</li>
+        <li>Salmon</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════ BEVERAGE PACKAGES ═══════════ -->
+  <div class="section">
+    <h2 class="section-title">Beverage Packages</h2>
+    <p class="section-sub">All beverage packages include three hours of open bar service. Additional hours available upon request.</p>
+
+    <div class="bev-grid">
+      <div class="bev-card">
+        <h3>Beer &amp; Wine</h3>
+        <div class="pkg-price">$40++ per guest</div>
+        <p>Three hours of open bar featuring a curated selection of domestic and imported beers and house wines. Includes soft drinks, sparkling water, juices, and other non-alcoholic beverages.</p>
+      </div>
+      <div class="bev-card">
+        <h3>Premium Bar</h3>
+        <div class="pkg-price">$50++ per guest</div>
+        <p>Three hours of open bar with premium-label spirits, craft beers, and curated wines. Includes soft drinks, sparkling water, juices, and other non-alcoholic beverages.</p>
+      </div>
+      <div class="bev-card">
+        <h3>Top Shelf</h3>
+        <div class="pkg-price">$60++ per guest</div>
+        <p>Three hours of open bar with top-shelf spirits, craft beers, and fine wines. Includes two custom premium cocktails designed with our bar team, plus soft drinks, sparkling water, juices, and other non-alcoholic beverages.</p>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:12px; color:var(--m); font-style:italic; margin-top:16px;">Pricing is before tax and service fee</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════ FAQ ═══════════ -->
+  <div class="section">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-sub"></p>
+
+    <div class="faq-item">
+      <h3>What is required to secure your date?</h3>
+      <p>We require a 50% deposit in order to secure your date.</p>
+    </div>
+    <div class="faq-item">
+      <h3>If it's an outdoor ceremony, what's the plan B if it rains?</h3>
+      <p>If it rains, we will move the ceremony to the Showroom as the backup indoor location.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are you pet-friendly?</h3>
+      <p>Yes, we are pet-friendly.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How close are you to hotels and local entertainment?</h3>
+      <p>We are one block from The National Exchange Hotel.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What is the timing of a typical wedding day?</h3>
+      <p>A typical wedding day runs from 11:00 AM to 11:00 PM.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to hire a wedding planner?</h3>
+      <p>Yes, a wedding planner is required. You may also hire one of our wedding coordinators.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════ CTA ═══════════ -->
   <div class="cta-section">
-    <h2>Ready to See the Space?</h2>
-    <p>Schedule a walkthrough or check availability for your date. We'd love to show you what's possible.</p>
+    <h2>Ready to Plan Your Wedding?</h2>
+    <p>Tell us about your vision and we'll help you find the right spaces, date, and packages for your celebration.</p>
     <div class="cta-row">
-      <a href="mailto:bookings@stonehouse.io?subject=Wedding%20Walkthrough%20Request" class="btn-primary">Schedule a Walkthrough</a>
-      <a href="mailto:bookings@stonehouse.io?subject=Wedding%20Date%20Availability" class="btn-secondary">Check Availability</a>
+      <a href="mailto:bookings@stonehouse.io?subject=Wedding%20Inquiry" class="btn-primary">Request Information</a>
+      <a href="mailto:bookings@stonehouse.io?subject=Wedding%20Walkthrough" class="btn-secondary">Schedule a Walkthrough</a>
     </div>
   </div>
 
@@ -414,8 +463,8 @@ body::before {
   </div>
 
   <footer class="lp-footer">
-    <p>Stone House &middot; 107 Sacramento St, Nevada City, CA 95959 &middot; <a href="tel:+15302655050">(530) 265-5050</a></p>
-    <p><a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a> &middot; <a href="/privacy-policy">Privacy</a> &middot; <a href="/terms">Terms</a></p>
+    <p>Stone House &middot; 107 Sacramento St, Nevada City, CA 95959 &middot; <a href="tel:+15304536534">(530) 453-6534</a></p>
+    <p><a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a> &middot; <a href="https://www.instagram.com/stonehousenevadacity" target="_blank" rel="noopener">@stonehousenevadacity</a> &middot; <a href="/privacy-policy">Privacy</a> &middot; <a href="/terms">Terms</a></p>
   </footer>
 
 </div>
