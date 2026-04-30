@@ -2680,7 +2680,7 @@ footer {
     min-height: 100svh;
   }
   [data-sh-key="photo-courtyard"] {
-    object-position: center 55%;
+    object-position: center 70%;
   }
   .dc-row {
     grid-template-columns: 1fr;
