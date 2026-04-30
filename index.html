@@ -63,6 +63,7 @@
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-logo">
+    <img src="assets/stone-house-logo.png" alt="Stone House" class="nav-logo-img">
     <span class="nav-wm">STONE HOUSE</span>
     <div class="nav-div"></div>
     <span class="nav-est">Est. 1857</span>
@@ -218,7 +219,7 @@
       </div>
     </div>
     <div class="space-card reveal d5" onclick="openLightboxKey('photo-showroom','The Showroom — up to 60 guests')">
-      <img data-sh-key="photo-showroom" src="assets/images/showroom.jpg" alt="The Showroom">
+      <img data-sh-key="photo-showroom" src="https://lh3.googleusercontent.com/d/12o_SfZnkpIpk-pcfMU-Fjxx9Y4ZxGFnV=w2048" alt="The Showroom">
       <div class="space-ov"></div>
       <div class="space-expand">⤢</div>
       <div class="space-info">
@@ -229,7 +230,7 @@
       </div>
     </div>
     <div class="space-card reveal d6" onclick="openLightboxKey('photo-parlor','The Parlor — up to 30 guests')">
-      <img data-sh-key="photo-parlor" src="assets/images/parlor.jpg" alt="The Parlor">
+      <img data-sh-key="photo-parlor" src="https://lh3.googleusercontent.com/d/1HqPsTNCMnn03mxCsrusXOgTO6zwDHubC=w2048" alt="The Parlor">
       <div class="space-ov"></div>
       <div class="space-expand">⤢</div>
       <div class="space-info">
@@ -264,7 +265,7 @@
           </div>
         </div>
         <div>
-          <input class="dc-input" type="date" id="dc-date">
+          <input class="dc-input" type="text" placeholder="Preferred date" id="dc-date" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
           <p class="form-error" id="err-date">Please select a date</p>
         </div>
         <select class="dc-select">
@@ -836,5 +837,17 @@
 <a href="#date-check" id="float-cta">Check Your Date</a>
 
 <script src="app.js"></script>
+<script>
+(function(){
+  var fc = document.getElementById("float-cta");
+  var hero = document.getElementById("hero");
+  if (!fc || !hero) return;
+  window.addEventListener("scroll", function() {
+    var bottom = hero.getBoundingClientRect().bottom;
+    if (bottom < 0) { fc.classList.add("visible"); }
+    else { fc.classList.remove("visible"); }
+  }, {passive:true});
+})();
+</script>
 </body>
 </html>

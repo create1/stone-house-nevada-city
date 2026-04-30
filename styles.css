@@ -2590,6 +2590,13 @@ footer {
   }
   #float-cta {
     display: block;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  #float-cta.visible {
+    opacity: 1;
+    pointer-events: auto;
   }
   .trust-sep {
     display: none;
