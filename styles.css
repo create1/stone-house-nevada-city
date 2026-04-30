@@ -2675,6 +2675,20 @@ footer {
   #hero {
     min-height: 100svh;
   }
+  .dc-row {
+    grid-template-columns: 1fr;
+  }
+  .dc-input, .dc-select {
+    font-size: 15px;
+    padding: 15px 16px;
+  }
+  .dc-form {
+    gap: 12px;
+  }
+  .dc-btn {
+    padding: 16px;
+    font-size: 12px;
+  }
   .btn-gold, #hero .btn-ghost {
     width: 100%;
     text-align: center;
