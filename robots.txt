@@ -3,4 +3,4 @@ Allow: /
 Disallow: /studio/
 Disallow: /api/
 
-Sitemap: https://stonehouse.io/sitemap.xml
+Sitemap: https://www.stonehouse.io/sitemap.xml
