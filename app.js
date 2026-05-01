@@ -338,15 +338,26 @@ const pkgData = {
     },
   ],
 };
+// Price-unit label per pricing type (weddings = per-guest; corporate/private = flat package)
+const pkgFromLabel = {
+  weddings: 'Per guest',
+  corporate: 'Package',
+  private: 'Package',
+};
 function togglePkg(type, btn) {
   document.querySelectorAll('.pkg-toggle-btn').forEach((b) => b.classList.remove('active'));
   btn.classList.add('active');
   const d = pkgData[type];
+  const fromLabel = pkgFromLabel[type] || 'Per guest';
   [1, 2, 3].forEach((i, idx) => {
     document.getElementById(`p${i}-n`).textContent = d[idx].n;
     document.getElementById(`p${i}-note`).textContent = d[idx].note;
     const ul = document.getElementById(`p${i}-items`);
     ul.innerHTML = d[idx].items.map((it) => `<li>${it}</li>`).join('');
+  });
+  // Update the "Per guest"/"Package" label on each card to match the active type
+  document.querySelectorAll('#pricing-grid .price-from').forEach((el) => {
+    el.textContent = fromLabel;
   });
 }
 
