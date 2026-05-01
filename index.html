@@ -25,6 +25,31 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<!-- Analytics: Stone House -->
+<!-- Hitched Domain Verification -->
+<meta name="facebook-domain-verification" content="EAAJ7VBVZAd3cBRcU2j4MiK5XaCEUBriEnu5A4xa3mbvcOUuO1cxDVmjEZCwTTMkZBiEbZAYtWxZC7Ev4Tf8EwNL8xZBuo1ExmZAX8fHqwqN46Mab5jAyRmLSD6rG6eQ4SeqnF98lTbpRxF4jbYL0kR5FiYwBFtItZB8p0D4tDN4acfyODCgWGbD3ZBo2d4mQL9wZDZD" />
+<!-- Meta Pixel (Stone House: 314527259200604, Hitched: 990574910164214) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','314527259200604');
+fbq('init','990574910164214');
+fbq('track','PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=314527259200604&ev=PageView&noscript=1"/>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=990574910164214&ev=PageView&noscript=1"/>
+</noscript>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6H210CVEHL"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-6H210CVEHL');
+</script>
+<!-- /Analytics -->
 </head>
 <body>
 
@@ -87,12 +112,13 @@
   </div>
   <div class="nav-links">
     <a href="#spaces" class="nav-link">Spaces</a>
-    <a href="#weddings" class="nav-link">Weddings</a>
+    <a href="/wedding-pricing" class="nav-link">Wedding Pricing</a>
     <a href="#catering" class="nav-link">Catering</a>
     <a href="#rw" class="nav-link">Gallery</a>
     <a href="#pricing" class="nav-link">Pricing</a>
     <a href="#resources" class="nav-link">Library</a>
     <a href="#faq" class="nav-link">FAQ</a>
+    <a href="/contact" class="nav-link">Contact</a>
     <a href="#date-check" class="nav-cta">Check Availability</a>
   </div>
   <button class="mob-btn" onclick="toggleMob()" id="mob-btn" aria-label="Menu">
@@ -103,12 +129,13 @@
 <!-- MOBILE NAV -->
 <div id="mob-nav">
   <a href="#spaces" class="mob-link" onclick="toggleMob()">Spaces</a>
-  <a href="#weddings" class="mob-link" onclick="toggleMob()">Weddings</a>
+  <a href="/wedding-pricing" class="mob-link" onclick="toggleMob()">Wedding Pricing</a>
   <a href="#catering" class="mob-link" onclick="toggleMob()">Catering</a>
   <a href="#rw" class="mob-link" onclick="toggleMob()">Gallery</a>
   <a href="#pricing" class="mob-link" onclick="toggleMob()">Pricing</a>
   <a href="#resources" class="mob-link" onclick="toggleMob()">Library</a>
   <a href="#faq" class="mob-link" onclick="toggleMob()">FAQ</a>
+  <a href="/contact" class="mob-link" onclick="toggleMob()">Contact</a>
   <a href="#date-check" class="mob-cta-btn" onclick="toggleMob()">Check Availability</a>
 </div>
 
@@ -350,10 +377,10 @@
       <div class="wed-item"><span class="wed-dash">—</span><span>Ceremony & reception under one roof</span></div>
     </div>
     <div class="wed-btns reveal d4">
-      <a href="#date-check" class="btn-gold">Check 2026 & 2027 Availability</a>
+      <a href="/wedding-pricing" class="btn-gold">Download Wedding Pricing Pamphlet</a>
       <a href="#rw" class="btn-ghost">See Real Weddings</a>
     </div>
-    <p class="reveal d4 wed-collateral">Planning packet: <a href="assets/stone-house-wedding-guide-spring-2026.pdf" class="body-link" target="_blank" rel="noopener">Wedding guide — Spring 2026 (PDF) →</a></p>
+    <p class="reveal d4 wed-collateral">Get pricing &amp; details: <a href="/wedding-pricing" class="body-link">Download our Wedding Pricing Pamphlet →</a></p>
   </div>
 </section>
 
@@ -362,57 +389,56 @@
   <div class="pricing-hd">
     <p class="sl reveal" style="justify-content:center;margin-bottom:14px">Investment</p>
     <h2 class="dh reveal d1" style="font-size:clamp(34px,4vw,58px);text-align:center">Transparent pricing.<br><em class="di">No surprises.</em></h2>
-    <p class="pricing-intro reveal d2" style="font-size:13px;font-weight:300;color:var(--m);max-width:480px;margin:12px auto 0;line-height:1.8;text-align:center">Wedding <strong style="color:var(--c);font-weight:500">reception packages</strong> are priced per guest (buffet or plated). Venue hire, bar, and tax are quoted separately for your date — see our <a href="assets/StoneHouse_Wedding_FAQ.pdf" target="_blank" rel="noopener" style="color:var(--g);border-bottom:1px solid rgba(201,167,107,.35);text-decoration:none">FAQ (PDF)</a> and <a href="assets/stone-house-wedding-guide-spring-2026.pdf" target="_blank" rel="noopener" style="color:var(--g);border-bottom:1px solid rgba(201,167,107,.35);text-decoration:none">wedding guide (Spring 2026)</a>.</p>
+    <p class="pricing-intro reveal d2" style="font-size:13px;font-weight:300;color:var(--m);max-width:480px;margin:12px auto 0;line-height:1.8;text-align:center">Corporate &amp; Private event packages start below — venue hire, bar, and tax are quoted separately for your date. Looking for wedding pricing? <a href="/wedding-pricing" style="color:var(--g);border-bottom:1px solid rgba(201,167,107,.35);text-decoration:none">Download our Wedding Pricing Pamphlet →</a></p>
   </div>
   <div class="pkg-toggle reveal d2">
-    <button class="pkg-toggle-btn active" onclick="togglePkg('weddings',this)">Weddings</button>
-    <button class="pkg-toggle-btn" onclick="togglePkg('corporate',this)">Corporate</button>
+    <button class="pkg-toggle-btn active" onclick="togglePkg('corporate',this)">Corporate</button>
     <button class="pkg-toggle-btn" onclick="togglePkg('private',this)">Private Events</button>
   </div>
   <div class="pricing-grid" id="pricing-grid">
     <div class="price-card reveal d1">
-      <div class="price-tier">Reception</div>
+      <div class="price-tier">Corporate</div>
       <div class="price-name">Prospector</div>
-      <div class="price-from">Per guest</div>
-      <div class="price-n" id="p1-n">$69 – $79</div>
-      <div class="price-note" id="p1-note">buffet · plated</div>
+      <div class="price-from">Package</div>
+      <div class="price-n" id="p1-n">$3,500</div>
+      <div class="price-note" id="p1-note">up to 40 guests</div>
       <ul class="price-items" id="p1-items">
-        <li>Cocktail hour: choice of two hors d'oeuvres (classic selection)</li>
-        <li>Salad, rolls &amp; butter, two entrées + chef's veg/vegan entrée</li>
-        <li>Beverage station, toast champagne &amp; sparkling cider</li>
-        <li>Linens, china, stemware, silverware · cake cutting · screen &amp; mic</li>
-        <li>Entrées include lemon chicken piccata, sirloin, herb chicken, tilapia, short rib, salmon</li>
+        <li>Single space</li>
+        <li>4-hour rental</li>
+        <li>AV equipment included</li>
+        <li>Catering available add-on</li>
+        <li>Breakout space available</li>
       </ul>
       <a href="#date-check" class="price-cta">Check This Date</a>
     </div>
     <div class="price-card feat reveal d2">
       <div class="price-badge">Most Popular</div>
-      <div class="price-tier">Reception</div>
+      <div class="price-tier">Corporate</div>
       <div class="price-name">Brewmaster</div>
-      <div class="price-from">Per guest</div>
-      <div class="price-n" id="p2-n">$79 – $89</div>
-      <div class="price-note" id="p2-note">buffet · plated</div>
+      <div class="price-from">Package</div>
+      <div class="price-n" id="p2-n">$7,500</div>
+      <div class="price-note" id="p2-note">up to 100 guests</div>
       <ul class="price-items" id="p2-items">
-        <li>Cocktail hour: choice of three hors d'oeuvres (classic + premium selections)</li>
-        <li>Same reception meal structure as Prospector</li>
-        <li>Expanded entrée list — brown ale steak, whiskey steak, champagne &amp; riesling chicken, tri tip, chicken madeira, mahi mahi, sea bass, and more</li>
-        <li>Premium hors d'oeuvres — e.g. coconut shrimp, prawns, artisan cheese, antipasto, salmon</li>
-        <li>Linens, china, stemware, silverware · cake cutting · screen &amp; mic</li>
+        <li>Two spaces</li>
+        <li>6-hour rental</li>
+        <li>AV equipment included</li>
+        <li>Catering available add-on</li>
+        <li>Multiple breakout spaces</li>
       </ul>
       <a href="#date-check" class="price-cta">Check This Date</a>
     </div>
     <div class="price-card reveal d3">
-      <div class="price-tier">Reception</div>
+      <div class="price-tier">Corporate</div>
       <div class="price-name">Mother Lode</div>
-      <div class="price-from">Per guest</div>
-      <div class="price-n" id="p3-n">$89 – $99</div>
-      <div class="price-note" id="p3-note">buffet · plated</div>
+      <div class="price-from">Package</div>
+      <div class="price-n" id="p3-n">$14,000</div>
+      <div class="price-note" id="p3-note">full venue buyout</div>
       <ul class="price-items" id="p3-items">
-        <li>Cocktail hour: choice of four hors d'oeuvres (classic + premium)</li>
-        <li>Premium entrées: New York steak, prime rib, stuffed chicken cordon bleu (roasted or carved options)</li>
-        <li>Or select any entrées from Prospector or Brewmaster menus</li>
-        <li>All Brewmaster premium hors d'oeuvres available</li>
-        <li>Linens, china, stemware, silverware · cake cutting · screen &amp; mic</li>
+        <li>All event spaces</li>
+        <li>Full-day rental</li>
+        <li>AV equipment included</li>
+        <li>Catering available add-on</li>
+        <li>Dedicated event coordinator</li>
       </ul>
       <a href="#date-check" class="price-cta">Check This Date</a>
     </div>
@@ -564,7 +590,7 @@
     <p class="sl reveal" style="margin-bottom:14px">Planning Library</p>
     <h2 class="dh reveal d1" style="font-size:clamp(32px,4vw,52px);max-width:520px">A home for every<br><em class="di">piece of content</em></h2>
     <p class="resources-lead reveal d2">Everything you need to plan your event — guides, floor plans, menus, and more. <strong style="color:var(--c);font-weight:500">Live</strong> resources are ready now; <strong style="color:var(--m)">Coming soon</strong> items are in production; <strong style="color:var(--m)">Coordinator</strong> materials are shared during your booking process.</p>
-    <p class="reveal d2" style="margin-top:12px"><a href="assets/stonehouse_content_inventory_v2.html" class="body-link" target="_blank" rel="noopener">Full strategy deck (inventory UI) →</a> · <a href="assets/stone-house-wedding-guide-spring-2026.pdf" class="body-link" target="_blank" rel="noopener">Wedding guide (PDF) →</a> · <a href="https://stonehouse-wedding-cart.vercel.app" class="body-link" target="_blank" rel="noopener">Package Builder →</a></p>
+    <p class="reveal d2" style="margin-top:12px"><a href="assets/stonehouse_content_inventory_v2.html" class="body-link" target="_blank" rel="noopener">Full strategy deck (inventory UI) →</a> · <a href="assets/stone-house-wedding-guide-spring-2026.pdf" class="body-link" target="_blank" rel="noopener">Wedding guide (PDF) →</a></p>
     <div class="res-cat reveal d3">
       <h3 class="res-cat-title"><span class="res-cat-dot" aria-hidden="true"></span>Spaces &amp; Venue</h3>
       <ul class="res-list">
@@ -652,7 +678,7 @@
       <h3 class="faq-cat">Venue hire &amp; pricing</h3>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How is venue hire priced?</span><div class="faq-icon"></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Pricing depends on day of week, spaces selected, and season. We use three seasons: <strong>Off-Peak</strong> (Jan–Feb), <strong>Shoulder</strong> (Mar–Apr, Nov), and <strong>Peak</strong> (May–Oct, Dec). Options include hourly (3-hour minimum) for Single Room and Partial Building on non-Saturdays, or 12-hour blocks (about 40% savings vs equivalent hourly). <strong>Saturdays are 12-hour block rental only</strong> in all seasons. Full Building is always a 12-hour block. See the PDF for full rate cards or use our <a href="https://stonehouse-wedding-cart.vercel.app" target="_blank" rel="noopener" style="color:var(--g)">Package Builder</a>.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Pricing depends on day of week, spaces selected, and season. We use three seasons: <strong>Off-Peak</strong> (Jan–Feb), <strong>Shoulder</strong> (Mar–Apr, Nov), and <strong>Peak</strong> (May–Oct, Dec). Options include hourly (3-hour minimum) for Single Room and Partial Building on non-Saturdays, or 12-hour blocks (about 40% savings vs equivalent hourly). <strong>Saturdays are 12-hour block rental only</strong> in all seasons. Full Building is always a 12-hour block. For wedding pricing, <a href="/wedding-pricing" style="color:var(--g)">download our Wedding Pricing Pamphlet</a>.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What is included in the venue hire fee?</span><div class="faq-icon"></div></div>
@@ -736,7 +762,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do we get a quote?</span><div class="faq-icon"></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Use the <a href="https://stonehouse-wedding-cart.vercel.app" target="_blank" rel="noopener" style="color:var(--g)">online Package Builder</a> or email <a href="mailto:bookings@stonehouse.io" style="color:var(--g)">bookings@stonehouse.io</a> — we aim to respond within 24 hours.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">For wedding inquiries, <a href="/wedding-pricing" style="color:var(--g)">download our Wedding Pricing Pamphlet</a>. For corporate or private events, email <a href="mailto:bookings@stonehouse.io" style="color:var(--g)">bookings@stonehouse.io</a> — we aim to respond within 24 hours.</div></div>
       </div>
     </div>
   </div>
@@ -817,12 +843,10 @@
       <h4 class="footer-col-title">Plan</h4>
       <div class="footer-links">
         <a href="#date-check" class="footer-link">Check Your Date</a>
-        <a href="#pricing" class="footer-link">Wedding Packages</a>
+        <a href="/wedding-pricing" class="footer-link">Wedding Pricing Pamphlet</a>
         <a href="floor-plans.html" class="footer-link">Floor Plans</a>
         <a href="#pricing" class="footer-link" onclick="setTimeout(()=>document.querySelectorAll('.pkg-toggle-btn')[1].click(),400)">Corporate Events</a>
         <a href="#rw" class="footer-link">Real Weddings</a>
-        <a href="assets/StoneHouse_Wedding_FAQ.pdf" class="footer-link" target="_blank" rel="noopener">Wedding FAQ (PDF)</a>
-        <a href="assets/stone-house-wedding-guide-spring-2026.pdf" class="footer-link" target="_blank" rel="noopener">Wedding Guide — Spring 2026 (PDF)</a>
         <a href="#resources" class="footer-link">Planning Library</a>
         <a href="#faq" class="footer-link">FAQs</a>
         <a href="#resources" class="footer-link">Vendor Partners</a>
