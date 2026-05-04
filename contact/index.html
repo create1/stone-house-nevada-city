@@ -158,33 +158,6 @@ input[type="radio"]:checked + .c-event-label { border-color: var(--g); backgroun
 
       <form class="c-form" id="contact-form" onsubmit="return submitContact(event)">
 
-        <div>
-          <span class="c-label">Event type</span>
-          <div class="c-event-types">
-            <label>
-              <input type="radio" name="event_type" value="wedding" checked>
-              <div class="c-event-label">
-                <span>Wedding</span>
-                <span>Ceremony · reception</span>
-              </div>
-            </label>
-            <label>
-              <input type="radio" name="event_type" value="private">
-              <div class="c-event-label">
-                <span>Private</span>
-                <span>Birthday · milestone</span>
-              </div>
-            </label>
-            <label>
-              <input type="radio" name="event_type" value="corporate">
-              <div class="c-event-label">
-                <span>Corporate</span>
-                <span>Offsite · retreat</span>
-              </div>
-            </label>
-          </div>
-        </div>
-
         <div class="c-form-row">
           <div>
             <label for="c-name" class="c-label">Your name</label>
@@ -333,7 +306,6 @@ function submitContact(e) {
   const guests = f.guests.value;
   const message = f.message.value.trim();
   const honeypot = f.company.value;
-  const eventType = (f.querySelector('input[name="event_type"]:checked') || {}).value || 'wedding';
   const err = document.getElementById('c-err');
 
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -347,10 +319,9 @@ function submitContact(e) {
   btn.disabled = true;
   btn.textContent = 'Sending…';
 
-  const sourceLabel = 'Website - Contact Page (' + eventType + ')';
+  const sourceLabel = 'Website - Contact Page';
   const payload = {
     name, email, phone, date, guests,
-    event_type: eventType,
     message,
     source: sourceLabel,
     _honeypot: honeypot,
