@@ -163,7 +163,7 @@
     <a href="/weddings/" class="nav-link">Gallery</a>
     <a href="#resources" class="nav-link">Library</a>
     <a href="#faq" class="nav-link">FAQ</a>
-    <a href="#date-check" class="nav-cta">Check Availability</a>
+    <a href="#plan-event" class="nav-cta">Plan Your Event</a>
   </div>
   <button class="mob-btn" onclick="toggleMob()" id="mob-btn" aria-label="Menu">
     <span id="mb1"></span><span id="mb2"></span><span id="mb3"></span>
@@ -178,7 +178,7 @@
   <a href="/weddings/" class="mob-link" onclick="toggleMob()">Gallery</a>
   <a href="#resources" class="mob-link" onclick="toggleMob()">Library</a>
   <a href="#faq" class="mob-link" onclick="toggleMob()">FAQ</a>
-  <a href="#date-check" class="mob-cta-btn" onclick="toggleMob()">Check Availability</a>
+  <a href="#plan-event" class="mob-cta-btn" onclick="toggleMob()">Plan Your Event</a>
 </div>
 
 <!-- HERO -->
@@ -193,7 +193,7 @@
     <h1 class="hero-h1">Where History<br><em>Meets Intention</em></h1>
     <p class="hero-sub">A handbuilt 1857 stone building in the heart of Nevada City. Seven unique spaces. Elevated seed-oil-free cuisine. Extraordinary celebrations.</p>
     <div class="hero-btns">
-      <a href="#date-check" class="btn-gold">Check Your Date →</a>
+      <a href="#plan-event" class="btn-gold">Plan Your Event →</a>
       <a href="/contact/" class="btn-ghost">Contact Us →</a>
     </div>
   </div>
@@ -202,6 +202,53 @@
     <div class="hero-scroll-line"></div>
   </div>
 </section>
+
+<!-- PLAN YOUR EVENT — event-type chooser (sits directly under hero) -->
+<section class="plan-event" id="plan-event">
+  <div class="pe-inner">
+    <div class="pe-hd">
+      <p class="sl reveal" style="margin-bottom:14px">What's the occasion?</p>
+      <h2 class="dh reveal d1" style="font-size:clamp(34px,4vw,58px);max-width:560px">Plan your event<br><em class="di">at Stone House</em></h2>
+      <p class="reveal d2" style="margin-top:14px;font-size:14px;font-weight:300;line-height:1.85;color:var(--muted);max-width:520px">Pick a path — we'll route you to the right pricing, the right team, and the right next step.</p>
+    </div>
+    <div class="pe-grid">
+      <a href="/wedding-pricing" class="pe-card reveal d1">
+        <span class="pe-tag">Most popular</span>
+        <h3 class="pe-name">Wedding</h3>
+        <p class="pe-desc">Pricing, packages, and live availability for ceremonies and receptions.</p>
+        <span class="pe-cta">Get pricing &amp; check your date →</span>
+      </a>
+      <a href="/private-events/" class="pe-card reveal d2">
+        <h3 class="pe-name">Private Event</h3>
+        <p class="pe-desc">Birthdays, milestones, dinner parties, family celebrations.</p>
+        <span class="pe-cta">Get a custom quote →</span>
+      </a>
+      <a href="/corporate-events/" class="pe-card reveal d3">
+        <h3 class="pe-name">Corporate Event</h3>
+        <p class="pe-desc">Offsites, retreats, leadership dinners, brand activations.</p>
+        <span class="pe-cta">Plan your offsite →</span>
+      </a>
+    </div>
+    <p class="pe-note reveal d4">Not sure where to start? <a href="/contact/" class="body-link">Contact us</a> and we'll point you the right direction.</p>
+  </div>
+</section>
+
+<style>
+.plan-event { padding: clamp(70px, 10vw, 130px) 5vw; background: var(--s, #faf7f2); position: relative; }
+.pe-inner { max-width: 1240px; margin: 0 auto; }
+.pe-hd { text-align: left; max-width: 720px; margin: 0 0 50px; }
+.pe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.pe-card { display: flex; flex-direction: column; gap: 10px; padding: 38px 32px 34px; background: rgba(255,255,255,0.55); border: 1px solid rgba(154,125,66,0.14); border-radius: 4px; text-decoration: none; color: inherit; transition: all .35s cubic-bezier(.22,.61,.36,1); position: relative; overflow: hidden; }
+.pe-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--g, #9a7d42); transform: scaleY(0); transform-origin: top; transition: transform .4s cubic-bezier(.22,.61,.36,1); }
+.pe-card:hover { transform: translateY(-3px); border-color: rgba(154,125,66,0.5); background: rgba(255,255,255,0.85); box-shadow: 0 18px 40px -22px rgba(26,23,20,0.18); }
+.pe-card:hover::before { transform: scaleY(1); }
+.pe-tag { display: inline-block; align-self: flex-start; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--g, #9a7d42); padding: 4px 10px; border: 1px solid rgba(154,125,66,0.4); border-radius: 2px; margin-bottom: 4px; }
+.pe-name { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: clamp(26px,3vw,34px); color: var(--c, #1a1714); letter-spacing: 0.01em; line-height: 1.15; }
+.pe-desc { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--m, #5a5347); margin-top: 4px; }
+.pe-cta { margin-top: auto; padding-top: 18px; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--g, #9a7d42); display: inline-flex; align-items: center; gap: 6px; }
+.pe-note { margin-top: 32px; font-size: 13px; color: var(--m, #5a5347); }
+@media (max-width: 980px) { .pe-grid { grid-template-columns: 1fr; gap: 14px; } .pe-card { padding: 30px 26px; } }
+</style>
 
 <!-- TRUST BAR -->
 <div class="trust-bar reveal" id="trust">
@@ -338,53 +385,6 @@
   </div>
   <div class="spaces-foot reveal"><a href="floor-plans.html" class="btn-gold">View Floor Plans &rarr;</a></div>
 </section>
-
-<!-- PLAN YOUR EVENT — event-type chooser -->
-<section class="plan-event" id="plan-event">
-  <div class="pe-inner">
-    <div class="pe-hd">
-      <p class="sl reveal" style="margin-bottom:14px">What's the occasion?</p>
-      <h2 class="dh reveal d1" style="font-size:clamp(34px,4vw,58px);max-width:560px">Plan your event<br><em class="di">at Stone House</em></h2>
-      <p class="reveal d2" style="margin-top:14px;font-size:14px;font-weight:300;line-height:1.85;color:var(--muted);max-width:520px">Pick a path — we'll route you to the right pricing, the right team, and the right next step.</p>
-    </div>
-    <div class="pe-grid">
-      <a href="#date-check" class="pe-card reveal d1">
-        <span class="pe-tag">Most popular</span>
-        <h3 class="pe-name">Wedding</h3>
-        <p class="pe-desc">Pricing, packages, and live availability for ceremonies and receptions.</p>
-        <span class="pe-cta">Check your date →</span>
-      </a>
-      <a href="/private-events/" class="pe-card reveal d2">
-        <h3 class="pe-name">Private Event</h3>
-        <p class="pe-desc">Birthdays, milestones, dinner parties, family celebrations.</p>
-        <span class="pe-cta">Get a custom quote →</span>
-      </a>
-      <a href="/corporate-events/" class="pe-card reveal d3">
-        <h3 class="pe-name">Corporate Event</h3>
-        <p class="pe-desc">Offsites, retreats, leadership dinners, brand activations.</p>
-        <span class="pe-cta">Plan your offsite →</span>
-      </a>
-    </div>
-    <p class="pe-note reveal d4">Not sure where to start? <a href="/contact/" class="body-link">Contact us</a> and we'll point you the right direction.</p>
-  </div>
-</section>
-
-<style>
-.plan-event { padding: clamp(70px, 10vw, 130px) 5vw; background: var(--s, #faf7f2); position: relative; }
-.pe-inner { max-width: 1240px; margin: 0 auto; }
-.pe-hd { text-align: left; max-width: 720px; margin: 0 0 50px; }
-.pe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.pe-card { display: flex; flex-direction: column; gap: 10px; padding: 38px 32px 34px; background: rgba(255,255,255,0.55); border: 1px solid rgba(154,125,66,0.14); border-radius: 4px; text-decoration: none; color: inherit; transition: all .35s cubic-bezier(.22,.61,.36,1); position: relative; overflow: hidden; }
-.pe-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--g, #9a7d42); transform: scaleY(0); transform-origin: top; transition: transform .4s cubic-bezier(.22,.61,.36,1); }
-.pe-card:hover { transform: translateY(-3px); border-color: rgba(154,125,66,0.5); background: rgba(255,255,255,0.85); box-shadow: 0 18px 40px -22px rgba(26,23,20,0.18); }
-.pe-card:hover::before { transform: scaleY(1); }
-.pe-tag { display: inline-block; align-self: flex-start; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--g, #9a7d42); padding: 4px 10px; border: 1px solid rgba(154,125,66,0.4); border-radius: 2px; margin-bottom: 4px; }
-.pe-name { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: clamp(26px,3vw,34px); color: var(--c, #1a1714); letter-spacing: 0.01em; line-height: 1.15; }
-.pe-desc { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--m, #5a5347); margin-top: 4px; }
-.pe-cta { margin-top: auto; padding-top: 18px; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--g, #9a7d42); display: inline-flex; align-items: center; gap: 6px; }
-.pe-note { margin-top: 32px; font-size: 13px; color: var(--m, #5a5347); }
-@media (max-width: 980px) { .pe-grid { grid-template-columns: 1fr; gap: 14px; } .pe-card { padding: 30px 26px; } }
-</style>
 
 <!-- DATE CHECK -->
 <section class="date-check" id="date-check">
@@ -928,7 +928,7 @@
 </footer>
 
 <!-- MOBILE FLOAT CTA -->
-<a href="#date-check" id="float-cta">Check Your Date</a>
+<a href="#plan-event" id="float-cta">Plan Your Event</a>
 
 <script src="app.js?v=20260504a"></script>
 <script>
