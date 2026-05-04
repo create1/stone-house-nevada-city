@@ -82,7 +82,6 @@
     <a href="#weddings" class="nav-link">Weddings</a>
     <a href="#catering" class="nav-link">Catering</a>
     <a href="/weddings/" class="nav-link">Gallery</a>
-    <a href="#pricing" class="nav-link">Pricing</a>
     <a href="#resources" class="nav-link">Library</a>
     <a href="#faq" class="nav-link">FAQ</a>
     <a href="#date-check" class="nav-cta">Check Availability</a>
@@ -98,7 +97,6 @@
   <a href="#weddings" class="mob-link" onclick="toggleMob()">Weddings</a>
   <a href="#catering" class="mob-link" onclick="toggleMob()">Catering</a>
   <a href="/weddings/" class="mob-link" onclick="toggleMob()">Gallery</a>
-  <a href="#pricing" class="mob-link" onclick="toggleMob()">Pricing</a>
   <a href="#resources" class="mob-link" onclick="toggleMob()">Library</a>
   <a href="#faq" class="mob-link" onclick="toggleMob()">FAQ</a>
   <a href="#date-check" class="mob-cta-btn" onclick="toggleMob()">Check Availability</a>
@@ -107,7 +105,7 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg">
-    <img data-sh-key="photo-sophie-nic" src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/68950a62c9bcf227c2629194_Sophie%2BNic-7983.webp" alt="Wedding at Stone House Nevada City">
+    <img data-sh-key="photo-sophie-nic" src="https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/68950a62c9bcf227c2629194_Sophie%2BNic-7983.webp" alt="Wedding at Stone House Nevada City" style="object-position:center 28%">
   </div>
   <div class="hero-ov"></div>
   <div class="hero-yr" id="hero-yr">1857</div>
@@ -360,69 +358,6 @@
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing-section" id="pricing">
-  <div class="pricing-hd">
-    <p class="sl reveal" style="justify-content:center;margin-bottom:14px">Investment</p>
-    <h2 class="dh reveal d1" style="font-size:clamp(34px,4vw,58px);text-align:center">Transparent pricing.<br><em class="di">No surprises.</em></h2>
-    <p class="pricing-intro reveal d2" style="font-size:13px;font-weight:300;color:var(--m);max-width:480px;margin:12px auto 0;line-height:1.8;text-align:center">Wedding <strong style="color:var(--c);font-weight:500">reception packages</strong> are priced per guest (buffet or plated). Venue hire, bar, and tax are quoted separately for your date — see our <a href="assets/StoneHouse_Wedding_FAQ.pdf" target="_blank" rel="noopener" style="color:var(--g);border-bottom:1px solid rgba(201,167,107,.35);text-decoration:none">FAQ (PDF)</a> and <a href="assets/stone-house-wedding-guide-spring-2026.pdf" target="_blank" rel="noopener" style="color:var(--g);border-bottom:1px solid rgba(201,167,107,.35);text-decoration:none">wedding guide (Spring 2026)</a>.</p>
-  </div>
-  <div class="pkg-toggle reveal d2">
-    <button class="pkg-toggle-btn active" onclick="togglePkg('weddings',this)">Weddings</button>
-    <button class="pkg-toggle-btn" onclick="togglePkg('corporate',this)">Corporate</button>
-    <button class="pkg-toggle-btn" onclick="togglePkg('private',this)">Private Events</button>
-  </div>
-  <div class="pricing-grid" id="pricing-grid">
-    <div class="price-card reveal d1">
-      <div class="price-tier">Reception</div>
-      <div class="price-name">Prospector</div>
-      <div class="price-from">Per guest</div>
-      <div class="price-n" id="p1-n">$69 – $79</div>
-      <div class="price-note" id="p1-note">buffet · plated</div>
-      <ul class="price-items" id="p1-items">
-        <li>Cocktail hour: choice of two hors d'oeuvres (classic selection)</li>
-        <li>Salad, rolls &amp; butter, two entrées + chef's veg/vegan entrée</li>
-        <li>Beverage station, toast champagne &amp; sparkling cider</li>
-        <li>Linens, china, stemware, silverware · cake cutting · screen &amp; mic</li>
-        <li>Entrées include lemon chicken piccata, sirloin, herb chicken, tilapia, short rib, salmon</li>
-      </ul>
-      <a href="#date-check" class="price-cta">Check This Date</a>
-    </div>
-    <div class="price-card feat reveal d2">
-      <div class="price-badge">Most Popular</div>
-      <div class="price-tier">Reception</div>
-      <div class="price-name">Brewmaster</div>
-      <div class="price-from">Per guest</div>
-      <div class="price-n" id="p2-n">$79 – $89</div>
-      <div class="price-note" id="p2-note">buffet · plated</div>
-      <ul class="price-items" id="p2-items">
-        <li>Cocktail hour: choice of three hors d'oeuvres (classic + premium selections)</li>
-        <li>Same reception meal structure as Prospector</li>
-        <li>Expanded entrée list — brown ale steak, whiskey steak, champagne &amp; riesling chicken, tri tip, chicken madeira, mahi mahi, sea bass, and more</li>
-        <li>Premium hors d'oeuvres — e.g. coconut shrimp, prawns, artisan cheese, antipasto, salmon</li>
-        <li>Linens, china, stemware, silverware · cake cutting · screen &amp; mic</li>
-      </ul>
-      <a href="#date-check" class="price-cta">Check This Date</a>
-    </div>
-    <div class="price-card reveal d3">
-      <div class="price-tier">Reception</div>
-      <div class="price-name">Mother Lode</div>
-      <div class="price-from">Per guest</div>
-      <div class="price-n" id="p3-n">$89 – $99</div>
-      <div class="price-note" id="p3-note">buffet · plated</div>
-      <ul class="price-items" id="p3-items">
-        <li>Cocktail hour: choice of four hors d'oeuvres (classic + premium)</li>
-        <li>Premium entrées: New York steak, prime rib, stuffed chicken cordon bleu (roasted or carved options)</li>
-        <li>Or select any entrées from Prospector or Brewmaster menus</li>
-        <li>All Brewmaster premium hors d'oeuvres available</li>
-        <li>Linens, china, stemware, silverware · cake cutting · screen &amp; mic</li>
-      </ul>
-      <a href="#date-check" class="price-cta">Check This Date</a>
-    </div>
-  </div>
-  <p class="pricing-footer reveal">Children's menu (ages 4–12) $20 per child — not included in package pricing. <a href="assets/stonehouse-reception-packages.html" target="_blank" rel="noopener">Full reception package menus (print view) →</a> · Custom farm-to-fork menus available.</p>
-</section>
-
 <!-- PROCESS -->
 <section class="process" id="process">
   <p class="sl reveal" style="margin-bottom:14px">What Happens Next</p>
@@ -583,9 +518,9 @@
     <div class="res-cat reveal d4">
       <h3 class="res-cat-title"><span class="res-cat-dot" aria-hidden="true"></span>Weddings</h3>
       <ul class="res-list">
-      <li class="res-li res-li--live"><span class="res-li-name">Wedding packages</span><span class="res-li-act"><a href="#pricing" class="res-a">Packages</a></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Wedding packages</span><span class="res-li-act"><a href="/wedding-pricing" class="res-a">Get pamphlet</a></span></li>
       <li class="res-li res-li--live"><span class="res-li-name">Wedding guide</span><span class="res-li-act"><a href="assets/stone-house-wedding-guide-spring-2026.pdf" class="res-a" target="_blank" rel="noopener">Spring 2026 (PDF)</a></span></li>
-      <li class="res-li res-li--live"><span class="res-li-name">Pricing guide</span><span class="res-li-act"><a href="#pricing" class="res-a">Build quote</a></span></li>
+      <li class="res-li res-li--live"><span class="res-li-name">Pricing guide</span><span class="res-li-act"><a href="/wedding-pricing" class="res-a">Get pamphlet</a></span></li>
       <li class="res-li res-li--live"><span class="res-li-name">Real wedding features</span><span class="res-li-act"><a href="/weddings/" class="res-a">Gallery</a></span></li>
       <li class="res-li res-li--soon"><span class="res-li-name">Ceremony &amp; reception layout options</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
       <li class="res-li res-li--soon"><span class="res-li-name">Sample day-of timeline</span><span class="res-li-act"><span class="res-soon">Coming soon</span></span></li>
@@ -820,7 +755,7 @@
       <h4 class="footer-col-title">Plan</h4>
       <div class="footer-links">
         <a href="#date-check" class="footer-link">Check Your Date</a>
-        <a href="#pricing" class="footer-link">Wedding Packages</a>
+        <a href="/wedding-pricing" class="footer-link">Wedding Packages</a>
         <a href="floor-plans.html" class="footer-link">Floor Plans</a>
         <a href="#pricing" class="footer-link" onclick="setTimeout(()=>document.querySelectorAll('.pkg-toggle-btn')[1].click(),400)">Corporate Events</a>
         <a href="/weddings/" class="footer-link">Real Weddings</a>
