@@ -5,14 +5,9 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "node scripts/build-all.mjs",
-    "build:studio": "node scripts/studio-only-build.mjs",
-    "dev:studio": "node scripts/run-studio-dev.mjs",
-    "migrate:photos": "node scripts/migrate-photos.mjs"
+    "build": "node scripts/build-all.mjs"
   },
-  "devDependencies": {
-    "@sanity/client": "^6.24.1"
-  },
+  "devDependencies": {},
   "dependencies": {
     "@notionhq/client": "^5.20.0",
     "resend": "^6.12.2"

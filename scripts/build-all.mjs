@@ -4,7 +4,6 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
-const studio = path.join(root, "studio");
 
 function run(cmd, args, cwd) {
   const r = spawnSync(cmd, args, {
@@ -18,6 +17,4 @@ function run(cmd, args, cwd) {
   }
 }
 
-run("npm", ["install"], studio);
-run("npm", ["run", "build"], studio);
 run("node", [path.join(root, "scripts", "assemble-dist.mjs")], root);

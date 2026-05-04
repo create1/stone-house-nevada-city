@@ -1,0 +1,18 @@
+# Stone House Nevada City
+> Historic 1857 stone wedding and event venue in Nevada City, California — seven unique spaces, elevated cuisine, capacity up to 300 guests.
+
+## Site
+- [Home](https://www.stonehouse.io/): Overview, hero gallery, lead capture
+- [Wedding Pricing](https://www.stonehouse.io/wedding-pricing): Wedding pricing pamphlet download
+- [Real Weddings](https://www.stonehouse.io/weddings/): Photo galleries from past weddings
+- [Private Events](https://www.stonehouse.io/private-events/): Private event packages
+- [Corporate Events](https://www.stonehouse.io/corporate-events/): Corporate event packages
+- [Contact](https://www.stonehouse.io/contact/): Contact info and booking inquiries
+- [Floor Plans](https://www.stonehouse.io/floor-plans.html): Venue floor plans
+- [Menus](https://www.stonehouse.io/menus.html): Wedding menu pricing tiers
+- [Blog](https://www.stonehouse.io/blog.html): Stories from Stone House
+
+## Contact
+- Email: bookings@stonehouse.io
+- Phone: +1 (530) 265-5050
+- Address: 107 Sacramento Street, Nevada City, CA 95959, USA
