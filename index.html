@@ -16,6 +16,32 @@
 @media (max-width: 899px) {
   .spaces-grid .space-card-wide { grid-column: auto; }
 }
+
+/* Multi-step popup additions (event-type picker + form) */
+.ep-types, .lp-types { display:flex; flex-direction:column; gap:10px; margin:24px 0 }
+.ep-type-btn, .lp-type-btn {
+  background:rgba(154,125,66,.06); border:1px solid rgba(154,125,66,.2);
+  padding:14px 18px; text-align:left; cursor:pointer; border-radius:4px;
+  transition:all .2s ease; display:flex; flex-direction:column; gap:4px;
+  font-family:inherit; color:inherit;
+}
+.ep-type-btn:hover, .lp-type-btn:hover {
+  background:rgba(154,125,66,.14); border-color:rgba(154,125,66,.5);
+  transform:translateY(-1px);
+}
+.ep-type-name, .lp-type-name {
+  font-family:'Cormorant Garamond',Georgia,serif; font-size:18px; font-weight:500;
+  color:var(--c, #1a1714);
+}
+.ep-type-desc, .lp-type-desc {
+  font-size:11.5px; letter-spacing:.04em; color:var(--m, #5a5347); font-weight:400;
+}
+.ep-form-multi, .lp-form-multi {
+  display:flex; flex-direction:column; gap:10px; margin:18px 0;
+}
+.ep-form-multi .ep-input, .lp-form-multi .lp-input { width:100% }
+.ep-event-tag, .lp-event-tag { color:var(--g, #9a7d42); font-weight:500 }
+
 </style>
 </head>
 <body>
@@ -37,26 +63,79 @@
 <div id="exit-popup">
   <div class="ep-box">
     <button class="ep-close" onclick="closeExit()">×</button>
-    <p class="ep-eyebrow">Before you go</p>
-    <h2 class="ep-title">Get the complete<br><em>pricing guide</em></h2>
-    <p class="ep-sub">Download our full pricing guide — seasonal rates, package details, and add-ons. No commitment, just the information you need to plan.</p>
-    <div class="ep-form">
-      <input class="ep-input" type="email" placeholder="Your email address" id="ep-email">
-      <button class="ep-btn" onclick="submitExit()">Send It →</button>
+
+    <!-- Step 1: pick event type -->
+    <div class="ep-step ep-step-pick" data-step="1">
+      <p class="ep-eyebrow">Before you go</p>
+      <h2 class="ep-title">What kind of event<br><em>are you planning?</em></h2>
+      <p class="ep-sub">Pick one — we'll point you in the right direction with the info you need.</p>
+      <div class="ep-types">
+        <button class="ep-type-btn" onclick="popupPickType('exit','wedding')">
+          <span class="ep-type-name">Wedding</span>
+          <span class="ep-type-desc">Get the Stone House Wedding Pricing Pamphlet →</span>
+        </button>
+        <button class="ep-type-btn" onclick="popupPickType('exit','private')">
+          <span class="ep-type-name">Private Event</span>
+          <span class="ep-type-desc">Birthdays, milestones, celebrations →</span>
+        </button>
+        <button class="ep-type-btn" onclick="popupPickType('exit','corporate')">
+          <span class="ep-type-name">Corporate Event</span>
+          <span class="ep-type-desc">Offsites, retreats, leadership dinners →</span>
+        </button>
+      </div>
+      <p class="ep-skip" onclick="closeExit()">No thanks, I'll figure it out on my own</p>
     </div>
-    <p class="ep-skip" onclick="closeExit()">No thanks, I'll figure it out on my own</p>
+
+    <!-- Step 2: capture details for Private/Corporate -->
+    <div class="ep-step ep-step-form" data-step="2" style="display:none">
+      <p class="ep-eyebrow"><span class="ep-event-tag">Private Event</span></p>
+      <h2 class="ep-title">Tell us a bit<br><em>about your event</em></h2>
+      <p class="ep-sub">We'll send you our planning info and get back to you within 24 hours.</p>
+      <div class="ep-form-multi">
+        <input class="ep-input" type="text" placeholder="Your name" data-field="name">
+        <input class="ep-input" type="email" placeholder="Email address" data-field="email">
+        <input class="ep-input" type="tel" placeholder="Phone number" data-field="phone">
+      </div>
+      <button class="ep-btn" onclick="submitEventLead('exit')">Send it →</button>
+      <p class="ep-skip" onclick="closeExit()">Cancel</p>
+    </div>
   </div>
 </div>
 
-<!-- LEAD POPUP (timed, 30s) -->
+<!-- LEAD POPUP (timed, 30s) — same multi-step flow as exit-popup -->
 <div id="lead-popup">
   <button class="lp-close" onclick="document.getElementById('lead-popup').classList.remove('show')">×</button>
-  <p class="lp-tag">Free Download</p>
-  <h3 class="lp-title">Get the 2026 Pricing Guide</h3>
-  <p class="lp-sub">Everything you need to know — packages, seasonal rates, and what's included.</p>
-  <div class="lp-row">
-    <input class="lp-input" type="email" placeholder="Email address">
-    <button class="lp-btn" onclick="this.textContent='✓ Sent!'">Get It</button>
+
+  <div class="lp-step lp-step-pick" data-step="1">
+    <p class="lp-tag">What's the occasion?</p>
+    <h3 class="lp-title">Let's send you the right info</h3>
+    <p class="lp-sub">Pick the event type and we'll route you to the right resources.</p>
+    <div class="lp-types">
+      <button class="lp-type-btn" onclick="popupPickType('lead','wedding')">
+        <span class="lp-type-name">Wedding</span>
+        <span class="lp-type-desc">Get our Wedding Pricing Pamphlet →</span>
+      </button>
+      <button class="lp-type-btn" onclick="popupPickType('lead','private')">
+        <span class="lp-type-name">Private Event</span>
+        <span class="lp-type-desc">Birthdays, milestones, celebrations →</span>
+      </button>
+      <button class="lp-type-btn" onclick="popupPickType('lead','corporate')">
+        <span class="lp-type-name">Corporate Event</span>
+        <span class="lp-type-desc">Offsites, retreats, leadership dinners →</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="lp-step lp-step-form" data-step="2" style="display:none">
+    <p class="lp-tag"><span class="lp-event-tag">Private Event</span></p>
+    <h3 class="lp-title">Tell us a bit about your event</h3>
+    <p class="lp-sub">We'll be in touch within 24 hours with availability + a quote.</p>
+    <div class="lp-form-multi">
+      <input class="lp-input" type="text" placeholder="Your name" data-field="name">
+      <input class="lp-input" type="email" placeholder="Email address" data-field="email">
+      <input class="lp-input" type="tel" placeholder="Phone number" data-field="phone">
+    </div>
+    <button class="lp-btn" onclick="submitEventLead('lead')">Send It →</button>
   </div>
 </div>
 
