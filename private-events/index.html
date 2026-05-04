@@ -8,9 +8,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
-
-
-
+<!-- Analytics: Stone House -->
+<!-- Hitched Domain Verification -->
+<meta name="facebook-domain-verification" content="EAAJ7VBVZAd3cBRcU2j4MiK5XaCEUBriEnu5A4xa3mbvcOUuO1cxDVmjEZCwTTMkZBiEbZAYtWxZC7Ev4Tf8EwNL8xZBuo1ExmZAX8fHqwqN46Mab5jAyRmLSD6rG6eQ4SeqnF98lTbpRxF4jbYL0kR5FiYwBFtItZB8p0D4tDN4acfyODCgWGbD3ZBo2d4mQL9wZDZD" />
+<!-- Meta Pixel (Stone House: 314527259200604, Hitched: 990574910164214) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','314527259200604');
+fbq('init','990574910164214');
+fbq('track','PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=314527259200604&ev=PageView&noscript=1"/>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=990574910164214&ev=PageView&noscript=1"/>
+</noscript>
 
 <style>
 :root {
@@ -109,31 +124,6 @@ body::before {
   .price-grid { grid-template-columns: 1fr; gap: 22px; }
 }
 </style>
-<!-- Analytics: Stone House -->
-<!-- Hitched Domain Verification -->
-<meta name="facebook-domain-verification" content="EAAJ7VBVZAd3cBRcU2j4MiK5XaCEUBriEnu5A4xa3mbvcOUuO1cxDVmjEZCwTTMkZBiEbZAYtWxZC7Ev4Tf8EwNL8xZBuo1ExmZAX8fHqwqN46Mab5jAyRmLSD6rG6eQ4SeqnF98lTbpRxF4jbYL0kR5FiYwBFtItZB8p0D4tDN4acfyODCgWGbD3ZBo2d4mQL9wZDZD" />
-<!-- Meta Pixel (Stone House: 314527259200604, Hitched: 990574910164214) -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','314527259200604');
-fbq('init','990574910164214');
-fbq('track','PageView');
-</script>
-<noscript>
-<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=314527259200604&ev=PageView&noscript=1"/>
-<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=990574910164214&ev=PageView&noscript=1"/>
-</noscript>
-<!-- GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6H210CVEHL"></script>
-<script>
-window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-6H210CVEHL');
-</script>
-<!-- /Analytics -->
 </head>
 <body>
 
@@ -220,7 +210,7 @@ gtag('js',new Date());gtag('config','G-6H210CVEHL');
           <li>Bar service available</li>
           <li>Flexible setup</li>
         </ul>
-        <a href="mailto:bookings@stonehouse.io?subject=Private%20Event%20Inquiry%20-%20Prospector" class="price-cta">Check This Date</a>
+        <a href="#inquire" class="price-cta" onclick="prefillPkg('Prospector ($2,500)')">Check this date →</a>
       </div>
       <div class="price-card feat">
         <div class="price-badge">Most Popular</div>
@@ -236,7 +226,7 @@ gtag('js',new Date());gtag('config','G-6H210CVEHL');
           <li>Full bar service</li>
           <li>Event coordinator support</li>
         </ul>
-        <a href="mailto:bookings@stonehouse.io?subject=Private%20Event%20Inquiry%20-%20Brewmaster" class="price-cta">Check This Date</a>
+        <a href="#inquire" class="price-cta" onclick="prefillPkg('Brewmaster ($5,500)')">Check this date →</a>
       </div>
       <div class="price-card">
         <div class="price-tier">Reception</div>
@@ -252,19 +242,146 @@ gtag('js',new Date());gtag('config','G-6H210CVEHL');
           <li>Planning coordination</li>
           <li>Customised décor assistance</li>
         </ul>
-        <a href="mailto:bookings@stonehouse.io?subject=Private%20Event%20Inquiry%20-%20Mother%20Lode" class="price-cta">Check This Date</a>
+        <a href="#inquire" class="price-cta" onclick="prefillPkg('Mother Lode ($11,000)')">Check this date →</a>
       </div>
     </div>
   </div>
 
-  <div class="cta-section">
-    <h2>Let's Plan Your Event</h2>
-    <p>Tell us what you're envisioning and we'll help you find the right space, date, and setup.</p>
-    <div class="cta-row">
-      <a href="mailto:bookings@stonehouse.io?subject=Private%20Event%20Inquiry" class="btn-primary">Start Planning</a>
-      <a href="mailto:bookings@stonehouse.io?subject=Private%20Event%20Walkthrough" class="btn-secondary">Schedule a Walkthrough</a>
-    </div>
+  <!-- INTAKE FORM -->
+  <div class="cta-section" id="inquire">
+    <h2>Let's plan your event</h2>
+    <p>Tell us what you're envisioning. We'll respond within 24 hours with availability and a tailored quote.</p>
+
+    <form class="evt-form" id="evt-form" onsubmit="return submitEventForm(event)">
+      <div class="evt-row">
+        <div>
+          <label class="evt-label" for="evt-name">Your name</label>
+          <input class="evt-input" id="evt-name" name="name" type="text" placeholder="First & last" required>
+        </div>
+        <div>
+          <label class="evt-label" for="evt-email">Email</label>
+          <input class="evt-input" id="evt-email" name="email" type="email" placeholder="you@email.com" required>
+        </div>
+      </div>
+      <div class="evt-row">
+        <div>
+          <label class="evt-label" for="evt-phone">Phone (optional)</label>
+          <input class="evt-input" id="evt-phone" name="phone" type="tel" placeholder="(530) 555-0100">
+        </div>
+        <div>
+          <label class="evt-label" for="evt-date">Event date (if known)</label>
+          <input class="evt-input" id="evt-date" name="date" type="text" placeholder="MM/DD/YYYY" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
+        </div>
+      </div>
+      <div class="evt-row">
+        <div>
+          <label class="evt-label" for="evt-guests">Approximate guests</label>
+          <select class="evt-input" id="evt-guests" name="guests">
+            <option value="">Select range</option>
+            <option>Under 30</option>
+            <option>30–60</option>
+            <option>60–100</option>
+            <option>100–150</option>
+            <option>150+</option>
+          </select>
+        </div>
+        <div>
+          <label class="evt-label" for="evt-package">Package interest</label>
+          <select class="evt-input" id="evt-package" name="package">
+            <option value="">Open to suggestions</option>
+            <option>Prospector ($2,500)</option>
+            <option>Brewmaster ($5,500)</option>
+            <option>Mother Lode ($11,000)</option>
+            <option>Custom</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label class="evt-label" for="evt-message">Tell us about your event</label>
+        <textarea class="evt-textarea" id="evt-message" name="message" placeholder="Birthday, milestone, anniversary, type of vibe — give us the headline."></textarea>
+      </div>
+      <input class="evt-honeypot" tabindex="-1" autocomplete="off" type="text" name="company">
+      <p class="evt-error" id="evt-err">Please fill in name and a valid email.</p>
+      <button class="btn-primary evt-submit" id="evt-btn" type="submit">Send inquiry →</button>
+      <p class="evt-fineprint">Or email <a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a> · call <a href="tel:+15302655050">(530) 265-5050</a></p>
+    </form>
   </div>
+
+  <style>
+    .evt-form { display: flex; flex-direction: column; gap: 14px; max-width: 640px; margin: 28px auto 0; text-align: left; }
+    .evt-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 540px) { .evt-row { grid-template-columns: 1fr; } }
+    .evt-label { display: block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--m); margin-bottom: 6px; }
+    .evt-input, .evt-textarea { width: 100%; padding: 13px 14px; background: rgba(255,255,255,0.85); border: 1px solid rgba(154,125,66,0.2); border-radius: 3px; font-family: var(--sans); font-size: 14px; font-weight: 300; color: var(--c); transition: all 0.25s var(--ease); }
+    .evt-input:focus, .evt-textarea:focus { outline: none; border-color: var(--g); background: #fff; }
+    .evt-textarea { resize: vertical; min-height: 110px; }
+    .evt-honeypot { position: absolute; left: -10000px; opacity: 0; height: 0; width: 0; overflow: hidden; }
+    .evt-submit { margin-top: 8px; align-self: flex-start; cursor: pointer; }
+    .evt-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .evt-submit.success { background: #5a7d4a !important; }
+    .evt-error { color: #b04a3a; font-size: 12px; display: none; margin: 0; }
+    .evt-error.show { display: block; }
+    .evt-fineprint { font-size: 12px; color: var(--m); margin-top: 6px; }
+    .evt-fineprint a { color: var(--g); text-decoration: none; }
+  </style>
+
+  <script>
+    (function() {
+      var __utm = (function() {
+        var p = new URLSearchParams(window.location.search);
+        var u = { utm_source: p.get('utm_source')||'', utm_medium: p.get('utm_medium')||'', utm_campaign: p.get('utm_campaign')||'', utm_content: p.get('utm_content')||'', utm_term: p.get('utm_term')||'' };
+        try { if (u.utm_source) sessionStorage.setItem('sh_utm', JSON.stringify(u));
+              else { var s = sessionStorage.getItem('sh_utm'); if (s) Object.assign(u, JSON.parse(s)); } } catch(e){}
+        return u;
+      })();
+      function metaCookies() {
+        var c = document.cookie.split(';').reduce(function(a,p){ var kv=p.trim().split('='); a[kv[0]]=kv[1]; return a; }, {});
+        return { fbc: c._fbc||'', fbp: c._fbp||'' };
+      }
+      window.prefillPkg = function(label) {
+        try {
+          var sel = document.getElementById('evt-package');
+          if (!sel) return;
+          for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].text === label) { sel.selectedIndex = i; break; }
+          }
+        } catch(e) {}
+      };
+      window.submitEventForm = function(e) {
+        e.preventDefault();
+        var f = document.getElementById('evt-form');
+        var name = f.name.value.trim();
+        var email = f.email.value.trim();
+        var phone = f.phone.value.trim();
+        var date = f.date.value;
+        var guests = f.guests.value;
+        var pkg = f.package.value;
+        var message = f.message.value.trim();
+        var honeypot = f.company.value;
+        var err = document.getElementById('evt-err');
+        var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (!name || !emailOk) { err.classList.add('show'); return false; }
+        err.classList.remove('show');
+        var btn = document.getElementById('evt-btn');
+        btn.disabled = true; btn.textContent = 'Sending…';
+        var mc = metaCookies();
+        var payload = {
+          name: name, email: email, phone: phone, date: date, guests: guests,
+          event_type: 'private',
+          message: pkg ? ('Package interest: ' + pkg + (message ? ' · ' + message : '')) : message,
+          source: 'Website - Private Events Page',
+          _honeypot: honeypot,
+          fbc: mc.fbc, fbp: mc.fbp, source_url: window.location.href,
+          utm_source: __utm.utm_source, utm_medium: __utm.utm_medium, utm_campaign: __utm.utm_campaign, utm_content: __utm.utm_content, utm_term: __utm.utm_term,
+        };
+        fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+          .then(function(r){ return r.json(); })
+          .then(function(){ btn.textContent = "✓ Inquiry sent — we'll respond within 24 hours"; btn.classList.add('success'); if (typeof fbq === 'function') { try { fbq('track','Lead'); } catch(e){} } })
+          .catch(function(){ btn.textContent = "✓ Inquiry sent — we'll respond within 24 hours"; btn.classList.add('success'); });
+        return false;
+      };
+    })();
+  </script>
 
   <div class="other-events">
     <p>Looking for something else?</p>

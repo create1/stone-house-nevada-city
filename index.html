@@ -194,7 +194,7 @@
     <p class="hero-sub">A handbuilt 1857 stone building in the heart of Nevada City. Seven unique spaces. Elevated seed-oil-free cuisine. Extraordinary celebrations.</p>
     <div class="hero-btns">
       <a href="#date-check" class="btn-gold">Check Your Date →</a>
-      <a href="#spaces" class="btn-ghost">Explore All Seven Spaces</a>
+      <a href="/contact/" class="btn-ghost">Contact Us →</a>
     </div>
   </div>
   <div class="hero-scroll">
@@ -338,6 +338,53 @@
   </div>
   <div class="spaces-foot reveal"><a href="floor-plans.html" class="btn-gold">View Floor Plans &rarr;</a></div>
 </section>
+
+<!-- PLAN YOUR EVENT — event-type chooser -->
+<section class="plan-event" id="plan-event">
+  <div class="pe-inner">
+    <div class="pe-hd">
+      <p class="sl reveal" style="margin-bottom:14px">What's the occasion?</p>
+      <h2 class="dh reveal d1" style="font-size:clamp(34px,4vw,58px);max-width:560px">Plan your event<br><em class="di">at Stone House</em></h2>
+      <p class="reveal d2" style="margin-top:14px;font-size:14px;font-weight:300;line-height:1.85;color:var(--muted);max-width:520px">Pick a path — we'll route you to the right pricing, the right team, and the right next step.</p>
+    </div>
+    <div class="pe-grid">
+      <a href="#date-check" class="pe-card reveal d1">
+        <span class="pe-tag">Most popular</span>
+        <h3 class="pe-name">Wedding</h3>
+        <p class="pe-desc">Pricing, packages, and live availability for ceremonies and receptions.</p>
+        <span class="pe-cta">Check your date →</span>
+      </a>
+      <a href="/private-events/" class="pe-card reveal d2">
+        <h3 class="pe-name">Private Event</h3>
+        <p class="pe-desc">Birthdays, milestones, dinner parties, family celebrations.</p>
+        <span class="pe-cta">Get a custom quote →</span>
+      </a>
+      <a href="/corporate-events/" class="pe-card reveal d3">
+        <h3 class="pe-name">Corporate Event</h3>
+        <p class="pe-desc">Offsites, retreats, leadership dinners, brand activations.</p>
+        <span class="pe-cta">Plan your offsite →</span>
+      </a>
+    </div>
+    <p class="pe-note reveal d4">Not sure where to start? <a href="/contact/" class="body-link">Contact us</a> and we'll point you the right direction.</p>
+  </div>
+</section>
+
+<style>
+.plan-event { padding: clamp(70px, 10vw, 130px) 5vw; background: var(--s, #faf7f2); position: relative; }
+.pe-inner { max-width: 1240px; margin: 0 auto; }
+.pe-hd { text-align: left; max-width: 720px; margin: 0 0 50px; }
+.pe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.pe-card { display: flex; flex-direction: column; gap: 10px; padding: 38px 32px 34px; background: rgba(255,255,255,0.55); border: 1px solid rgba(154,125,66,0.14); border-radius: 4px; text-decoration: none; color: inherit; transition: all .35s cubic-bezier(.22,.61,.36,1); position: relative; overflow: hidden; }
+.pe-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--g, #9a7d42); transform: scaleY(0); transform-origin: top; transition: transform .4s cubic-bezier(.22,.61,.36,1); }
+.pe-card:hover { transform: translateY(-3px); border-color: rgba(154,125,66,0.5); background: rgba(255,255,255,0.85); box-shadow: 0 18px 40px -22px rgba(26,23,20,0.18); }
+.pe-card:hover::before { transform: scaleY(1); }
+.pe-tag { display: inline-block; align-self: flex-start; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--g, #9a7d42); padding: 4px 10px; border: 1px solid rgba(154,125,66,0.4); border-radius: 2px; margin-bottom: 4px; }
+.pe-name { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: clamp(26px,3vw,34px); color: var(--c, #1a1714); letter-spacing: 0.01em; line-height: 1.15; }
+.pe-desc { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--m, #5a5347); margin-top: 4px; }
+.pe-cta { margin-top: auto; padding-top: 18px; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--g, #9a7d42); display: inline-flex; align-items: center; gap: 6px; }
+.pe-note { margin-top: 32px; font-size: 13px; color: var(--m, #5a5347); }
+@media (max-width: 980px) { .pe-grid { grid-template-columns: 1fr; gap: 14px; } .pe-card { padding: 30px 26px; } }
+</style>
 
 <!-- DATE CHECK -->
 <section class="date-check" id="date-check">
@@ -765,11 +812,18 @@
   <div class="cta-content">
     <p class="sl reveal" style="justify-content:center;margin-bottom:18px">Let's Build Something Extraordinary</p>
     <h2 class="dh reveal d1" style="font-size:clamp(38px,6vw,84px);margin-bottom:20px">Your celebration awaits<br><em class="di">within these walls</em></h2>
-    <p class="reveal d2" style="font-size:15px;font-weight:300;color:var(--muted);max-width:440px;margin:0 auto;line-height:1.85">We respond within 24 hours. Most peak Saturdays book early — check your date today.</p>
-    <div class="cta-btns reveal d3">
-      <a href="#date-check" class="btn-gold" style="padding:16px 46px;font-size:12px">Check Your Date →</a>
-      <a href="tel:+15302655050" class="btn-ghost" style="padding:16px 46px;font-size:12px">(530) 265-5050</a>
+    <p class="reveal d2" style="font-size:15px;font-weight:300;color:var(--muted);max-width:440px;margin:0 auto;line-height:1.85">We respond within 24 hours. Pick the path that fits your event — we'll route you to the right team.</p>
+    <div class="cta-btns cta-btns-three reveal d3">
+      <a href="#date-check" class="btn-gold cta-evt-btn">Plan a Wedding →</a>
+      <a href="/private-events/" class="btn-ghost cta-evt-btn">Plan a Private Event →</a>
+      <a href="/corporate-events/" class="btn-ghost cta-evt-btn">Plan a Corporate Event →</a>
     </div>
+    <p class="reveal d3" style="margin-top:22px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)">Or call us directly · <a href="tel:+15302655050" class="body-link" style="font-size:12px;letter-spacing:0.12em">(530) 265-5050</a> · <a href="/contact/" class="body-link" style="font-size:12px;letter-spacing:0.12em">Contact form</a></p>
+    <style>
+      .cta-btns-three { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; max-width:880px; margin-left:auto; margin-right:auto; }
+      .cta-evt-btn { padding:16px 28px !important; font-size:11px !important; letter-spacing:0.16em !important; flex:1 1 240px; min-width:220px; }
+      @media (max-width:760px){ .cta-evt-btn { flex:1 1 100%; } }
+    </style>
     <div class="cta-trust reveal d4">
       <span class="cta-trust-item">Free Private Tour</span>
       <span style="color:rgba(201,167,107,.2)">·</span>
@@ -832,10 +886,13 @@
     <div>
       <h4 class="footer-col-title">Plan</h4>
       <div class="footer-links">
-        <a href="#date-check" class="footer-link">Check Your Date</a>
-        <a href="/wedding-pricing" class="footer-link">Wedding Packages</a>
+        <a href="/wedding-pricing" class="footer-link footer-link--lead">Pricing</a>
+        <a href="/contact/" class="footer-link footer-link--lead">Contact</a>
+        <a href="#date-check" class="footer-link footer-link--lead">Availability</a>
+        <span class="footer-divider" aria-hidden="true"></span>
+        <a href="/private-events/" class="footer-link">Private Events</a>
+        <a href="/corporate-events/" class="footer-link">Corporate Events</a>
         <a href="floor-plans.html" class="footer-link">Floor Plans</a>
-        <a href="mailto:bookings@stonehouse.io?subject=Corporate%20Event%20Inquiry" class="footer-link">Corporate Events</a>
         <a href="/weddings/" class="footer-link">Real Weddings</a>
         <a href="assets/StoneHouse_Wedding_FAQ.pdf" class="footer-link" target="_blank" rel="noopener">Wedding FAQ (PDF)</a>
         <a href="assets/stone-house-wedding-guide-spring-2026.pdf" class="footer-link" target="_blank" rel="noopener">Wedding Guide — Spring 2026 (PDF)</a>
@@ -844,6 +901,11 @@
         <a href="#resources" class="footer-link">Vendor Partners</a>
       </div>
     </div>
+    <style>
+      .footer-link--lead { color: var(--g, #9a7d42) !important; font-weight: 500 !important; letter-spacing: 0.05em; }
+      .footer-link--lead:hover { color: var(--gl, #b8944e) !important; }
+      .footer-divider { display:block; width:32px; height:1px; background:rgba(154,125,66,0.2); margin:8px 0 6px; }
+    </style>
     <div>
       <h4 class="footer-col-title">Connect</h4>
       <div class="footer-links">

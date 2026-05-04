@@ -111,20 +111,23 @@ async function sendMetaCAPI({ email, name, ip, userAgent, sourceUrl, fbc, fbp })
 }
 
 // --- GoHighLevel Webhook ---
-async function sendToGHL({ name, email, phone, date, guests, source, utm_source, utm_medium, utm_campaign, utm_content, utm_term }) {
+async function sendToGHL({ name, email, phone, date, guests, source, event_type, message, utm_source, utm_medium, utm_campaign, utm_content, utm_term }) {
   const webhookUrl = process.env.GHL_WEBHOOK_URL;
   if (!webhookUrl) return "skipped (no webhook URL)";
 
+  const evt = (event_type || "wedding").toLowerCase();
   const payload = {
     first_name: name ? name.trim().split(/\s+/)[0] : "",
     last_name: name && name.trim().split(/\s+/).length > 1 ? name.trim().split(/\s+/).slice(1).join(" ") : "",
     email: email,
     phone: phone || "",
     source: source || "Website",
-    tags: ["stonehouse.io", source || "website-form"].map(t => t.toLowerCase().replace(/\s+/g, "-")),
+    tags: ["stonehouse.io", `event-type-${evt}`, source || "website-form"].map(t => t.toLowerCase().replace(/\s+/g, "-")),
     customField: {
+      event_type: evt,
       event_date: date || "",
       guest_count: guests || "",
+      message: message || "",
       utm_source: utm_source || "",
       utm_medium: utm_medium || "",
       utm_campaign: utm_campaign || "",
@@ -168,12 +171,19 @@ export default async function handler(req, res) {
 
   try {
     const {
-      name, email, phone, date, guests, source, _honeypot,
+      name, email, phone, date, guests, source, event_type, message, _honeypot,
       // UTM parameters
       utm_source, utm_medium, utm_campaign, utm_content, utm_term,
       // Meta tracking IDs (passed from client)
       fbc, fbp, source_url
     } = req.body;
+
+    // Normalize event_type — default to 'wedding' for backward compat with old date-checker payloads
+    const validEventTypes = ["wedding", "private", "corporate"];
+    const eventType = validEventTypes.includes((event_type || "").toLowerCase())
+      ? event_type.toLowerCase()
+      : "wedding";
+    const eventTypeLabel = eventType.charAt(0).toUpperCase() + eventType.slice(1);
 
     // Honeypot
     if (_honeypot) {
@@ -199,17 +209,28 @@ export default async function handler(req, res) {
           Name: { title: [{ text: { content: (name || "Unknown").slice(0, 200) } }] },
           Email: { email: email.slice(0, 254) },
           "Lead Source": { select: { name: (source || "Website - Date Checker").slice(0, 100) } },
+          "Event Type": { select: { name: eventTypeLabel } },
           Status: { select: { name: "New" } },
         };
+        if (phone) properties["Phone"] = { phone_number: phone.slice(0, 50) };
         if (date) properties["Event Date"] = { date: { start: date } };
         if (guests) properties["Guest Count"] = { rich_text: [{ text: { content: guests } }] };
-        if (phone) properties["Phone"] = { phone_number: phone.slice(0, 20) };
+        if (message) properties["Message"] = { rich_text: [{ text: { content: message.slice(0, 2000) } }] };
         // Store UTM data in Notion
         if (utm_source) properties["UTM Source"] = { rich_text: [{ text: { content: utm_source.slice(0, 100) } }] };
         if (utm_medium) properties["UTM Medium"] = { rich_text: [{ text: { content: utm_medium.slice(0, 100) } }] };
         if (utm_campaign) properties["UTM Campaign"] = { rich_text: [{ text: { content: utm_campaign.slice(0, 200) } }] };
 
-        await notion.pages.create({ parent: { database_id: LEADS_DB }, properties });
+        try {
+          await notion.pages.create({ parent: { database_id: LEADS_DB }, properties });
+        } catch (e) {
+          // If Notion DB doesn't have Event Type / Phone / Message properties yet, retry without them
+          // so we don't drop leads when Notion schema lags backend deploy.
+          delete properties["Event Type"];
+          delete properties["Phone"];
+          delete properties["Message"];
+          await notion.pages.create({ parent: { database_id: LEADS_DB }, properties });
+        }
         return "ok";
       })(),
 
@@ -217,7 +238,7 @@ export default async function handler(req, res) {
       sendMetaCAPI({ email, name, ip, userAgent, sourceUrl: source_url, fbc, fbp }),
 
       // 3. GoHighLevel CRM
-      sendToGHL({ name, email, phone, date, guests, source, utm_source, utm_medium, utm_campaign, utm_content, utm_term }),
+      sendToGHL({ name, email, phone, date, guests, source, event_type: eventType, message, utm_source, utm_medium, utm_campaign, utm_content, utm_term }),
     ]);
 
     results.notion = notionResult.status === "fulfilled" ? notionResult.value : `error: ${notionResult.reason?.message}`;
@@ -225,7 +246,7 @@ export default async function handler(req, res) {
     results.ghl = ghlResult.status === "fulfilled" ? ghlResult.value : `error: ${ghlResult.reason?.message}`;
 
     // 4. Notification + auto-reply emails (sequential — both use Resend)
-    const fromAddr = process.env.RESEND_FROM_EMAIL || "Stone House Bookings <bookings@stonehouse.io>";
+    const fromAddr = process.env.RESEND_FROM_EMAIL || "Stone House <admin@stonehouse.io>";
 
     if (process.env.RESEND_API_KEY) {
       // Notification to bookings team
@@ -234,15 +255,17 @@ export default async function handler(req, res) {
         await resend.emails.send({
           from: fromAddr,
           to: "bookings@stonehouse.io",
-          subject: `New Lead: ${(name || "Unknown").slice(0, 50)} — ${(source || "Website").slice(0, 30)}`,
+          subject: `New ${eventTypeLabel} Lead: ${(name || "Unknown").slice(0, 50)} — ${(source || "Website").slice(0, 30)}`,
           html: `
-            <h2>New Lead from stonehouse.io</h2>
+            <h2>New ${eventTypeLabel} Lead from stonehouse.io</h2>
+            <p><strong>Event Type:</strong> ${eventTypeLabel}</p>
             <p><strong>Name:</strong> ${name || "Not provided"}</p>
             <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
+            ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ""}
             <p><strong>Date:</strong> ${date || "Not specified"}</p>
             <p><strong>Guests:</strong> ${guests || "Not specified"}</p>
             <p><strong>Source:</strong> ${source || "Website"}</p>
+            ${message ? `<p><strong>Message:</strong><br>${message.replace(/\n/g, "<br>")}</p>` : ""}
             ${utmInfo}
             <p style="color:#888;font-size:12px;">Submitted ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })}</p>
           `,

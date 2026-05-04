@@ -213,7 +213,7 @@ function submitDC() {
   fetch('/api/lead', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, email, date, guests, source: 'Website - Date Checker', _honeypot: '', ...getTrackingPayload() }),
+    body: JSON.stringify({ name, email, date, guests, event_type: 'wedding', source: 'Website - Date Checker', _honeypot: '', ...getTrackingPayload() }),
   })
     .then((r) => r.json())
     .then(() => {
@@ -227,6 +227,100 @@ function submitDC() {
       trackLead('Website - Date Checker');
     });
 }
+
+// ─── EVENT-TYPE POPUP (exit-intent + timed popup) ───────────────
+// Wires up the multi-step "Wedding / Private / Corporate" flow used in
+// #exit-popup and #lead-popup. Step 1 = pick type. Step 2 = capture form.
+// `prefix` is "exit" or "lead" — selects the right DOM scope.
+const __eventTypeState = { exit: 'wedding', lead: 'wedding' };
+
+function popupPickType(prefix, type) {
+  if (type !== 'wedding' && type !== 'private' && type !== 'corporate') type = 'wedding';
+  __eventTypeState[prefix] = type;
+
+  // For weddings, route straight to the wedding-pricing pamphlet (Hitched flow)
+  if (type === 'wedding') {
+    if (prefix === 'exit' && typeof closeExit === 'function') closeExit();
+    else if (prefix === 'lead') {
+      const lp = document.getElementById('lead-popup');
+      if (lp) lp.classList.remove('show');
+    }
+    window.location.href = '/wedding-pricing';
+    return;
+  }
+
+  // For private/corporate, swap to the form step (Step 2) and update event-type tag.
+  const root = prefix === 'exit'
+    ? document.querySelector('#exit-popup')
+    : document.querySelector('#lead-popup');
+  if (!root) return;
+
+  const stepPick = root.querySelector('[data-step="1"]');
+  const stepForm = root.querySelector('[data-step="2"]');
+  if (stepPick) stepPick.style.display = 'none';
+  if (stepForm) stepForm.style.display = '';
+
+  const tagEl = root.querySelector(prefix === 'exit' ? '.ep-event-tag' : '.lp-event-tag');
+  if (tagEl) tagEl.textContent = type === 'private' ? 'Private Event' : 'Corporate Event';
+}
+
+function submitEventLead(prefix) {
+  const root = prefix === 'exit'
+    ? document.querySelector('#exit-popup')
+    : document.querySelector('#lead-popup');
+  if (!root) return;
+
+  const inputs = root.querySelectorAll('[data-field]');
+  const data = {};
+  inputs.forEach((inp) => { data[inp.getAttribute('data-field')] = inp.value.trim(); });
+
+  const emailOk = data.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email);
+  if (!data.name || !emailOk) {
+    // Soft validation — flash the offending input border.
+    inputs.forEach((inp) => {
+      const f = inp.getAttribute('data-field');
+      if ((f === 'name' && !data.name) || (f === 'email' && !emailOk)) {
+        inp.style.borderColor = '#b04a3a';
+      }
+    });
+    return;
+  }
+
+  const btn = root.querySelector(prefix === 'exit' ? '.ep-btn' : '.lp-btn');
+  if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+  const eventType = __eventTypeState[prefix] || 'wedding';
+  const sourceLabel = prefix === 'exit'
+    ? `Website - Exit Intent (${eventType === 'private' ? 'Private' : 'Corporate'} Event)`
+    : `Website - Timed Popup (${eventType === 'private' ? 'Private' : 'Corporate'} Event)`;
+
+  fetch('/api/lead', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: data.name,
+      email: data.email,
+      phone: data.phone || '',
+      event_type: eventType,
+      source: sourceLabel,
+      _honeypot: '',
+      ...getTrackingPayload(),
+    }),
+  })
+    .then((r) => r.json())
+    .then(() => {
+      if (btn) { btn.textContent = "✓ Sent — we'll respond within 24 hours"; btn.classList.add('success'); }
+      trackLead(sourceLabel);
+    })
+    .catch(() => {
+      if (btn) { btn.textContent = "✓ Sent — we'll respond within 24 hours"; btn.classList.add('success'); }
+      trackLead(sourceLabel);
+    });
+}
+
+// Expose globally (HTML uses inline onclick handlers)
+window.popupPickType = popupPickType;
+window.submitEventLead = submitEventLead;
 
 // ─── PRICING TOGGLE ───
 const pkgData = {
@@ -422,67 +516,36 @@ function showExit() {
 function closeExit() {
   document.getElementById('exit-popup').classList.remove('show');
 }
-// ─── EVENT-TYPE LEAD CAPTURE (multi-step popup) ───
-let _popupEventType = null; // 'wedding' | 'private' | 'corporate'
-
-function popupPickType(popupKind, eventType) {
-  // popupKind: 'exit' or 'lead'  ·  eventType: 'wedding' | 'private' | 'corporate'
-  _popupEventType = eventType;
-
-  if (eventType === 'wedding') {
-    // Wedding → straight to Hitched pamphlet form
-    trackLead('Website - Popup Wedding Intent (' + popupKind + ')');
-    window.location.href = '/wedding-pricing';
-    return;
+function submitExit() {
+  const em = document.getElementById('ep-email');
+  if (em.value.includes('@')) {
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: em.value, source: 'Website - Exit Intent (Pricing Guide)', _honeypot: '', ...getTrackingPayload() }),
+    }).catch(() => {});
+    trackLead('Website - Exit Intent (Pricing Guide)');
+    em.parentElement.innerHTML =
+      '<p style="color:#4ecf9a;font-size:14px;font-weight:300;padding:12px 0">✓ Pricing guide on its way to your inbox!</p>';
+    setTimeout(closeExit, 2200);
   }
-
-  // Private or Corporate → switch to Step 2 (in-popup form)
-  const root = document.getElementById(popupKind + '-popup');
-  if (!root) return;
-  const stepPick = root.querySelector('[data-step="1"]');
-  const stepForm = root.querySelector('[data-step="2"]');
-  if (stepPick) stepPick.style.display = 'none';
-  if (stepForm) stepForm.style.display = '';
-  // Set the dynamic tag text (Private Event / Corporate Event)
-  const tagLabel = eventType === 'private' ? 'Private Event' : 'Corporate Event';
-  root.querySelectorAll('.ep-event-tag, .lp-event-tag').forEach(el => el.textContent = tagLabel);
 }
 
-function submitEventLead(popupKind) {
-  const root = document.getElementById(popupKind + '-popup');
-  if (!root) return;
-  const stepForm = root.querySelector('[data-step="2"]');
-  if (!stepForm) return;
-  const name = stepForm.querySelector('[data-field="name"]').value.trim();
-  const email = stepForm.querySelector('[data-field="email"]').value.trim();
-  const phone = stepForm.querySelector('[data-field="phone"]').value.trim();
-  if (!name || !email.includes('@') || !phone) {
-    // Basic validation feedback
-    stepForm.querySelectorAll('input').forEach(inp => {
-      if (!inp.value.trim() || (inp.type === 'email' && !inp.value.includes('@'))) {
-        inp.style.borderColor = '#b8474a';
-      }
-    });
-    return;
+// ─── TIMED LEAD POPUP SUBMIT ───
+function submitLead(btn) {
+  const inp = btn.previousElementSibling;
+  if (inp && inp.value.includes('@')) {
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: inp.value, source: 'Website - Pricing Guide Popup', _honeypot: '', ...getTrackingPayload() }),
+    }).catch(() => {});
+    trackLead('Website - Pricing Guide Popup');
+    btn.textContent = '✓ Sent!';
+    inp.disabled = true;
+    setTimeout(() => document.getElementById('lead-popup').classList.remove('show'), 2000);
   }
-  const eventType = _popupEventType || 'private';
-  const sourceLabel = 'Website - Popup ' + (eventType.charAt(0).toUpperCase() + eventType.slice(1)) + ' Intent (' + popupKind + ')';
-  fetch('/api/lead', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, email, phone, eventType, source: sourceLabel, _honeypot: '', ...getTrackingPayload() }),
-  }).catch(() => {});
-  trackLead(sourceLabel);
-  // Confirm + redirect to the matching event-type page
-  const btn = stepForm.querySelector('button.ep-btn, button.lp-btn');
-  if (btn) { btn.textContent = '✓ Sent! Taking you there…'; btn.disabled = true; }
-  const dest = eventType === 'private' ? '/private-events' : '/corporate-events';
-  setTimeout(() => { window.location.href = dest; }, 700);
 }
-
-// Legacy aliases — kept so any cached HTML referring to old functions still works gracefully
-function submitExit() { /* deprecated — popup is now multi-step */ }
-function submitLead() { /* deprecated — popup is now multi-step */ }
 
 // ─── TIMED LEAD POPUP (30s) ───
 setTimeout(() => {
