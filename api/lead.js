@@ -225,7 +225,7 @@ export default async function handler(req, res) {
     results.ghl = ghlResult.status === "fulfilled" ? ghlResult.value : `error: ${ghlResult.reason?.message}`;
 
     // 4. Notification + auto-reply emails (sequential — both use Resend)
-    const fromAddr = process.env.RESEND_FROM_EMAIL || "Stone House <admin@stonehouse.io>";
+    const fromAddr = process.env.RESEND_FROM_EMAIL || "Stone House Bookings <bookings@stonehouse.io>";
 
     if (process.env.RESEND_API_KEY) {
       // Notification to bookings team
