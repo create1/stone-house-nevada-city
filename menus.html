@@ -78,6 +78,25 @@ gtag('js',new Date());gtag('config','G-6H210CVEHL');
   "license": "https://www.stonehouse.io/",
   "acquireLicensePage": "https://www.stonehouse.io/contact/"
 }</script><link rel="preload" as="image" href="/assets/images/fresh-fish/fresh-fish-800w.avif" type="image/avif" fetchpriority="high">
+<!-- Web Vitals real-user monitoring -->
+<script type="module">
+import { onCLS, onINP, onLCP, onFCP, onTTFB } from 'https://unpkg.com/web-vitals@4?module';
+function report(name, value, id) {
+  const v = Math.round(name === 'CLS' ? value * 1000 : value);
+  // Send to Meta Pixel as custom event (already loaded on every page)
+  if (window.fbq) {
+    window.fbq('trackCustom', 'WebVital_' + name, {value: v, page: location.pathname, id});
+  }
+  // Also log to console for QA
+  console.log('[web-vitals]', name, v, id);
+}
+onCLS(({name, value, id}) => report(name, value, id));
+onINP(({name, value, id}) => report(name, value, id));
+onLCP(({name, value, id}) => report(name, value, id));
+onFCP(({name, value, id}) => report(name, value, id));
+onTTFB(({name, value, id}) => report(name, value, id));
+</script>
+
 </head>
 <body>
 <nav>

@@ -68,6 +68,25 @@ gtag('js',new Date());gtag('config','G-6H210CVEHL');
 </script>
 <!-- /Analytics -->
 <link rel="preload" as="image" href="/assets/images/stone-house-historic-building-nevada-city/stone-house-historic-building-nevada-city-800w.avif" type="image/avif" fetchpriority="high">
+<!-- Web Vitals real-user monitoring -->
+<script type="module">
+import { onCLS, onINP, onLCP, onFCP, onTTFB } from 'https://unpkg.com/web-vitals@4?module';
+function report(name, value, id) {
+  const v = Math.round(name === 'CLS' ? value * 1000 : value);
+  // Send to Meta Pixel as custom event (already loaded on every page)
+  if (window.fbq) {
+    window.fbq('trackCustom', 'WebVital_' + name, {value: v, page: location.pathname, id});
+  }
+  // Also log to console for QA
+  console.log('[web-vitals]', name, v, id);
+}
+onCLS(({name, value, id}) => report(name, value, id));
+onINP(({name, value, id}) => report(name, value, id));
+onLCP(({name, value, id}) => report(name, value, id));
+onFCP(({name, value, id}) => report(name, value, id));
+onTTFB(({name, value, id}) => report(name, value, id));
+</script>
+
 </head>
 <body>
 <nav>
@@ -134,7 +153,7 @@ gtag('js',new Date());gtag('config','G-6H210CVEHL');
 </div>
 <div class="blog-section">
 <h2>4. Yuba River Canyon Drive</h2>
-<img alt="South Yuba River Recreation Area near Nevada City, California — BLM photo by Jesse Pluim" class="space-img" height="620" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/South_Yuba_Recreation_Area_%2852257484380%29.jpg/960px-South_Yuba_Recreation_Area_%2852257484380%29.jpg" style="max-width:720px" width="960"/>
+<picture><source type="image/avif" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" srcset="/assets/images/south-yuba-recreation-area-wm-74b70/south-yuba-recreation-area-wm-74b70-400w.avif 400w, /assets/images/south-yuba-recreation-area-wm-74b70/south-yuba-recreation-area-wm-74b70-800w.avif 800w"><source type="image/webp" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" srcset="/assets/images/south-yuba-recreation-area-wm-74b70/south-yuba-recreation-area-wm-74b70-400w.webp 400w, /assets/images/south-yuba-recreation-area-wm-74b70/south-yuba-recreation-area-wm-74b70-800w.webp 800w"><img src="/assets/images/south-yuba-recreation-area-wm-74b70/south-yuba-recreation-area-wm-74b70-800w.jpg" srcset="/assets/images/south-yuba-recreation-area-wm-74b70/south-yuba-recreation-area-wm-74b70-400w.jpg 400w, /assets/images/south-yuba-recreation-area-wm-74b70/south-yuba-recreation-area-wm-74b70-800w.jpg 800w" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" width="960" height="620" alt="South Yuba River Recreation Area near Nevada City, California — BLM photo by Jesse Pluim" loading="lazy" decoding="async"></picture>
 <p>Take Highway 49 through the Yuba River Canyon for one of Northern California's most stunning drives. Lush canyon landscapes, pull-off viewpoints, and swimming holes make this an unforgettable day trip. Bring a camera — the light in the canyon is extraordinary.</p>
 <p>The South Yuba River is one of the cleanest waterways in the state, and in spring it runs full with snowmelt from the higher Sierra. The canyon road traces the river's path through granite gorges, past old mining bridges, and through groves of dogwood that bloom white in April. Popular stops include the South Yuba River State Park at Bridgeport, where a 230-foot covered bridge — the longest single-span covered bridge in the country — crosses the river at a particularly photogenic bend.</p>
 <p>Swimming season typically starts in late May when water temperatures climb above 60 degrees. The river's natural rock pools and small waterfalls make it one of the best swimming destinations in Northern California. For event guests looking for a half-day adventure, the drive from Stone House to the Bridgeport covered bridge takes about 25 minutes, and the trail down to the river is an easy ten-minute walk. It's the kind of experience that turns a wedding weekend into something guests remember for years.</p>
