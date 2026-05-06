@@ -115,6 +115,13 @@ async function sendToGHL({ name, email, phone, date, guests, source, event_type,
   const webhookUrl = process.env.GHL_WEBHOOK_URL;
   if (!webhookUrl) return "skipped (no webhook URL)";
 
+  // Hitched is wedding-focused. Skip GHL/Hitched for non-wedding event types so they don't clutter the wedding CRM.
+  // Private/corporate leads stay in Notion + Resend notify; tour leads were skipped here from the start.
+  const skipGhlEventTypes = ["tour", "private", "corporate"];
+  if (skipGhlEventTypes.includes((event_type || "").toLowerCase())) {
+    return `skipped (${event_type} leads don't go to Hitched)`;
+  }
+
   const evt = (event_type || "wedding").toLowerCase();
   const payload = {
     first_name: name ? name.trim().split(/\s+/)[0] : "",
@@ -178,8 +185,9 @@ export default async function handler(req, res) {
       fbc, fbp, source_url
     } = req.body;
 
-    // Normalize event_type — default to 'wedding' for backward compat with old date-checker payloads
-    const validEventTypes = ["wedding", "private", "corporate"];
+    // Normalize event_type — default to 'wedding' for backward compat with old date-checker payloads.
+    // 'tour' added 2026-05-04 for ManyChat IG DM tour requests (skips Hitched GHL webhook below).
+    const validEventTypes = ["wedding", "private", "corporate", "tour"];
     const eventType = validEventTypes.includes((event_type || "").toLowerCase())
       ? event_type.toLowerCase()
       : "wedding";
@@ -252,10 +260,13 @@ export default async function handler(req, res) {
       // Notification to bookings team
       try {
         const utmInfo = utm_source ? `\n<p style="color:#666;font-size:11px;margin-top:12px;"><strong>Attribution:</strong> ${utm_source || ""}/${utm_medium || ""}/${utm_campaign || ""}</p>` : "";
+        const notifySubject = eventType === "tour"
+          ? `🚪 New Tour Request: ${(name || "Unknown").slice(0, 50)} — ${(source || "Website").slice(0, 30)}`
+          : `New ${eventTypeLabel} Lead: ${(name || "Unknown").slice(0, 50)} — ${(source || "Website").slice(0, 30)}`;
         await resend.emails.send({
           from: fromAddr,
           to: "bookings@stonehouse.io",
-          subject: `New ${eventTypeLabel} Lead: ${(name || "Unknown").slice(0, 50)} — ${(source || "Website").slice(0, 30)}`,
+          subject: notifySubject,
           html: `
             <h2>New ${eventTypeLabel} Lead from stonehouse.io</h2>
             <p><strong>Event Type:</strong> ${eventTypeLabel}</p>
@@ -278,11 +289,23 @@ export default async function handler(req, res) {
 
       // Auto-reply to the lead
       try {
-        await resend.emails.send({
-          from: fromAddr,
-          to: email,
-          subject: "Thanks for your interest in Stone House — we'll be in touch!",
-          html: `
+        const autoReplySubject = eventType === "tour"
+          ? "Tour Request Received — Emily will be in touch to schedule"
+          : "Thanks for your interest in Stone House — we'll be in touch!";
+
+        const autoReplyBody = eventType === "tour"
+          ? `
+            <div style="font-family:Georgia,serif;max-width:600px;margin:0 auto;color:#1a1714;">
+              <h1 style="font-size:24px;font-weight:300;color:#1a1714;">Stone House</h1>
+              <p>Hi ${(name || "there").slice(0, 100)},</p>
+              <p>Thanks for requesting a tour of Stone House! Emily from our team will reach out within 24 hours to find a time that works for you.</p>
+              <p>Tours run about 45 minutes and cover all seven spaces — the perfect way to imagine your event in the venue.</p>
+              ${date ? `<p>You mentioned: <strong>${date}</strong></p>` : ""}
+              <p>In the meantime, feel free to explore our <a href="https://stonehouse.io/venue-pricing" style="color:#C9A84C;">spaces and pricing</a>.</p>
+              <p style="margin-top:24px;">Looking forward to showing you around,<br>The Stone House Team<br>107 Sacramento Street, Nevada City<br>(530) 265-5050</p>
+            </div>
+          `
+          : `
             <div style="font-family:Georgia,serif;max-width:600px;margin:0 auto;color:#1a1714;">
               <h1 style="font-size:24px;font-weight:300;color:#1a1714;">Stone House</h1>
               <p>Hi ${(name || "there").slice(0, 100)},</p>
@@ -291,7 +314,13 @@ export default async function handler(req, res) {
               <p>In the meantime, feel free to explore our <a href="https://stonehouse.io" style="color:#C9A84C;">spaces and venue details</a>.</p>
               <p style="margin-top:24px;">Warm regards,<br>The Stone House Team<br>107 Sacramento Street, Nevada City<br>(530) 265-5050</p>
             </div>
-          `,
+          `;
+
+        await resend.emails.send({
+          from: fromAddr,
+          to: email,
+          subject: autoReplySubject,
+          html: autoReplyBody,
         });
         results.autoReply = "ok";
       } catch (replyErr) {
