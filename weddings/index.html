@@ -98,8 +98,26 @@ body{
 }
 .hero::before{
   content:"";position:absolute;inset:0;
-  background:url('https://cdn.prod.website-files.com/65f8783a30b4f349defb4960/68950a62c9bcf227c2629194_Sophie%2BNic-7983.webp') center/cover no-repeat;
+  /* Fallback for browsers without image-set() */
+  background-image:url('/assets/images/wedding-at-stone-house-nevada-city/wedding-at-stone-house-nevada-city-800w.jpg');
+  /* Modern browsers: AVIF -> WebP -> JPG format negotiation */
+  background-image:image-set(
+    url('/assets/images/wedding-at-stone-house-nevada-city/wedding-at-stone-house-nevada-city-800w.avif') type('image/avif'),
+    url('/assets/images/wedding-at-stone-house-nevada-city/wedding-at-stone-house-nevada-city-800w.webp') type('image/webp'),
+    url('/assets/images/wedding-at-stone-house-nevada-city/wedding-at-stone-house-nevada-city-800w.jpg') type('image/jpeg')
+  );
+  background-position:center;background-size:cover;background-repeat:no-repeat;
   opacity:.35;filter:saturate(.85)
+}
+@media (min-width:768px){
+  .hero::before{
+    background-image:url('/assets/images/wedding-at-stone-house-nevada-city/wedding-at-stone-house-nevada-city-1200w.jpg');
+    background-image:image-set(
+      url('/assets/images/wedding-at-stone-house-nevada-city/wedding-at-stone-house-nevada-city-1200w.avif') type('image/avif'),
+      url('/assets/images/wedding-at-stone-house-nevada-city/wedding-at-stone-house-nevada-city-1200w.webp') type('image/webp'),
+      url('/assets/images/wedding-at-stone-house-nevada-city/wedding-at-stone-house-nevada-city-1200w.jpg') type('image/jpeg')
+    );
+  }
 }
 .hero::after{
   content:"";position:absolute;inset:0;
