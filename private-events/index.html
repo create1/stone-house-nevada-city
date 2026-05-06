@@ -262,13 +262,14 @@ html.sh-unlocked .sh-gate { display: none !important; }
     <p>From milestone celebrations to intimate dinner parties — host your next gathering in a venue with character, history, and spaces that guests will never forget.</p>
   </div>
 
-  <!-- LEAD GATE — content below is hidden until the user submits this form once.
-       localStorage flag 'sh-private-unlocked' persists the unlock across visits. -->
+  <!-- LEAD GATE (single-form merge 2026-05-06) — pricing + content below is hidden until this form is submitted.
+       localStorage flag 'sh-private-unlocked' persists the unlock across visits.
+       This is the ONLY inquiry form on the page; the prior bottom intake form has been removed. -->
   <div class="sh-gate" id="sh-gate">
     <div class="gate-card">
       <h2>See pricing, packages &amp; full event details</h2>
-      <p class="gate-tease">Quick intro and we'll unlock the page. We respond personally to every inquiry — never any spam.</p>
-      <form class="gate-form" id="sh-gate-form" onsubmit="return submitGateForm(event)">
+      <p class="gate-tease">Tell us about your event and we'll unlock pricing + reply within 24 hours with a tailored quote. Never any spam.</p>
+      <form class="gate-form evt-form" id="sh-gate-form" onsubmit="return submitGateForm(event)">
         <div class="evt-row">
           <div>
             <label class="evt-label" for="gate-name">Your name</label>
@@ -279,13 +280,46 @@ html.sh-unlocked .sh-gate { display: none !important; }
             <input class="evt-input" id="gate-email" name="email" type="email" placeholder="you@email.com" required autocomplete="email">
           </div>
         </div>
+        <div class="evt-row">
+          <div>
+            <label class="evt-label" for="gate-phone">Phone (optional)</label>
+            <input class="evt-input" id="gate-phone" name="phone" type="tel" placeholder="(530) 555-0100" autocomplete="tel">
+          </div>
+          <div>
+            <label class="evt-label" for="gate-date">Event date (if known)</label>
+            <input class="evt-input" id="gate-date" name="date" type="text" placeholder="MM/DD/YYYY" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
+          </div>
+        </div>
+        <div class="evt-row">
+          <div>
+            <label class="evt-label" for="gate-guests">Approximate guests</label>
+            <select class="evt-input" id="gate-guests" name="guests">
+              <option value="">Select range</option>
+              <option>Under 30</option>
+              <option>30–60</option>
+              <option>60–100</option>
+              <option>100–150</option>
+              <option>150+</option>
+            </select>
+          </div>
+          <div>
+            <label class="evt-label" for="gate-package">Package interest</label>
+            <select class="evt-input" id="gate-package" name="package">
+              <option value="">Open to suggestions</option>
+              <option>Prospector ($2,500)</option>
+              <option>Brewmaster ($5,500)</option>
+              <option>Mother Lode ($11,000)</option>
+              <option>Custom</option>
+            </select>
+          </div>
+        </div>
         <div>
-          <label class="evt-label" for="gate-phone">Phone (optional)</label>
-          <input class="evt-input" id="gate-phone" name="phone" type="tel" placeholder="(530) 555-0100" autocomplete="tel">
+          <label class="evt-label" for="gate-message">Tell us about your event (optional)</label>
+          <textarea class="evt-textarea" id="gate-message" name="message" placeholder="Birthday, milestone, anniversary, type of vibe — give us the headline."></textarea>
         </div>
         <input class="evt-honeypot" tabindex="-1" autocomplete="off" type="text" name="company">
         <p class="evt-error" id="gate-err">Please enter your name and a valid email.</p>
-        <button class="btn-primary" id="gate-btn" type="submit">Show me the details →</button>
+        <button class="btn-primary" id="gate-btn" type="submit">Send inquiry &amp; unlock pricing →</button>
         <p class="gate-fineprint">Or email <a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a> · call <a href="tel:+15302655050">(530) 265-5050</a></p>
       </form>
     </div>
@@ -364,7 +398,6 @@ html.sh-unlocked .sh-gate { display: none !important; }
           <li>Bar service available</li>
           <li>Flexible setup</li>
         </ul>
-        <a href="#inquire" class="price-cta" onclick="prefillPkg('Prospector ($2,500)')">Check this date →</a>
       </div>
       <div class="price-card feat">
         <div class="price-badge">Most Popular</div>
@@ -380,7 +413,6 @@ html.sh-unlocked .sh-gate { display: none !important; }
           <li>Full bar service</li>
           <li>Event coordinator support</li>
         </ul>
-        <a href="#inquire" class="price-cta" onclick="prefillPkg('Brewmaster ($5,500)')">Check this date →</a>
       </div>
       <div class="price-card">
         <div class="price-tier">Reception</div>
@@ -396,70 +428,11 @@ html.sh-unlocked .sh-gate { display: none !important; }
           <li>Planning coordination</li>
           <li>Customised décor assistance</li>
         </ul>
-        <a href="#inquire" class="price-cta" onclick="prefillPkg('Mother Lode ($11,000)')">Check this date →</a>
       </div>
     </div>
   </div>
 
-  <!-- INTAKE FORM -->
-  <div class="cta-section" id="inquire">
-    <h2>Let's plan your event</h2>
-    <p>Tell us what you're envisioning. We'll respond within 24 hours with availability and a tailored quote.</p>
-
-    <form class="evt-form" id="evt-form" onsubmit="return submitEventForm(event)">
-      <div class="evt-row">
-        <div>
-          <label class="evt-label" for="evt-name">Your name</label>
-          <input class="evt-input" id="evt-name" name="name" type="text" placeholder="First & last" required>
-        </div>
-        <div>
-          <label class="evt-label" for="evt-email">Email</label>
-          <input class="evt-input" id="evt-email" name="email" type="email" placeholder="you@email.com" required>
-        </div>
-      </div>
-      <div class="evt-row">
-        <div>
-          <label class="evt-label" for="evt-phone">Phone (optional)</label>
-          <input class="evt-input" id="evt-phone" name="phone" type="tel" placeholder="(530) 555-0100">
-        </div>
-        <div>
-          <label class="evt-label" for="evt-date">Event date (if known)</label>
-          <input class="evt-input" id="evt-date" name="date" type="text" placeholder="MM/DD/YYYY" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
-        </div>
-      </div>
-      <div class="evt-row">
-        <div>
-          <label class="evt-label" for="evt-guests">Approximate guests</label>
-          <select class="evt-input" id="evt-guests" name="guests">
-            <option value="">Select range</option>
-            <option>Under 30</option>
-            <option>30–60</option>
-            <option>60–100</option>
-            <option>100–150</option>
-            <option>150+</option>
-          </select>
-        </div>
-        <div>
-          <label class="evt-label" for="evt-package">Package interest</label>
-          <select class="evt-input" id="evt-package" name="package">
-            <option value="">Open to suggestions</option>
-            <option>Prospector ($2,500)</option>
-            <option>Brewmaster ($5,500)</option>
-            <option>Mother Lode ($11,000)</option>
-            <option>Custom</option>
-          </select>
-        </div>
-      </div>
-      <div>
-        <label class="evt-label" for="evt-message">Tell us about your event</label>
-        <textarea class="evt-textarea" id="evt-message" name="message" placeholder="Birthday, milestone, anniversary, type of vibe — give us the headline."></textarea>
-      </div>
-      <input class="evt-honeypot" tabindex="-1" autocomplete="off" type="text" name="company">
-      <p class="evt-error" id="evt-err">Please fill in name and a valid email.</p>
-      <button class="btn-primary evt-submit" id="evt-btn" type="submit">Send inquiry →</button>
-      <p class="evt-fineprint">Or email <a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a> · call <a href="tel:+15302655050">(530) 265-5050</a></p>
-    </form>
-  </div>
+  <!-- (Bottom intake form removed 2026-05-06 — single gated form at top now captures everything.) -->
 
   <style>
     .evt-form { display: flex; flex-direction: column; gap: 14px; max-width: 640px; margin: 28px auto 0; text-align: left; }
@@ -492,18 +465,13 @@ html.sh-unlocked .sh-gate { display: none !important; }
         var c = document.cookie.split(';').reduce(function(a,p){ var kv=p.trim().split('='); a[kv[0]]=kv[1]; return a; }, {});
         return { fbc: c._fbc||'', fbp: c._fbp||'' };
       }
-      window.prefillPkg = function(label) {
-        try {
-          var sel = document.getElementById('evt-package');
-          if (!sel) return;
-          for (var i = 0; i < sel.options.length; i++) {
-            if (sel.options[i].text === label) { sel.selectedIndex = i; break; }
-          }
-        } catch(e) {}
-      };
-      window.submitEventForm = function(e) {
+      // ====== LEAD GATE submit handler (single-form merge 2026-05-06) ======
+      // The gate form now captures the full inquiry payload (name/email/phone/date/guests/package/message)
+      // in one shot. Single Lead Source value: 'Website - Private Events Page'.
+      // localStorage flag 'sh-private-unlocked' persists the unlock across visits.
+      window.submitGateForm = function(e) {
         e.preventDefault();
-        var f = document.getElementById('evt-form');
+        var f = document.getElementById('sh-gate-form');
         var name = f.name.value.trim();
         var email = f.email.value.trim();
         var phone = f.phone.value.trim();
@@ -512,12 +480,17 @@ html.sh-unlocked .sh-gate { display: none !important; }
         var pkg = f.package.value;
         var message = f.message.value.trim();
         var honeypot = f.company.value;
-        var err = document.getElementById('evt-err');
+        var err = document.getElementById('gate-err');
         var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         if (!name || !emailOk) { err.classList.add('show'); return false; }
         err.classList.remove('show');
-        var btn = document.getElementById('evt-btn');
+        var btn = document.getElementById('gate-btn');
         btn.disabled = true; btn.textContent = 'Sending…';
+
+        // Set unlock flag immediately so even if the API call fails the user
+        // gets the content they asked for (and never gets re-gated).
+        try { localStorage.setItem('sh-private-unlocked', '1'); } catch(_) {}
+
         var mc = metaCookies();
         var payload = {
           name: name, email: email, phone: phone, date: date, guests: guests,
@@ -530,68 +503,16 @@ html.sh-unlocked .sh-gate { display: none !important; }
         };
         fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
           .then(function(r){ return r.json(); })
-          .then(function(){ btn.textContent = "✓ Inquiry sent — we'll respond within 24 hours"; btn.classList.add('success'); if (typeof fbq === 'function') { try { fbq('track','Lead'); } catch(e){} } })
+          .then(function(){ btn.textContent = "✓ Inquiry sent — we'll respond within 24 hours"; btn.classList.add('success'); if (typeof fbq === 'function') { try { fbq('track','Lead'); } catch(_){} } })
           .catch(function(){ btn.textContent = "✓ Inquiry sent — we'll respond within 24 hours"; btn.classList.add('success'); });
-        return false;
-      };
 
-      // ====== LEAD GATE submit handler ======
-      // Lighter form (name/email/phone) that unlocks page content.
-      // Sets localStorage 'sh-private-unlocked' = '1' so returning visitors skip it.
-      // Captures lead via /api/lead with source flagged "Page Gate" so the team
-      // can distinguish gate captures from full-form inquiries.
-      window.submitGateForm = function(e) {
-        e.preventDefault();
-        var f = document.getElementById('sh-gate-form');
-        var name = f.name.value.trim();
-        var email = f.email.value.trim();
-        var phone = f.phone.value.trim();
-        var honeypot = f.company.value;
-        var err = document.getElementById('gate-err');
-        var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        if (!name || !emailOk) { err.classList.add('show'); return false; }
-        err.classList.remove('show');
-        var btn = document.getElementById('gate-btn');
-        btn.disabled = true; btn.textContent = 'Unlocking…';
-
-        // Set unlock flag immediately so even if the API call fails the user
-        // gets the content they asked for (and never gets re-gated).
-        try { localStorage.setItem('sh-private-unlocked', '1'); } catch(_) {}
-
-        var mc = metaCookies();
-        var payload = {
-          name: name, email: email, phone: phone,
-          event_type: 'private',
-          message: 'Page gate submission — user unlocked content (lighter form, no event details yet).',
-          source: 'Website - Private Events Page Gate',
-          _honeypot: honeypot,
-          fbc: mc.fbc, fbp: mc.fbp, source_url: window.location.href,
-          utm_source: __utm.utm_source, utm_medium: __utm.utm_medium, utm_campaign: __utm.utm_campaign, utm_content: __utm.utm_content, utm_term: __utm.utm_term,
-        };
-        fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
-          .then(function(r){ return r.json(); })
-          .then(function(){ if (typeof fbq === 'function') { try { fbq('track','Lead'); } catch(_){} } })
-          .catch(function(){});
-
-        // Reveal the gated content
-        document.documentElement.classList.remove('sh-locked');
-        document.documentElement.classList.add('sh-unlocked');
-
-        // Pre-fill the bottom inquiry form so the user doesn't have to retype
-        try {
-          var bf = document.getElementById('evt-form');
-          if (bf) {
-            if (bf.name && !bf.name.value) bf.name.value = name;
-            if (bf.email && !bf.email.value) bf.email.value = email;
-            if (bf.phone && !bf.phone.value) bf.phone.value = phone;
-          }
-        } catch(_) {}
-
-        // Smooth scroll to the just-revealed content
-        setTimeout(function(){
+        // Reveal the gated content after a short delay so the user sees the success state on the button
+        setTimeout(function() {
+          document.documentElement.classList.remove('sh-locked');
+          document.documentElement.classList.add('sh-unlocked');
           var first = document.querySelector('.sh-gated');
           if (first && first.scrollIntoView) first.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 120);
+        }, 800);
 
         return false;
       };
