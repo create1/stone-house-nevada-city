@@ -692,8 +692,11 @@ body.clicking #cursor {
   display: block;
   width: 22px;
   height: 1.5px;
-  background: var(--c);
+  background: #fff;
   transition: all 0.25s;
+}
+#nav.scrolled .mob-btn span {
+  background: var(--c);
 }
 
 /* ═══════════════════════════════════════
@@ -808,6 +811,7 @@ body.clicking #cursor {
   gap: 10px;
   margin-bottom: 22px;
   padding: 7px 14px 7px 12px;
+  white-space: nowrap;
   background: rgba(20, 16, 12, 0.42);
   -webkit-backdrop-filter: blur(10px) saturate(140%);
   backdrop-filter: blur(10px) saturate(140%);
@@ -1159,6 +1163,20 @@ body.clicking #cursor {
   overflow: hidden;
   cursor: pointer;
   cursor: none;
+}
+/* Carousel must claim horizontal gestures so JS pointer handlers fire on touch.
+   Without touch-action: pan-y, iOS Safari treats the swipe as a scroll and
+   pointermove never fires, so the dot/swipe logic never runs. */
+.space-carousel {
+  touch-action: pan-y;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.space-carousel img {
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 .space-card img {
   width: 100%;
@@ -2531,6 +2549,17 @@ footer {
    RESPONSIVE
 ═══════════════════════════════════════ */
 @media (max-width: 960px) {
+  /* Mobile-only header overlay: solid 50% scrim instead of the desktop
+     fading gradient, so the logo + hamburger always have a contained
+     surface on top of busy hero imagery. */
+  #nav:not(.scrolled) {
+    background: rgba(26, 23, 20, 0.5);
+  }
+  /* "Scroll" indicator collides with stacked hero buttons on phones —
+     hide on mobile (touch users scroll naturally). */
+  .hero-scroll {
+    display: none;
+  }
   .nav-links {
     display: none;
   }
@@ -2691,6 +2720,12 @@ footer {
   }
   .hero-eyebrow {
     margin-bottom: 16px;
+    /* Tightened to keep "Nevada City, California · Historic District"
+       on a single line at phone widths. */
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    padding: 6px 10px 6px 8px;
+    gap: 8px;
   }
   .hero-h1 {
     margin-bottom: 16px;
@@ -2720,5 +2755,15 @@ footer {
     text-align: center;
     justify-content: center;
     padding: 14px 24px;
+  }
+}
+/* Very small phones (SE-class). Push eyebrow chip one more notch tighter
+   so the full place-name still fits on one line. */
+@media (max-width: 360px) {
+  .hero-eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    padding: 5px 9px 5px 7px;
+    gap: 6px;
   }
 }
