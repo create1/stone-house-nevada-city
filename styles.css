@@ -848,25 +848,7 @@ body.clicking #cursor {
 }
 .hero-h1 em {
   font-style: italic;
-  /* Brighter pale gold so the italic line pops against the scrim. */
-  color: var(--gll);
-  font-weight: 300;
-  /* Targeted Scrim: a soft horizontal gradient ribbon behind just this
-     phrase. Keeps the rest of the H1 open on the image, but guarantees
-     "Meets Intention" reads on any background — sunlit autumn, cave
-     candlelight, bright reception, etc. box-decoration-break:clone
-     means the ribbon re-applies cleanly if the phrase ever wraps. */
-  background: linear-gradient(
-    to right,
-    rgba(20, 16, 12, 0) 0%,
-    rgba(20, 16, 12, 0.72) 8%,
-    rgba(20, 16, 12, 0.78) 92%,
-    rgba(20, 16, 12, 0) 100%
-  );
-  padding: 0.04em 0.45em 0.1em;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  border-radius: 2px;
+  color: var(--g);
 }
 .hero-sub {
   font-size: 15px;
@@ -2747,6 +2729,27 @@ footer {
   }
   .hero-h1 {
     margin-bottom: 16px;
+  }
+  /* Targeted Scrim — mobile only.
+     A soft horizontal gradient ribbon behind just "Meets Intention"
+     keeps the italic readable against busy hero imagery. inline-block
+     + margin-top ensures the ribbon starts below the "y" descender
+     of "Where History" instead of clipping it. Desktop keeps the
+     plain gold italic — the wider overlay handles it there. */
+  .hero-h1 em {
+    color: var(--gll);
+    font-weight: 300;
+    display: inline-block;
+    margin-top: 0.18em;
+    padding: 0.02em 0.45em 0.14em;
+    background: linear-gradient(
+      to right,
+      rgba(20, 16, 12, 0) 0%,
+      rgba(20, 16, 12, 0.72) 8%,
+      rgba(20, 16, 12, 0.78) 92%,
+      rgba(20, 16, 12, 0) 100%
+    );
+    border-radius: 2px;
   }
   #hero {
     min-height: 100svh;
