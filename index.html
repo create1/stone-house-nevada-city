@@ -127,6 +127,12 @@ gtag('js',new Date());gtag('config','G-6H210CVEHL');
   .carousel-dots { bottom: 152px; }
 }
 
+/* ── Story stats — align labels at bottom across cells ──────────
+   1857 stat is 36px while 7 and 200 are 52px; without alignment
+   the 1857 cell's label sits higher than the others. Push each cell
+   to flex-end so all labels share the same baseline. */
+.story-stats { align-items: flex-end; }
+
 /* ── Hero rotating slider ────────────────────────────────────────
    Stacks 4 picture frames in .hero-bg, fades between them every 3s.
    First frame is LCP (fetchpriority=high, decoding=sync, eager). */
@@ -310,10 +316,10 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <section id="hero">
 <div class="hero-bg" data-hero-slider>
 <picture class="hero-frame is-active"><source sizes="(min-width: 1280px) 1200px, (min-width: 768px) 50vw, 100vw" srcset="/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-400w.avif 400w, /assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-800w.avif 800w, /assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-1200w.avif 1200w" type="image/avif"/><source sizes="(min-width: 1280px) 1200px, (min-width: 768px) 50vw, 100vw" srcset="/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-400w.webp 400w, /assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-800w.webp 800w, /assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-1200w.webp 1200w" type="image/webp"/><img alt="Bride and groom photographed at Stone House Nevada City — historic 1857 venue with original stonework as the wedding ceremony backdrop" data-sh-key="photo-sophie-nic" decoding="sync" fetchpriority="high" height="1800" sizes="(min-width: 1280px) 1200px, (min-width: 768px) 50vw, 100vw" src="/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-1200w.jpg" srcset="/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-400w.jpg 400w, /assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-800w.jpg 800w, /assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-1200w.jpg 1200w" style="object-position:center 28%" width="1200"/></picture>
-<picture class="hero-frame"><source sizes="(min-width: 1280px) 1600px, 100vw" srcset="/assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-400w.avif 400w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-800w.avif 800w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-1200w.avif 1200w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-1600w.avif 1600w" type="image/avif"/><source sizes="(min-width: 1280px) 1600px, 100vw" srcset="/assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-400w.webp 400w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-800w.webp 800w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-1200w.webp 1200w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-1600w.webp 1600w" type="image/webp"/><img alt="Wedding reception celebration in The Showroom at Stone House Nevada City — first-floor flexible venue with exposed beams and warm lighting" data-sh-key="photo-hero-2" decoding="async" height="4335" loading="lazy" sizes="(min-width: 1280px) 1600px, 100vw" src="/assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-1600w.jpg" srcset="/assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-400w.jpg 400w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-800w.jpg 800w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-1200w.jpg 1200w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-1600w.jpg 1600w" style="object-position:center 35%" width="6502"/></picture>
-<picture class="hero-frame"><source sizes="(min-width: 1280px) 1600px, 100vw" srcset="/assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-400w.avif 400w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-800w.avif 800w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-1200w.avif 1200w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-1600w.avif 1600w" type="image/avif"/><source sizes="(min-width: 1280px) 1600px, 100vw" srcset="/assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-400w.webp 400w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-800w.webp 800w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-1200w.webp 1200w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-1600w.webp 1600w" type="image/webp"/><img alt="Wedding bride portrait in The Courtyard at Stone House Nevada City — outdoor stone-walled venue framed by historic 1857 architecture" data-sh-key="photo-hero-3" decoding="async" height="6287" loading="lazy" sizes="(min-width: 1280px) 1600px, 100vw" src="/assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-1600w.jpg" srcset="/assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-400w.jpg 400w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-800w.jpg 800w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-1200w.jpg 1200w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-1600w.jpg 1600w" style="object-position:center 30%" width="4191"/></picture>
 <picture class="hero-frame"><source sizes="(min-width: 1280px) 1600px, 100vw" srcset="/assets/images/wedding-couple-styled-portrait-stone-house/wedding-couple-styled-portrait-stone-house-400w.avif 400w, /assets/images/wedding-couple-styled-portrait-stone-house/wedding-couple-styled-portrait-stone-house-800w.avif 800w, /assets/images/wedding-couple-styled-portrait-stone-house/wedding-couple-styled-portrait-stone-house-1200w.avif 1200w, /assets/images/wedding-couple-styled-portrait-stone-house/wedding-couple-styled-portrait-stone-house-1600w.avif 1600w" type="image/avif"/><source sizes="(min-width: 1280px) 1600px, 100vw" srcset="/assets/images/wedding-couple-styled-portrait-stone-house/wedding-couple-styled-portrait-stone-house-400w.webp 400w, /assets/images/wedding-couple-styled-portrait-stone-house/wedding-couple-styled-portrait-stone-house-800w.webp 800w, /assets/images/wedding-couple-styled-portrait-stone-house/wedding-couple-styled-portrait-stone-house-1200w.webp 1200w, /assets/images/wedding-couple-styled-portrait-stone-house/wedding-couple-styled-portrait-stone-house-1600w.webp 1600w" type="image/webp"/><img alt="Styled wedding couple portrait at Stone House Nevada City — historic 1857 venue with original stonework as ceremony backdrop" data-sh-key="photo-hero-4" decoding="async" height="1992" loading="lazy" sizes="(min-width: 1280px) 1600px, 100vw" src="/assets/images/wedding-couple-styled-portrait-stone-house/wedding-couple-styled-portrait-stone-house-1600w.jpg" srcset="/assets/images/wedding-couple-styled-portrait-stone-house/wedding-couple-styled-portrait-stone-house-400w.jpg 400w, /assets/images/wedding-couple-styled-portrait-stone-house/wedding-couple-styled-portrait-stone-house-800w.jpg 800w, /assets/images/wedding-couple-styled-portrait-stone-house/wedding-couple-styled-portrait-stone-house-1200w.jpg 1200w, /assets/images/wedding-couple-styled-portrait-stone-house/wedding-couple-styled-portrait-stone-house-1600w.jpg 1600w" style="object-position:center 30%" width="3082"/></picture>
 <picture class="hero-frame"><source sizes="(min-width: 1280px) 1600px, 100vw" srcset="/assets/images/cavern-wedding-service-stone-house/cavern-wedding-service-stone-house-400w.avif 400w, /assets/images/cavern-wedding-service-stone-house/cavern-wedding-service-stone-house-800w.avif 800w, /assets/images/cavern-wedding-service-stone-house/cavern-wedding-service-stone-house-1200w.avif 1200w, /assets/images/cavern-wedding-service-stone-house/cavern-wedding-service-stone-house-1600w.avif 1600w" type="image/avif"/><source sizes="(min-width: 1280px) 1600px, 100vw" srcset="/assets/images/cavern-wedding-service-stone-house/cavern-wedding-service-stone-house-400w.webp 400w, /assets/images/cavern-wedding-service-stone-house/cavern-wedding-service-stone-house-800w.webp 800w, /assets/images/cavern-wedding-service-stone-house/cavern-wedding-service-stone-house-1200w.webp 1200w, /assets/images/cavern-wedding-service-stone-house/cavern-wedding-service-stone-house-1600w.webp 1600w" type="image/webp"/><img alt="Wedding service in The Cavern at Stone House Nevada City — candlelit underground stone arches set for an intimate ceremony" data-sh-key="photo-hero-5" decoding="async" height="1400" loading="lazy" sizes="(min-width: 1280px) 1600px, 100vw" src="/assets/images/cavern-wedding-service-stone-house/cavern-wedding-service-stone-house-1600w.jpg" srcset="/assets/images/cavern-wedding-service-stone-house/cavern-wedding-service-stone-house-400w.jpg 400w, /assets/images/cavern-wedding-service-stone-house/cavern-wedding-service-stone-house-800w.jpg 800w, /assets/images/cavern-wedding-service-stone-house/cavern-wedding-service-stone-house-1200w.jpg 1200w, /assets/images/cavern-wedding-service-stone-house/cavern-wedding-service-stone-house-1600w.jpg 1600w" style="object-position:center 35%" width="2100"/></picture>
+<picture class="hero-frame"><source sizes="(min-width: 1280px) 1600px, 100vw" srcset="/assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-400w.avif 400w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-800w.avif 800w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-1200w.avif 1200w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-1600w.avif 1600w" type="image/avif"/><source sizes="(min-width: 1280px) 1600px, 100vw" srcset="/assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-400w.webp 400w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-800w.webp 800w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-1200w.webp 1200w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-1600w.webp 1600w" type="image/webp"/><img alt="Wedding reception celebration in The Showroom at Stone House Nevada City — first-floor flexible venue with exposed beams and warm lighting" data-sh-key="photo-hero-2" decoding="async" height="4335" loading="lazy" sizes="(min-width: 1280px) 1600px, 100vw" src="/assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-1600w.jpg" srcset="/assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-400w.jpg 400w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-800w.jpg 800w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-1200w.jpg 1200w, /assets/images/showroom-wedding-celebration-stone-house/showroom-wedding-celebration-stone-house-1600w.jpg 1600w" style="object-position:center 35%" width="6502"/></picture>
+<picture class="hero-frame"><source sizes="(min-width: 1280px) 1600px, 100vw" srcset="/assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-400w.avif 400w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-800w.avif 800w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-1200w.avif 1200w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-1600w.avif 1600w" type="image/avif"/><source sizes="(min-width: 1280px) 1600px, 100vw" srcset="/assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-400w.webp 400w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-800w.webp 800w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-1200w.webp 1200w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-1600w.webp 1600w" type="image/webp"/><img alt="Wedding bride portrait in The Courtyard at Stone House Nevada City — outdoor stone-walled venue framed by historic 1857 architecture" data-sh-key="photo-hero-3" decoding="async" height="6287" loading="lazy" sizes="(min-width: 1280px) 1600px, 100vw" src="/assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-1600w.jpg" srcset="/assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-400w.jpg 400w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-800w.jpg 800w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-1200w.jpg 1200w, /assets/images/courtyard-wedding-portrait-stone-house/courtyard-wedding-portrait-stone-house-1600w.jpg 1600w" style="object-position:center 30%" width="4191"/></picture>
 </div>
 <div class="hero-ov"></div>
 <div class="hero-yr" id="hero-yr">1857</div>
@@ -1152,37 +1158,86 @@ onTTFB(({name, value, id}) => report(name, value, id));
   }
 })();
 
-/* Spaces carousel — auto-rotate, dot nav, pause on hover.
-   Loaded after app.js. Each .space-carousel is independent. */
+/* Spaces carousel — auto-rotate, dot nav, pause on hover, drag/swipe,
+   start-on-scroll (frame 1 stays visible until carousel enters viewport).
+   Each .space-carousel is independent. */
 (function () {
   const ROTATE_MS = 5500;
+  const SWIPE_PX = 50;
+  const DRAG_PX = 8;
+
   document.querySelectorAll('[data-carousel]').forEach((carousel, idx) => {
     const frames = carousel.querySelectorAll('.frame');
     const dots = carousel.querySelectorAll('.carousel-dot');
     if (frames.length < 2) return;
-    let i = 0, timer = null;
+
+    let i = 0, timer = null, hasStarted = false;
     const show = (n) => {
       i = (n + frames.length) % frames.length;
       frames.forEach((f, k) => f.classList.toggle('is-active', k === i));
       dots.forEach((d, k) => d.classList.toggle('is-active', k === i));
     };
     const next = () => show(i + 1);
+    const prev = () => show(i - 1);
     const start = () => { stop(); timer = setInterval(next, ROTATE_MS); };
     const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
-    // Click dots — stopPropagation so the wrapping <a> doesn't navigate
+
     dots.forEach((d, k) => d.addEventListener('click', (e) => {
       e.preventDefault(); e.stopPropagation(); show(k); start();
     }));
+
     const card = carousel.closest('.space-card');
+
+    // Drag / swipe — desktop pointer + mobile touch (pointer events handle both)
+    let startX = 0, startY = 0, dragging = false, suppressClick = false;
+    carousel.addEventListener('pointerdown', (e) => {
+      startX = e.clientX; startY = e.clientY;
+      dragging = false; suppressClick = false;
+    });
+    carousel.addEventListener('pointermove', (e) => {
+      if (!startX) return;
+      const dx = Math.abs(e.clientX - startX);
+      const dy = Math.abs(e.clientY - startY);
+      if (!dragging && dx > DRAG_PX && dx > dy) { dragging = true; stop(); }
+    });
+    carousel.addEventListener('pointerup', (e) => {
+      if (dragging) {
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > SWIPE_PX) { dx < 0 ? next() : prev(); }
+        suppressClick = true;
+        setTimeout(() => { suppressClick = false; }, 50);
+        if (hasStarted) start();
+      }
+      startX = 0; dragging = false;
+    });
+    carousel.addEventListener('pointercancel', () => {
+      startX = 0; dragging = false;
+      if (hasStarted) start();
+    });
+
     if (card) {
-      card.addEventListener('mouseenter', stop);
-      card.addEventListener('mouseleave', start);
+      // Block <a href="#plan-event"> nav when click came from a drag gesture
+      card.addEventListener('click', (e) => {
+        if (suppressClick) { e.preventDefault(); suppressClick = false; }
+      }, true);
+      card.addEventListener('mouseenter', () => { if (hasStarted) stop(); });
+      card.addEventListener('mouseleave', () => { if (hasStarted) start(); });
     }
-    // Stagger initial start so all 7 don't tick in unison
-    setTimeout(start, idx * 700);
-    // Also pause when tab hidden, resume when visible
+
+    // Start-on-viewport — frame 1 stays showing until ≥25% of carousel is visible.
+    // Especially important on mobile where users see the carousel only after scrolling.
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!hasStarted) { hasStarted = true; setTimeout(start, idx * 700); }
+          else start();
+        } else { stop(); }
+      });
+    }, { threshold: 0.25 });
+    io.observe(carousel);
+
     document.addEventListener('visibilitychange', () => {
-      if (document.hidden) stop(); else start();
+      if (document.hidden) stop(); else if (hasStarted) start();
     });
   });
 })();
