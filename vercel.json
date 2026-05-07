@@ -5,6 +5,11 @@
   "installCommand": "npm install",
   "redirects": [
     {
+      "source": "/brunch.html",
+      "destination": "/wedding-brunch.html",
+      "permanent": true
+    },
+    {
       "source": "/private-venue-nevada-city",
       "destination": "/wedding-pricing",
       "permanent": true
