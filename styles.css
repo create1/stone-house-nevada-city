@@ -798,19 +798,28 @@ body.clicking #cursor {
 .hero-eyebrow {
   font-size: 10px;
   letter-spacing: 0.3em;
-  color: var(--g);
+  /* Brighter gold reads more cleanly across the rotating hero photos. */
+  color: var(--gl);
   text-transform: uppercase;
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 22px;
+  /* Subtle dark halo lifts the eyebrow off any background — no bolding,
+     no size change, just legibility. The faint outer glow handles dark
+     bg edges; the tight tail handles bright bg edges. */
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.55),
+    0 0 10px rgba(0, 0, 0, 0.35);
   animation: fadeUp 0.9s var(--ease) 0.3s both;
 }
 .hero-eyebrow::before {
   content: '';
   width: 0;
   height: 1px;
-  background: var(--g);
+  background: var(--gl);
+  /* Match the text's halo so the divider line stays visible too. */
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.45);
   animation: lineGrow 0.8s ease 0.9s forwards;
 }
 .hero-h1 {
