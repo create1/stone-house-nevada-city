@@ -1,37 +1,36 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Real Weddings — Stone House Nevada City</title>
-<meta content="Real weddings at Stone House Nevada City — historic 1857 venue. Six photo collections from couples married at the venue plus curated styled features." name="description"/>
-<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="A masonry gallery of real weddings at Stone House Nevada City — a historic 1857 venue. Browse moments across our seven event spaces, from intimate ceremonies to full-property celebrations." name="description"/>
+<meta content="index, follow" name="robots"/>
 <!-- Open Graph -->
 <meta content="article" property="og:type"/>
 <meta content="Stone House Nevada City" property="og:site_name"/>
 <meta content="Real Weddings at Stone House Nevada City" property="og:title"/>
-<meta content="Real weddings at Stone House Nevada City — historic 1857 venue. Six photo collections from couples married at the venue plus curated styled features." property="og:description"/>
+<meta content="A masonry gallery of real weddings at Stone House Nevada City — historic 1857 venue with seven event spaces." property="og:description"/>
 <meta content="https://www.stonehouse.io/weddings/" property="og:url"/>
 <meta content="https://www.stonehouse.io/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-1200w.jpg" property="og:image"/>
-<meta content="Real Weddings at Stone House Nevada City" property="og:image:alt"/>
-<!-- Article (Pinterest Rich Pins, audit P0.2) -->
+<meta content="1200" property="og:image:width"/>
+<meta content="1800" property="og:image:height"/>
+<!-- Article (Pinterest Rich Pins) -->
 <meta content="Stone House Nevada City" property="article:author"/>
-<meta content="2026-05-03T00:00:00-07:00" property="article:published_time"/>
+<meta content="2026-05-07T00:00:00-07:00" property="article:published_time"/>
 <meta content="Weddings" property="article:section"/>
 <!-- Favicons -->
-<link href="../assets/favicon.ico" rel="icon" sizes="any"/>
-<link href="../assets/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="../assets/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/assets/favicon.ico" rel="icon" sizes="any"/>
+<link href="/assets/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon"/>
 <meta content="#9a7d42" name="theme-color"/>
 <!-- Canonical -->
 <link href="https://www.stonehouse.io/weddings/" rel="canonical"/>
 <!-- Twitter / X -->
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Real Weddings — Stone House Nevada City" name="twitter:title"/>
-<meta content="Real weddings at Stone House Nevada City — historic 1857 venue. Six photo collections from couples married at the venue plus curated styled features." name="twitter:description"/>
+<meta content="A masonry gallery of real weddings at Stone House Nevada City — historic 1857 venue with seven event spaces." name="twitter:description"/>
 <meta content="https://www.stonehouse.io/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-1200w.jpg" name="twitter:image"/>
-<meta content="Real Weddings at Stone House Nevada City" name="twitter:image:alt"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
 <!-- Hitched Domain Verification -->
@@ -74,182 +73,160 @@ body{
   min-height:100vh;-webkit-font-smoothing:antialiased
 }
 
-/* ---------- Header ---------- */
+/* ---------- Header / Nav ---------- */
 .nav{
   position:sticky;top:0;z-index:100;
-  background:rgba(26,23,20,.92);backdrop-filter:blur(12px);
+  background:rgba(26,23,20,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(154,125,66,.15);
-  padding:18px 28px;display:flex;align-items:center;justify-content:space-between
+  padding:14px 28px;display:flex;align-items:center;justify-content:space-between
 }
-.nav a.brand{
-  font-family:var(--serif);font-size:13px;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--cream);text-decoration:none;transition:color .25s var(--ease)
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-img{
+  height:34px;width:auto;
+  /* Source PNG is dark; for the dark nav we invert to white */
+  filter:brightness(0) invert(1);opacity:.92;
+  transition:opacity .25s var(--ease)
 }
-.nav a.brand:hover{color:var(--g)}
-.nav a.brand span{display:block;font-size:9px;letter-spacing:.22em;color:rgba(240,235,227,.5);margin-top:4px}
-.nav a.back{
-  font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+.nav-logo:hover .nav-logo-img{opacity:1}
+.nav-wm{
+  font-family:var(--sans);font-weight:400;font-size:13px;letter-spacing:.26em;
+  color:var(--cream);text-transform:uppercase
+}
+.nav-div{width:1px;height:18px;background:rgba(154,125,66,.32);margin:0 4px}
+.nav-est{
+  font-family:var(--serif);font-style:italic;
+  font-size:13px;color:rgba(240,235,227,.6)
+}
+.nav-back{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
   color:rgba(240,235,227,.6);text-decoration:none;transition:color .25s var(--ease)
 }
-.nav a.back:hover{color:var(--g)}
-
-/* ---------- Hero ---------- */
-.hero{
-  position:relative;min-height:55vh;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:80px 24px 60px;overflow:hidden
-}
-.hero::before{
-  content:"";position:absolute;inset:0;
-  /* Fallback for browsers without image-set() */
-  background-image:url('/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-800w.jpg');
-  /* Modern browsers: AVIF -> WebP -> JPG format negotiation */
-  background-image:image-set(
-    url('/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-800w.avif') type('image/avif'),
-    url('/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-800w.webp') type('image/webp'),
-    url('/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-800w.jpg') type('image/jpeg')
-  );
-  background-position:center;background-size:cover;background-repeat:no-repeat;
-  opacity:.35;filter:saturate(.85)
-}
-@media (min-width:768px){
-  .hero::before{
-    background-image:url('/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-1200w.jpg');
-    background-image:image-set(
-      url('/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-1200w.avif') type('image/avif'),
-      url('/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-1200w.webp') type('image/webp'),
-      url('/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-1200w.jpg') type('image/jpeg')
-    );
-  }
-}
-.hero::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(26,23,20,.4) 0%,rgba(26,23,20,.85) 100%)
-}
-.hero-inner{position:relative;z-index:2;max-width:760px;margin:0 auto}
-.hero .label{
-  display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--g);margin-bottom:18px
-}
-.hero h1{
-  font-family:var(--serif);font-weight:300;
-  font-size:clamp(38px,6vw,72px);line-height:1.08;color:#fff;margin-bottom:18px
-}
-.hero h1 em{font-style:italic;color:var(--gl)}
-.hero p{
-  font-size:16px;line-height:1.7;color:rgba(240,235,227,.7);
-  max-width:560px;margin:0 auto
+.nav-back:hover{color:var(--g)}
+@media (max-width:640px){
+  .nav{padding:12px 18px}
+  .nav-logo-img{height:28px}
+  .nav-wm{font-size:11px;letter-spacing:.22em}
+  .nav-est{display:none}
 }
 
-/* ---------- Collections ---------- */
-.collections{
-  max-width:1200px;margin:0 auto;padding:80px 24px 100px
+/* ---------- Featured Moments header ---------- */
+.moments{
+  max-width:980px;margin:0 auto;padding:72px 24px 36px;text-align:center
 }
-.section-head{text-align:center;margin-bottom:54px}
-.section-head .label{
+.moments .label{
   display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;
   color:var(--g);margin-bottom:14px
 }
-.section-head h2{
+.moments h2{
   font-family:var(--serif);font-weight:300;
-  font-size:clamp(32px,4vw,52px);line-height:1.12;color:var(--cream)
+  font-size:clamp(32px,4.6vw,54px);line-height:1.12;color:var(--cream)
 }
-.section-head h2 em{font-style:italic;color:var(--gl)}
-.section-head p{
-  font-size:14px;color:rgba(240,235,227,.55);
-  max-width:520px;margin:14px auto 0
-}
-
-/* Collection grid */
-.coll-grid{
-  display:grid;grid-template-columns:1fr;gap:36px
-}
-@media (min-width:760px){.coll-grid{grid-template-columns:repeat(2,1fr);gap:42px}}
-
-.coll-card{
-  background:#211d18;border:1px solid rgba(154,125,66,.12);border-radius:4px;
-  overflow:hidden;cursor:pointer;transition:transform .4s var(--ease),border-color .3s var(--ease)
-}
-.coll-card:hover{transform:translateY(-4px);border-color:rgba(154,125,66,.4)}
-
-.coll-cover{position:relative;aspect-ratio:4/3;overflow:hidden;background:#000}
-.coll-cover img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .8s var(--ease)
-}
-.coll-card:hover .coll-cover img{transform:scale(1.05)}
-.coll-cover-ov{
-  position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 50%,rgba(26,23,20,.85) 100%);
-  pointer-events:none
+.moments h2 em{font-style:italic;color:var(--gl)}
+.moments p{
+  font-size:15px;color:rgba(240,235,227,.6);
+  max-width:560px;margin:18px auto 0
 }
 
-.coll-meta{padding:24px 28px 28px}
-.coll-date{
-  font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--g);margin-bottom:8px
+/* ---------- Category toggle (HIDDEN FOR NOW)
+   Will surface when Food & Beverage / Public Events /
+   Corporate & Private galleries are populated. Just flip
+   .cat-toggle.is-hidden → .cat-toggle to show. JS handler
+   already wired; only `weddings` data is currently loaded.
+---------- */
+.cat-toggle{
+  display:flex;justify-content:center;flex-wrap:wrap;gap:8px;
+  margin-top:34px;padding:6px;
+  background:rgba(240,235,227,.04);border:1px solid rgba(154,125,66,.18);
+  border-radius:999px;width:fit-content;margin-left:auto;margin-right:auto
 }
-.coll-name{
-  font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.15;
-  color:var(--cream);margin-bottom:10px
+.cat-toggle.is-hidden{display:none}
+.cat-toggle button{
+  background:transparent;border:none;cursor:pointer;
+  font:inherit;font-size:11.5px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(240,235,227,.55);
+  padding:10px 18px;border-radius:999px;
+  transition:all .25s var(--ease)
 }
-.coll-desc{font-size:13.5px;color:rgba(240,235,227,.55);line-height:1.7;margin-bottom:16px}
-.coll-stats{
-  display:flex;gap:16px;font-size:11.5px;color:rgba(240,235,227,.45);
-  letter-spacing:.04em
-}
-.coll-stats span{display:flex;align-items:center;gap:6px}
-.coll-stats span::before{content:"·";color:var(--g)}
-.coll-stats span:first-child::before{display:none}
+.cat-toggle button:hover:not(:disabled){color:var(--cream)}
+.cat-toggle button.active{background:var(--g);color:#fff}
+.cat-toggle button:disabled{opacity:.35;cursor:not-allowed}
 
-.coll-cta{
-  display:inline-flex;align-items:center;gap:6px;margin-top:18px;
-  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--g);font-weight:500
+/* ---------- Masonry gallery ---------- */
+.gallery{max-width:1280px;margin:0 auto;padding:24px 24px 96px}
+
+/*
+ * Masonry: 1px-row grid + dense flow.
+ * Row-gap is ZERO so a cell's row span equals its target pixel height.
+ * Vertical spacing comes from each cell's margin-bottom.
+ * Aspect-cap = 1.5: standard 3:2 portraits display 100% (no crop).
+ * .tile.wide spans 2 columns for landscape hero shots.
+ */
+.masonry{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  grid-auto-rows:1px;
+  grid-auto-flow:dense;
+  column-gap:18px;
+  row-gap:0
+}
+.masonry .tile{margin-bottom:18px}
+@media (max-width:1040px){
+  .masonry{grid-template-columns:repeat(2, 1fr);column-gap:14px}
+  .masonry .tile{margin-bottom:14px}
+}
+@media (max-width:640px){
+  .masonry{grid-template-columns:1fr;column-gap:0}
+  .masonry .tile.wide{grid-column:span 1}
 }
 
-/* ---------- Lightbox ---------- */
-.lb{
-  position:fixed;inset:0;z-index:200;
-  background:rgba(10,8,6,.96);backdrop-filter:blur(16px);
-  display:none;flex-direction:column;
-  opacity:0;transition:opacity .3s var(--ease)
+.tile{
+  position:relative;overflow:hidden;border-radius:3px;
+  background:#0e0c0a;cursor:zoom-in;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease)
 }
-.lb.open{display:flex;opacity:1}
-.lb-top{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:22px 28px;border-bottom:1px solid rgba(154,125,66,.12)
+.tile:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.45)}
+.tile.wide{grid-column:span 2}
+.tile picture,.tile img{display:block;width:100%;height:100%;object-fit:cover}
+.tile picture{position:absolute;inset:0}
+.tile::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 70%,rgba(0,0,0,.35) 100%);
+  opacity:0;transition:opacity .3s var(--ease);pointer-events:none
 }
-.lb-title{font-family:var(--serif);font-size:20px;color:var(--cream)}
-.lb-title span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--g);display:block;margin-bottom:4px;font-family:var(--sans)}
-.lb-close{
-  background:transparent;border:1px solid rgba(154,125,66,.3);color:var(--cream);
-  width:38px;height:38px;border-radius:50%;cursor:pointer;
-  font-size:20px;line-height:1;transition:all .25s var(--ease)
-}
-.lb-close:hover{border-color:var(--g);color:var(--g)}
-.lb-grid{
-  flex:1;overflow-y:auto;padding:28px;
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px
-}
-.lb-grid img{
-  width:100%;height:100%;object-fit:cover;aspect-ratio:1;
-  border-radius:2px;background:#000;cursor:zoom-in;
-  transition:transform .3s var(--ease)
-}
-.lb-grid img:hover{transform:scale(1.02)}
+.tile:hover::after{opacity:1}
 
-/* Photo viewer (single image full-screen within lightbox) */
+/* ---------- Fullsize viewer ---------- */
 .viewer{
   position:fixed;inset:0;z-index:300;
-  background:rgba(0,0,0,.97);
-  display:none;align-items:center;justify-content:center;padding:40px
+  background:rgba(0,0,0,.97);backdrop-filter:blur(20px);
+  display:none;align-items:center;justify-content:center;padding:40px;
+  cursor:zoom-out
 }
 .viewer.open{display:flex}
-.viewer img{max-width:95vw;max-height:90vh;object-fit:contain}
+.viewer img{max-width:96vw;max-height:92vh;object-fit:contain}
 .viewer-close{
   position:absolute;top:24px;right:24px;
   background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;
-  width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:22px;line-height:1
+  width:42px;height:42px;border-radius:50%;cursor:pointer;
+  font-size:22px;line-height:1
+}
+.viewer-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff;
+  width:48px;height:48px;border-radius:50%;cursor:pointer;
+  font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;
+  transition:all .25s var(--ease)
+}
+.viewer-nav:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.viewer-nav.prev{left:24px}
+.viewer-nav.next{right:24px}
+@media (max-width:640px){
+  .viewer{padding:16px}
+  .viewer-nav{width:38px;height:38px}
+  .viewer-nav.prev{left:8px}
+  .viewer-nav.next{right:8px}
+  .viewer-close{top:14px;right:14px}
 }
 
 /* ---------- Footer CTA ---------- */
@@ -287,374 +264,252 @@ footer{
 footer a{color:rgba(240,235,227,.55);text-decoration:none}
 footer a:hover{color:var(--g)}
 
-/* Mobile tweaks */
+/* Mobile spacing tweaks */
 @media (max-width:640px){
-  .nav{padding:14px 18px}
-  .hero{min-height:45vh;padding:60px 18px 40px}
-  .collections{padding:50px 16px 70px}
-  .coll-meta{padding:18px 20px 22px}
-  .coll-name{font-size:24px}
-  .lb-top{padding:16px 18px}
-  .lb-grid{padding:16px;grid-template-columns:repeat(2,1fr)}
-  .cta{padding:60px 18px}
+  .moments{padding:48px 18px 24px}
+  .gallery{padding:18px 16px 64px}
+  .cta{padding:56px 18px}
 }
 </style>
-<link as="image" fetchpriority="high" href="/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-1200w.avif" rel="preload" type="image/avif"/><script data-image-schema="true" type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "ImageObject",
-  "contentUrl": "https://www.stonehouse.io/assets/images/wedding-couple-portrait-stone-house-nevada-city/wedding-couple-portrait-stone-house-nevada-city-1200w.jpg",
-  "name": "Bride and groom photographed at Stone House Nevada City — historic 1857 venue with original stonework as the wedding ceremony backdrop",
-  "description": "Bride and groom photographed at Stone House Nevada City — historic 1857 venue with original stonework as the wedding ceremony backdrop",
-  "width": "1200",
-  "height": "1800",
-  "creator": {
-    "@type": "Organization",
-    "name": "Stone House Nevada City"
-  },
-  "copyrightHolder": {
-    "@type": "Organization",
-    "name": "Stone House Nevada City"
-  },
-  "license": "https://www.stonehouse.io/",
-  "acquireLicensePage": "https://www.stonehouse.io/contact/",
-  "creditText": "Stone House Nevada City",
-  "copyrightNotice": "© 2026 Stone House Nevada City. All rights reserved."
-}</script><meta content="1200" property="og:image:width"/><meta content="1800" property="og:image:height"/><!-- Web Vitals real-user monitoring -->
-<script type="module">
-import { onCLS, onINP, onLCP, onFCP, onTTFB } from 'https://unpkg.com/web-vitals@4?module';
-function report(name, value, id) {
-  const v = Math.round(name === 'CLS' ? value * 1000 : value);
-  // Send to Meta Pixel as custom event (already loaded on every page)
-  if (window.fbq) {
-    window.fbq('trackCustom', 'WebVital_' + name, {value: v, page: location.pathname, id});
-  }
-  // Also log to console for QA
-  console.log('[web-vitals]', name, v, id);
-}
-onCLS(({name, value, id}) => report(name, value, id));
-onINP(({name, value, id}) => report(name, value, id));
-onLCP(({name, value, id}) => report(name, value, id));
-onFCP(({name, value, id}) => report(name, value, id));
-onTTFB(({name, value, id}) => report(name, value, id));
-</script>
-
-<style>.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}.skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:12px 16px;background:#fff;color:#000;z-index:9999;text-decoration:underline;font-weight:600}</style>
-<script type="application/ld+json" data-breadcrumb-schema="true">
-{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.stonehouse.io/"}, {"@type": "ListItem", "position": 2, "name": "Real Weddings", "item": "https://www.stonehouse.io/weddings/"}]}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Real Weddings — Stone House Nevada City","url":"https://www.stonehouse.io/weddings/","description":"A masonry gallery of real weddings at Stone House Nevada City — historic 1857 venue with seven event spaces.","isPartOf":{"@type":"WebSite","url":"https://www.stonehouse.io/","name":"Stone House Nevada City"},"about":{"@type":"EventVenue","name":"Stone House Nevada City","url":"https://www.stonehouse.io/"}}
 </script>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
 <!-- ===== NAV ===== -->
 <nav class="nav">
-<a class="brand" href="/">Stone House<span>Nevada City · Est. 1857</span></a>
-<a class="back" href="/">← Back to home</a>
+<a class="nav-logo" href="/" aria-label="Stone House Nevada City — home">
+<img alt="Stone House Nevada City logo — historic 1857 wedding and private event venue" class="nav-logo-img" src="/assets/stone-house-logo.png"/>
+<span class="nav-wm">Stone House</span>
+<span class="nav-div" aria-hidden="true"></span>
+<span class="nav-est">Nevada City · Est. 1857</span>
+</a>
+<a class="nav-back" href="/">← Back to home</a>
 </nav>
-<main id="main">
-<!-- ===== HERO ===== -->
-<section class="hero">
-<div class="hero-inner">
-<span class="label">Real Weddings</span>
-<h1>Every love story<br/><em>written in stone</em></h1>
-<p>Browse photo collections from real weddings hosted in our historic 1857 spaces — from intimate elopements to 200-guest celebrations.</p>
-</div>
-</section>
-<!-- ===== COLLECTIONS ===== -->
-<section class="collections">
-<div class="section-head">
-<span class="label">Featured Collections</span>
+
+<!-- ===== FEATURED MOMENTS HEADER ===== -->
+<section class="moments">
+<span class="label">Featured Moments</span>
 <h2>Stone walls.<br/><em>Stories worth telling.</em></h2>
-<p>Each collection captures the spaces, the moments, and the celebration in its own distinct mood.</p>
-</div>
-<div class="coll-grid" id="coll-grid">
-<!-- collections rendered by JS -->
+<p>Browse the spaces and the celebrations, each in its own distinct mood.</p>
+
+<!-- ===== CATEGORY TOGGLE — HIDDEN FOR NOW =====
+     Will reveal once Food &amp; Beverage / Public Events / Corporate &amp;
+     Private galleries are populated. Currently only `weddings` data is
+     loaded. Toggle wiring is already in place — to surface, remove the
+     `is-hidden` class and populate the matching `galleries.{key}` array
+     in the data block below. -->
+<div class="cat-toggle is-hidden" role="tablist" aria-label="Filter gallery by category">
+<button type="button" class="active" data-cat="weddings" role="tab" aria-selected="true">Weddings</button>
+<button type="button" data-cat="food-beverage" role="tab" aria-selected="false" disabled>Food &amp; Beverage</button>
+<button type="button" data-cat="public-events" role="tab" aria-selected="false" disabled>Public Events</button>
+<button type="button" data-cat="corporate-private" role="tab" aria-selected="false" disabled>Corporate &amp; Private</button>
 </div>
 </section>
+
+<!-- ===== MASONRY GALLERY ===== -->
+<section class="gallery">
+<div class="masonry" id="masonry"></div>
+</section>
+
 <!-- ===== CLOSING CTA ===== -->
 <section class="cta">
 <div class="divider"></div>
 <h2>Your celebration awaits<br/><em>within these walls</em></h2>
 <p>Schedule a private tour or check your date — most couples book within 48 hours of seeing the venue in person.</p>
 <div class="cta-btns">
-<a class="btn-gold" href="/#date-check">Check Your Date →</a>
+<a class="btn-gold" href="/wedding-pricing/">Wedding Pricing →</a>
 <a class="btn-ghost" href="tel:+15302655050">(530) 265-5050</a>
 </div>
-<section class="weddings-info" style="max-width:820px;margin:48px auto;padding:0 24px;color:var(--c)">
-<h2 style="font-family:var(--serif);font-size:clamp(28px,3.5vw,40px);font-weight:300;margin-bottom:20px">Why couples choose Stone House Nevada City</h2>
-<p style="line-height:1.7;margin-bottom:18px">Stone House is a handbuilt 1857 stone venue in the heart of Nevada City's historic district — one of the few intact pre-Civil War commercial buildings in California still operating as an event space. Couples come to Stone House for the genuine architectural character (original stonework, exposed beams, restored woodwork) and stay for the <a href="/menus.html" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">seed-oil-free chef-driven cuisine</a>, the seven distinct event spaces under one roof, and the walkability of downtown Nevada City for guests staying in nearby <a href="/accommodations.html" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">historic inns and lodging</a>.</p>
-<p style="line-height:1.7;margin-bottom:18px">Each wedding featured in the collections above shows how couples used the spaces differently — some with intimate Cavern ceremonies of 30 guests, others with full Great Hall receptions for 200. The photo sets give a real look at lighting, table layouts, ceremony backdrops, and dance-floor configurations. They're not marketing renderings — they're documentation of actual celebrations hosted in the building.</p>
-<h3 style="font-family:var(--serif);font-size:22px;font-weight:400;margin-top:32px;margin-bottom:14px">Plan your wedding at Stone House</h3>
-<p style="line-height:1.7;margin-bottom:18px">If a collection above resonates with the celebration you're planning, the next step is usually downloading our <a href="/wedding-pricing" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">wedding pricing pamphlet</a> — it includes package tiers, ceremony and reception pricing, and recommended guest-count-to-space matching. From there, couples typically request a private tour to walk through the building and meet the in-house chef.</p>
-<p style="line-height:1.7;margin-bottom:18px">Useful planning resources: <a href="/floor-plans.html" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">venue floor plans</a> for layout design, <a href="/timeline.html" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">sample wedding day timelines</a> for 6/8/10-hour celebrations, our <a href="/elopement.html" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">elopement and micro-wedding offerings</a> for smaller intimate celebrations, and the <a href="/local-guide.html" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">Nevada City local guide</a> for things your guests can do during their stay.</p>
 </section>
-</main>
+
 <footer>
 <p>107 Sacramento Street · Nevada City, CA 95959 · <a href="tel:+15302655050">(530) 265-5050</a> · <a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a></p>
 <p style="margin-top:8px"><a href="/">Home</a> · <a href="/#spaces">Spaces</a> · <a href="/#pricing">Pricing</a> · <a href="/#faq">FAQ</a></p>
 </footer>
-<!-- ===== LIGHTBOX ===== -->
-<div class="lb" id="lb">
-<div class="lb-top">
-<div class="lb-title"><span id="lb-eyebrow">Real Wedding</span><div id="lb-name">—</div></div>
-<button aria-label="Close" class="lb-close" onclick="closeLB()">×</button>
+
+<!-- ===== FULLSIZE VIEWER ===== -->
+<div class="viewer" id="viewer" onclick="closeViewer(event)">
+<button class="viewer-close" aria-label="Close" onclick="closeViewer(event, true)">×</button>
+<button class="viewer-nav prev" aria-label="Previous" onclick="navViewer(-1, event)">‹</button>
+<img id="viewer-img" alt=""/>
+<button class="viewer-nav next" aria-label="Next" onclick="navViewer(1, event)">›</button>
 </div>
-<div class="lb-grid" id="lb-grid"></div>
-</div>
-<div class="viewer" id="viewer" onclick="closeViewer()">
-<button aria-label="Close" class="viewer-close">×</button>
-<img alt="" id="viewer-img"/>
-</div>
+
 <script>
 /* ============================================================
-   COLLECTIONS DATA
-   Each collection is a wedding (or feature shoot) at Stone House.
-   To add more photos to a collection: drop additional Drive file IDs
-   into the `photos` array. URL pattern is:
-   https://lh3.googleusercontent.com/d/{driveFileId}=w2048
-   Skip candid guest shots — venue/styled/marketing-grade only.
+   GALLERY DATA
+   Each item: { slug, w, h, wide?, alt }
+   Image variants live at /assets/images/{slug}/{slug}-{800,1600}w.{webp,jpg}
+   Adding more categories: populate the matching `galleries.{key}` array,
+   then unhide the toggle by removing the `is-hidden` class.
    ============================================================ */
-const collections = [
-  {
-    slug: 'sophie-nicolas-summer-2024',
-    name: 'Sophie & Nicolas',
-    date: 'Summer 2024',
-    eyebrow: 'Real Wedding · by Alyssa Keys',
-    desc: 'Summer ceremony and reception across the property — an intimate celebration captured by Alyssa Keys.',
-    cover: 'https://lh3.googleusercontent.com/d/1ZtT_iveDS5AhHZcC-JxdS7TlJDoIs3To=w2048',
-    spaces: ['Courtyard', 'Great Hall'],
-    guests: 'Full reception',
-    photos: [
-      'https://lh3.googleusercontent.com/d/1ZtT_iveDS5AhHZcC-JxdS7TlJDoIs3To=w2048',
-      'https://lh3.googleusercontent.com/d/1Gc-cB1cp8AmwtTJihYLVZ2PZ9k8ABNLP=w2048',
-      'https://lh3.googleusercontent.com/d/1xQWt7Td0vnZPqN6Z9Hsk_fFnbvHMw2TD=w2048',
-      'https://lh3.googleusercontent.com/d/1xU8Xx_Un4q6HM6Y4LjBafgLadxIG7CG-=w2048',
-      'https://lh3.googleusercontent.com/d/1CCqQh4GwYvqVV_6ZeOQ7EH4kspw2khrQ=w2048',
-      'https://lh3.googleusercontent.com/d/1W6y1wFkLeKxm-GX4-4ZZGOYSaSkBwnpp=w2048',
-      'https://lh3.googleusercontent.com/d/1iEgVN823-cXdGr_2c-DEZpmcfazwDiI2=w2048',
-      'https://lh3.googleusercontent.com/d/1OoyHx-p02tYGu-m4G0stKv0a9EaHxunK=w2048',
-      'https://lh3.googleusercontent.com/d/13ryIjXdLsqObLOp2HY-Jzs0zdgaVRasw=w2048',
-      'https://lh3.googleusercontent.com/d/1dnmd-lppEN-7qsMvJeuxAmAo3IawyWIL=w2048',
-      'https://lh3.googleusercontent.com/d/12MIee_qVuSFwbPyBpwnPfTMR4FUGaUI0=w2048',
-      'https://lh3.googleusercontent.com/d/1FQ-tlpvrdD2ZP126PviB-iNv-kRJmZiA=w2048',
-      'https://lh3.googleusercontent.com/d/1-116_AYs4qOETVjyadG6K_gdAqkS_iG-=w2048',
-      'https://lh3.googleusercontent.com/d/1oOhz87CsL-6kAzB-KB7UJrDlbfNM0ypR=w2048',
-      'https://lh3.googleusercontent.com/d/1x_7q2X_0mnJpfg5v1o-JZsMKlf3L0Zam=w2048',
-      'https://lh3.googleusercontent.com/d/1Uk2GI3a8-XYcXLlEWZjdaXhQMV4_Rotb=w2048',
-      'https://lh3.googleusercontent.com/d/1CHhDrOD5t7e7cYDkltDXrKIeS7on2G-9=w2048',
-      'https://lh3.googleusercontent.com/d/11dcc8Zweflcc4niSg2tN_rBDsGQqdudn=w2048',
-      'https://lh3.googleusercontent.com/d/18pZaILvzcACsWJ3xih9osGpjdG520D-1=w2048',
-      'https://lh3.googleusercontent.com/d/1G82l_EMGMEngoC9sAhl_xbTbIdllnxb7=w2048',
-      'https://lh3.googleusercontent.com/d/15sjTYG9kNTzMcon72-R7WNPeqc6AWhJU=w2048',
-      'https://lh3.googleusercontent.com/d/1fpyIzKtRkkdiyrwhM3kayq_nXfth35ih=w2048',
-      'https://lh3.googleusercontent.com/d/1Jwb1ZXPbjH2nTDrp1CxLfbYVWcd_zvQF=w2048'
-    ]
-  },
-  {
-    slug: 'gabrielle-andrew-summer-2024',
-    name: 'Gabrielle & Andrew',
-    date: 'August 2024',
-    eyebrow: 'Real Wedding · by Gabrielle Pellegrino',
-    desc: 'A late-summer celebration in the Courtyard with ceremony under a floral arch and dinner across the property.',
-    cover: 'https://lh3.googleusercontent.com/d/1U_fwcgaQdZOqsfxF8FaBU7ltIqZ4IUzo=w2048',
-    spaces: ['Courtyard', 'Great Hall'],
-    guests: 'Full day',
-    photos: [
-      'https://lh3.googleusercontent.com/d/1n8AfeYhc-_MJvLzZXOq3RdQk7X4dWt8F=w2048',
-      'https://lh3.googleusercontent.com/d/1HKMWcIiogzm-D8S5cU_z7a8XezUMMTt9=w2048',
-      'https://lh3.googleusercontent.com/d/1qO-PypaEQbjOOZzcC6YKo1K-7RwXNEAP=w2048',
-      'https://lh3.googleusercontent.com/d/1BbBZ_gxPMgqv-VfkEPbbOAt9rdK3YmOq=w2048',
-      'https://lh3.googleusercontent.com/d/1b92eYWf0h7PT8dAL5bQUxQ4EB_r5J6K8=w2048',
-      'https://lh3.googleusercontent.com/d/1_yBNHdApjLeE6xhsIaWsGHdRVHIN69Qz=w2048',
-      'https://lh3.googleusercontent.com/d/1HgFIpnirsvEum8IPFy45QByh_fzDZLLL=w2048',
-      'https://lh3.googleusercontent.com/d/1U_fwcgaQdZOqsfxF8FaBU7ltIqZ4IUzo=w2048',
-      'https://lh3.googleusercontent.com/d/1NErDwTzxTc_HB8knPm_Ag1oqhRPCSuZW=w2048',
-      'https://lh3.googleusercontent.com/d/16FQgdrjqeWsVQNFyZp_4_y4HF8y-Ho29=w2048',
-      'https://lh3.googleusercontent.com/d/1l8B_tNAZji27-dVOz3_CPWq8Jp5tkEvG=w2048',
-      'https://lh3.googleusercontent.com/d/1FNRRePq60ONj0sGriaJ04W7XQzyvu9-b=w2048',
-      'https://lh3.googleusercontent.com/d/112CXiKdgHsESGr3H8sBtb9LWIgU9xvu-=w2048',
-      'https://lh3.googleusercontent.com/d/1NdVhdoutTEgYluu-vdYEUyQ01duO_WtX=w2048',
-      'https://lh3.googleusercontent.com/d/1V_di98y9LTgmddhjXdeq6zl23oGjQkH7=w2048',
-      'https://lh3.googleusercontent.com/d/1866rRne7ELg31R65g2VFast-wy_lwfmR=w2048'
-    ]
-  },
-  {
-    slug: 'victorino-fall-2023',
-    name: 'Victorino Wedding',
-    date: 'October 2023',
-    eyebrow: 'Real Wedding · by Nicole White',
-    desc: 'A fall celebration full of warm light and historic stone — captured by Nicole White Photography.',
-    cover: 'https://lh3.googleusercontent.com/d/1q9w_YGPZuMaRB3ZG-F5_AvNC60G0cko0=w2048',
-    spaces: ['Courtyard', 'Great Hall', 'Cavern'],
-    guests: 'Full property',
-    photos: [
-      'https://lh3.googleusercontent.com/d/1q9w_YGPZuMaRB3ZG-F5_AvNC60G0cko0=w2048',
-      'https://lh3.googleusercontent.com/d/1Q8_eMo7-ChzXLXkwqs0GpKYJPqsZIhjS=w2048',
-      'https://lh3.googleusercontent.com/d/1f7ycM_KVG8TpAFm4YDjiec6h-phuAzNZ=w2048',
-      'https://lh3.googleusercontent.com/d/1Z7YrlrXVhHEWfaxm1c6bNX-6U8TlzyW_=w2048',
-      'https://lh3.googleusercontent.com/d/1e7MYxKwzglWLKbSS6_Znx4XpfjB985wo=w2048',
-      'https://lh3.googleusercontent.com/d/1cDFSuVBe-qyf5B-shX4mIsjbzEdsX3nm=w2048',
-      'https://lh3.googleusercontent.com/d/1HpCOw2zw-ieB0xPM1SETUI4k4eLeYfXm=w2048',
-      'https://lh3.googleusercontent.com/d/1RLPKpJdZvGuoKzcIe-D3AI8RUHl1klb6=w2048',
-      'https://lh3.googleusercontent.com/d/1Q4BN_WbosiNa7Q53ZPe3MZCKjtk570ph=w2048',
-      'https://lh3.googleusercontent.com/d/1zuvHuUw_mg-mbOXvC1bymIQ_NBre-6c-=w2048',
-      'https://lh3.googleusercontent.com/d/1l4Hv-PRlhwDWNWRDVkUwAXpIWrAzlbqv=w2048',
-      'https://lh3.googleusercontent.com/d/1wT15HTLdm3HAk_6NtVPVr3zqNbA6V-PM=w2048',
-      'https://lh3.googleusercontent.com/d/1_chKs9Az5-KZpIOWcAQ4dJt04xI54s_N=w2048',
-      'https://lh3.googleusercontent.com/d/1dUvc_ToflirAT8uEZBxzCIKEN8A2WT0N=w2048',
-      'https://lh3.googleusercontent.com/d/1pYttD2FoQIgxXN_byG_nTfRAErf1hrYf=w2048',
-      'https://lh3.googleusercontent.com/d/1-13i-NDW1Ejkd4mhC1ndsEt5Y67VQxyC=w2048',
-      'https://lh3.googleusercontent.com/d/1_WhX_w80942aIahpgzy512-Kp96eH5k7=w2048',
-      'https://lh3.googleusercontent.com/d/1wOkS_QgY3d6VOz1B_tduxaXA8jzJv4f-=w2048',
-      'https://lh3.googleusercontent.com/d/1KCLkx3Ndz6hCLUbjK_MFCukE7SEmAAML=w2048',
-      'https://lh3.googleusercontent.com/d/1KcuH7WHwl3Uw_9gBbfzj4aKDHzy34qR0=w2048',
-      'https://lh3.googleusercontent.com/d/12pJ1rqhNBYfIN5GTZZTdgyA8r-F-PpEI=w2048'
-    ]
-  },
-  {
-    slug: 'riley-gianluigi-summer-2025',
-    name: 'Riley & Gianluigi',
-    date: 'August 2025',
-    eyebrow: 'Real Wedding',
-    desc: 'A summer 2025 wedding at Stone House.',
-    cover: 'https://lh3.googleusercontent.com/d/1IDXtXUiEObXah9y569MESz-0mleMzStX=w2048',
-    spaces: ['Courtyard', 'Great Hall'],
-    guests: 'Full day',
-    photos: [
-      'https://lh3.googleusercontent.com/d/1IDXtXUiEObXah9y569MESz-0mleMzStX=w2048',
-      'https://lh3.googleusercontent.com/d/1r_8MmDgsN3qxJPmG-sRB77hx1Ok7PaIY=w2048',
-      'https://lh3.googleusercontent.com/d/1Nv0gPF5nLbjydtnaLP7ZscnsNhMZxcq-=w2048',
-      'https://lh3.googleusercontent.com/d/1M_TxmZjzVMZHnh6gWHeCchIaOi9-sYlK=w2048',
-      'https://lh3.googleusercontent.com/d/1RZi-eX1M6jOSg_VZ8Q-2dTk76EDcH0pd=w2048'
-    ]
-  },
-  {
-    slug: 'claire-garrett',
-    name: 'Claire & Garrett',
-    date: 'Wedding',
-    eyebrow: 'Real Wedding',
-    desc: 'A wedding day at Stone House Nevada City.',
-    cover: 'https://lh3.googleusercontent.com/d/1NbZ6jzlf_Ugj6qyDxNoqfQDX3hgMq8wF=w2048',
-    spaces: ['Multiple spaces'],
-    guests: 'Full day',
-    photos: [
-      'https://lh3.googleusercontent.com/d/1NbZ6jzlf_Ugj6qyDxNoqfQDX3hgMq8wF=w2048',
-      'https://lh3.googleusercontent.com/d/1YIUdDVa1WIowj3H7dC-i1A_jSCiF1T22=w2048',
-      'https://lh3.googleusercontent.com/d/14oaI9pp4x4i_DzPMvIjj8WlxKSBMMmKm=w2048',
-      'https://lh3.googleusercontent.com/d/1xx8gvGunJep1SwCq4Mb5s-AAPmaW_Y18=w2048',
-      'https://lh3.googleusercontent.com/d/1I6Esgk2AcPjGN3pxWH-qcjvPnZs7N-Hj=w2048',
-      'https://lh3.googleusercontent.com/d/1aE-Kp9DKEE2Gqdaehcq5NFaCMCLzvJz2=w2048',
-      'https://lh3.googleusercontent.com/d/1X6R-kJNnAgIswCBwTyPYxgF5ZFsAGPmh=w2048',
-      'https://lh3.googleusercontent.com/d/1U8HxooOKG-ahUylGMrPe45gSQKFPyWGW=w2048'
-    ]
-  },
-  {
-    slug: 'styled-features',
-    name: 'Styled Features',
-    date: 'Editorial Selections',
-    eyebrow: 'Curated Gallery',
-    desc: 'A curated selection of styled shoots and editorial features showcasing the venue across seasons, palettes, and floral directions.',
-    cover: 'https://lh3.googleusercontent.com/d/1cRostdvCB_c3KXOkI790gCKm4RGoyUbP=w2048',
-    spaces: ['All seven spaces'],
-    guests: 'Various',
-    photos: [
-      'https://lh3.googleusercontent.com/d/1cRostdvCB_c3KXOkI790gCKm4RGoyUbP=w2048',
-      'https://lh3.googleusercontent.com/d/1V2AMCr-OOm4ekjDiaW3lc_27-FDdvSpf=w2048',
-      'https://lh3.googleusercontent.com/d/1EyHysmLtY1-9LEGFW9q8vnPhC0LkrECZ=w2048',
-      'https://lh3.googleusercontent.com/d/1338y-uhP6LMU2tlgIw97EejOzq2XGIpr=w2048',
-      'https://lh3.googleusercontent.com/d/1unaaSPjqfgfWxv07Qa_fP72C6w91cjlj=w2048',
-      'https://lh3.googleusercontent.com/d/1-sW2XSwyM27dvpOcOCcSmVzVM-wC2LRC=w2048',
-      'https://lh3.googleusercontent.com/d/12srJnRlNtJ-fgyItKzXo-Cd8oTpYsGM0=w2048',
-      'https://lh3.googleusercontent.com/d/185y4BjnTCOm_yARhMNxuPduSfTeEEWlO=w2048',
-      'https://lh3.googleusercontent.com/d/14-queHY7dGbeRlWH5IWfTF0o9cNgliFv=w2048',
-      'https://lh3.googleusercontent.com/d/1akN2MEthiPPuQ-CrJHI9Q9U6RoAdsblT=w2048',
-      'https://lh3.googleusercontent.com/d/1b-PILi8Y3hD9WooC5N1tMZUvdAwAjx3-=w2048',
-      'https://lh3.googleusercontent.com/d/1PMGgeaStHRZR-cvND4ReWyWohgKFPUiI=w2048',
-      'https://lh3.googleusercontent.com/d/1ln-XAKa7LDkcUHaxiCe1YQ5hz1urlo6n=w2048',
-      'https://lh3.googleusercontent.com/d/1RA3bY4f9zuw5Vlp_pLMwN_EThz1aaVa0=w2048',
-      'https://lh3.googleusercontent.com/d/1pMYFcbq7BosxY-uFTOz0Ov5_zLt-3TPB=w2048',
-      'https://lh3.googleusercontent.com/d/1wSUsI_h82gqSvyL5AKh4IO9_BRgnXqNS=w2048',
-      'https://lh3.googleusercontent.com/d/13GiePNMuohulfvRqD_joa9B91dqhhPev=w2048',
-      'https://lh3.googleusercontent.com/d/1MF9TH3mFUz_GQVxvDwB5TEvVuDevNAx3=w2048',
-      'https://lh3.googleusercontent.com/d/1sWxe9lkFr2Eg8HRMdvcS-ha-HE3I3L48=w2048',
-      'https://lh3.googleusercontent.com/d/1RsFSSJZ_gXGz4tpJlywOfSCedDZtSwY3=w2048',
-      'https://lh3.googleusercontent.com/d/10d4qpp1EcZqYDCnolv_ThtZOxy4-Zthi=w2048',
-      'https://lh3.googleusercontent.com/d/1WIxJJXvSrN53O3iMNtuuMw_M0CpR27tB=w2048',
-      'https://lh3.googleusercontent.com/d/1NZ9xjshBXmnNPAPGnWzGZfH6PSdZv_1C=w2048',
-      'https://lh3.googleusercontent.com/d/1CsET3qyy_eGvSm9E4lB2H6m8Z7TI3J0b=w2048',
-      'https://lh3.googleusercontent.com/d/17JRRkyi_9vgQ5HuLb9tUrHfIzEvkgp0g=w2048',
-      'https://lh3.googleusercontent.com/d/1IbM8mcMuyJBpXto0Hre1-L38-Cng-VyZ=w2048',
-      'https://lh3.googleusercontent.com/d/1PTc9J_6WHiMFBUF7NJdaTJh7QnXKxh2B=w2048',
-      'https://lh3.googleusercontent.com/d/1mhoAnpeO-R4HFXo7-HL684uZSfRueK0f=w2048',
-      'https://lh3.googleusercontent.com/d/1PZV_78FJOs0Vpg5CLYaXDi5c1q7QGJoo=w2048',
-      'https://lh3.googleusercontent.com/d/1tpvU22z7C2Y0Upr5BfTNeusHKBVN_yzt=w2048'
-    ]
-  }
-];
+const galleries = {
+  weddings: [
+    { slug: "wedding-01-stone-house-nevada-city", w: 4191, h: 6287, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-02-stone-house-nevada-city", w: 6720, h: 4480, alt: "Wedding scene at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-03-stone-house-nevada-city", w: 667,  h: 1000, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-04-stone-house-nevada-city", w: 6324, h: 4216, alt: "Wedding scene at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-05-stone-house-nevada-city", w: 1365, h: 2048, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-06-stone-house-nevada-city", w: 2100, h: 1400, alt: "Wedding scene at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-07-stone-house-nevada-city", w: 6502, h: 4335, alt: "Wedding scene at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-08-stone-house-nevada-city", w: 4229, h: 6343, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-09-stone-house-nevada-city", w: 1600, h: 1067, alt: "Wedding scene at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-10-stone-house-nevada-city", w: 1600, h: 1067, alt: "Wedding scene at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-11-stone-house-nevada-city", w: 1067, h: 1600, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-12-stone-house-nevada-city", w: 1384, h: 1616, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-13-stone-house-nevada-city", w: 1920, h: 1239, alt: "Wedding scene at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-14-stone-house-nevada-city", w: 1170, h: 1451, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-15-stone-house-nevada-city", w: 4065, h: 6098, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-16-stone-house-nevada-city", w: 1024, h: 819,  alt: "Wedding scene at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-17-stone-house-nevada-city", w: 684,  h: 1024, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-18-stone-house-nevada-city", w: 1712, h: 1078, alt: "Wedding scene at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-19-stone-house-nevada-city", w: 1192, h: 798,  alt: "Wedding scene at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-20-stone-house-nevada-city", w: 1366, h: 1636, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-21-stone-house-nevada-city", w: 3082, h: 1992, alt: "Wedding scene at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-22-stone-house-nevada-city", w: 1364, h: 1618, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-23-stone-house-nevada-city", w: 1646, h: 1722, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-24-stone-house-nevada-city", w: 1374, h: 1636, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-25-stone-house-nevada-city", w: 1646, h: 1146, alt: "Wedding scene at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-26-stone-house-nevada-city", w: 1204, h: 1664, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-27-stone-house-nevada-city", w: 3088, h: 1996, alt: "Wedding scene at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-28-stone-house-nevada-city", w: 1372, h: 1656, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-29-stone-house-nevada-city", w: 1272, h: 1666, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-30-stone-house-nevada-city", w: 1252, h: 1662, alt: "Real wedding moment at Stone House Nevada City — historic 1857 venue" },
+    { slug: "wedding-31-stone-house-nevada-city", w: 1024, h: 819,  alt: "Wedding scene at Stone House Nevada City — historic 1857 venue" },
+  ],
+  // "food-beverage": [],
+  // "public-events": [],
+  // "corporate-private": [],
+};
 
 /* ============================================================
-   RENDER COLLECTION CARDS
+   MASONRY RENDER
+   Cell pixel-height = column width × clamped aspect ratio.
+   Aspect cap = 1.5 (standard 3:2 portrait shows in full).
+   Column width comes from the grid's resolved track width.
    ============================================================ */
-function renderCollections(){
-  const grid = document.getElementById('coll-grid');
-  grid.innerHTML = collections.map((c, i) => `
-    <article class="coll-card" onclick="openLB(${i})">
-      <div class="coll-cover">
-        <img src="${c.cover}" alt="${c.name} wedding at Stone House Nevada City" loading="${i<2?'eager':'lazy'}">
-        <div class="coll-cover-ov"></div>
-      </div>
-      <div class="coll-meta">
-        <div class="coll-date">${c.date}</div>
-        <h3 class="coll-name">${c.name}</h3>
-        <p class="coll-desc">${c.desc}</p>
-        <div class="coll-stats">
-          <span>${c.spaces.join(' + ')}</span>
-          <span>${c.guests}</span>
-          <span>${c.photos.length} photos</span>
-        </div>
-        <div class="coll-cta">View collection →</div>
-      </div>
-    </article>
-  `).join('');
-}
-renderCollections();
+const MAX_ASPECT = 1.5;
+const MIN_ASPECT = 0.40;
+const ROW_GAP_PX = 18;
+let activeCat = "weddings";
+let viewerIndex = 0;
 
-/* ============================================================
-   LIGHTBOX
-   ============================================================ */
-function openLB(idx){
-  const c = collections[idx];
-  document.getElementById('lb-eyebrow').textContent = c.eyebrow + ' · ' + c.date;
-  document.getElementById('lb-name').textContent = c.name;
-  document.getElementById('lb-grid').innerHTML = c.photos.map((src, i) => `
-    <img src="${src}" alt="${c.name} wedding photo ${i+1}" loading="lazy" onclick="openViewer('${src}', '${c.name} photo ${i+1}')">
-  `).join('');
-  document.getElementById('lb').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeLB(){
-  document.getElementById('lb').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function openViewer(src, alt){
-  const v = document.getElementById('viewer');
-  document.getElementById('viewer-img').src = src;
-  document.getElementById('viewer-img').alt = alt;
-  v.classList.add('open');
-}
-function closeViewer(){
-  document.getElementById('viewer').classList.remove('open');
+function getColWidth(grid){
+  const tile = grid.querySelector(".tile");
+  if (tile) return tile.getBoundingClientRect().width;
+  // Fallback: derive from grid template
+  const cs = getComputedStyle(grid);
+  const cols = cs.gridTemplateColumns.split(" ").filter(Boolean);
+  return parseFloat(cols[0]) || 380;
 }
 
-/* Close on Escape */
-document.addEventListener('keydown', e => {
-  if(e.key === 'Escape'){
-    if(document.getElementById('viewer').classList.contains('open')) closeViewer();
-    else if(document.getElementById('lb').classList.contains('open')) closeLB();
-  }
+function spanFor(item, colW){
+  const wide = !!item.wide;
+  const ratio = Math.min(MAX_ASPECT, Math.max(MIN_ASPECT, item.h / item.w));
+  const effW = wide ? (colW * 2 + ROW_GAP_PX) : colW;
+  return Math.max(80, Math.round(effW * ratio));
+}
+
+function renderGallery(){
+  const grid = document.getElementById("masonry");
+  const items = galleries[activeCat] || [];
+  grid.innerHTML = items.map((it, i) => `
+    <figure class="tile${it.wide ? " wide" : ""}" data-i="${i}" onclick="openViewer(${i})">
+      <picture>
+        <source type="image/webp"
+                srcset="/assets/images/${it.slug}/${it.slug}-800w.webp 800w,
+                        /assets/images/${it.slug}/${it.slug}-1600w.webp 1600w"
+                sizes="(max-width:640px) 100vw, (max-width:1040px) 50vw, 33vw">
+        <img
+          src="/assets/images/${it.slug}/${it.slug}-800w.jpg"
+          srcset="/assets/images/${it.slug}/${it.slug}-800w.jpg 800w,
+                  /assets/images/${it.slug}/${it.slug}-1600w.jpg 1600w"
+          sizes="(max-width:640px) 100vw, (max-width:1040px) 50vw, 33vw"
+          alt="${it.alt}"
+          width="${it.w}" height="${it.h}"
+          loading="${i < 6 ? 'eager' : 'lazy'}"
+          decoding="async"
+          fetchpriority="${i < 3 ? 'high' : 'auto'}">
+      </picture>
+    </figure>
+  `).join("");
+  layoutMasonry();
+}
+
+function layoutMasonry(){
+  const grid = document.getElementById("masonry");
+  const tiles = grid.querySelectorAll(".tile");
+  const colW = getColWidth(grid);
+  const items = galleries[activeCat] || [];
+  tiles.forEach((tile, i) => {
+    const item = items[i];
+    if (!item) return;
+    tile.style.gridRow = `span ${spanFor(item, colW)}`;
+  });
+}
+
+window.addEventListener("resize", () => {
+  // Debounced layout recompute
+  clearTimeout(window.__layoutT);
+  window.__layoutT = setTimeout(layoutMasonry, 120);
 });
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Stone House Weddings — Nevada City","url":"https://www.stonehouse.io/weddings/","description":"Real weddings, gallery, and the experience at Stone House Nevada City.","isPartOf":{"@type":"WebSite","url":"https://www.stonehouse.io/","name":"Stone House Nevada City"},"about":{"@type":"EventVenue","name":"Stone House Nevada City","url":"https://www.stonehouse.io/"}}
+
+/* ============================================================
+   VIEWER (fullsize on click)
+   ============================================================ */
+function openViewer(i){
+  viewerIndex = i;
+  const items = galleries[activeCat];
+  const it = items[i];
+  const v = document.getElementById("viewer");
+  document.getElementById("viewer-img").src = `/assets/images/${it.slug}/${it.slug}-1600w.jpg`;
+  document.getElementById("viewer-img").alt = it.alt;
+  v.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeViewer(e, force){
+  if (e && !force && e.target.tagName === "IMG") return; // don't close if clicking the image itself
+  document.getElementById("viewer").classList.remove("open");
+  document.body.style.overflow = "";
+}
+function navViewer(dir, e){
+  if (e) e.stopPropagation();
+  const items = galleries[activeCat];
+  viewerIndex = (viewerIndex + dir + items.length) % items.length;
+  const it = items[viewerIndex];
+  document.getElementById("viewer-img").src = `/assets/images/${it.slug}/${it.slug}-1600w.jpg`;
+  document.getElementById("viewer-img").alt = it.alt;
+}
+document.addEventListener("keydown", (e) => {
+  const v = document.getElementById("viewer");
+  if (!v.classList.contains("open")) return;
+  if (e.key === "Escape") closeViewer(e, true);
+  else if (e.key === "ArrowRight") navViewer(1, e);
+  else if (e.key === "ArrowLeft") navViewer(-1, e);
+});
+
+/* ============================================================
+   CATEGORY TOGGLE (wired but hidden — see CSS comment above)
+   ============================================================ */
+document.querySelectorAll(".cat-toggle button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (btn.disabled) return;
+    document.querySelectorAll(".cat-toggle button").forEach(b => {
+      b.classList.toggle("active", b === btn);
+      b.setAttribute("aria-selected", b === btn ? "true" : "false");
+    });
+    activeCat = btn.dataset.cat;
+    renderGallery();
+  });
+});
+
+/* ============================================================
+   BOOT
+   ============================================================ */
+renderGallery();
+// Re-layout once images report dimensions (handles font-load shifts etc.)
+window.addEventListener("load", layoutMasonry);
 </script>
 </body>
 </html>
