@@ -740,6 +740,23 @@ body {
   color: var(--muted);
   letter-spacing: 0.04em;
 }
+
+.footer-legal {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.footer-legal a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+.footer-legal a:hover { color: var(--gold); }
+.footer-legal .sep { color: var(--stone-dark); margin: 0 4px; }
+@media (max-width: 768px) {
+  .footer-bottom { gap: 6px !important; }
+}
 .footer-bottom em { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--ink-soft); }
 
 /* ---------- Responsive ---------- */
@@ -1156,6 +1173,8 @@ onTTFB(({name, value, id}) => report(name, value, id));
         <li><a href="/assets/stone-house-wedding-guide-spring-2026.pdf" target="_blank" rel="noopener">Wedding Guide — Spring 2026 (PDF)</a></li>
         <li><a href="/#resources">Planning Library</a></li>
         <li><a href="/#faq">FAQs</a></li>
+        <li><a href="/blog">Blog</a></li>
+
         <li><a href="/#resources">Vendor Partners</a></li>
       </ul>
     </div>
@@ -1181,6 +1200,7 @@ onTTFB(({name, value, id}) => report(name, value, id));
 
   <div class="footer-bottom">
     <span>© 2026 Stone House Nevada City. All rights reserved.</span>
+    <span class="footer-legal"><a href="/privacy-policy/">Privacy</a> <span class="sep">·</span> <a href="/terms/">Terms</a></span>
     <em>Est. 1857 · Nevada City, California</em>
   </div>
 </footer>

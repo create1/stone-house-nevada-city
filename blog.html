@@ -35,6 +35,12 @@
 /* Footer emblem (added 2026-05-06 per nav/footer rule) */
 .footer-brand { display: flex !important; align-items: center; gap: 10px; }
 .footer-emblem { width: 32px; height: 32px; display: block; flex-shrink: 0; }
+
+/* Legal links (added 2026-05-06) */
+.footer-legal { font-family: var(--sans, sans-serif); font-size: 11px; color: var(--m, #5a5347); letter-spacing: 0.04em; margin-top: 6px; opacity: 0.85; }
+.footer-legal a { color: inherit; text-decoration: none; transition: color 0.2s; }
+.footer-legal a:hover { color: var(--g, #9a7d42); }
+.footer-legal span { opacity: 0.5; margin: 0 4px; }
 </style>
 <!-- Analytics: Stone House -->
 <!-- Hitched Domain Verification -->
@@ -223,6 +229,7 @@ onTTFB(({name, value, id}) => report(name, value, id));
 </div>
 <div class="footer-contact">(530) 265-5050 · <a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a></div>
 <div class="footer-copy">© 2026 Stone House Nevada City. All rights reserved.</div>
+<div class="footer-legal"><a href="/privacy-policy/">Privacy</a> <span>·</span> <a href="/terms/">Terms</a></div>
 </footer>
 <script type="application/ld+json">
 {
