@@ -5,7 +5,6 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Day-After Brunch | Stone House Nevada City</title>
-<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
 <meta content="Day-after brunch options for Stone House weddings — on-site brunch at the venue or top picks from local Nevada City favorites." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
@@ -20,7 +19,6 @@
 <meta content="https://www.stonehouse.io/brunch.html" property="og:url"/>
 <meta content="Stone House Nevada City" property="og:site_name"/>
 <meta content="https://www.stonehouse.io/assets/images/seared-fish-course-stone-house/seared-fish-course-stone-house-800w.jpg" property="og:image"/>
-<meta content="Day-After Brunch | Stone House Nevada City" property="og:image:alt"/>
 <meta content="800" property="og:image:width"/>
 <meta content="1200" property="og:image:height"/>
 <style>
@@ -33,13 +31,16 @@
 .local-card h4{font-family:var(--serif);font-size:1rem;color:var(--c);margin-bottom:.25rem}
 .local-card .local-dist{font-size:.78rem;color:var(--g);margin-bottom:.5rem}
 .local-card p{font-size:.85rem;color:var(--m);line-height:1.6;margin:0}
+
+/* Footer emblem (added 2026-05-06 per nav/footer rule) */
+.footer-brand { display: flex !important; align-items: center; gap: 10px; }
+.footer-emblem { width: 32px; height: 32px; display: block; flex-shrink: 0; }
 </style>
 <!-- Twitter / X -->
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Day-After Brunch | Stone House Nevada City" name="twitter:title"/>
 <meta content="Day-after brunch options for Stone House weddings — on-site brunch at the venue or top picks from local Nevada City favorites." name="twitter:description"/>
 <meta content="https://www.stonehouse.io/assets/images/seared-fish-course-stone-house/seared-fish-course-stone-house-800w.jpg" name="twitter:image"/>
-<meta content="Day-After Brunch | Stone House Nevada City" name="twitter:image:alt"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -119,13 +120,8 @@ onFCP(({name, value, id}) => report(name, value, id));
 onTTFB(({name, value, id}) => report(name, value, id));
 </script>
 
-<style>.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}.skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:12px 16px;background:#fff;color:#000;z-index:9999;text-decoration:underline;font-weight:600}</style>
-<script type="application/ld+json" data-breadcrumb-schema="true">
-{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.stonehouse.io/"}, {"@type": "ListItem", "position": 2, "name": "Brunch", "item": "https://www.stonehouse.io/brunch.html"}]}
-</script>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
 <nav>
 <a class="nav-logo" href="/">
 <img alt="Stone House Nevada City logo — historic 1857 wedding and private event venue" class="nav-logo-img" fetchpriority="high" src="assets/stone-house-logo.png"/>
@@ -155,7 +151,6 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <a href="/#date-check">Check Availability</a>
 </div>
 </nav>
-<main id="main">
 <div class="page-hero">
 <h1>Day-After <em>Brunch</em></h1>
 <p class="subtitle">The celebration doesn't have to end at last call. Gather your people the morning after for one more meal together before everyone heads home.</p>
@@ -215,9 +210,8 @@ onTTFB(({name, value, id}) => report(name, value, id));
 </p>
 <p style="text-align:center;margin-top:1rem;font-size:.88rem;color:var(--m)">107 Sacramento Street, Nevada City, CA 95959 · <a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a></p>
 </div>
-</main>
 <footer>
-<div class="footer-brand">STONE HOUSE  ·  Est. 1857</div>
+<div class="footer-brand"><img src="assets/stone-house-logo.png" alt="Stone House Nevada City" class="footer-emblem" width="32" height="32"/><span class="footer-brand-wm">STONE HOUSE  ·  Est. 1857</span></div>
 <div class="footer-links">
 <a href="/">Home</a>
 <a href="layouts.html">Spaces</a>

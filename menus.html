@@ -5,7 +5,6 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Wedding Menus — Farm-to-Table Dining | Stone House Nevada City</title>
-<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
 <meta content="Seasonal wedding menus at Stone House Nevada City. Three tiers of farm-to-table cuisine — Prospector, Brewmaster, and Mother Lode." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
@@ -20,7 +19,6 @@
 <meta content="https://www.stonehouse.io/menus.html" property="og:url"/>
 <meta content="Stone House Nevada City" property="og:site_name"/>
 <meta content="https://www.stonehouse.io/assets/images/seared-fish-course-stone-house/seared-fish-course-stone-house-800w.jpg" property="og:image"/>
-<meta content="Wedding Menus — Farm-to-Table Dining | Stone House Nevada City" property="og:image:alt"/>
 <meta content="800" property="og:image:width"/>
 <meta content="1200" property="og:image:height"/>
 <style>
@@ -30,13 +28,16 @@
 .course{margin-bottom:1.25rem}.course-name{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--m);margin-bottom:.35rem}.course-items{font-size:.9rem;color:var(--c);line-height:1.8}
 .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
 .img-pair{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}.img-pair img{width:100%;height:260px;object-fit:cover;border-radius:10px}@media(max-width:640px){.img-pair{grid-template-columns:1fr}.img-pair img{height:200px}}
+
+/* Footer emblem (added 2026-05-06 per nav/footer rule) */
+.footer-brand { display: flex !important; align-items: center; gap: 10px; }
+.footer-emblem { width: 32px; height: 32px; display: block; flex-shrink: 0; }
 </style>
 <!-- Twitter / X -->
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Wedding Menus — Farm-to-Table Dining | Stone House Nevada City" name="twitter:title"/>
 <meta content="Seasonal wedding menus at Stone House Nevada City. Three tiers of farm-to-table cuisine — Prospector, Brewmaster, and Mother Lode." name="twitter:description"/>
 <meta content="https://www.stonehouse.io/assets/images/seared-fish-course-stone-house/seared-fish-course-stone-house-800w.jpg" name="twitter:image"/>
-<meta content="Wedding Menus — Farm-to-Table Dining | Stone House Nevada City" name="twitter:image:alt"/>
 <!-- Analytics: Stone House -->
 <!-- Hitched Domain Verification -->
 <meta content="EAAJ7VBVZAd3cBRcU2j4MiK5XaCEUBriEnu5A4xa3mbvcOUuO1cxDVmjEZCwTTMkZBiEbZAYtWxZC7Ev4Tf8EwNL8xZBuo1ExmZAX8fHqwqN46Mab5jAyRmLSD6rG6eQ4SeqnF98lTbpRxF4jbYL0kR5FiYwBFtItZB8p0D4tDN4acfyODCgWGbD3ZBo2d4mQL9wZDZD" name="facebook-domain-verification"/>
@@ -102,13 +103,8 @@ onFCP(({name, value, id}) => report(name, value, id));
 onTTFB(({name, value, id}) => report(name, value, id));
 </script>
 
-<style>.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}.skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:12px 16px;background:#fff;color:#000;z-index:9999;text-decoration:underline;font-weight:600}</style>
-<script type="application/ld+json" data-breadcrumb-schema="true">
-{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.stonehouse.io/"}, {"@type": "ListItem", "position": 2, "name": "Menus", "item": "https://www.stonehouse.io/menus.html"}]}
-</script>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
 <nav>
 <a class="nav-logo" href="/">
 <img alt="Stone House Nevada City logo — historic 1857 wedding and private event venue" class="nav-logo-img" fetchpriority="high" src="assets/stone-house-logo.png"/>
@@ -138,7 +134,6 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <a href="/#date-check">Check Availability</a>
 </div>
 </nav>
-<main id="main">
 <div class="page-hero">
 <h1>Sample <em>Menus</em></h1>
 <p class="subtitle">Seasonal, seed-oil-free, locally sourced. Every menu is customizable — these samples show the kind of dining experience your guests will remember.</p>
@@ -316,9 +311,8 @@ onTTFB(({name, value, id}) => report(name, value, id));
 </p>
 <p style="text-align:center;margin-top:1rem;font-size:.88rem;color:var(--m)">107 Sacramento Street, Nevada City, CA 95959 · <a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a></p>
 </div>
-</main>
 <footer>
-<div class="footer-brand">STONE HOUSE  ·  Est. 1857</div>
+<div class="footer-brand"><img src="assets/stone-house-logo.png" alt="Stone House Nevada City" class="footer-emblem" width="32" height="32"/><span class="footer-brand-wm">STONE HOUSE  ·  Est. 1857</span></div>
 <div class="footer-links">
 <a href="/">Home</a>
 <a href="layouts.html">Spaces</a>

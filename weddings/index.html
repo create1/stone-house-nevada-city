@@ -270,6 +270,10 @@ footer a:hover{color:var(--g)}
   .gallery{padding:18px 16px 64px}
   .cta{padding:56px 18px}
 }
+
+/* Footer emblem (added 2026-05-06 per nav/footer rule) */
+.footer-brand { display: flex !important; align-items: center; gap: 10px; }
+.footer-emblem { width: 32px; height: 32px; display: block; flex-shrink: 0; }
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"Real Weddings — Stone House Nevada City","url":"https://www.stonehouse.io/weddings/","description":"A masonry gallery of real weddings at Stone House Nevada City — historic 1857 venue with seven event spaces.","isPartOf":{"@type":"WebSite","url":"https://www.stonehouse.io/","name":"Stone House Nevada City"},"about":{"@type":"EventVenue","name":"Stone House Nevada City","url":"https://www.stonehouse.io/"}}
@@ -324,6 +328,7 @@ footer a:hover{color:var(--g)}
 </section>
 
 <footer>
+<div class="footer-brand"><img src="/assets/stone-house-logo.png" alt="Stone House Nevada City" class="footer-emblem" width="32" height="32"/><span class="footer-brand-wm">STONE HOUSE  ·  Est. 1857</span></div>
 <p>107 Sacramento Street · Nevada City, CA 95959 · <a href="tel:+15302655050">(530) 265-5050</a> · <a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a></p>
 <p style="margin-top:8px"><a href="/">Home</a> · <a href="/#spaces">Spaces</a> · <a href="/#pricing">Pricing</a> · <a href="/#faq">FAQ</a></p>
 </footer>

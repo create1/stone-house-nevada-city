@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Private Event Venue — Stone House Nevada City</title>
 <meta content="Host your private event at Stone House in historic Nevada City, California. Milestone celebrations, dinner parties, and intimate gatherings in a one-of-a-kind venue." name="description"/>
-<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
 <!-- Favicons -->
 <link href="../assets/favicon.ico" rel="icon" sizes="any"/>
 <link href="../assets/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
@@ -21,7 +21,6 @@
 <meta content="Host your private event at Stone House in historic Nevada City, California. Milestone celebrations, dinner parties, and intimate gatherings in a one-of-a-kind venue." property="og:description"/>
 <meta content="https://www.stonehouse.io/private-events/" property="og:url"/>
 <meta content="https://www.stonehouse.io/assets/images/cavern-candlelit-private-dinner-stone-house/cavern-candlelit-private-dinner-stone-house-1200w.jpg" property="og:image"/>
-<meta content="Private Event Venue — Stone House Nevada City" property="og:image:alt"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="800" property="og:image:height"/>
 <!-- Article (Pinterest Rich Pins, audit P0.2) -->
@@ -33,7 +32,6 @@
 <meta content="Private Event Venue — Stone House Nevada City" name="twitter:title"/>
 <meta content="Host your private event at Stone House in historic Nevada City, California. Milestone celebrations, dinner parties, and intimate gatherings in a one-of-a-kind venue." name="twitter:description"/>
 <meta content="https://www.stonehouse.io/assets/images/cavern-candlelit-private-dinner-stone-house/cavern-candlelit-private-dinner-stone-house-1200w.jpg" name="twitter:image"/>
-<meta content="Private Event Venue — Stone House Nevada City" name="twitter:image:alt"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
@@ -62,8 +60,7 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
 gtag('js',new Date());gtag('config','G-6H210CVEHL');
 </script>
 <!-- /Analytics -->
-<!-- Lead-gate FOUC prevention: must run before <body>
-<a class="skip-link" href="#main">Skip to main content</a> renders so gated sections don't flash visible -->
+<!-- Lead-gate FOUC prevention: must run before <body> renders so gated sections don't flash visible -->
 <script>
 (function(){
   try {
@@ -240,6 +237,11 @@ html.sh-unlocked .sh-gate { display: none !important; }
 @media (max-width: 540px) {
   .sh-gate .gate-card { padding: 30px 22px; }
 }
+
+/* Logo lockup (emblem + wordmark) — added 2026-05-06 per nav/footer rule */
+a.lp-brand { display: inline-flex !important; align-items: center; gap: 10px; }
+.lp-brand-emblem { width: 32px; height: 32px; display: block; flex-shrink: 0; }
+.lp-brand-wm { display: inline-block; }
 </style>
 </meta><link as="image" fetchpriority="high" href="/assets/images/cavern-candlelit-private-dinner-stone-house/cavern-candlelit-private-dinner-stone-house-1200w.avif" rel="preload" type="image/avif"/><script data-image-schema="true" type="application/ld+json">{
   "@context": "https://schema.org",
@@ -280,18 +282,13 @@ onFCP(({name, value, id}) => report(name, value, id));
 onTTFB(({name, value, id}) => report(name, value, id));
 </script>
 
-<style>.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}.skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:12px 16px;background:#fff;color:#000;z-index:9999;text-decoration:underline;font-weight:600}</style>
-<script type="application/ld+json" data-breadcrumb-schema="true">
-{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.stonehouse.io/"}, {"@type": "ListItem", "position": 2, "name": "Private Events", "item": "https://www.stonehouse.io/private-events/"}]}
-</script>
 </head>
 <body>
 <div class="page-wrap">
 <nav class="lp-top">
-<a class="lp-brand" href="https://stonehouse.io">Stone House<span>Nevada City</span></a>
+<a class="lp-brand" href="https://stonehouse.io"><img src="../assets/stone-house-logo.png" alt="Stone House Nevada City" class="lp-brand-emblem" width="32" height="32"/><span class="lp-brand-wm">Stone House</span><span>Nevada City</span></a>
 <a class="lp-back" href="/venue-pricing">← All Event Types</a>
 </nav>
-<main id="main">
 <div class="hero">
 <div class="label">Private Events</div>
 <h1>Private Events at Stone House</h1>
@@ -552,7 +549,6 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <a href="/wedding-pricing">Weddings</a> ·
     <a href="/corporate-events">Corporate Events</a>
 </div>
-</main>
 <footer class="lp-footer">
 <p>Stone House · 107 Sacramento St, Nevada City, CA 95959 · <a href="tel:+15302655050">(530) 265-5050</a></p>
 <p><a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a> · <a href="/privacy-policy">Privacy</a> · <a href="/terms">Terms</a></p>
