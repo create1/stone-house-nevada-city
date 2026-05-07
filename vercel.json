@@ -30,6 +30,21 @@
       "permanent": true
     },
     {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy/",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms/",
+      "permanent": true
+    },
+    {
+      "source": "/venue-pricing",
+      "destination": "/venue-pricing/",
+      "permanent": true
+    },
+    {
       "source": "/(.*)",
       "has": [
         {

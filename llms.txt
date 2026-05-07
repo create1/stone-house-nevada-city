@@ -4,7 +4,7 @@
 ## Site
 - [Home](https://www.stonehouse.io/): Overview, hero gallery, lead capture
 - [Wedding Pricing](https://www.stonehouse.io/wedding-pricing): Wedding pricing pamphlet download
-- [Real Weddings](https://www.stonehouse.io/weddings/): Photo galleries from past weddings
+- [Stone House Moments](https://www.stonehouse.io/moments/): Real wedding photo galleries from past Stone House celebrations
 - [Private Events](https://www.stonehouse.io/private-events/): Private event packages
 - [Corporate Events](https://www.stonehouse.io/corporate-events/): Corporate event packages
 - [Contact](https://www.stonehouse.io/contact/): Contact info and booking inquiries
