@@ -644,12 +644,23 @@ body {
   margin-bottom: 18px;
 }
 .footer-col-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.footer-col-brand img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+.footer-col-brand .wm {
   font-family: var(--serif);
   font-size: 22px;
   letter-spacing: 0.18em;
   font-weight: 500;
   color: var(--ink);
-  margin-bottom: 16px;
+  line-height: 1;
 }
 .footer-col p {
   font-family: var(--sans);
@@ -1106,7 +1117,10 @@ onTTFB(({name, value, id}) => report(name, value, id));
   <div class="footer-grid">
 
     <div class="footer-col">
-      <div class="footer-col-brand">STONE HOUSE</div>
+      <div class="footer-col-brand">
+        <img src="../assets/stone-house-logo.png" alt="Stone House Nevada City" width="40" height="40"/>
+        <span class="wm">STONE HOUSE</span>
+      </div>
       <p>Historic event venue in Nevada City, California. Where history meets intention since 1857.</p>
       <address>
         107 Sacramento Street<br/>
