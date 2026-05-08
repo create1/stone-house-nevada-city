@@ -230,30 +230,26 @@ function popupPickType(prefix, type) {
   if (type !== 'wedding' && type !== 'private' && type !== 'corporate') type = 'wedding';
   __eventTypeState[prefix] = type;
 
-  // For weddings, route straight to the wedding-pricing pamphlet (Hitched flow)
-  if (type === 'wedding') {
-    if (prefix === 'exit' && typeof closeExit === 'function') closeExit();
-    else if (prefix === 'lead') {
-      const lp = document.getElementById('lead-popup');
-      if (lp) lp.classList.remove('show');
-    }
-    window.location.href = '/wedding-pricing';
-    return;
+  // Close whichever popup the user clicked from
+  if (prefix === 'exit' && typeof closeExit === 'function') closeExit();
+  else if (prefix === 'lead') {
+    const lp = document.getElementById('lead-popup');
+    if (lp) lp.classList.remove('show');
   }
 
-  // For private/corporate, swap to the form step (Step 2) and update event-type tag.
-  const root = prefix === 'exit'
-    ? document.querySelector('#exit-popup')
-    : document.querySelector('#lead-popup');
-  if (!root) return;
+  // Track the click (best-effort) so we know which popup + type drove the page view
+  try {
+    const sourceLabel = prefix === 'exit'
+      ? `Website - Exit Intent (${type === 'wedding' ? 'Wedding' : type === 'private' ? 'Private' : 'Corporate'} Event)`
+      : `Website - Timed Popup (${type === 'wedding' ? 'Wedding' : type === 'private' ? 'Private' : 'Corporate'} Event)`;
+    if (typeof trackLead === 'function') trackLead(sourceLabel);
+  } catch (_) {}
 
-  const stepPick = root.querySelector('[data-step="1"]');
-  const stepForm = root.querySelector('[data-step="2"]');
-  if (stepPick) stepPick.style.display = 'none';
-  if (stepForm) stepForm.style.display = '';
-
-  const tagEl = root.querySelector(prefix === 'exit' ? '.ep-event-tag' : '.lp-event-tag');
-  if (tagEl) tagEl.textContent = type === 'private' ? 'Private Event' : 'Corporate Event';
+  // Route to the matching page — every option navigates, no in-popup form
+  const dest = type === 'wedding' ? '/wedding-pricing/'
+             : type === 'private' ? '/private-events/'
+             : '/corporate-events/';
+  window.location.href = dest;
 }
 
 function submitEventLead(prefix) {
