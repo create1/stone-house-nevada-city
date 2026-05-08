@@ -488,8 +488,6 @@ onTTFB(({name, value, id}) => report(name, value, id));
         var phone = f.phone.value.trim();
         var date = f.date.value;
         var guests = f.guests.value;
-        var pkg = f.package.value;
-        var message = f.message.value.trim();
         var honeypot = f.company.value;
         var err = document.getElementById('gate-err');
         var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -506,7 +504,7 @@ onTTFB(({name, value, id}) => report(name, value, id));
         var payload = {
           name: name, email: email, phone: phone, date: date, guests: guests,
           event_type: 'private',
-          message: pkg ? ('Package interest: ' + pkg + (message ? ' · ' + message : '')) : message,
+          message: '',
           source: 'Website - Private Events Page',
           _honeypot: honeypot,
           fbc: mc.fbc, fbp: mc.fbp, source_url: window.location.href,

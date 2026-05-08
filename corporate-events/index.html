@@ -487,11 +487,8 @@ onTTFB(({name, value, id}) => report(name, value, id));
         var name = f.name.value.trim();
         var email = f.email.value.trim();
         var phone = f.phone.value.trim();
-        var companyName = f.companyName.value.trim();
         var date = f.date.value;
         var guests = f.guests.value;
-        var pkg = f.package.value;
-        var message = f.message.value.trim();
         var honeypot = f.company.value;
         var err = document.getElementById('gate-err');
         var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -505,14 +502,10 @@ onTTFB(({name, value, id}) => report(name, value, id));
         try { localStorage.setItem('sh-corporate-unlocked', '1'); } catch(_) {}
 
         var mc = metaCookies();
-        var msgPrefix = [];
-        if (companyName) msgPrefix.push('Company: ' + companyName);
-        if (pkg) msgPrefix.push('Package interest: ' + pkg);
-        var fullMsg = msgPrefix.join(' · ') + (msgPrefix.length && message ? ' · ' : '') + message;
         var payload = {
           name: name, email: email, phone: phone, date: date, guests: guests,
           event_type: 'corporate',
-          message: fullMsg,
+          message: '',
           source: 'Website - Corporate Events Page',
           _honeypot: honeypot,
           fbc: mc.fbc, fbp: mc.fbp, source_url: window.location.href,
