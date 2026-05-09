@@ -252,63 +252,8 @@ function popupPickType(prefix, type) {
   window.location.href = dest;
 }
 
-function submitEventLead(prefix) {
-  const root = prefix === 'exit'
-    ? document.querySelector('#exit-popup')
-    : document.querySelector('#lead-popup');
-  if (!root) return;
-
-  const inputs = root.querySelectorAll('[data-field]');
-  const data = {};
-  inputs.forEach((inp) => { data[inp.getAttribute('data-field')] = inp.value.trim(); });
-
-  const emailOk = data.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email);
-  if (!data.name || !emailOk) {
-    // Soft validation — flash the offending input border.
-    inputs.forEach((inp) => {
-      const f = inp.getAttribute('data-field');
-      if ((f === 'name' && !data.name) || (f === 'email' && !emailOk)) {
-        inp.style.borderColor = '#b04a3a';
-      }
-    });
-    return;
-  }
-
-  const btn = root.querySelector(prefix === 'exit' ? '.ep-btn' : '.lp-btn');
-  if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
-
-  const eventType = __eventTypeState[prefix] || 'wedding';
-  const sourceLabel = prefix === 'exit'
-    ? `Website - Exit Intent (${eventType === 'private' ? 'Private' : 'Corporate'} Event)`
-    : `Website - Timed Popup (${eventType === 'private' ? 'Private' : 'Corporate'} Event)`;
-
-  fetch('/api/lead', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      name: data.name,
-      email: data.email,
-      phone: data.phone || '',
-      event_type: eventType,
-      source: sourceLabel,
-      _honeypot: '',
-      ...getTrackingPayload(),
-    }),
-  })
-    .then((r) => r.json())
-    .then(() => {
-      if (btn) { btn.textContent = "✓ Sent — we'll respond within 24 hours"; btn.classList.add('success'); }
-      trackLead(sourceLabel);
-    })
-    .catch(() => {
-      if (btn) { btn.textContent = "✓ Sent — we'll respond within 24 hours"; btn.classList.add('success'); }
-      trackLead(sourceLabel);
-    });
-}
-
 // Expose globally (HTML uses inline onclick handlers)
 window.popupPickType = popupPickType;
-window.submitEventLead = submitEventLead;
 
 // ─── PRICING TOGGLE ───
 const pkgData = {

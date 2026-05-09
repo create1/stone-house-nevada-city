@@ -171,6 +171,12 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  // Honeypot — checked at the very top, before rate limiting + body destructuring.
+  // Silent-200 with fake "ok" values so bots don't know they were caught. NO downstream side effects.
+  if (req.body?._honeypot) {
+    return res.status(200).json({ ok: true, results: { notion: "ok", notifyEmail: "ok", autoReply: "ok" } });
+  }
+
   const ip = req.headers["x-forwarded-for"]?.split(",")[0]?.trim() || req.socket?.remoteAddress || "unknown";
   if (isRateLimited(ip)) {
     return res.status(429).json({ error: "Too many requests. Please try again later." });
@@ -178,7 +184,7 @@ export default async function handler(req, res) {
 
   try {
     const {
-      name, email, phone, date, guests, source, event_type, message, _honeypot,
+      name, email, phone, date, guests, source, event_type, message,
       // UTM parameters
       utm_source, utm_medium, utm_campaign, utm_content, utm_term,
       // Meta tracking IDs (passed from client)
@@ -192,11 +198,6 @@ export default async function handler(req, res) {
       ? event_type.toLowerCase()
       : "wedding";
     const eventTypeLabel = eventType.charAt(0).toUpperCase() + eventType.slice(1);
-
-    // Honeypot
-    if (_honeypot) {
-      return res.status(200).json({ ok: true, results: { notion: "ok", notifyEmail: "ok", autoReply: "ok" } });
-    }
 
     if (!email || !email.includes("@")) {
       return res.status(400).json({ error: "Valid email required" });
@@ -254,7 +255,7 @@ export default async function handler(req, res) {
     results.ghl = ghlResult.status === "fulfilled" ? ghlResult.value : `error: ${ghlResult.reason?.message}`;
 
     // 4. Notification + auto-reply emails (sequential — both use Resend)
-    const fromAddr = process.env.RESEND_FROM_EMAIL || "Stone House <admin@stonehouse.io>";
+    const fromAddr = process.env.RESEND_FROM_EMAIL || "Stone House Bookings <bookings@stonehouse.io>";
 
     if (process.env.RESEND_API_KEY) {
       // Notification to bookings team
