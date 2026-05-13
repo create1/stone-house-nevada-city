@@ -51,6 +51,9 @@ body{
   font-family:var(--sans);font-weight:300;line-height:1.75;
   min-height:100vh;-webkit-font-smoothing:antialiased
 }
+/* Orphan prevention — modern browsers reflow text to avoid lonely last words */
+p, li, blockquote, figcaption{text-wrap:pretty}
+h1, h2, h3, h4{text-wrap:balance}
 
 /* Nav */
 .nav{
@@ -158,6 +161,35 @@ body{
   font-family:var(--sans);font-style:normal
 }
 .notice strong{color:#fff;font-weight:500}
+
+/* Themed dinners — italic-serif kicker variant (swapped from H2 position) */
+.section-head .themed-kicker{text-transform:none;letter-spacing:0;font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.2vw,26px);color:var(--m);margin-bottom:18px;font-weight:300;line-height:1.3;display:block}
+.section-head .themed-kicker em{font-style:italic;color:var(--g);font-weight:400}
+
+/* Hors d'oeuvres library — 2-column list inside add-on card */
+.hors-list{list-style:none;padding:0;margin:20px 0 0;columns:2;column-gap:28px}
+.hors-list li{font-size:13.5px;color:var(--m);line-height:1.5;padding:6px 0;border-bottom:1px dashed rgba(90,83,71,.12);break-inside:avoid;font-family:var(--serif);font-weight:400}
+.hors-list li:last-child{border-bottom:none}
+@media (max-width:520px){.hors-list{columns:1}}
+
+/* Beverage tier sub-blocks */
+.bev-tiers{margin-top:20px;display:flex;flex-direction:column;gap:18px}
+.bev-tier{padding-top:16px;border-top:1px dashed rgba(154,125,66,.22)}
+.bev-tier:first-child{border-top:none;padding-top:0}
+.bev-tier-name{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin-bottom:6px}
+.bev-tier-desc{font-size:13.5px;color:var(--m);line-height:1.6;font-family:var(--serif)}
+
+/* 6-image food gallery — bridge between packages and dark intro band */
+.food-gallery{padding:80px 24px 90px;background:var(--s2)}
+.food-gallery-inner{max-width:1240px;margin:0 auto}
+.food-gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.food-gallery figure{margin:0;position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;background:var(--s3)}
+.food-gallery figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.food-gallery figure:hover img{transform:scale(1.04)}
+@media (max-width:760px){
+  .food-gallery{padding:60px 18px 70px}
+  .food-gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+}
 
 /* Packages footnote */
 .pkg-foot-note{margin:34px auto 0;text-align:center;font-size:12px;color:var(--m);max-width:720px;line-height:1.6;font-style:italic;font-family:var(--serif)}
@@ -284,7 +316,7 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <div class="hero-content">
 <span class="label">Catering &amp; Cuisine</span>
 <h1>Food that honors<br/><em>the occasion</em></h1>
-<p>From themed dinner experiences to custom-built menus, our chef crafts every plate with the highest-quality ingredients — always seed-oil-free, always seasonal, always local.</p>
+<p>From themed dinner experiences to custom-built menus, our chef crafts every plate with the highest-quality ingredients — always seed-oil-free, always seasonal, always&nbsp;local.</p>
 </div>
 </section>
 <!-- ===== WEDDING & EVENT CATERING PACKAGES ===== -->
@@ -293,7 +325,7 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <div class="pkg-head">
 <span class="label">Wedding &amp; Event Catering Packages</span>
 <h2>Three tiers,<br/><em>infinitely customizable</em></h2>
-<p>Every wedding and private event at Stone House starts with one of three chef-curated catering packages — Prospector, Brewmaster, or Mother Lode. Each is fully customizable and pairs seamlessly with the themed dinner experiences below.</p>
+<p>Every wedding and private event at Stone House starts with one of three chef-curated catering packages — Prospector, Brewmaster, or Mother Lode. Each is fully customizable and pairs seamlessly with the themed dinner experiences&nbsp;below.</p>
 </div>
 <div class="pkg-grid">
 
@@ -301,7 +333,6 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <article class="pkg">
 <div class="pkg-img">
 <img src="/assets/images/seared-fish-couscous-focaccia-private-event-stone-house/seared-fish-couscous-focaccia-private-event-stone-house-800w.jpg" srcset="/assets/images/seared-fish-couscous-focaccia-private-event-stone-house/seared-fish-couscous-focaccia-private-event-stone-house-400w.jpg 400w, /assets/images/seared-fish-couscous-focaccia-private-event-stone-house/seared-fish-couscous-focaccia-private-event-stone-house-800w.jpg 800w, /assets/images/seared-fish-couscous-focaccia-private-event-stone-house/seared-fish-couscous-focaccia-private-event-stone-house-1200w.jpg 1200w" sizes="(min-width:980px) 380px, 100vw" alt="Pan-seared fish over couscous with rustic focaccia — Prospector package at Stone House Nevada City" loading="lazy" decoding="async" width="800" height="600"/>
-<span class="pkg-anchor">Starting at $69 / guest</span>
 </div>
 <div class="pkg-body">
 <div class="pkg-tag">Foundation Tier</div>
@@ -319,8 +350,7 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <li>Roasted Salmon, dill cream</li>
 </ul>
 <div class="pkg-foot">
-<div class="pkg-price">From $69<small>per guest · buffet or plated</small></div>
-<a class="pkg-cta" href="/wedding-pricing/">See Full Pricing →</a>
+<a class="pkg-cta" href="/wedding-pricing/">Build This Menu →</a>
 </div>
 </div>
 </article>
@@ -329,7 +359,6 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <article class="pkg featured">
 <div class="pkg-img">
 <img src="/assets/images/charred-meat-chimichurri-private-event-stone-house/charred-meat-chimichurri-private-event-stone-house-800w.jpg" srcset="/assets/images/charred-meat-chimichurri-private-event-stone-house/charred-meat-chimichurri-private-event-stone-house-400w.jpg 400w, /assets/images/charred-meat-chimichurri-private-event-stone-house/charred-meat-chimichurri-private-event-stone-house-800w.jpg 800w, /assets/images/charred-meat-chimichurri-private-event-stone-house/charred-meat-chimichurri-private-event-stone-house-1200w.jpg 1200w" sizes="(min-width:980px) 380px, 100vw" alt="Charred steak with chimichurri — Brewmaster package at Stone House Nevada City" loading="lazy" decoding="async" width="800" height="600"/>
-<span class="pkg-anchor">Starting at $89 / guest</span>
 </div>
 <div class="pkg-body">
 <div class="pkg-tag">Most Versatile</div>
@@ -348,8 +377,7 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <li>Sea Bass, lemon chive beurre blanc</li>
 </ul>
 <div class="pkg-foot">
-<div class="pkg-price">From $89<small>per guest · buffet or plated</small></div>
-<a class="pkg-cta" href="/wedding-pricing/">See Full Pricing →</a>
+<a class="pkg-cta" href="/wedding-pricing/">Build This Menu →</a>
 </div>
 </div>
 </article>
@@ -358,7 +386,6 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <article class="pkg">
 <div class="pkg-img">
 <img src="/assets/images/family-style-feast-private-event-stone-house/family-style-feast-private-event-stone-house-800w.jpg" srcset="/assets/images/family-style-feast-private-event-stone-house/family-style-feast-private-event-stone-house-400w.jpg 400w, /assets/images/family-style-feast-private-event-stone-house/family-style-feast-private-event-stone-house-800w.jpg 800w, /assets/images/family-style-feast-private-event-stone-house/family-style-feast-private-event-stone-house-1200w.jpg 1200w" sizes="(min-width:980px) 380px, 100vw" alt="Family-style feast overhead view — Mother Lode signature package at Stone House Nevada City" loading="lazy" decoding="async" width="800" height="387"/>
-<span class="pkg-anchor">Starting at $89 / guest</span>
 </div>
 <div class="pkg-body">
 <div class="pkg-tag">Signature Tier</div>
@@ -374,8 +401,7 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <li>Or any entrée from Prospector / Brewmaster</li>
 </ul>
 <div class="pkg-foot">
-<div class="pkg-price">From $89<small>per guest · buffet or plated</small></div>
-<a class="pkg-cta" href="/wedding-pricing/">See Full Pricing →</a>
+<a class="pkg-cta" href="/wedding-pricing/">Build This Menu →</a>
 </div>
 </div>
 </article>
@@ -392,7 +418,29 @@ onTTFB(({name, value, id}) => report(name, value, id));
 </div>
 <div class="addon-body">
 <h3>Hors d'oeuvres Library</h3>
-<p>Twenty+ chef-crafted passed appetizers — caprese kabob, chicken satay, ahi tuna on wonton crisp, coconut shrimp, poached prawns, artisan cheese display, cured meats &amp; antipasto, and more. Your package selection draws from the full library.</p>
+<p>Twenty chef-crafted passed appetizers and stationed displays. Your package selection draws from the full&nbsp;library.</p>
+<ul class="hors-list">
+<li>Caprese Kabob</li>
+<li>Chicken Satay</li>
+<li>Stuffed Mushrooms</li>
+<li>Spanakopita</li>
+<li>Seasonal Crostini</li>
+<li>Bruschetta</li>
+<li>BBQ or Swedish Meatballs</li>
+<li>Vegetable Spring Rolls</li>
+<li>Potstickers</li>
+<li>Potato Crêpe</li>
+<li>Cheese Quesadilla</li>
+<li>Ahi Tuna on Wonton Crisp</li>
+<li>Garden Vegetable Crudité</li>
+<li>Mango Fruit Salsa</li>
+<li>Domestic Cheeses, Crackers &amp; Fruit Display</li>
+<li>Coconut Shrimp</li>
+<li>Poached Prawns with Cocktail Sauce</li>
+<li>Artisan Cheese Display</li>
+<li>Cured Meats &amp; Antipasto</li>
+<li>Salmon</li>
+</ul>
 </div>
 </article>
 
@@ -403,26 +451,30 @@ onTTFB(({name, value, id}) => report(name, value, id));
 </div>
 <div class="addon-body">
 <h3>Beverage Packages</h3>
-<p>Three hours of open bar service, with three tiers to match your celebration.</p>
-<div class="addon-tier">
-<strong>Beer &amp; Wine — from $40/guest</strong>
-Curated domestic &amp; imported beers, house wines, soft drinks
-<strong>Premium Bar — from $50/guest</strong>
-Premium-label spirits, craft beers, curated wines
-<strong>Top Shelf — from $60/guest</strong>
-Top-shelf spirits, fine wines, plus two custom signature cocktails
+<p>Three hours of open bar service, with three tiers to match your&nbsp;celebration.</p>
+<div class="bev-tiers">
+<div class="bev-tier">
+<div class="bev-tier-name">Beer &amp; Wine</div>
+<div class="bev-tier-desc">Curated domestic &amp; imported beers, house wines, soft&nbsp;drinks.</div>
+</div>
+<div class="bev-tier">
+<div class="bev-tier-name">Premium Bar</div>
+<div class="bev-tier-desc">Premium-label spirits, craft beers, curated&nbsp;wines.</div>
+</div>
+<div class="bev-tier">
+<div class="bev-tier-name">Top Shelf</div>
+<div class="bev-tier-desc">Top-shelf spirits, fine wines, plus two custom signature&nbsp;cocktails.</div>
+</div>
 </div>
 </div>
 </article>
 
 </div>
 
-<p class="pkg-foot-note">*Starting prices per guest. Final pricing depends on guest count, menu selections, and service style — plus applicable tax and service charge. <a href="/wedding-pricing/">See full pricing</a>.</p>
-
 <!-- Routing CTA -->
 <div class="pkg-routing">
 <h3>Ready to <em>plan your event</em>?</h3>
-<p>Tell us your date and guest count — we'll build a custom proposal with full pricing within 24 hours.</p>
+<p>Tell us your date and guest count — we'll build a custom proposal with full pricing within 24&nbsp;hours.</p>
 <div class="pkg-routing-btns">
 <a class="btn-gold" href="/wedding-pricing/">Get Wedding Pricing →</a>
 <a class="btn-ghost" href="/private-events/">Private &amp; Corporate →</a>
@@ -431,13 +483,29 @@ Top-shelf spirits, fine wines, plus two custom signature cocktails
 
 </div>
 </section>
+<!-- ===== FOOD GALLERY ===== -->
+<section class="food-gallery" aria-label="A look at our table">
+<div class="food-gallery-inner">
+<div class="food-gallery-grid">
+<!-- Row 1: food, drink, food -->
+<figure><img src="/assets/images/wood-fired-pizza-vegetable-private-event-stone-house/wood-fired-pizza-vegetable-private-event-stone-house-800w.jpg" srcset="/assets/images/wood-fired-pizza-vegetable-private-event-stone-house/wood-fired-pizza-vegetable-private-event-stone-house-400w.jpg 400w, /assets/images/wood-fired-pizza-vegetable-private-event-stone-house/wood-fired-pizza-vegetable-private-event-stone-house-800w.jpg 800w, /assets/images/wood-fired-pizza-vegetable-private-event-stone-house/wood-fired-pizza-vegetable-private-event-stone-house-1200w.jpg 1200w" sizes="(min-width:760px) 400px, 50vw" alt="Wood-fired vegetable pizza on a Stone House Nevada City catering table" loading="lazy" decoding="async" width="800" height="600"/></figure>
+<figure><img src="/assets/images/gimlet-cucumber-cocktail-private-event-stone-house/gimlet-cucumber-cocktail-private-event-stone-house-800w.jpg" srcset="/assets/images/gimlet-cucumber-cocktail-private-event-stone-house/gimlet-cucumber-cocktail-private-event-stone-house-400w.jpg 400w, /assets/images/gimlet-cucumber-cocktail-private-event-stone-house/gimlet-cucumber-cocktail-private-event-stone-house-800w.jpg 800w, /assets/images/gimlet-cucumber-cocktail-private-event-stone-house/gimlet-cucumber-cocktail-private-event-stone-house-1200w.jpg 1200w" sizes="(min-width:760px) 400px, 50vw" alt="Cucumber gimlet signature cocktail at a Stone House Nevada City private event" loading="lazy" decoding="async" width="800" height="600"/></figure>
+<figure><img src="/assets/images/seared-fish-carrot-couscous-private-event-stone-house/seared-fish-carrot-couscous-private-event-stone-house-800w.jpg" srcset="/assets/images/seared-fish-carrot-couscous-private-event-stone-house/seared-fish-carrot-couscous-private-event-stone-house-400w.jpg 400w, /assets/images/seared-fish-carrot-couscous-private-event-stone-house/seared-fish-carrot-couscous-private-event-stone-house-800w.jpg 800w, /assets/images/seared-fish-carrot-couscous-private-event-stone-house/seared-fish-carrot-couscous-private-event-stone-house-1200w.jpg 1200w" sizes="(min-width:760px) 400px, 50vw" alt="Pan-seared fish with carrot couscous at a Stone House Nevada City private event" loading="lazy" decoding="async" width="800" height="600"/></figure>
+<!-- Row 2: drink, food, drink -->
+<figure><img src="/assets/images/red-champagne-cocktail-private-event-stone-house/red-champagne-cocktail-private-event-stone-house-800w.jpg" srcset="/assets/images/red-champagne-cocktail-private-event-stone-house/red-champagne-cocktail-private-event-stone-house-400w.jpg 400w, /assets/images/red-champagne-cocktail-private-event-stone-house/red-champagne-cocktail-private-event-stone-house-800w.jpg 800w, /assets/images/red-champagne-cocktail-private-event-stone-house/red-champagne-cocktail-private-event-stone-house-1200w.jpg 1200w" sizes="(min-width:760px) 400px, 50vw" alt="Red champagne signature cocktail at a Stone House Nevada City private event" loading="lazy" decoding="async" width="800" height="600"/></figure>
+<figure><img src="/assets/images/heirloom-beet-salad-microgreens-private-event-stone-house/heirloom-beet-salad-microgreens-private-event-stone-house-800w.jpg" srcset="/assets/images/heirloom-beet-salad-microgreens-private-event-stone-house/heirloom-beet-salad-microgreens-private-event-stone-house-400w.jpg 400w, /assets/images/heirloom-beet-salad-microgreens-private-event-stone-house/heirloom-beet-salad-microgreens-private-event-stone-house-800w.jpg 800w, /assets/images/heirloom-beet-salad-microgreens-private-event-stone-house/heirloom-beet-salad-microgreens-private-event-stone-house-1200w.jpg 1200w" sizes="(min-width:760px) 400px, 50vw" alt="Heirloom beet salad with microgreens — Stone House Nevada City private event plating" loading="lazy" decoding="async" width="800" height="600"/></figure>
+<figure><img src="/assets/images/orange-cocktail-pampas-private-event-stone-house/orange-cocktail-pampas-private-event-stone-house-800w.jpg" srcset="/assets/images/orange-cocktail-pampas-private-event-stone-house/orange-cocktail-pampas-private-event-stone-house-400w.jpg 400w, /assets/images/orange-cocktail-pampas-private-event-stone-house/orange-cocktail-pampas-private-event-stone-house-800w.jpg 800w, /assets/images/orange-cocktail-pampas-private-event-stone-house/orange-cocktail-pampas-private-event-stone-house-1200w.jpg 1200w" sizes="(min-width:760px) 400px, 50vw" alt="Orange signature cocktail garnished with pampas at a Stone House Nevada City private event" loading="lazy" decoding="async" width="800" height="600"/></figure>
+</div>
+</div>
+</section>
+
 <!-- ===== INTRO / BRIDGE TO THEMED DINNERS ===== -->
 <section class="intro">
 <img class="intro-emblem" src="/assets/stone-house-logo.png" alt="" width="44" height="44" aria-hidden="true"/>
 <div class="intro-inner">
 <span class="intro-eyebrow">Beyond the Packages</span>
-<p>Every event at Stone House is built around your vision and your guests. Our culinary team works directly with you to design a menu that fits the occasion — from a single passed-appetizer reception to a multi-course family-style feast.</p>
-<p>What follows are example menus that show the range of what we can create. Pick a theme, mix and match courses, or hand us a brief — <em>every detail is customizable</em>.</p>
+<p>Every event at Stone House is built around your vision and your guests. Our culinary team works directly with you to design a menu that fits the occasion — from a single passed-appetizer reception to a multi-course family-style&nbsp;feast.</p>
+<p>What follows are example menus that show the range of what we can create. Pick a theme, mix and match courses, or hand us a brief — <em>every detail is&nbsp;customizable</em>.</p>
 <div class="badges">
 <span class="badge">Always Seed Oil Free</span>
 <span class="badge">Locally Sourced</span>
@@ -445,7 +513,7 @@ Top-shelf spirits, fine wines, plus two custom signature cocktails
 <span class="badge">Seasonal &amp; Custom</span>
 </div>
 <div class="notice">
-<strong>About these menus:</strong> The dishes below are examples from our chef's library — they represent the style, range, and ambition of what's possible. Your menu will be designed for your date, your guest count, and your occasion. Talk to us about your vision and we'll build something just for you.
+<strong>About these menus:</strong> The dishes below are examples from our chef's library — they represent the style, range, and ambition of what's possible. Your menu will be designed for your date, your guest count, and your occasion. Talk to us about your vision and we'll build something just for&nbsp;you.
     </div>
 </div>
 </section>
@@ -453,9 +521,9 @@ Top-shelf spirits, fine wines, plus two custom signature cocktails
 <section class="section">
 <div class="section-inner">
 <div class="section-head">
-<span class="label">Themed Dinner Experiences · Add-on Inspiration</span>
-<h2>Take your guests somewhere<br/><em>memorable</em></h2>
-<p>Beyond the packages above, our chef builds themed dinner experiences from scratch. These four examples show the range of what's possible — each can be added to any package, scaled, simplified, or expanded for your event.</p>
+<span class="label themed-kicker">Take your guests somewhere <em>memorable</em></span>
+<h2>Themed Dinner <em>Experiences</em></h2>
+<p>Beyond the packages above, our chef builds themed dinner experiences from scratch. These four examples show the range of what's possible — each can be added to any package, scaled, simplified, or expanded for your&nbsp;event.</p>
 </div>
 <div class="themes-grid">
 <article class="theme">
@@ -582,14 +650,14 @@ Top-shelf spirits, fine wines, plus two custom signature cocktails
 <div class="section-head">
 <span class="label">Build Your Own</span>
 <h2>Custom menus for<br/><em>any occasion</em></h2>
-<p>Wedding receptions, corporate dinners, intimate elopements, milestone birthdays, multi-day retreats — our chef will design a menu around your vision, your guests, and your budget.</p>
+<p>Wedding receptions, corporate dinners, intimate elopements, milestone birthdays, multi-day retreats — our chef will design a menu around your vision, your guests, and your&nbsp;budget.</p>
 </div>
 <div class="rotation" style="text-align:center;padding:48px 36px">
 <p style="font-family:var(--serif);font-style:italic;font-size:22px;color:var(--c);line-height:1.6;max-width:720px;margin:0 auto 24px">
-        "Tell us your idea — a Caribbean rum dinner, a Thai street-food brunch, a 7-course gala, a vegan farm-to-table tasting. We'll build the menu, source the ingredients, and serve every plate."
+        "Tell us your idea — a Caribbean rum dinner, a Thai street-food brunch, a 7-course gala, a vegan farm-to-table tasting. We'll build the menu, source the ingredients, and serve every&nbsp;plate."
       </p>
 <p style="font-size:14px;color:var(--m);max-width:560px;margin:0 auto">
-        Every menu accommodates dietary needs (vegetarian, vegan, gluten-free, allergies). Dishes can be passed, plated, family-style, buffet, or food-station. Beverage and bar packages are quoted separately.
+        Every menu accommodates dietary needs (vegetarian, vegan, gluten-free, allergies). Dishes can be passed, plated, family-style, buffet, or food-station. Beverage and bar packages are quoted&nbsp;separately.
       </p>
 </div>
 </div>
@@ -598,7 +666,7 @@ Top-shelf spirits, fine wines, plus two custom signature cocktails
 <section class="cta">
 <div class="divider"></div>
 <h2>Let's design a menu<br/><em>around your day</em></h2>
-<p>Send us your date, guest count, and a sentence about what you have in mind. We'll come back within 24 hours with a custom menu proposal and a quote.</p>
+<p>Send us your date, guest count, and a sentence about what you have in mind. We'll come back within 24 hours with a custom menu proposal and a&nbsp;quote.</p>
 <div class="cta-btns">
 <a class="btn-gold" href="/#date-check">Check Your Date →</a>
 <a class="btn-ghost" href="mailto:bookings@stonehouse.io?subject=Custom%20Menu%20Inquiry">Email the Chef</a>
