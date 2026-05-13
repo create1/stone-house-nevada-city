@@ -166,6 +166,33 @@ h1, h2, h3, h4{text-wrap:balance}
 .section-head .themed-kicker{text-transform:none;letter-spacing:0;font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.2vw,26px);color:var(--m);margin-bottom:18px;font-weight:300;line-height:1.3;display:block}
 .section-head .themed-kicker em{font-style:italic;color:var(--g);font-weight:400}
 
+/* Event-type chooser modal — triggered by .pkg-cta + .open-chooser links */
+.event-chooser{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .22s var(--ease)}
+.event-chooser[hidden]{display:none}
+.event-chooser.is-open{display:flex;opacity:1}
+.event-chooser-backdrop{position:absolute;inset:0;background:rgba(20,17,15,.72);backdrop-filter:blur(6px);cursor:pointer}
+.event-chooser-card{position:relative;background:var(--s);border-radius:8px;max-width:680px;width:100%;padding:48px 40px 40px;box-shadow:0 30px 80px rgba(0,0,0,.4);transform:translateY(12px) scale(.985);transition:transform .26s var(--ease)}
+.event-chooser.is-open .event-chooser-card{transform:translateY(0) scale(1)}
+.event-chooser-x{position:absolute;top:14px;right:14px;width:36px;height:36px;border:none;background:transparent;color:var(--m);font-size:24px;line-height:1;cursor:pointer;border-radius:50%;transition:all .2s var(--ease);font-family:var(--sans)}
+.event-chooser-x:hover{background:var(--s2);color:var(--c)}
+.event-chooser-eyebrow{display:inline-block;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--g);margin-bottom:10px;font-weight:500;text-align:center;width:100%}
+.event-chooser h3{font-family:var(--serif);font-weight:300;font-size:clamp(28px,3.5vw,38px);line-height:1.1;color:var(--c);text-align:center;margin-bottom:10px}
+.event-chooser h3 em{font-style:italic;color:var(--g)}
+.event-chooser-lead{text-align:center;font-size:14px;color:var(--m);max-width:480px;margin:0 auto 30px;line-height:1.7}
+.event-chooser-options{display:grid;grid-template-columns:1fr;gap:14px}
+.event-chooser-opt{position:relative;display:flex;flex-direction:column;gap:6px;padding:24px 26px;background:#fff;border:1px solid var(--s3);border-radius:6px;text-decoration:none;color:inherit;transition:all .25s var(--ease);overflow:hidden}
+.event-chooser-opt::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--g);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease)}
+.event-chooser-opt:hover{border-color:rgba(154,125,66,.5);transform:translateY(-2px);box-shadow:0 12px 30px rgba(26,23,20,.08)}
+.event-chooser-opt:hover::before{transform:scaleY(1)}
+.event-chooser-opt .opt-tag{display:inline-block;align-self:flex-start;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--g);padding:3px 9px;border:1px solid rgba(154,125,66,.4);border-radius:2px;margin-bottom:4px;font-weight:500}
+.event-chooser-opt .opt-name{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--c);line-height:1.15}
+.event-chooser-opt .opt-desc{font-size:13px;color:var(--m);line-height:1.5}
+.event-chooser-opt .opt-cta{margin-top:6px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--g);font-weight:500}
+@media (max-width:520px){
+  .event-chooser-card{padding:38px 24px 28px}
+  .event-chooser-opt{padding:20px 22px}
+}
+
 /* Hors d'oeuvres library — 2-column list inside add-on card */
 .hors-list{list-style:none;padding:0;margin:20px 0 0;columns:2;column-gap:28px}
 .hors-list li{font-size:13.5px;color:var(--m);line-height:1.5;padding:6px 0;border-bottom:1px dashed rgba(90,83,71,.12);break-inside:avoid;font-family:var(--serif);font-weight:400}
@@ -672,6 +699,66 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <a class="btn-ghost" href="mailto:bookings@stonehouse.io?subject=Custom%20Menu%20Inquiry">Email the Chef</a>
 </div>
 </section>
+<!-- ===== EVENT-TYPE CHOOSER MODAL ===== -->
+<div class="event-chooser" id="event-chooser" role="dialog" aria-modal="true" aria-labelledby="ec-title" hidden>
+<div class="event-chooser-backdrop" data-ec-close aria-hidden="true"></div>
+<div class="event-chooser-card">
+<button class="event-chooser-x" type="button" aria-label="Close" data-ec-close>×</button>
+<p class="event-chooser-eyebrow">First — what's the occasion?</p>
+<h3 id="ec-title">Let's build your <em>menu</em></h3>
+<p class="event-chooser-lead">Pick a path. We'll route you to the right team, the right pricing, and the right next&nbsp;step.</p>
+<div class="event-chooser-options">
+<a class="event-chooser-opt" href="/wedding-pricing/">
+<span class="opt-tag">Most popular</span>
+<span class="opt-name">Wedding</span>
+<span class="opt-desc">Pricing, packages, and live availability for ceremonies and&nbsp;receptions.</span>
+<span class="opt-cta">Get wedding pricing →</span>
+</a>
+<a class="event-chooser-opt" href="/private-events/">
+<span class="opt-name">Private Event</span>
+<span class="opt-desc">Birthdays, milestones, dinner parties, family&nbsp;celebrations.</span>
+<span class="opt-cta">Get a custom quote →</span>
+</a>
+<a class="event-chooser-opt" href="/corporate-events/">
+<span class="opt-name">Corporate Event</span>
+<span class="opt-desc">Offsites, retreats, leadership dinners, brand&nbsp;activations.</span>
+<span class="opt-cta">Plan your offsite →</span>
+</a>
+</div>
+</div>
+</div>
+
+<script>
+(() => {
+  const modal = document.getElementById('event-chooser');
+  if (!modal) return;
+  const triggers = document.querySelectorAll('a.pkg-cta');
+  let lastFocus = null;
+  function open(e) {
+    e.preventDefault();
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    document.documentElement.style.overflow = 'hidden';
+    requestAnimationFrame(() => modal.classList.add('is-open'));
+    const first = modal.querySelector('.event-chooser-opt');
+    if (first) first.focus();
+  }
+  function close() {
+    modal.classList.remove('is-open');
+    setTimeout(() => {
+      modal.hidden = true;
+      document.documentElement.style.overflow = '';
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }, 240);
+  }
+  triggers.forEach(t => t.addEventListener('click', open));
+  modal.querySelectorAll('[data-ec-close]').forEach(b => b.addEventListener('click', close));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !modal.hidden) close();
+  });
+})();
+</script>
+
 </main>
 <footer>
 <p>107 Sacramento Street · Nevada City, CA 95959 · <a href="tel:+15304536534">530-453-6534</a> · <a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a></p>
