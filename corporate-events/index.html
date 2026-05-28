@@ -62,18 +62,8 @@ gtag('js',new Date());gtag('config','G-6H210CVEHL');
 <!-- /Analytics -->
 <!-- Lead-gate FOUC prevention: must run before <body> renders so gated sections don't flash visible -->
 <script>
-(function(){
-  try {
-    if (localStorage.getItem('sh-corporate-unlocked') === '1') {
-      document.documentElement.classList.add('sh-unlocked');
-    } else {
-      document.documentElement.classList.add('sh-locked');
-    }
-  } catch(e) {
-    // localStorage unavailable (private mode, etc.) — fail open so users can still see the page
-    document.documentElement.classList.add('sh-unlocked');
-  }
-})();
+/* Lead-gate removed 2026-05-28 — page content always visible; pamphlet download handled by the Hitched form below. */
+document.documentElement.classList.add('sh-unlocked');
 </script>
 <style>
 :root {
@@ -294,54 +284,25 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <h1>Corporate Events at Stone House</h1>
 <p>Get your team out of the conference room and into a venue with character. Historic architecture, world-class amenities, and a Gold Country setting that makes every offsite memorable.</p>
 </div>
-<!-- LEAD GATE (single-form merge 2026-05-06) — pricing + content below is hidden until this form is submitted.
-       localStorage flag 'sh-corporate-unlocked' persists the unlock across visits.
-       This is the ONLY inquiry form on the page; the prior bottom intake form has been removed. -->
-<div class="sh-gate" id="sh-gate">
-<div class="gate-card">
-<h2>See pricing, packages &amp; full offsite details</h2>
-<p class="gate-tease">Tell us about your event and we'll unlock pricing + send a custom proposal within 24 hours. Never any spam.</p>
-<form class="gate-form evt-form" id="sh-gate-form" onsubmit="return submitGateForm(event)">
-<div class="evt-row">
-<div>
-<label class="evt-label" for="gate-name">Your name</label>
-<input autocomplete="name" class="evt-input" id="gate-name" name="name" placeholder="First &amp; last" required="" type="text"/>
+<!-- PAMPHLET DOWNLOAD (Hitched form t82B3VRsOJBZaefwuah6) — replaced prior custom lead-gate form 2026-05-28.
+       Same flow as /wedding-pricing: the form delivers the Private & Corporate Events pamphlet (PDF)
+       via GoHighLevel after submission. PDF is NOT hosted on the site; delivery is configured in GHL by Hitched. -->
+<style>
+.form-wrap { background: rgba(255,255,255,0.72); border: 1px solid rgba(154,125,66,0.14); border-radius: 8px; padding: 28px 22px; margin: 0 auto 56px; max-width: 720px; box-shadow: 0 4px 16px rgba(26,23,20,0.04); }
+.form-wrap h2 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; text-align: center; margin-bottom: 12px; }
+.form-wrap .form-intro { text-align: center; font-size: 14px; color: var(--m); max-width: 520px; margin: 0 auto 20px; line-height: 1.7; }
+.form-iframe-host { position: relative; width: 100%; min-height: 760px; border-radius: 4px; overflow: hidden; }
+.form-iframe-host iframe { display: block; width: 100% !important; min-height: 760px; height: 100%; border: none; border-radius: 0; }
+@media (max-width: 640px) { .form-iframe-host, .form-iframe-host iframe { min-height: 880px; } }
+</style>
+<section class="form-wrap">
+<h2>Download the Private &amp; Corporate Events Pamphlet</h2>
+<p class="form-intro">Fill out your information below to get instant access to our full pamphlet — packages, pricing, amenities, and everything you need to plan your event at Stone House.</p>
+<div class="form-iframe-host">
+<iframe data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-id="t82B3VRsOJBZaefwuah6" data-form-name="Other Events Contact Form" data-height="748" data-layout="{'id':'INLINE'}" data-layout-iframe-id="inline-t82B3VRsOJBZaefwuah6" data-trigger-type="alwaysShow" data-trigger-value="" id="inline-t82B3VRsOJBZaefwuah6" src="https://api.leadconnectorhq.com/widget/form/t82B3VRsOJBZaefwuah6" style="width:100%;height:100%;border:none;border-radius:0px" title="Other Events Contact Form"></iframe>
 </div>
-<div>
-<label class="evt-label" for="gate-email">Work email</label>
-<input autocomplete="email" class="evt-input" id="gate-email" name="email" placeholder="you@company.com" required="" type="email"/>
-</div>
-</div>
-<div class="evt-row">
-<div>
-<label class="evt-label" for="gate-phone">Phone (optional)</label>
-<input autocomplete="tel" class="evt-input" id="gate-phone" name="phone" placeholder="(530) 555-0100" type="tel"/>
-</div>
-<div>
-<label class="evt-label" for="gate-date">Event date (if known)</label>
-<input class="evt-input" id="gate-date" name="date" onblur="if(!this.value)this.type='text'" onfocus="this.type='date'" placeholder="MM/DD/YYYY" type="text"/>
-</div>
-</div>
-<div class="evt-row">
-<div>
-<label class="evt-label" for="gate-guests">Approximate guests</label>
-<select class="evt-input" id="gate-guests" name="guests">
-<option value="">Select range</option>
-<option>Under 25</option>
-<option>25–60</option>
-<option>60–100</option>
-<option>100–200</option>
-<option>200+</option>
-</select>
-</div>
-</div>
-<input autocomplete="off" class="evt-honeypot" name="company" tabindex="-1" type="text"/>
-<p class="evt-error" id="gate-err">Please enter your name and a valid email.</p>
-<button class="btn-primary" id="gate-btn" type="submit">Request proposal &amp; unlock pricing →</button>
-<p class="gate-fineprint">Or email <a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a> · call <a href="tel:+15304536534">530-453-6534</a></p>
-</form>
-</div>
-</div>
+<p style="text-align:center;font-size:12px;color:var(--m);margin-top:14px;">Or email <a href="mailto:bookings@stonehouse.io" style="color:var(--g);text-decoration:none;">bookings@stonehouse.io</a> · call <a href="tel:+15304536534" style="color:var(--g);text-decoration:none;">530-453-6534</a></p>
+</section>
 <!-- GATED CONTENT — wrapped so a single CSS rule hides everything when locked -->
 <div class="sh-gated" id="sh-gated">
 <div class="event-types">
@@ -545,5 +506,6 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"Corporate Event Venue — Stone House Nevada City","url":"https://www.stonehouse.io/corporate-events/","description":"Corporate event venue in Nevada City, California. Three pricing tiers for offsites, retreats, and leadership dinners.","isPartOf":{"@type":"WebSite","url":"https://www.stonehouse.io/","name":"Stone House Nevada City"},"about":{"@type":"EventVenue","name":"Stone House Nevada City","url":"https://www.stonehouse.io/"},"offers":[{"@type":"Offer","name":"Settler","price":"4600","priceCurrency":"USD","description":"Up to 30 guests, single space, 3 hours"},{"@type":"Offer","name":"Pioneer","price":"13500","priceCurrency":"USD","description":"Up to 80 guests, 2 spaces, 6 hours"},{"@type":"Offer","name":"Founder","price":"27000","priceCurrency":"USD","description":"Full venue, up to 130 guests, 12 hours"}]}
 </script>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 </body>
 </html>
