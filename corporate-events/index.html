@@ -69,7 +69,7 @@ gtag('js',new Date());gtag('config','G-6H210CVEHL');
   var q = false;
   try { q = /[?&](unlocked|submitted)=1/.test(location.search); } catch(_){}
   try {
-    if (q) localStorage.setItem('sh-corporate-unlocked','1');
+    if (q) { localStorage.setItem('sh-corporate-unlocked','1'); localStorage.setItem('sh-private-unlocked','1'); }
     set(q || localStorage.getItem('sh-corporate-unlocked') === '1');
   } catch(e) { set(q); }
 })();
