@@ -62,15 +62,16 @@ gtag('js',new Date());gtag('config','G-6H210CVEHL');
 <!-- /Analytics -->
 <!-- Lead-gate FOUC prevention: must run before <body> renders so gated sections don't flash visible -->
 <script>
-/* Lead gate: pricing & event details stay hidden until the Hitched pamphlet form is submitted (2026-05-28). */
+/* Lead gate: pricing & event details stay hidden until the Hitched pamphlet form is submitted (2026-05-28).
+   Unlocks the instant the GHL form redirects back with ?unlocked=1 (no flash), and persists via localStorage. */
 (function(){
+  function set(u){ document.documentElement.classList.add(u ? 'sh-unlocked' : 'sh-locked'); }
+  var q = false;
+  try { q = /[?&](unlocked|submitted)=1/.test(location.search); } catch(_){}
   try {
-    if (localStorage.getItem('sh-corporate-unlocked') === '1') {
-      document.documentElement.classList.add('sh-unlocked');
-    } else {
-      document.documentElement.classList.add('sh-locked');
-    }
-  } catch(e) { document.documentElement.classList.add('sh-locked'); }
+    if (q) localStorage.setItem('sh-corporate-unlocked','1');
+    set(q || localStorage.getItem('sh-corporate-unlocked') === '1');
+  } catch(e) { set(q); }
 })();
 </script>
 <style>
@@ -313,6 +314,11 @@ onTTFB(({name, value, id}) => report(name, value, id));
 </section>
 <!-- GATED CONTENT — wrapped so a single CSS rule hides everything when locked -->
 <div class="sh-gated" id="sh-gated">
+<div class="pamphlet-dl" style="text-align:center;margin:0 auto 48px;max-width:640px;">
+<h2 style="font-family:var(--serif);font-weight:400;font-size:1.6rem;margin-bottom:8px;">You're all set — here's your pamphlet</h2>
+<p style="font-size:14px;color:var(--m);margin-bottom:22px;">Download the full Private &amp; Corporate Events pamphlet below. A copy is also on its way to your inbox.</p>
+<a class="btn-primary" href="https://services.msgsndr.com/urls/l/NltM0ui95a" target="_blank" rel="noopener">↓ Download the Pamphlet (PDF)</a>
+</div>
 <div class="event-types">
 <h2>Perfect For</h2>
 <p class="sub">Professional gatherings with personality.</p>
