@@ -302,8 +302,9 @@ onTTFB(({name, value, id}) => report(name, value, id));
 .form-wrap .form-intro { text-align: center; font-size: 14px; color: var(--m); max-width: 520px; margin: 0 auto 20px; line-height: 1.7; }
 /* min-height is only a pre-load placeholder; GoHighLevel's form_embed.js resizes the iframe to its
    actual content height after load, so we keep this small to avoid blank space below the form. */
-.form-iframe-host { position: relative; width: 100%; min-height: 790px; }
-.form-iframe-host iframe { display: block; width: 100% !important; min-height: 790px; border: none; border-radius: 0; }
+.form-iframe-host { position: relative; width: 100%; min-height: 810px; }
+.form-iframe-host iframe { display: block; width: 100% !important; min-height: 810px; border: none; border-radius: 0; }
+@media (max-width: 640px) { .form-iframe-host, .form-iframe-host iframe { min-height: 900px; } }
 </style>
 <section class="form-wrap">
 <h2>Download the Private &amp; Corporate Events Pamphlet</h2>
