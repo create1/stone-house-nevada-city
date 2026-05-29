@@ -62,8 +62,16 @@ gtag('js',new Date());gtag('config','G-6H210CVEHL');
 <!-- /Analytics -->
 <!-- Lead-gate FOUC prevention: must run before <body> renders so gated sections don't flash visible -->
 <script>
-/* Lead-gate removed 2026-05-28 — page content always visible; pamphlet download handled by the Hitched form below. */
-document.documentElement.classList.add('sh-unlocked');
+/* Lead gate: pricing & event details stay hidden until the Hitched pamphlet form is submitted (2026-05-28). */
+(function(){
+  try {
+    if (localStorage.getItem('sh-corporate-unlocked') === '1') {
+      document.documentElement.classList.add('sh-unlocked');
+    } else {
+      document.documentElement.classList.add('sh-locked');
+    }
+  } catch(e) { document.documentElement.classList.add('sh-locked'); }
+})();
 </script>
 <style>
 :root {
@@ -428,68 +436,28 @@ onTTFB(({name, value, id}) => report(name, value, id));
     .evt-fineprint a { color: var(--g); text-decoration: none; }
   </style>
 <script>
+    /* Pamphlet gate (2026-05-28): the Hitched form above gates the pricing & event details below.
+       GoHighLevel/LeadConnector posts a message to the parent window on a successful submit; we
+       listen for it, reveal the gated sections, and persist the unlock so returning visitors stay in.
+       The pamphlet PDF itself is delivered by GoHighLevel (configured in the form by Hitched), same as /wedding-pricing. */
     (function() {
-      var __utm = (function() {
-        var p = new URLSearchParams(window.location.search);
-        var u = { utm_source: p.get('utm_source')||'', utm_medium: p.get('utm_medium')||'', utm_campaign: p.get('utm_campaign')||'', utm_content: p.get('utm_content')||'', utm_term: p.get('utm_term')||'' };
-        try { if (u.utm_source) sessionStorage.setItem('sh_utm', JSON.stringify(u));
-              else { var s = sessionStorage.getItem('sh_utm'); if (s) Object.assign(u, JSON.parse(s)); } } catch(e){}
-        return u;
-      })();
-      function metaCookies() {
-        var c = document.cookie.split(';').reduce(function(a,p){ var kv=p.trim().split('='); a[kv[0]]=kv[1]; return a; }, {});
-        return { fbc: c._fbc||'', fbp: c._fbp||'' };
+      var KEY = 'sh-corporate-unlocked';
+      function unlock() {
+        try { localStorage.setItem(KEY, '1'); } catch(_) {}
+        document.documentElement.classList.remove('sh-locked');
+        document.documentElement.classList.add('sh-unlocked');
+        var c = document.querySelector('.sh-gated');
+        if (c && c.scrollIntoView) c.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (typeof fbq === 'function') { try { fbq('track', 'Lead'); } catch(_) {} }
       }
-      // ====== LEAD GATE submit handler (single-form merge 2026-05-06) ======
-      // The gate form now captures the full corporate inquiry payload
-      // (name/work-email/company/phone/date/guests/package/message) in one shot.
-      // Single Lead Source value: 'Website - Corporate Events Page'.
-      // localStorage flag 'sh-corporate-unlocked' persists the unlock across visits.
-      window.submitGateForm = function(e) {
-        e.preventDefault();
-        var f = document.getElementById('sh-gate-form');
-        var name = f.name.value.trim();
-        var email = f.email.value.trim();
-        var phone = f.phone.value.trim();
-        var date = f.date.value;
-        var guests = f.guests.value;
-        var honeypot = f.company.value;
-        var err = document.getElementById('gate-err');
-        var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        if (!name || !emailOk) { err.classList.add('show'); return false; }
-        err.classList.remove('show');
-        var btn = document.getElementById('gate-btn');
-        btn.disabled = true; btn.textContent = 'Sending…';
-
-        // Set unlock flag immediately so even if the API call fails the user
-        // gets the content they asked for (and never gets re-gated).
-        try { localStorage.setItem('sh-corporate-unlocked', '1'); } catch(_) {}
-
-        var mc = metaCookies();
-        var payload = {
-          name: name, email: email, phone: phone, date: date, guests: guests,
-          event_type: 'corporate',
-          message: '',
-          source: 'Website - Corporate Events Page',
-          _honeypot: honeypot,
-          fbc: mc.fbc, fbp: mc.fbp, source_url: window.location.href,
-          utm_source: __utm.utm_source, utm_medium: __utm.utm_medium, utm_campaign: __utm.utm_campaign, utm_content: __utm.utm_content, utm_term: __utm.utm_term,
-        };
-        fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
-          .then(function(r){ return r.json(); })
-          .then(function(){ btn.textContent = "✓ Request sent — we'll respond within 24 hours"; btn.classList.add('success'); if (typeof fbq === 'function') { try { fbq('track','Lead'); } catch(_){} } })
-          .catch(function(){ btn.textContent = "✓ Request sent — we'll respond within 24 hours"; btn.classList.add('success'); });
-
-        // Reveal the gated content after a short delay so the user sees the success state on the button
-        setTimeout(function() {
-          document.documentElement.classList.remove('sh-locked');
-          document.documentElement.classList.add('sh-unlocked');
-          var first = document.querySelector('.sh-gated');
-          if (first && first.scrollIntoView) first.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 800);
-
-        return false;
-      };
+      // Reveal when the GoHighLevel form reports a successful submission.
+      window.addEventListener('message', function(e) {
+        var d = e.data; if (!d) return;
+        var s = (typeof d === 'string') ? d : ((d.type || d.event || d.action || '') + '');
+        if (/form[-_ ]?submit|submission|formSubmitted/i.test(s) || d.formSubmitted === true) unlock();
+      }, false);
+      // Fallback: returning visitor already unlocked, or GHL form configured to redirect back with ?submitted=1.
+      try { if (/[?&](submitted|unlocked)=1/.test(location.search)) unlock(); } catch(_) {}
     })();
   </script>
 </div><!-- /.sh-gated -->
