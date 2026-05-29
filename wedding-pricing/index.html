@@ -114,8 +114,8 @@ body::before {
 .form-wrap h2 { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; text-align: center; margin-bottom: 18px; }
 /* min-height is only a pre-load placeholder; GoHighLevel's form_embed.js resizes the iframe to its
    actual content height after load, so we keep this small to avoid blank space below the form. */
-.form-iframe-host { position: relative; width: 100%; min-height: 480px; }
-.form-iframe-host iframe { display: block; width: 100% !important; min-height: 480px; border: none; border-radius: 0; }
+.form-iframe-host { position: relative; width: 100%; min-height: 650px; }
+.form-iframe-host iframe { display: block; width: 100% !important; min-height: 650px; border: none; border-radius: 0; }
 
 .aside { text-align: center; font-size: 13px; color: var(--m); margin-top: 18px; line-height: 1.7; }
 .aside a { color: var(--g); text-decoration: none; border-bottom: 1px solid rgba(154,125,66,0.30); transition: color 0.25s var(--ease); }
@@ -283,6 +283,14 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <p style="margin-top:8px"><a href="/">Home</a> · <a href="/contact">Contact</a> · <a href="/privacy-policy">Privacy</a> · <a href="/terms">Terms</a></p>
 </footer>
 </div>
+<script>
+/* GHL iframe height sync: LeadConnector posts the form's content height; apply it so the iframe fits
+   exactly across viewports (no clipping, no blank). Falls back to the CSS min-height if no message. */
+(function(){
+  function apply(h){ if(!(h>200&&h<4000))return; var ifr=document.querySelector('.form-iframe-host iframe'); if(!ifr)return; ifr.style.height=h+'px'; var host=ifr.closest('.form-iframe-host'); if(host) host.style.minHeight=h+'px'; }
+  window.addEventListener('message',function(e){ try{ if(!/leadconnectorhq|msgsndr/.test(e.origin||''))return; var d=e.data,h=null; if(d&&typeof d==='object') h=d.height||(d.payload&&d.payload.height)||null; else if(typeof d==='string'){var m=d.match(/height["':\s]+(\d{3,4})/);if(m)h=+m[1];} if(h)apply(+h); }catch(_){} },false);
+})();
+</script>
 <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"Wedding Pricing Pamphlet — Stone House Nevada City","url":"https://www.stonehouse.io/wedding-pricing","description":"Download the Stone House Wedding Pricing Pamphlet — packages, pricing, and amenities for your celebration at our historic 1857 venue in Nevada City, California.","isPartOf":{"@type":"WebSite","url":"https://www.stonehouse.io/","name":"Stone House Nevada City"},"about":{"@type":"EventVenue","name":"Stone House Nevada City","url":"https://www.stonehouse.io/"}}
