@@ -293,59 +293,6 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <h1>Corporate Events at Stone House</h1>
 <p>Get your team out of the conference room and into a venue with character. Historic architecture, world-class amenities, and a Gold Country setting that makes every offsite memorable.</p>
 </div>
-<!-- VISIBLE / CRAWLABLE intro content (no prices) — moved out of the gate 2026-05-28 so pages still rank;
-     only pricing + the pamphlet stay gated below. -->
-<div class="event-types">
-<h2>Perfect For</h2>
-<p class="sub">Professional gatherings with personality.</p>
-<div class="type-grid">
-<div class="type-card">
-<h3>Team Retreats</h3>
-<p>Multi-day offsites with breakout rooms, group sessions, and evening gatherings under one roof.</p>
-</div>
-<div class="type-card">
-<h3>Company Events</h3>
-<p>Holiday parties, launch celebrations, and team-building events in a venue your team will talk about.</p>
-</div>
-<div class="type-card">
-<h3>Presentations &amp; Summits</h3>
-<p>Built-in stage and sound system for keynotes, panels, and all-hands meetings.</p>
-</div>
-<div class="type-card">
-<h3>Client Entertainment</h3>
-<p>Impress clients with a private dinner or cocktail reception in an unforgettable setting.</p>
-</div>
-</div>
-</div>
-<div class="included">
-<h2>What's Included</h2>
-<div class="included-grid">
-<div class="included-item">
-<div class="inc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-<div class="inc-text">Exclusive full-venue or single-room booking</div>
-</div>
-<div class="included-item">
-<div class="inc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-<div class="inc-text">Seven unique spaces for breakouts and plenary sessions</div>
-</div>
-<div class="included-item">
-<div class="inc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-<div class="inc-text">Built-in stage, sound system, and A/V infrastructure</div>
-</div>
-<div class="included-item">
-<div class="inc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-<div class="inc-text">Steps from downtown Nevada City hotels and restaurants</div>
-</div>
-<div class="included-item">
-<div class="inc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-<div class="inc-text">Flexible seating and layout configurations</div>
-</div>
-<div class="included-item">
-<div class="inc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-<div class="inc-text">Preferred vendor coordination for catering and services</div>
-</div>
-</div>
-</div>
 <!-- PAMPHLET DOWNLOAD (Hitched form t82B3VRsOJBZaefwuah6) — replaced prior custom lead-gate form 2026-05-28.
        Same flow as /wedding-pricing: the form delivers the Private & Corporate Events pamphlet (PDF)
        via GoHighLevel after submission. PDF is NOT hosted on the site; delivery is configured in GHL by Hitched. -->
@@ -353,9 +300,10 @@ onTTFB(({name, value, id}) => report(name, value, id));
 .form-wrap { background: rgba(255,255,255,0.72); border: 1px solid rgba(154,125,66,0.14); border-radius: 8px; padding: 28px 22px; margin: 0 auto 56px; max-width: 720px; box-shadow: 0 4px 16px rgba(26,23,20,0.04); }
 .form-wrap h2 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; text-align: center; margin-bottom: 12px; }
 .form-wrap .form-intro { text-align: center; font-size: 14px; color: var(--m); max-width: 520px; margin: 0 auto 20px; line-height: 1.7; }
-.form-iframe-host { position: relative; width: 100%; min-height: 760px; border-radius: 4px; overflow: hidden; }
-.form-iframe-host iframe { display: block; width: 100% !important; min-height: 760px; height: 100%; border: none; border-radius: 0; }
-@media (max-width: 640px) { .form-iframe-host, .form-iframe-host iframe { min-height: 880px; } }
+/* min-height is only a pre-load placeholder; GoHighLevel's form_embed.js resizes the iframe to its
+   actual content height after load, so we keep this small to avoid blank space below the form. */
+.form-iframe-host { position: relative; width: 100%; min-height: 480px; }
+.form-iframe-host iframe { display: block; width: 100% !important; min-height: 480px; border: none; border-radius: 0; }
 </style>
 <section class="form-wrap">
 <h2>Download the Private &amp; Corporate Events Pamphlet</h2>
@@ -495,6 +443,58 @@ onTTFB(({name, value, id}) => report(name, value, id));
     })();
   </script>
 </div><!-- /.sh-gated -->
+<!-- VISIBLE / CRAWLABLE content (no prices) — kept below the form per CRO (form-first) -->
+<div class="event-types">
+<h2>Perfect For</h2>
+<p class="sub">Professional gatherings with personality.</p>
+<div class="type-grid">
+<div class="type-card">
+<h3>Team Retreats</h3>
+<p>Multi-day offsites with breakout rooms, group sessions, and evening gatherings under one roof.</p>
+</div>
+<div class="type-card">
+<h3>Company Events</h3>
+<p>Holiday parties, launch celebrations, and team-building events in a venue your team will talk about.</p>
+</div>
+<div class="type-card">
+<h3>Presentations &amp; Summits</h3>
+<p>Built-in stage and sound system for keynotes, panels, and all-hands meetings.</p>
+</div>
+<div class="type-card">
+<h3>Client Entertainment</h3>
+<p>Impress clients with a private dinner or cocktail reception in an unforgettable setting.</p>
+</div>
+</div>
+</div>
+<div class="included">
+<h2>What's Included</h2>
+<div class="included-grid">
+<div class="included-item">
+<div class="inc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+<div class="inc-text">Exclusive full-venue or single-room booking</div>
+</div>
+<div class="included-item">
+<div class="inc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+<div class="inc-text">Seven unique spaces for breakouts and plenary sessions</div>
+</div>
+<div class="included-item">
+<div class="inc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+<div class="inc-text">Built-in stage, sound system, and A/V infrastructure</div>
+</div>
+<div class="included-item">
+<div class="inc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+<div class="inc-text">Steps from downtown Nevada City hotels and restaurants</div>
+</div>
+<div class="included-item">
+<div class="inc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+<div class="inc-text">Flexible seating and layout configurations</div>
+</div>
+<div class="included-item">
+<div class="inc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+<div class="inc-text">Preferred vendor coordination for catering and services</div>
+</div>
+</div>
+</div>
 <div class="other-events">
 <p>Looking for something else?</p>
 <a href="/wedding-pricing">Weddings</a> ·

@@ -112,8 +112,10 @@ body::before {
 
 .form-wrap { background: rgba(255,255,255,0.72); border: 1px solid rgba(154,125,66,0.14); border-radius: 8px; padding: 28px 22px; margin-bottom: 32px; box-shadow: 0 4px 16px rgba(26,23,20,0.04); }
 .form-wrap h2 { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; text-align: center; margin-bottom: 18px; }
-.form-iframe-host { position: relative; width: 100%; min-height: 720px; border-radius: 4px; overflow: hidden; }
-.form-iframe-host iframe { display: block; width: 100% !important; min-height: 720px; height: 100%; border: none; border-radius: 0; }
+/* min-height is only a pre-load placeholder; GoHighLevel's form_embed.js resizes the iframe to its
+   actual content height after load, so we keep this small to avoid blank space below the form. */
+.form-iframe-host { position: relative; width: 100%; min-height: 480px; }
+.form-iframe-host iframe { display: block; width: 100% !important; min-height: 480px; border: none; border-radius: 0; }
 
 .aside { text-align: center; font-size: 13px; color: var(--m); margin-top: 18px; line-height: 1.7; }
 .aside a { color: var(--g); text-decoration: none; border-bottom: 1px solid rgba(154,125,66,0.30); transition: color 0.25s var(--ease); }
@@ -126,7 +128,6 @@ body::before {
 @media (max-width: 640px) {
   .page-wrap { padding: 28px 18px 60px; }
   .form-wrap { padding: 22px 14px; }
-  .form-iframe-host, .form-iframe-host iframe { min-height: 820px; }
   .cover-img { max-width: 240px; }
 }
 
@@ -213,29 +214,6 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <h1>Download the Stone House Wedding Pricing Pamphlet</h1>
 <p>Fill out your information below to gain access to our ultimate pricing pamphlet. This free pamphlet will give you a taste of the Stone House wedding experience while in the comfort of your own home — packed with pricing, packages, amenities, and much more.</p>
 </section>
-<!-- VISIBLE / CRAWLABLE intro content (no prices) — pricing + pamphlet are gated below the form -->
-<section class="wed-section">
-<h2>Your Wedding at Stone House</h2>
-<div class="wed-grid">
-<div class="wed-card"><h3>Ceremony</h3><p>Exchange vows in the romantic stone Courtyard or, weather permitting, indoors in the Showroom — your built-in rain plan.</p></div>
-<div class="wed-card"><h3>Cocktail Hour</h3><p>Craft cocktails in the Parlour or Lounge while guests take in a beautifully restored 1857 landmark.</p></div>
-<div class="wed-card"><h3>Reception</h3><p>Seated dinner and dancing across the Great Hall and connected spaces, for celebrations large and intimate.</p></div>
-<div class="wed-card"><h3>In-House Catering</h3><p>A full culinary team — buffet or plated — crafted with high-quality, seed-oil-free ingredients.</p></div>
-</div>
-</section>
-<section class="wed-section">
-<h2>What's Included</h2>
-<ul class="wed-incl">
-<li>Historic 1857 venue in downtown Nevada City</li>
-<li>Seven distinct spaces under one roof</li>
-<li>In-house catering team (buffet &amp; plated)</li>
-<li>China, stemware &amp; silverware for up to 200 guests</li>
-<li>Cake cutting service</li>
-<li>Screen &amp; microphone</li>
-<li>Cocktail-hour hors d'oeuvres</li>
-<li>Open-bar beverage packages available</li>
-</ul>
-</section>
 <div class="cover-wrap">
 <picture><source sizes="(min-width: 1280px) 1200px, (min-width: 768px) 50vw, 100vw" srcset="/assets/images/wedding-pricing-pamphlet-cover-stone-house/wedding-pricing-pamphlet-cover-stone-house-400w.avif 400w, /assets/images/wedding-pricing-pamphlet-cover-stone-house/wedding-pricing-pamphlet-cover-stone-house-800w.avif 800w" type="image/avif"/><source sizes="(min-width: 1280px) 1200px, (min-width: 768px) 50vw, 100vw" srcset="/assets/images/wedding-pricing-pamphlet-cover-stone-house/wedding-pricing-pamphlet-cover-stone-house-400w.webp 400w, /assets/images/wedding-pricing-pamphlet-cover-stone-house/wedding-pricing-pamphlet-cover-stone-house-800w.webp 800w" type="image/webp"/><img alt="Stone House Nevada City wedding pricing guide cover — wedding package overview for couples" class="cover-img" decoding="sync" fetchpriority="high" height="1685" sizes="(min-width: 1280px) 1200px, (min-width: 768px) 50vw, 100vw" src="/assets/images/wedding-pricing-pamphlet-cover-stone-house/wedding-pricing-pamphlet-cover-stone-house-800w.jpg" srcset="/assets/images/wedding-pricing-pamphlet-cover-stone-house/wedding-pricing-pamphlet-cover-stone-house-400w.jpg 400w, /assets/images/wedding-pricing-pamphlet-cover-stone-house/wedding-pricing-pamphlet-cover-stone-house-800w.jpg 800w" width="1191"/></picture>
 </div>
@@ -277,6 +255,29 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <p class="pkg-foot">++ plus applicable tax &amp; service charge. Full menus, inclusions, and seasonal details are in the downloadable pamphlet.</p>
 </div>
 </div>
+<!-- VISIBLE / CRAWLABLE content (no prices) — kept below the form per CRO (form-first) -->
+<section class="wed-section">
+<h2>Your Wedding at Stone House</h2>
+<div class="wed-grid">
+<div class="wed-card"><h3>Ceremony</h3><p>Exchange vows in the romantic stone Courtyard or, weather permitting, indoors in the Showroom — your built-in rain plan.</p></div>
+<div class="wed-card"><h3>Cocktail Hour</h3><p>Craft cocktails in the Parlour or Lounge while guests take in a beautifully restored 1857 landmark.</p></div>
+<div class="wed-card"><h3>Reception</h3><p>Seated dinner and dancing across the Great Hall and connected spaces, for celebrations large and intimate.</p></div>
+<div class="wed-card"><h3>In-House Catering</h3><p>A full culinary team — buffet or plated — crafted with high-quality, seed-oil-free ingredients.</p></div>
+</div>
+</section>
+<section class="wed-section">
+<h2>What's Included</h2>
+<ul class="wed-incl">
+<li>Historic 1857 venue in downtown Nevada City</li>
+<li>Seven distinct spaces under one roof</li>
+<li>In-house catering team (buffet &amp; plated)</li>
+<li>China, stemware &amp; silverware for up to 200 guests</li>
+<li>Cake cutting service</li>
+<li>Screen &amp; microphone</li>
+<li>Cocktail-hour hors d'oeuvres</li>
+<li>Open-bar beverage packages available</li>
+</ul>
+</section>
 <footer class="lp-footer">
 <p>107 Sacramento Street · Nevada City, CA 95959 · <a href="tel:+15304536534">530-453-6534</a></p>
 <p style="margin-top:8px"><a href="/">Home</a> · <a href="/contact">Contact</a> · <a href="/privacy-policy">Privacy</a> · <a href="/terms">Terms</a></p>
