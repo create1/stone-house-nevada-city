@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Floor Plans — Stone House Nevada City</title>
+<meta content="Annotated floor plans for Stone House Nevada City. Download first- and second-floor PDFs for layout and capacity planning." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --s: #faf7f2;
+  --s2: #f0ebe3;
+  --s3: #e8e2d8;
+  --g: #9a7d42;
+  --gd: #7d6433;
+  --gl: #b8944e;
+  --c: #1a1714;
+  --m: #5a5347;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Jost', -apple-system, sans-serif;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--s);
+  color: var(--c);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 0;
+}
+.fp-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 28px 22px 80px;
+}
+.fp-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(154, 125, 66, 0.12);
+  margin-bottom: 40px;
+}
+.fp-brand {
+  font-family: var(--serif);
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--c);
+  text-decoration: none;
+  transition: color 0.25s var(--ease);
+}
+.fp-brand:hover { color: var(--g); }
+.fp-brand span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--m);
+  margin-top: 6px;
+}
+.fp-back {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--g);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(154, 125, 66, 0.35);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.fp-back:hover { color: var(--gl); border-color: var(--gl); }
+.fp-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--g);
+  margin-bottom: 14px;
+}
+.fp-h1 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5.5vw, 56px);
+  font-weight: 400;
+  line-height: 1.12;
+  margin-bottom: 16px;
+}
+.fp-h1 em {
+  font-style: italic;
+  color: var(--g);
+  font-weight: 300;
+}
+.fp-lead {
+  max-width: 520px;
+  font-size: 15px;
+  color: var(--m);
+  margin-bottom: 10px;
+}
+.fp-note {
+  font-size: 13px;
+  color: rgba(90, 83, 71, 0.7);
+  margin-bottom: 48px;
+}
+.fp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+}
+@media (min-width: 880px) {
+  .fp-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+}
+.fp-card {
+  background: linear-gradient(165deg, var(--s2) 0%, var(--s3) 100%);
+  border: 1px solid rgba(154, 125, 66, 0.18);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
+  transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.fp-card:hover {
+  border-color: rgba(154, 125, 66, 0.38);
+  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.12);
+}
+.fp-card a.fp-figure {
+  display: block;
+  position: relative;
+  background: var(--s2);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.fp-card a.fp-figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(154, 125, 66, 0.08);
+  pointer-events: none;
+}
+.fp-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+.fp-card a.fp-figure:hover img { transform: scale(1.02); }
+.fp-card a.fp-figure .fp-open {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c);
+  background: rgba(250, 247, 242, 0.88);
+  border: 1px solid rgba(154, 125, 66, 0.35);
+  padding: 8px 12px;
+  backdrop-filter: blur(8px);
+}
+.fp-body { padding: 22px 22px 26px; }
+.fp-card h2 {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.fp-card p {
+  font-size: 14px;
+  color: var(--m);
+  margin-bottom: 20px;
+}
+.fp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.fp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 2px;
+  transition: background 0.25s, color 0.25s, gap 0.25s var(--ease);
+}
+.fp-btn--gold {
+  background: var(--g);
+  color: var(--s);
+}
+.fp-btn--gold:hover {
+  background: var(--gl);
+  gap: 14px;
+}
+.fp-btn--ghost {
+  background: transparent;
+  color: var(--g);
+  border: 1px solid rgba(154, 125, 66, 0.45);
+}
+.fp-btn--ghost:hover {
+  border-color: var(--g);
+  color: var(--gl);
+}
+.fp-foot {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(154, 125, 66, 0.12);
+  font-size: 12px;
+  color: var(--m);
+  text-align: center;
+}
+.fp-foot a { color: var(--g); text-decoration: none; }
+.fp-foot a:hover { text-decoration: underline; }
+
+/* Logo lockup (emblem + wordmark) — added 2026-05-06 per nav/footer rule */
+a.fp-brand { display: inline-flex !important; align-items: center; gap: 10px; }
+.fp-brand-emblem { width: 32px; height: 32px; display: block; flex-shrink: 0; }
+.fp-brand-wm { display: inline-block; }
+</style>
+<!-- Twitter / X -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Floor Plans — Stone House Nevada City" name="twitter:title"/>
+<meta content="Annotated floor plans for Stone House Nevada City. Download first- and second-floor PDFs for layout and capacity planning." name="twitter:description"/>
+<meta content="https://www.stonehouse.io/assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-1200w.jpg" name="twitter:image"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/><meta content="Stone House Nevada City" property="og:site_name"/>
+<meta content="Floor Plans — Stone House Nevada City" property="og:title"/>
+<meta content="Annotated floor plans for Stone House Nevada City. Download first- and second-floor PDFs for layout and capacity planning." property="og:description"/>
+<meta content="https://www.stonehouse.io/floor-plans.html" property="og:url"/>
+<meta content="https://www.stonehouse.io/assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-1200w.jpg" property="og:image"/>
+<link href="https://www.stonehouse.io/floor-plans.html" rel="canonical"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Floor Plans — Stone House Nevada City",
+  "description": "Annotated floor plans for Stone House Nevada City. Download first- and second-floor PDFs.",
+  "url": "https://stonehouse.io/floor-plans.html",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Stone House Nevada City",
+    "url": "https://stonehouse.io"
+  }
+}
+</script>
+<!-- Analytics: Stone House -->
+<!-- Hitched Domain Verification -->
+<meta content="EAAJ7VBVZAd3cBRcU2j4MiK5XaCEUBriEnu5A4xa3mbvcOUuO1cxDVmjEZCwTTMkZBiEbZAYtWxZC7Ev4Tf8EwNL8xZBuo1ExmZAX8fHqwqN46Mab5jAyRmLSD6rG6eQ4SeqnF98lTbpRxF4jbYL0kR5FiYwBFtItZB8p0D4tDN4acfyODCgWGbD3ZBo2d4mQL9wZDZD" name="facebook-domain-verification"/>
+<!-- Meta Pixel (Stone House: 314527259200604, Hitched: 990574910164214) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','314527259200604');
+fbq('init','990574910164214');
+fbq('track','PageView');
+</script>
+<noscript>
+<img alt="" height="1" src="https://www.facebook.com/tr?id=314527259200604&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"/>
+<img alt="" height="1" src="https://www.facebook.com/tr?id=990574910164214&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"/>
+</noscript>
+<!-- GA4 -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6H210CVEHL"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-6H210CVEHL');
+</script>
+<!-- /Analytics -->
+<link as="image" fetchpriority="high" href="/assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-1200w.avif" rel="preload" type="image/avif"/><link as="image" fetchpriority="high" href="/assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-1200w.avif" rel="preload" type="image/avif"/><script data-image-schema="true" type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "contentUrl": "https://www.stonehouse.io/assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-1200w.jpg",
+  "name": "First-floor architectural plan of Stone House Nevada City wedding venue — Great Hall, Parlour, Lounge layout for event planning",
+  "description": "First-floor architectural plan of Stone House Nevada City wedding venue — Great Hall, Parlour, Lounge layout for event planning",
+  "width": "1200",
+  "height": "928",
+  "creator": {
+    "@type": "Organization",
+    "name": "Stone House Nevada City"
+  },
+  "copyrightHolder": {
+    "@type": "Organization",
+    "name": "Stone House Nevada City"
+  },
+  "license": "https://www.stonehouse.io/",
+  "acquireLicensePage": "https://www.stonehouse.io/contact/",
+  "creditText": "Stone House Nevada City",
+  "copyrightNotice": "© 2026 Stone House Nevada City. All rights reserved."
+}</script><meta content="1200" property="og:image:width"/><meta content="928" property="og:image:height"/><!-- Web Vitals real-user monitoring -->
+<script type="module">
+import { onCLS, onINP, onLCP, onFCP, onTTFB } from 'https://unpkg.com/web-vitals@4?module';
+function report(name, value, id) {
+  const v = Math.round(name === 'CLS' ? value * 1000 : value);
+  // Send to Meta Pixel as custom event (already loaded on every page)
+  if (window.fbq) {
+    window.fbq('trackCustom', 'WebVital_' + name, {value: v, page: location.pathname, id});
+  }
+  // Also log to console for QA
+  console.log('[web-vitals]', name, v, id);
+}
+onCLS(({name, value, id}) => report(name, value, id));
+onINP(({name, value, id}) => report(name, value, id));
+onLCP(({name, value, id}) => report(name, value, id));
+onFCP(({name, value, id}) => report(name, value, id));
+onTTFB(({name, value, id}) => report(name, value, id));
+</script>
+
+
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="First-floor architectural plan of Stone House Nevada City wedding venue — Great Hall, Parlor, Lounge layout for event planning" property="og:image:alt"/>
+<meta content="First-floor architectural plan of Stone House Nevada City wedding venue — Great Hall, Parlor, Lounge layout for event planning" name="twitter:image:alt"/>
+<style>.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}.skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:12px 16px;background:#fff;color:#000;z-index:9999;text-decoration:underline;font-weight:600}</style>
+<script type="application/ld+json" data-breadcrumb-schema="true">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.stonehouse.io/"}, {"@type": "ListItem", "position": 2, "name": "Floor Plans", "item": "https://www.stonehouse.io/floor-plans.html"}]}
+</script>
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<main id="main">
+
+<div class="fp-wrap">
+<header class="fp-top">
+<a class="fp-brand" href="index.html"><img src="assets/stone-house-logo.png" alt="Stone House Nevada City" class="fp-brand-emblem" width="32" height="32"/><span class="fp-brand-wm">Stone House</span> <span>Est. 1857 · Nevada City</span></a>
+<a class="fp-back" href="index.html#spaces">← Back to site</a>
+</header>
+<p class="fp-eyebrow">Venue reference</p>
+<h1 class="fp-h1">Floor plans<br/><em>for your layout</em></h1>
+<p class="fp-lead">Measured, annotated drawings — open the PDF for full detail and zoom. Previews below are quick reference; dimensions and notes are in the files.</p>
+<p class="fp-note">Additional levels and exterior maps will be added here as they are finalized.</p>
+<div class="fp-grid">
+<article class="fp-card">
+<a class="fp-figure" href="assets/floor-plans/stone-house-first-floor.pdf" rel="noopener" target="_blank" title="Open first-floor PDF">
+<picture><source sizes="(min-width: 1280px) 1200px, (min-width: 768px) 50vw, 100vw" srcset="/assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-400w.avif 400w, /assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-800w.avif 800w, /assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-1200w.avif 1200w, /assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-1600w.avif 1600w" type="image/avif"/><source sizes="(min-width: 1280px) 1200px, (min-width: 768px) 50vw, 100vw" srcset="/assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-400w.webp 400w, /assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-800w.webp 800w, /assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-1200w.webp 1200w, /assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-1600w.webp 1600w" type="image/webp"/><img alt="First-floor architectural plan of Stone House Nevada City wedding venue — Great Hall, Parlour, Lounge layout for event planning" decoding="sync" fetchpriority="high" height="928" sizes="(min-width: 1280px) 1200px, (min-width: 768px) 50vw, 100vw" src="/assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-1600w.jpg" srcset="/assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-400w.jpg 400w, /assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-800w.jpg 800w, /assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-1200w.jpg 1200w, /assets/images/first-floor-plan-stone-house-nevada-city/first-floor-plan-stone-house-nevada-city-1600w.jpg 1600w" width="1200"/></picture>
+<span class="fp-open">Open PDF</span>
+</a>
+<div class="fp-body">
+<h2>First floor</h2>
+<p>Main level layout with room flow and key dimensions — ideal for ceremony-to-reception planning.</p>
+<div class="fp-actions">
+<a class="fp-btn fp-btn--gold" download="" href="assets/floor-plans/stone-house-first-floor.pdf">Download PDF</a>
+<a class="fp-btn fp-btn--ghost" href="assets/floor-plans/stone-house-first-floor.pdf" rel="noopener" target="_blank">View in browser</a>
+</div>
+</div>
+</article>
+<article class="fp-card">
+<a class="fp-figure" href="assets/floor-plans/stone-house-second-floor.pdf" rel="noopener" target="_blank" title="Open second-floor PDF">
+<picture><source sizes="(min-width: 1280px) 1200px, (min-width: 768px) 50vw, 100vw" srcset="/assets/images/second-floor-plan-stone-house-nevada-city/second-floor-plan-stone-house-nevada-city-400w.avif 400w, /assets/images/second-floor-plan-stone-house-nevada-city/second-floor-plan-stone-house-nevada-city-800w.avif 800w, /assets/images/second-floor-plan-stone-house-nevada-city/second-floor-plan-stone-house-nevada-city-1200w.avif 1200w, /assets/images/second-floor-plan-stone-house-nevada-city/second-floor-plan-stone-house-nevada-city-1600w.avif 1600w" type="image/avif"/><source sizes="(min-width: 1280px) 1200px, (min-width: 768px) 50vw, 100vw" srcset="/assets/images/second-floor-plan-stone-house-nevada-city/second-floor-plan-stone-house-nevada-city-400w.webp 400w, /assets/images/second-floor-plan-stone-house-nevada-city/second-floor-plan-stone-house-nevada-city-800w.webp 800w, /assets/images/second-floor-plan-stone-house-nevada-city/second-floor-plan-stone-house-nevada-city-1200w.webp 1200w, /assets/images/second-floor-plan-stone-house-nevada-city/second-floor-plan-stone-house-nevada-city-1600w.webp 1600w" type="image/webp"/><img alt="Second-floor architectural plan of Stone House Nevada City wedding venue — Showroom, Penthouse layout for event planning" decoding="async" height="928" loading="lazy" sizes="(min-width: 1280px) 1200px, (min-width: 768px) 50vw, 100vw" src="/assets/images/second-floor-plan-stone-house-nevada-city/second-floor-plan-stone-house-nevada-city-1600w.jpg" srcset="/assets/images/second-floor-plan-stone-house-nevada-city/second-floor-plan-stone-house-nevada-city-400w.jpg 400w, /assets/images/second-floor-plan-stone-house-nevada-city/second-floor-plan-stone-house-nevada-city-800w.jpg 800w, /assets/images/second-floor-plan-stone-house-nevada-city/second-floor-plan-stone-house-nevada-city-1200w.jpg 1200w, /assets/images/second-floor-plan-stone-house-nevada-city/second-floor-plan-stone-house-nevada-city-1600w.jpg 1600w" width="1200"/></picture>
+<span class="fp-open">Open PDF</span>
+</a>
+<div class="fp-body">
+<h2>Second floor</h2>
+<p>Upper level — use alongside the first-floor plan for full-building guest flow and vendor load-in.</p>
+<div class="fp-actions">
+<a class="fp-btn fp-btn--gold" download="" href="assets/floor-plans/stone-house-second-floor.pdf">Download PDF</a>
+<a class="fp-btn fp-btn--ghost" href="assets/floor-plans/stone-house-second-floor.pdf" rel="noopener" target="_blank">View in browser</a>
+</div>
+</div>
+</article>
+</div>
+<section class="fp-info" style="max-width:780px;margin:48px auto;padding:0 24px;color:var(--c)">
+<h2 style="font-family:var(--serif);font-size:clamp(28px,3.5vw,36px);font-weight:300;margin-bottom:18px">How couples use these floor plans</h2>
+<p style="line-height:1.7;margin-bottom:18px">The annotated floor plans above give planners and couples the precise dimensions needed to design a layout — table arrangements for plated dinners, dance-floor placement, ceremony-to-reception transitions, vendor load-in routes, and ADA-accessible flow paths through the building. The PDFs are designed to be shared with caterers, florists, rental companies, and DJs.</p>
+<p style="line-height:1.7;margin-bottom:18px">Our seven event spaces work both independently and in combination, depending on guest count and event flow. A 60-guest wedding might use The Parlor for cocktails, the Courtyard for ceremony, and The Great Hall for dinner — moving guests intentionally through the building. A 150-guest celebration typically uses The Great Hall for full reception with the Courtyard reserved for outdoor ceremony.</p>
+<h3 style="font-family:var(--serif);font-size:22px;font-weight:400;margin-top:32px;margin-bottom:14px">Planning your layout</h3>
+<p style="line-height:1.7;margin-bottom:18px">Pair these floor plans with our <a href="/layouts.html" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">spaces and capacity guide</a> to match each room to your guest count and event type. The <a href="/menus.html" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">menu page</a> includes service-style notes (plated, family-style, stations) that affect table footprint, and our <a href="/timeline.html" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">sample wedding timelines</a> show how couples move guests between spaces during the day.</p>
+<p style="line-height:1.7;margin-bottom:18px">For couples planning <a href="/elopement.html" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">elopements or micro-weddings</a>, the floor plans help identify the right intimate room (typically The Penthouse, The Parlor, or The Cavern) without needing the full building. For larger weddings, the plans clarify how the courtyard, second-floor lounges, and main event spaces connect to support 100–200+ guests.</p>
+<p style="line-height:1.7;margin-bottom:18px">Vendors who haven't worked at Stone House before — particularly tenting companies, lighting designers, and large-scale rental providers — should download these plans early in their site survey. Most return with a clean install plan after a single walkthrough with the floor plans in hand. <a href="/vendors.html" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">Our preferred vendor list</a> includes suppliers who already know the building and can move efficiently.</p>
+</section>
+<p class="fp-foot">Questions about a specific space? <a href="index.html#date-check">Check your date</a> or call <a href="tel:+15304536534">530-453-6534</a>.</p>
+</div>
+</main>
+</body>
+</html>

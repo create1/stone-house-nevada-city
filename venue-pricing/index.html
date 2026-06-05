@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Venue Pricing — Stone House Nevada City</title>
+<meta content="Request pricing and availability for weddings, private events, and corporate events at Stone House in historic Nevada City, California." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --s: #faf7f2;
+  --s2: #f0ebe3;
+  --s3: #e8e2d8;
+  --g: #9a7d42;
+  --gd: #7d6433;
+  --gl: #b8944e;
+  --c: #1a1714;
+  --m: #5a5347;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Jost', -apple-system, sans-serif;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--s);
+  color: var(--c);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+/* Layout */
+.page-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 22px 80px;
+}
+
+/* Header */
+.lp-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(154, 125, 66, 0.12);
+  margin-bottom: 48px;
+}
+.lp-brand {
+  font-family: var(--serif);
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--c);
+  text-decoration: none;
+  transition: color 0.25s var(--ease);
+}
+.lp-brand:hover { color: var(--g); }
+.lp-brand span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--m);
+  margin-top: 6px;
+}
+.lp-back {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--m);
+  text-decoration: none;
+  transition: color 0.25s var(--ease);
+}
+.lp-back:hover { color: var(--g); }
+
+/* Hero area */
+.hero-section {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.hero-section h1 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  color: var(--c);
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.hero-section p {
+  font-size: 15px;
+  color: var(--m);
+  max-width: 440px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Form card */
+.form-card {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(154, 125, 66, 0.10);
+  border-radius: 6px;
+  padding: 40px 32px;
+  margin-bottom: 32px;
+}
+.form-card h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 8px;
+  color: var(--c);
+}
+.form-card .form-sub {
+  text-align: center;
+  font-size: 14px;
+  color: var(--m);
+  margin-bottom: 28px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m);
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--s3);
+  border-radius: 4px;
+  background: var(--s);
+  color: var(--c);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 300;
+  transition: border-color 0.25s var(--ease);
+  outline: none;
+}
+.form-group input:focus {
+  border-color: var(--g);
+}
+.form-group input::placeholder {
+  color: rgba(90, 83, 71, 0.4);
+}
+.form-btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  margin-top: 28px;
+  background: var(--g);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s var(--ease), transform 0.2s var(--ease);
+}
+.form-btn:hover {
+  background: var(--gd);
+}
+.form-btn:active {
+  transform: scale(0.98);
+}
+
+/* Event type buttons — hidden until form submitted */
+.event-choices {
+  display: none;
+  text-align: center;
+  animation: fadeUp 0.5s var(--ease) both;
+}
+.event-choices.visible {
+  display: block;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.event-choices h2 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--c);
+  margin-bottom: 8px;
+}
+.event-choices .sub {
+  font-size: 14px;
+  color: var(--m);
+  margin-bottom: 36px;
+}
+.event-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+.event-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 22px 24px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(154, 125, 66, 0.12);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--c);
+  transition: border-color 0.3s var(--ease), transform 0.2s var(--ease), box-shadow 0.3s var(--ease);
+}
+.event-card:hover {
+  border-color: var(--g);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(154, 125, 66, 0.10);
+}
+.event-card .card-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(154, 125, 66, 0.08);
+  color: var(--g);
+}
+.event-card .card-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.event-card .card-text {
+  text-align: left;
+}
+.event-card .card-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.15rem;
+  margin-bottom: 2px;
+}
+.event-card .card-desc {
+  font-size: 13px;
+  color: var(--m);
+  line-height: 1.4;
+}
+
+/* Thank-you note (hidden by default) */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 32px;
+  animation: fadeUp 0.5s var(--ease) both;
+}
+.form-success.visible { display: block; }
+.form-success .check {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: rgba(154, 125, 66, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--g);
+}
+.form-success h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+}
+.form-success p {
+  font-size: 14px;
+  color: var(--m);
+}
+
+/* Footer */
+.lp-footer {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(154, 125, 66, 0.08);
+  text-align: center;
+  font-size: 12px;
+  color: var(--m);
+  line-height: 1.8;
+}
+.lp-footer a {
+  color: var(--m);
+  text-decoration: none;
+  transition: color 0.25s var(--ease);
+}
+.lp-footer a:hover { color: var(--g); }
+
+/* Error state */
+.form-group.error input {
+  border-color: #c0392b;
+}
+.form-group .error-msg {
+  display: none;
+  font-size: 12px;
+  color: #c0392b;
+  margin-top: 6px;
+}
+.form-group.error .error-msg {
+  display: block;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .page-wrap {
+    padding: 28px 18px 60px;
+  }
+  .form-card {
+    padding: 28px 20px;
+  }
+  .hero-section {
+    margin-bottom: 36px;
+  }
+}
+
+/* Logo lockup (emblem + wordmark) — added 2026-05-06 per nav/footer rule */
+a.lp-brand { display: inline-flex !important; align-items: center; gap: 10px; }
+.lp-brand-emblem { width: 32px; height: 32px; display: block; flex-shrink: 0; }
+.lp-brand-wm { display: inline-block; }
+</style>
+<!-- Analytics: Stone House -->
+<!-- Hitched Domain Verification -->
+<meta content="EAAJ7VBVZAd3cBRcU2j4MiK5XaCEUBriEnu5A4xa3mbvcOUuO1cxDVmjEZCwTTMkZBiEbZAYtWxZC7Ev4Tf8EwNL8xZBuo1ExmZAX8fHqwqN46Mab5jAyRmLSD6rG6eQ4SeqnF98lTbpRxF4jbYL0kR5FiYwBFtItZB8p0D4tDN4acfyODCgWGbD3ZBo2d4mQL9wZDZD" name="facebook-domain-verification"/>
+<!-- Meta Pixel (Stone House: 314527259200604, Hitched: 990574910164214) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','314527259200604');
+fbq('init','990574910164214');
+fbq('track','PageView');
+</script>
+<noscript>
+<img alt="" height="1" src="https://www.facebook.com/tr?id=314527259200604&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"/>
+<img alt="" height="1" src="https://www.facebook.com/tr?id=990574910164214&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"/>
+</noscript>
+<!-- GA4 -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6H210CVEHL"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-6H210CVEHL');
+</script>
+<!-- /Analytics -->
+<script data-image-schema="true" type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "contentUrl": "https://www.stonehouse.io/assets/images/great-hall-wedding-reception-stone-house/great-hall-wedding-reception-stone-house-800w.jpg",
+  "name": "The Great Hall reception space at Stone House Nevada City — original 1857 stone walls, vaulted ceilings, long banquet tables set for a wedding dinner",
+  "description": "The Great Hall reception space at Stone House Nevada City — original 1857 stone walls, vaulted ceilings, long banquet tables set for a wedding dinner",
+  "width": "800",
+  "height": "267",
+  "creator": {
+    "@type": "Organization",
+    "name": "Stone House Nevada City"
+  },
+  "copyrightHolder": {
+    "@type": "Organization",
+    "name": "Stone House Nevada City"
+  },
+  "license": "https://www.stonehouse.io/",
+  "acquireLicensePage": "https://www.stonehouse.io/contact/",
+  "creditText": "Stone House Nevada City",
+  "copyrightNotice": "© 2026 Stone House Nevada City. All rights reserved."
+}</script><meta content="Request pricing and availability for weddings, private events, and corporate events at Stone House in historic Nevada City, California." property="og:description"/><meta content="website" property="og:type"/><meta content="Stone House Nevada City" property="og:site_name"/><meta content="https://www.stonehouse.io/venue-pricing/" property="og:url"/><meta content="Venue Pricing — Stone House Nevada City" name="twitter:title"/><meta content="Request pricing and availability for weddings, private events, and corporate events at Stone House in historic Nevada City, California." name="twitter:description"/><meta content="https://www.stonehouse.io/assets/images/great-hall-wedding-reception-stone-house/great-hall-wedding-reception-stone-house-800w.jpg" property="og:image"/><meta content="800" property="og:image:width"/><meta content="534" property="og:image:height"/><meta content="https://www.stonehouse.io/assets/images/great-hall-wedding-reception-stone-house/great-hall-wedding-reception-stone-house-800w.jpg" name="twitter:image"/><link rel="preload" as="image" href="/assets/images/great-hall-wedding-reception-stone-house/great-hall-wedding-reception-stone-house-800w.avif" type="image/avif" fetchpriority="high">
+<!-- Web Vitals real-user monitoring -->
+<script type="module">
+import { onCLS, onINP, onLCP, onFCP, onTTFB } from 'https://unpkg.com/web-vitals@4?module';
+function report(name, value, id) {
+  const v = Math.round(name === 'CLS' ? value * 1000 : value);
+  // Send to Meta Pixel as custom event (already loaded on every page)
+  if (window.fbq) {
+    window.fbq('trackCustom', 'WebVital_' + name, {value: v, page: location.pathname, id});
+  }
+  // Also log to console for QA
+  console.log('[web-vitals]', name, v, id);
+}
+onCLS(({name, value, id}) => report(name, value, id));
+onINP(({name, value, id}) => report(name, value, id));
+onLCP(({name, value, id}) => report(name, value, id));
+onFCP(({name, value, id}) => report(name, value, id));
+onTTFB(({name, value, id}) => report(name, value, id));
+</script>
+
+
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="Stone House Nevada City — historic 1857 wedding and private event venue" property="og:image:alt"/>
+<meta content="Stone House Nevada City — historic 1857 wedding and private event venue" name="twitter:image:alt"/>
+<style>.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}.skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:12px 16px;background:#fff;color:#000;z-index:9999;text-decoration:underline;font-weight:600}</style>
+<script type="application/ld+json" data-breadcrumb-schema="true">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.stonehouse.io/"}, {"@type": "ListItem", "position": 2, "name": "Venue Pricing", "item": "https://www.stonehouse.io/venue-pricing/"}]}
+</script>
+<link href="https://www.stonehouse.io/venue-pricing/" rel="canonical"/>
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
+<meta property="og:title" content="Venue Pricing — Stone House Nevada City">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="page-wrap">
+<!-- Header -->
+<nav class="lp-top">
+<a class="lp-brand" href="https://stonehouse.io"><img src="../assets/stone-house-logo.png" alt="Stone House Nevada City" class="lp-brand-emblem" width="32" height="32"/><span class="lp-brand-wm">Stone House</span><span>Nevada City</span></a>
+<a class="lp-back" href="https://stonehouse.io">← Back to Site</a>
+</nav>
+<main id="main">
+
+<!-- Hero -->
+<div class="hero-section">
+<h1>View Venue Pricing</h1>
+<p>A private event venue in historic Nevada City, California — where timeless architecture meets unforgettable experiences.</p>
+</div>
+<!-- Lead Capture Form -->
+<div class="form-card" id="leadForm">
+<h2>Get Pricing &amp; Availability</h2>
+<p class="form-sub">Enter your info below to view our event pricing.</p>
+<form id="captureForm" novalidate="">
+<div class="form-group">
+<label for="fname">Full Name</label>
+<input id="fname" name="name" placeholder="Your full name" required="" type="text"/>
+<div class="error-msg">Please enter your name.</div>
+</div>
+<div class="form-group">
+<label for="femail">Email</label>
+<input id="femail" name="email" placeholder="you@example.com" required="" type="email"/>
+<div class="error-msg">Please enter a valid email.</div>
+</div>
+<div class="form-group">
+<label for="fphone">Phone</label>
+<input id="fphone" name="phone" placeholder="(555) 555-5555" required="" type="tel"/>
+<div class="error-msg">Please enter your phone number.</div>
+</div>
+<button class="form-btn" type="submit">View Pricing</button>
+</form>
+</div>
+<!-- Success message + event type cards (shown after submit) -->
+<div class="form-success" id="formSuccess">
+<div class="check">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</div>
+<h3>You're In</h3>
+<p>We'll be in touch soon. Choose an event type below to view details.</p>
+</div>
+<div class="event-choices" id="eventChoices">
+<h2>What Are You Planning?</h2>
+<p class="sub">Select an event type to see details, pricing, and availability.</p>
+<div class="event-grid">
+<a class="event-card" href="/wedding-pricing/">
+<div class="card-icon">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+</div>
+<div class="card-text">
+<div class="card-title">Weddings</div>
+<div class="card-desc">Ceremonies, receptions &amp; full venue buyouts</div>
+</div>
+</a>
+<a class="event-card" href="/private-events/">
+<div class="card-icon">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+</div>
+<div class="card-text">
+<div class="card-title">Private Events</div>
+<div class="card-desc">Milestone celebrations, dinner parties &amp; gatherings</div>
+</div>
+</a>
+<a class="event-card" href="/corporate-events/">
+<div class="card-icon">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><rect height="14" rx="2" ry="2" width="20" x="2" y="7"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+</div>
+<div class="card-text">
+<div class="card-title">Corporate Events</div>
+<div class="card-desc">Retreats, team offsites &amp; professional gatherings</div>
+</div>
+</a>
+</div>
+</div>
+<!-- Footer -->
+</main>
+<section class="vp-info" style="max-width:780px;margin:48px auto;padding:0 24px;color:var(--c)">
+<h2 style="font-family:var(--serif);font-size:clamp(28px,3.5vw,38px);font-weight:300;margin-bottom:20px">What's included in our event pricing</h2>
+<p style="line-height:1.7;margin-bottom:18px">Every Stone House event price covers the venue itself — exclusive access to the spaces you've booked, on-site staffing, and the operational coordination that comes with a full-service historic venue. Beyond venue use, our pricing pamphlets break out: in-house chef-prepared <a href="/menus.html" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">menu options across three tiers</a>, beverage and bar service, ceremony fees (where applicable), <a href="/layouts.html" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">space rental for each of our seven distinct rooms</a>, and any add-ons specific to your event type.</p>
+<p style="line-height:1.7;margin-bottom:18px">Pricing varies meaningfully across event types — a corporate offsite for 40 has different requirements than a 150-guest wedding reception. Selecting your event type in the form above routes you to the relevant pricing pamphlet so you're not sorting through information that doesn't apply to your celebration.</p>
+<h3 style="font-family:var(--serif);font-size:22px;font-weight:400;margin-top:32px;margin-bottom:14px">Common questions</h3>
+<div style="margin-bottom:18px">
+<p style="font-weight:500;margin-bottom:6px">How does Stone House handle pricing transparency?</p>
+<p style="line-height:1.7;color:var(--m)">All pricing is listed in our pamphlets — no hidden fees, no per-guest extras for standard service, and no minimum-spend surprises after your tour. Couples receive the full breakdown before signing anything.</p>
+</div>
+<div style="margin-bottom:18px">
+<p style="font-weight:500;margin-bottom:6px">Are there separate pricing structures for weddings, private events, and corporate?</p>
+<p style="line-height:1.7;color:var(--m)">Yes. Each event type has its own pamphlet because the package structure differs. <a href="/wedding-pricing" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">Wedding pricing</a> is built around ceremony + reception packages. <a href="/private-events/" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">Private events</a> (birthdays, anniversaries, milestone gatherings) are priced by space and guest count. <a href="/corporate-events/" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">Corporate events</a> include offsite-specific pricing for half-day, full-day, and multi-day buyouts.</p>
+</div>
+<div style="margin-bottom:18px">
+<p style="font-weight:500;margin-bottom:6px">Can we see real photos and previous events before requesting pricing?</p>
+<p style="line-height:1.7;color:var(--m)">Yes — browse <a href="/moments/" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">real wedding gallery</a> and our <a href="/blog.html" style="color:var(--g);border-bottom:1px solid rgba(154,125,66,0.3);text-decoration:none">blog</a> for behind-the-scenes coverage, menu philosophy, and guest experience details.</p>
+</div>
+</section>
+<footer class="lp-footer">
+<p>Stone House · 107 Sacramento St, Nevada City, CA 95959 · <a href="tel:+15304536534">530-453-6534</a></p>
+<p><a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a> · <a href="/privacy-policy/">Privacy</a> · <a href="/terms/">Terms</a></p>
+</footer>
+</div>
+<script>
+(function() {
+  var form = document.getElementById('captureForm');
+  var formCard = document.getElementById('leadForm');
+  var success = document.getElementById('formSuccess');
+  var choices = document.getElementById('eventChoices');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Clear previous errors
+    var groups = form.querySelectorAll('.form-group');
+    groups.forEach(function(g) { g.classList.remove('error'); });
+
+    var name = document.getElementById('fname').value.trim();
+    var email = document.getElementById('femail').value.trim();
+    var phone = document.getElementById('fphone').value.trim();
+    var valid = true;
+
+    if (!name) {
+      document.getElementById('fname').closest('.form-group').classList.add('error');
+      valid = false;
+    }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      document.getElementById('femail').closest('.form-group').classList.add('error');
+      valid = false;
+    }
+    if (!phone || phone.replace(/\D/g, '').length < 7) {
+      document.getElementById('fphone').closest('.form-group').classList.add('error');
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // Fire Meta Pixel Lead event
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead', {
+        content_name: 'Venue Pricing Form',
+        content_category: 'Lead Capture'
+      });
+    }
+
+    // Fire GA4 event
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        event_category: 'engagement',
+        event_label: 'venue_pricing_form'
+      });
+    }
+
+    // Send lead data to backend API
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone: phone,
+        source: 'Venue Pricing Form',
+        source_url: window.location.href,
+        fbc: (document.cookie.match(/_fbc=([^;]+)/) || [])[1] || '',
+        fbp: (document.cookie.match(/_fbp=([^;]+)/) || [])[1] || '',
+        utm_source: new URLSearchParams(window.location.search).get('utm_source') || '',
+        utm_medium: new URLSearchParams(window.location.search).get('utm_medium') || '',
+        utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign') || ''
+      })
+    }).catch(function() {});
+
+    // Hide form, show success + event choices
+    formCard.style.display = 'none';
+    success.classList.add('visible');
+    choices.classList.add('visible');
+
+    // Scroll to choices
+    setTimeout(function() {
+      choices.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+  });
+})();
+</script>
+</body>
+</html>
