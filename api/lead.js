@@ -303,7 +303,7 @@ export default async function handler(req, res) {
               <p>Tours run about 45 minutes and cover all seven spaces — the perfect way to imagine your event in the venue.</p>
               ${date ? `<p>You mentioned: <strong>${date}</strong></p>` : ""}
               <p>In the meantime, feel free to explore our <a href="https://stonehouse.io/venue-pricing" style="color:#C9A84C;">spaces and pricing</a>.</p>
-              <p style="margin-top:24px;">Looking forward to showing you around,<br>The Stone House Team<br>107 Sacramento Street, Nevada City<br>530-453-6534</p>
+              <p style="margin-top:24px;">Looking forward to showing you around,<br>The Stone House Team<br>107 Sacramento Street, Nevada City<br>530-265-5050</p>
             </div>
           `
           : `
@@ -313,7 +313,7 @@ export default async function handler(req, res) {
               <p>Thank you for reaching out about Stone House. We've received your inquiry and our team will respond within 24 hours with availability and next steps.</p>
               ${date ? `<p>You asked about: <strong>${date}</strong></p>` : ""}
               <p>In the meantime, feel free to explore our <a href="https://stonehouse.io" style="color:#C9A84C;">spaces and venue details</a>.</p>
-              <p style="margin-top:24px;">Warm regards,<br>The Stone House Team<br>107 Sacramento Street, Nevada City<br>530-453-6534</p>
+              <p style="margin-top:24px;">Warm regards,<br>The Stone House Team<br>107 Sacramento Street, Nevada City<br>530-265-5050</p>
             </div>
           `;
 
