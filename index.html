@@ -233,57 +233,8 @@ body {
   color: var(--c);
   font-family: var(--sans);
   overflow-x: hidden;
-  cursor: none;
 }
 
-/* ═══════════════════════════════════════
-   CUSTOM CURSOR
-═══════════════════════════════════════ */
-#cursor {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--g);
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s var(--ease), width 0.25s var(--ease), height 0.25s var(--ease), opacity 0.25s;
-  mix-blend-mode: normal;
-}
-#cursor-ring {
-  position: fixed;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid rgba(154, 125, 66, 0.45);
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.08s, width 0.3s var(--ease), height 0.3s var(--ease);
-}
-body.hovering #cursor {
-  width: 6px;
-  height: 6px;
-  background: var(--gl);
-}
-body.hovering #cursor-ring {
-  width: 50px;
-  height: 50px;
-  border-color: rgba(154, 125, 66, 0.7);
-}
-body.clicking #cursor {
-  transform: translate(-50%, -50%) scale(0.7);
-}
-@media (hover: none) {
-  #cursor,
-  #cursor-ring {
-    display: none;
-  }
-  body {
-    cursor: auto;
-  }
-}
 
 /* ═══════════════════════════════════════
    GRAIN OVERLAY
@@ -357,7 +308,6 @@ body.clicking #cursor {
   color: var(--m);
   font-size: 22px;
   cursor: pointer;
-  cursor: none;
   line-height: 1;
   transition: color 0.2s;
 }
@@ -421,7 +371,6 @@ body.clicking #cursor {
   text-transform: uppercase;
   font-weight: 500;
   cursor: pointer;
-  cursor: none;
   white-space: nowrap;
   transition: background 0.2s;
 }
@@ -434,7 +383,6 @@ body.clicking #cursor {
   text-align: center;
   margin-top: 14px;
   cursor: pointer;
-  cursor: none;
 }
 .ep-skip:hover {
   color: var(--c);
@@ -474,7 +422,6 @@ body.clicking #cursor {
   border: none;
   color: var(--m);
   cursor: pointer;
-  cursor: none;
   font-size: 18px;
   margin-left: 8px;
   transition: color 0.2s;
@@ -535,7 +482,6 @@ body.clicking #cursor {
   text-transform: uppercase;
   font-weight: 500;
   cursor: pointer;
-  cursor: none;
   transition: background 0.2s;
 }
 .lp-btn:hover {
@@ -583,7 +529,6 @@ body.clicking #cursor {
   background: none;
   border: none;
   cursor: pointer;
-  cursor: none;
   opacity: 0.7;
   transition: opacity 0.2s;
   z-index: 901;
@@ -606,7 +551,6 @@ body.clicking #cursor {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  cursor: none;
   transition: background 0.2s;
   z-index: 901;
 }
@@ -650,7 +594,6 @@ body.clicking #cursor {
   color: var(--g);
   font-size: 18px;
   cursor: pointer;
-  cursor: none;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.3s, transform 0.3s, background 0.2s;
@@ -882,7 +825,6 @@ body.clicking #cursor {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  cursor: none;
   padding: 8px;
   background: none;
   border: none;
@@ -1361,7 +1303,6 @@ body.clicking #cursor {
   height: 406px;
   overflow: hidden;
   cursor: pointer;
-  cursor: none;
 }
 /* Carousel must claim horizontal gestures so JS pointer handlers fire on touch.
    Without touch-action: pan-y, iOS Safari treats the swipe as a scroll and
@@ -1533,7 +1474,6 @@ body.clicking #cursor {
   outline: none;
   appearance: none;
   cursor: pointer;
-  cursor: none;
   transition: border-color 0.2s;
 }
 .dc-select:focus {
@@ -1550,7 +1490,6 @@ body.clicking #cursor {
   text-transform: uppercase;
   font-weight: 500;
   cursor: pointer;
-  cursor: none;
   transition: background 0.2s;
   position: relative;
   overflow: hidden;
@@ -1740,7 +1679,6 @@ body.clicking #cursor {
   border: 1px solid rgba(154, 125, 66, 0.18);
   color: var(--m);
   cursor: pointer;
-  cursor: none;
   transition: all 0.2s;
 }
 .pkg-toggle-btn.active {
@@ -1960,12 +1898,10 @@ body.clicking #cursor {
   grid-row: span 2;
   overflow: hidden;
   cursor: pointer;
-  cursor: none;
 }
 .cat-sm {
   overflow: hidden;
   cursor: pointer;
-  cursor: none;
 }
 .cat-main img,
 .cat-sm img {
@@ -2007,13 +1943,11 @@ body.clicking #cursor {
   grid-row: span 2;
   position: relative;
   cursor: pointer;
-  cursor: none;
 }
 .rw-sm {
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  cursor: none;
 }
 .rw-main img,
 .rw-sm img {
@@ -2315,7 +2249,6 @@ body.clicking #cursor {
   align-items: center;
   padding: 20px 0;
   cursor: pointer;
-  cursor: none;
   gap: 16px;
   transition: color 0.2s;
 }
@@ -2483,7 +2416,6 @@ body.clicking #cursor {
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  cursor: none;
 }
 .ig-cell img {
   width: 100%;
@@ -2891,9 +2823,6 @@ footer {
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
-<!-- CURSOR -->
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
 <!-- GRAIN -->
 <div id="grain"></div>
 <!-- SCROLL PROGRESS -->
@@ -3134,7 +3063,7 @@ footer {
 <p class="reveal d4" style="font-size:14px;font-weight:300;line-height:1.92;color:var(--muted);max-width:400px">Today, 10,000 square feet of beautifully restored space hosts weddings, celebrations, and gatherings where elevated cuisine and irreplaceable architecture converge.</p>
 <div class="story-stats reveal d5">
 <div><div class="stat-n" data-count="7">7</div><div class="stat-l">Unique Spaces</div></div>
-<div><div class="stat-n" data-count="200">200</div><div class="stat-l">Guest Capacity</div></div>
+<div><div class="stat-n" data-count="300">300</div><div class="stat-l">Guest Capacity</div></div>
 <div><div class="stat-n" style="font-size:36px">1857</div><div class="stat-l">Est. Nevada City</div></div>
 </div>
 </div>
@@ -3257,7 +3186,7 @@ footer {
 </div>
 <div class="space-ov"></div>
 <div class="space-info">
-<p class="space-cap">Up to 60 cocktails · 200 combined with Showroom · 1st floor</p>
+<p class="space-cap">Up to 100 cocktails · 200 combined with Showroom · 1st floor</p>
 <h3 class="space-name">The Parlour</h3>
 <p class="space-desc">One bar. Cocktail hour.</p>
 <span class="space-cta">Check availability →</span>
@@ -3360,7 +3289,7 @@ footer {
 <div class="wed-body">
 <p class="sl reveal" style="margin-bottom:18px">Weddings</p>
 <h2 class="dh reveal d1" style="font-size:clamp(32px,3.8vw,54px);margin-bottom:20px">Your ceremony deserves<br/><em class="di">an epic backdrop</em></h2>
-<p class="reveal d2" style="font-size:14px;font-weight:300;line-height:1.9;color:var(--muted);max-width:380px">From intimate elopements to 200-guest celebrations. In-house catering, planning support, and seven unique spaces under one historic roof.</p>
+<p class="reveal d2" style="font-size:14px;font-weight:300;line-height:1.9;color:var(--muted);max-width:380px">From intimate elopements to 300-guest celebrations. In-house catering, planning support, and seven unique spaces under one historic roof.</p>
 <div class="wed-list reveal d3">
 <div class="wed-item"><span class="wed-dash">—</span><span>Full venue buyout available</span></div>
 <div class="wed-item"><span class="wed-dash">—</span><span>In-house catering, always seed oil free</span></div>
