@@ -160,6 +160,83 @@ async function sendToGHL({ name, email, phone, date, guests, source, event_type,
   }
 }
 
+// --- Booking calendar availability check (read-only via secret iCal feed) ---
+// Reads the bookings@stonehouse.io Google Calendar "secret address in iCal format"
+// (env BOOKINGS_ICAL_URL). No OAuth, read-only. Returns available true/false/null.
+function unfoldIcal(text) {
+  return text.replace(/\r?\n[ \t]/g, "");
+}
+function icalDateParts(val) {
+  const m = String(val).match(/(\d{4})(\d{2})(\d{2})/);
+  if (!m) return null;
+  return { y: +m[1], mo: +m[2], d: +m[3], dateOnly: !String(val).includes("T") };
+}
+function ymdKey(y, mo, d) { return y * 10000 + mo * 100 + d; }
+
+async function checkAvailability(dateStr) {
+  const icalUrl = process.env.BOOKINGS_ICAL_URL;
+  if (!icalUrl) return { available: null, reason: "no calendar configured" };
+  if (!dateStr || !/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return { available: null, reason: "no/invalid date" };
+
+  const [ry, rmo, rd] = dateStr.split("-").map(Number);
+  const reqKey = ymdKey(ry, rmo, rd);
+
+  // Optional: only treat events whose SUMMARY matches this regex as "busy" (e.g. "booked|hold|wedding").
+  let busyRe = null;
+  if (process.env.BOOKINGS_BUSY_MATCH) {
+    try { busyRe = new RegExp(process.env.BOOKINGS_BUSY_MATCH, "i"); } catch { busyRe = null; }
+  }
+
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 6000);
+    const resp = await fetch(icalUrl, { signal: controller.signal });
+    clearTimeout(timer);
+    if (!resp.ok) return { available: null, reason: `ical http ${resp.status}` };
+
+    const raw = unfoldIcal(await resp.text());
+    const blocks = raw.split("BEGIN:VEVENT").slice(1);
+    for (const blk of blocks) {
+      const body = blk.split("END:VEVENT")[0];
+      if (/STATUS:CANCELLED/i.test(body)) continue;       // cancelled — not a real booking
+      if (/TRANSP:TRANSPARENT/i.test(body)) continue;     // marked "Free" — does not block the day
+
+      const sMatch = body.match(/DTSTART[^:\r\n]*:\s*([0-9TZ]+)/);
+      if (!sMatch) continue;
+      const start = icalDateParts(sMatch[1]);
+      if (!start) continue;
+      const eMatch = body.match(/DTEND[^:\r\n]*:\s*([0-9TZ]+)/);
+      const end = eMatch ? icalDateParts(eMatch[1]) : null;
+
+      const startKey = ymdKey(start.y, start.mo, start.d);
+      let endKey = startKey;
+      if (end) {
+        let ed = new Date(Date.UTC(end.y, end.mo - 1, end.d));
+        if (end.dateOnly) ed.setUTCDate(ed.getUTCDate() - 1); // all-day DTEND is exclusive
+        endKey = Math.max(startKey, ymdKey(ed.getUTCFullYear(), ed.getUTCMonth() + 1, ed.getUTCDate()));
+      }
+
+      if (reqKey >= startKey && reqKey <= endKey) {
+        if (busyRe) {
+          const sum = (body.match(/SUMMARY[^:\r\n]*:(.*)/) || [, ""])[1] || "";
+          if (!busyRe.test(sum)) continue;
+        }
+        return { available: false, reason: "event on date" };
+      }
+    }
+    return { available: true, reason: "no event on date" };
+  } catch (e) {
+    return { available: null, reason: e.name === "AbortError" ? "calendar timeout" : (e.message || "calendar error") };
+  }
+}
+
+function formatNiceDate(dateStr) {
+  if (!dateStr || !/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr || "";
+  const [y, m, d] = dateStr.split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  return dt.toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long", year: "numeric", month: "long", day: "numeric" });
+}
+
 export default async function handler(req, res) {
   setCors(req, res);
 
@@ -209,6 +286,10 @@ export default async function handler(req, res) {
     const userAgent = req.headers["user-agent"] || "";
     const results = { notion: null, notifyEmail: null, autoReply: null, capi: null, ghl: null };
 
+    // Check the bookings calendar behind the scenes (does not block lead capture)
+    const avail = await checkAvailability(date);
+    results.availability = avail.available;
+
     // --- Run integrations in parallel ---
     const [notionResult, capiResult, ghlResult] = await Promise.allSettled([
       // 1. Notion
@@ -257,6 +338,20 @@ export default async function handler(req, res) {
     // 4. Notification + auto-reply emails (sequential — both use Resend)
     const fromAddr = process.env.RESEND_FROM_EMAIL || "Stone House Bookings <bookings@stonehouse.io>";
 
+    // Availability-aware copy (used in both team + guest emails)
+    const niceDate = date ? formatNiceDate(date) : "";
+    let userAvailHtml, teamAvailHtml;
+    if (avail.available === true) {
+      userAvailHtml = `<p>Good news — <strong>${niceDate}</strong> currently appears to be open! We've shared your details with our bookings team, who will reach out within 24 hours to confirm availability and walk you through next steps.</p>`;
+      teamAvailHtml = `<p style="padding:8px 12px;background:#e9f5ec;border-left:3px solid #2e7d4f;"><strong>Calendar check:</strong> ✅ ${niceDate} appears OPEN on the bookings calendar</p>`;
+    } else if (avail.available === false) {
+      userAvailHtml = `<p><strong>${niceDate}</strong> looks like it may already be reserved — but dates do shift, and we often have beautiful nearby dates open. Our team will reach out within 24 hours with options worth considering.</p>`;
+      teamAvailHtml = `<p style="padding:8px 12px;background:#fdecea;border-left:3px solid #c0392b;"><strong>Calendar check:</strong> ⛔ ${niceDate} appears BOOKED on the bookings calendar — reach out with alternative dates</p>`;
+    } else {
+      userAvailHtml = `<p>Thank you for reaching out about Stone House. We've received your inquiry and our team will respond within 24 hours with availability${niceDate ? ` for <strong>${niceDate}</strong>` : ""} and next steps.</p>`;
+      teamAvailHtml = date ? `<p style="padding:8px 12px;background:#fff6e5;border-left:3px solid #c9a84c;"><strong>Calendar check:</strong> ⚠️ Could not auto-check ${niceDate} (${avail.reason}) — please verify manually</p>` : "";
+    }
+
     if (process.env.RESEND_API_KEY) {
       // Notification to bookings team
       try {
@@ -275,6 +370,7 @@ export default async function handler(req, res) {
             <p><strong>Email:</strong> ${email}</p>
             ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ""}
             <p><strong>Date:</strong> ${date || "Not specified"}</p>
+            ${teamAvailHtml}
             <p><strong>Guests:</strong> ${guests || "Not specified"}</p>
             <p><strong>Source:</strong> ${source || "Website"}</p>
             ${message ? `<p><strong>Message:</strong><br>${message.replace(/\n/g, "<br>")}</p>` : ""}
@@ -310,8 +406,7 @@ export default async function handler(req, res) {
             <div style="font-family:Georgia,serif;max-width:600px;margin:0 auto;color:#1a1714;">
               <h1 style="font-size:24px;font-weight:300;color:#1a1714;">Stone House</h1>
               <p>Hi ${(name || "there").slice(0, 100)},</p>
-              <p>Thank you for reaching out about Stone House. We've received your inquiry and our team will respond within 24 hours with availability and next steps.</p>
-              ${date ? `<p>You asked about: <strong>${date}</strong></p>` : ""}
+              ${userAvailHtml}
               <p>In the meantime, feel free to explore our <a href="https://stonehouse.io" style="color:#C9A84C;">spaces and venue details</a>.</p>
               <p style="margin-top:24px;">Warm regards,<br>The Stone House Team<br>107 Sacramento Street, Nevada City<br>530-265-5050</p>
             </div>
@@ -333,7 +428,7 @@ export default async function handler(req, res) {
       results.autoReply = "skipped (no API key)";
     }
 
-    return res.status(200).json({ ok: true, results });
+    return res.status(200).json({ ok: true, available: avail.available, results });
   } catch (err) {
     console.error("Lead API unexpected error:", err);
     return res.status(500).json({ error: "Internal error" });

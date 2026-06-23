@@ -176,17 +176,49 @@ function submitDC() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, email, date, guests, event_type: 'wedding', source: 'Website - Date Checker', _honeypot: '', ...getTrackingPayload() }),
   })
-    .then((r) => r.json())
-    .then(() => {
-      btn.textContent = "✓ Request sent — we'll respond within 24 hours";
-      btn.classList.add('success');
+    .then((r) => r.json().catch(() => ({})))
+    .then((data) => {
+      showDCResult(data ? data.available : undefined, date);
       trackLead('Website - Date Checker');
     })
     .catch(() => {
-      btn.textContent = "✓ Request sent — we'll respond within 24 hours";
-      btn.classList.add('success');
+      showDCResult(undefined, date);
       trackLead('Website - Date Checker');
     });
+}
+
+function formatDCDate(s) {
+  if (!s || !/^\d{4}-\d{2}-\d{2}$/.test(s)) return 'your date';
+  const [y, m, d] = s.split('-').map(Number);
+  const dt = new Date(y, m - 1, d);
+  return dt.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+function showDCResult(available, dateStr) {
+  const btn = document.getElementById('dc-btn');
+  const result = document.getElementById('dc-result');
+  const nice = formatDCDate(dateStr);
+  let msg;
+  if (available === true) {
+    msg = "<strong>Good news — " + nice + " looks open!</strong><br>We\u2019ve emailed you a confirmation, and our team will be in touch within 24 hours to hold your date.";
+  } else if (available === false) {
+    msg = "<strong>" + nice + " appears to be booked.</strong><br>We\u2019ve emailed you — our team will follow up within 24 hours with great alternative dates worth considering.";
+  } else {
+    msg = "<strong>Request received.</strong><br>We\u2019ve emailed you, and our team will confirm availability for " + nice + " within 24 hours.";
+  }
+  if (result) {
+    result.innerHTML = msg;
+    result.style.cssText = 'display:block;margin-top:14px;padding:14px 16px;border-radius:8px;font-size:14px;line-height:1.55;text-align:left;'
+      + (available === false
+          ? 'background:#fdecea;border-left:3px solid #c0392b;color:#7a1f17;'
+          : available === true
+            ? 'background:#e9f5ec;border-left:3px solid #2e7d4f;color:#1c5235;'
+            : 'background:#fff6e5;border-left:3px solid #c9a84c;color:#6b541a;');
+  }
+  if (btn) {
+    btn.textContent = available === false ? "✓ Sent — alternatives on the way" : "✓ Sent — check your email";
+    btn.classList.add('success');
+  }
 }
 
 // ─── EVENT-TYPE POPUP (exit-intent + timed popup) ───────────────
