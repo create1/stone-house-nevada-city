@@ -254,6 +254,12 @@ export default async function handler(req, res) {
     return res.status(200).json({ ok: true, results: { notion: "ok", notifyEmail: "ok", autoReply: "ok" } });
   }
 
+  // Lightweight availability probe — checks the calendar only, no lead side effects (testing/debug).
+  if (req.body?.check_only) {
+    const a = await checkAvailability(req.body?.date);
+    return res.status(200).json({ ok: true, available: a.available, reason: a.reason });
+  }
+
   const ip = req.headers["x-forwarded-for"]?.split(",")[0]?.trim() || req.socket?.remoteAddress || "unknown";
   if (isRateLimited(ip)) {
     return res.status(429).json({ error: "Too many requests. Please try again later." });
