@@ -7,7 +7,7 @@
 <meta property="og:type" content="website"/><meta property="og:site_name" content="Stone House Nevada City"/>
 <meta property="og:title" content="Corporate Event Venue — Stone House Nevada City"/><meta property="og:description" content="Host your corporate event at Stone House — a historic 1857 venue in Nevada City. Transparent pricing, breakout spaces, built-in stage & sound, in-house catering. Retreats, offsites, summits & more."/>
 <meta property="og:url" content="https://www.stonehouse.io/corporate-events/"/>
-<meta property="og:image" content="https://www.stonehouse.io/assets/images/showroom-flexible-reception-stone-house/showroom-flexible-reception-stone-house-800w.jpg"/>
+<meta property="og:image" content="https://www.stonehouse.io/assets/images/cavern-intimate-dinner-candlelit-stone-house/cavern-intimate-dinner-candlelit-stone-house-800w.jpg"/>
 <link rel="canonical" href="https://www.stonehouse.io/corporate-events/"/>
 <link href="../assets/favicon.ico" rel="icon" sizes="any"/><link href="../assets/apple-touch-icon.png" rel="apple-touch-icon"/><meta name="theme-color" content="#9a7d42"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -179,7 +179,7 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:v
 <a class="top-cta" href="/#book-tour">Book a Tour</a>
 </div>
 <header class="hero">
-<div class="hero-solid" style="background-image:url('/assets/images/showroom-flexible-reception-stone-house/showroom-flexible-reception-stone-house-1600w.jpg')"></div>
+<div class="hero-bg"><div class="hero-frame is-active" style="background-image:url('/assets/images/cavern-intimate-dinner-candlelit-stone-house/cavern-intimate-dinner-candlelit-stone-house-1600w.jpg')"></div><div class="hero-frame" style="background-image:url('/assets/images/lounge-evening-cocktails-stone-house/lounge-evening-cocktails-stone-house-800w.jpg')"></div><div class="hero-frame" style="background-image:url('/assets/images/family-style-feast-private-event-stone-house/family-style-feast-private-event-stone-house-1600w.jpg')"></div><div class="hero-frame" style="background-image:url('/assets/images/cocktail-flight-bar-private-event-stone-house/cocktail-flight-bar-private-event-stone-house-1600w.jpg')"></div><div class="hero-frame" style="background-image:url('/assets/images/seared-fish-couscous-focaccia-private-event-stone-house/seared-fish-couscous-focaccia-private-event-stone-house-1600w.jpg')"></div></div>
 <div class="hero-ov"></div>
 <div class="hero-in">
 <span class="eyebrow" style="color:#e9d9b6">Corporate Events · Historic 1857 Venue · Nevada City</span>
@@ -242,7 +242,7 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:v
 
 
 <section class="close">
-<div class="hero-solid" style="background-image:url('/assets/images/great-hall-evening-celebration-stone-house/great-hall-evening-celebration-stone-house-1200w.jpg')"></div>
+<div class="hero-solid" style="background-image:url('/assets/images/parlor-historic-cocktail-lounge-stone-house/parlor-historic-cocktail-lounge-stone-house-1200w.jpg')"></div>
 <div class="close-ov"></div>
 <div class="close-in">
 <span class="eyebrow" style="color:#e9d9b6">See it in person</span>
@@ -260,4 +260,5 @@ function shTrack(){var sp=new URLSearchParams(location.search);var o={source_url
 function shSubmit(e){e.preventDefault();var f=document.getElementById('pricing-form');var name=f.name.value.trim(),email=f.email.value.trim();var err=document.getElementById('pf-err');var ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);if(!name||!ok){err.classList.add('show');return false;}err.classList.remove('show');var btn=document.getElementById('pf-btn');btn.disabled=true;btn.textContent='Sending…';var payload={name:name,email:email,phone:f.phone.value.trim(),date:f.date.value,guests:f.guests.value,budget:f.budget.value,message:f.message.value.trim(),source:'Website - Corporate Events Page',_honeypot:f.company.value};Object.assign(payload,shTrack());fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(r){return r.json();}).then(function(){btn.textContent="✓ Message sent — we’ll reply within 24 hours";btn.classList.add('success');try{if(window.fbq)fbq('track','Lead');}catch(_){}}).catch(function(){btn.textContent="✓ Message sent — we’ll reply within 24 hours";btn.classList.add('success');});return false;}
 </script>
 
+<script>(function(){var f=document.querySelectorAll('.hero-bg > .hero-frame');if(f.length<2)return;var i=0;setInterval(function(){i=(i+1)%f.length;f.forEach(function(el,k){el.classList.toggle('is-active',k===i);});},2500);})();</script>
 </body></html>

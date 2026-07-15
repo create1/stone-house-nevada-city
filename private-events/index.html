@@ -242,7 +242,7 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:v
 
 
 <section class="close">
-<div class="hero-solid" style="background-image:url('/assets/images/wedding-couple-autumn-forest-stone-house/wedding-couple-autumn-forest-stone-house-1200w.jpg')"></div>
+<div class="hero-solid" style="background-image:url('/assets/images/candlelit-dinner-table-blog/candlelit-dinner-table-blog-1200w.jpg')"></div>
 <div class="close-ov"></div>
 <div class="close-in">
 <span class="eyebrow" style="color:#e9d9b6">See it in person</span>
@@ -259,5 +259,6 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:v
 function shTrack(){var sp=new URLSearchParams(location.search);var o={source_url:location.href};['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'].forEach(function(k){if(sp.get(k))o[k]=sp.get(k);});return o;}
 function shSubmit(e){e.preventDefault();var f=document.getElementById('pricing-form');var name=f.name.value.trim(),email=f.email.value.trim();var err=document.getElementById('pf-err');var ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);if(!name||!ok){err.classList.add('show');return false;}err.classList.remove('show');var btn=document.getElementById('pf-btn');btn.disabled=true;btn.textContent='Sending…';var payload={name:name,email:email,phone:f.phone.value.trim(),date:f.date.value,guests:f.guests.value,budget:f.budget.value,message:f.message.value.trim(),source:'Website - Private Events Page',_honeypot:f.company.value};Object.assign(payload,shTrack());fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(r){return r.json();}).then(function(){btn.textContent="✓ Message sent — we’ll reply within 24 hours";btn.classList.add('success');try{if(window.fbq)fbq('track','Lead');}catch(_){}}).catch(function(){btn.textContent="✓ Message sent — we’ll reply within 24 hours";btn.classList.add('success');});return false;}
 </script>
+
 
 </body></html>
