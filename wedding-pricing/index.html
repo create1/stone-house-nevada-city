@@ -135,6 +135,25 @@ ul.menu li:before{content:"";position:absolute;left:0;top:12px;width:5px;height:
 .close-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 footer{background:#211d18;color:rgba(255,255,255,.6);text-align:center;padding:40px 5vw;font-size:13px;line-height:1.9}
 footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:var(--g)}
+
+.contact-sec{background:#fff;border-top:1px solid var(--line)}
+.lead-form{max-width:720px;margin:0 auto}
+.ff-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.ff label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--m);margin-bottom:6px}
+.ff input,.ff select,.ff textarea{width:100%;font-family:var(--sans);font-size:15px;font-weight:300;padding:12px 14px;border:1px solid var(--line);border-radius:5px;background:var(--s);color:var(--c)}
+.ff input:focus,.ff select:focus,.ff textarea:focus{outline:none;border-color:var(--g)}
+.ff-full{margin-bottom:16px}
+.ff textarea{min-height:110px;resize:vertical}
+.ff-hp{position:absolute;left:-10000px;opacity:0;height:0;width:0;overflow:hidden}
+.ff-err{color:#b04a3a;font-size:12.5px;margin-bottom:10px;display:none}
+.ff-err.show{display:block}
+.ff-submit{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:15px 34px;border:none;border-radius:4px;background:var(--g);color:#fff;cursor:pointer;transition:background .2s}
+.ff-submit:hover{background:var(--gd)}
+.ff-submit.success{background:#4a7d54;cursor:default}
+.ff-fine{font-size:12px;color:var(--m);margin-top:14px}
+.ff-fine a{color:var(--g)}
+@media(max-width:600px){.ff-row{grid-template-columns:1fr}}
+
 </style></head>
 <body>
 <div class="top">
@@ -210,9 +229,39 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:v
 <p>The best way to feel the space is to walk it. Book a private, complimentary tour — no obligation.</p>
 <div class="close-btns"><a class="btn btn-gold" href="/#book-tour">Book a Tour</a><a class="btn btn-ghost" href="/assets/wedding-pricing-pamphlet.pdf" target="_blank" rel="noopener">Download the Pamphlet</a></div>
 </div></section>
+
+<section class="blk contact-sec"><div class="wrap">
+<div class="sec-head"><span class="eyebrow">Prefer to reach out?</span><h2>Have a question? Send us a note</h2><p>Booking a tour is the quickest way to check your date — but if you’d rather email, drop us a line and we’ll reply within 24 hours.</p></div>
+<form class="lead-form" id="pricing-form" onsubmit="return shSubmit(event)">
+<div class="ff-row">
+<div class="ff"><label for="pf-name">Your name</label><input id="pf-name" name="name" type="text" placeholder="First &amp; last" required></div>
+<div class="ff"><label for="pf-email">Email</label><input id="pf-email" name="email" type="email" placeholder="you@email.com" required></div>
+</div>
+<div class="ff-row">
+<div class="ff"><label for="pf-phone">Phone (optional)</label><input id="pf-phone" name="phone" type="tel" placeholder="(530) 555-0100"></div>
+<div class="ff"><label for="pf-date">Event date (if known)</label><input id="pf-date" name="date" type="text" placeholder="Month + year" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'"></div>
+</div>
+<div class="ff-row">
+<div class="ff"><label for="pf-guests">Approx. guest count</label><select id="pf-guests" name="guests"><option value="">Select range</option><option>Under 50</option><option>50–100</option><option>100–150</option><option>150–200</option><option>200+</option></select></div>
+<div class="ff"><label for="pf-budget">Estimated budget</label><select id="pf-budget" name="budget"><option value="">Select range</option><option>Under $20,000</option><option>$20,000–$35,000</option><option>$35,000–$50,000</option><option>$50,000+</option></select></div>
+</div>
+<div class="ff ff-full"><label for="pf-message">Tell us a little about it</label><textarea id="pf-message" name="message" placeholder="Vision, must-haves, questions — give us the headline."></textarea></div>
+<input class="ff-hp" name="company" tabindex="-1" autocomplete="off" type="text">
+<p class="ff-err" id="pf-err">Please add your name and a valid email.</p>
+<button class="ff-submit" id="pf-btn" type="submit">Send message →</button>
+<p class="ff-fine">By submitting you agree to our <a href="/privacy-policy/">Privacy Policy</a>. We never share or sell your information.</p>
+</form>
+</div></section>
+
 <footer>
 <p>107 Sacramento Street · Nevada City, CA 95959 · <a href="tel:+15302655050">530-265-5050</a></p>
 <p><a href="/">Home</a> · <a href="/contact/">Contact</a> · <a href="/privacy-policy/">Privacy</a> · <a href="/terms/">Terms</a></p>
 </footer>
 <script>(function(){var f=document.querySelectorAll(".hero-bg > .hero-frame");if(f.length<2)return;var i=0;setInterval(function(){i=(i+1)%f.length;f.forEach(function(el,k){el.classList.toggle("is-active",k===i);});},2500);})();</script>
+
+<script>
+function shTrack(){var sp=new URLSearchParams(location.search);var o={source_url:location.href};['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'].forEach(function(k){if(sp.get(k))o[k]=sp.get(k);});return o;}
+function shSubmit(e){e.preventDefault();var f=document.getElementById('pricing-form');var name=f.name.value.trim(),email=f.email.value.trim();var err=document.getElementById('pf-err');var ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);if(!name||!ok){err.classList.add('show');return false;}err.classList.remove('show');var btn=document.getElementById('pf-btn');btn.disabled=true;btn.textContent='Sending…';var payload={name:name,email:email,phone:f.phone.value.trim(),date:f.date.value,guests:f.guests.value,budget:f.budget.value,message:f.message.value.trim(),source:'Website - Pricing Page',_honeypot:f.company.value};Object.assign(payload,shTrack());fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(r){return r.json();}).then(function(){btn.textContent="✓ Message sent — we’ll reply within 24 hours";btn.classList.add('success');try{if(window.fbq)fbq('track','Lead');}catch(_){}}).catch(function(){btn.textContent="✓ Message sent — we’ll reply within 24 hours";btn.classList.add('success');});return false;}
+</script>
+
 </body></html>
