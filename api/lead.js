@@ -134,6 +134,7 @@ async function sendToGHL({ name, email, phone, date, guests, budget, source, eve
       event_type: evt,
       event_date: date || "",
       guest_count: guests || "",
+      budget: budget || "",
       message: message || "",
       utm_source: utm_source || "",
       utm_medium: utm_medium || "",
@@ -247,7 +248,7 @@ export default async function handler(req, res) {
       sendMetaCAPI({ email, name, ip, userAgent, sourceUrl: source_url, fbc, fbp }),
 
       // 3. GoHighLevel CRM
-      sendToGHL({ name, email, phone, date, guests, source, event_type: eventType, message, utm_source, utm_medium, utm_campaign, utm_content, utm_term }),
+      sendToGHL({ name, email, phone, date, guests, budget, source, event_type: eventType, message, utm_source, utm_medium, utm_campaign, utm_content, utm_term }),
     ]);
 
     results.notion = notionResult.status === "fulfilled" ? notionResult.value : `error: ${notionResult.reason?.message}`;
