@@ -185,7 +185,7 @@ export default async function handler(req, res) {
 
   try {
     const {
-      name, email, phone, date, guests, source, event_type, message,
+      name, email, phone, date, guests, budget, source, event_type, message,
       // UTM parameters
       utm_source, utm_medium, utm_campaign, utm_content, utm_term,
       // Meta tracking IDs (passed from client)
