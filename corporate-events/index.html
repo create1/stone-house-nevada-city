@@ -171,7 +171,7 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:v
 .etier a{color:var(--g);text-decoration:underline;text-underline-offset:2px}
 @media(max-width:860px){.etiers{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
 .hero-solid{position:absolute;inset:0;background-size:cover;background-position:center}
-</style></head>
+.form-embed-host{max-width:720px;margin:0 auto;min-height:840px}.form-embed-host iframe{display:block;width:100%!important;min-height:840px;border:none;border-radius:8px;background:var(--s)}</style></head>
 <body>
 <div class="top">
 <a class="brand" href="/"><img src="../assets/stone-house-logo.png" alt="Stone House"/><span><b>Stone House</b><span>Nevada City · Est. 1857</span></span></a>
@@ -217,28 +217,7 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:v
 </div></section>
 
 
-<section class="blk contact-sec"><div class="wrap">
-<div class="sec-head"><span class="eyebrow">Ready to plan?</span><h2>Tell us about your event</h2><p>Booking a tour is the quickest way to see the space — but if you’d rather reach out, drop us a line and we’ll reply within 24 hours.</p></div>
-<form class="lead-form" id="pricing-form" onsubmit="return shSubmit(event)">
-<div class="ff-row">
-<div class="ff"><label for="pf-name">Your name</label><input id="pf-name" name="name" type="text" placeholder="First &amp; last" required></div>
-<div class="ff"><label for="pf-email">Email</label><input id="pf-email" name="email" type="email" placeholder="you@email.com" required></div>
-</div>
-<div class="ff-row">
-<div class="ff"><label for="pf-phone">Phone (optional)</label><input id="pf-phone" name="phone" type="tel" placeholder="(530) 555-0100"></div>
-<div class="ff"><label for="pf-date">Event date (if known)</label><input id="pf-date" name="date" type="text" placeholder="Month + year" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'"></div>
-</div>
-<div class="ff-row">
-<div class="ff"><label for="pf-guests">Approx. guest count</label><select id="pf-guests" name="guests"><option value="">Select range</option><option>Under 50</option><option>50–100</option><option>100–150</option><option>150–200</option><option>200+</option></select></div>
-<div class="ff"><label for="pf-budget">Estimated budget</label><select id="pf-budget" name="budget"><option value="">Select range</option><option>Under $5,000</option><option>$5,000–$15,000</option><option>$15,000–$30,000</option><option>$30,000+</option></select></div>
-</div>
-<div class="ff ff-full"><label for="pf-message">Tell us a little about it</label><textarea id="pf-message" name="message" placeholder="Type of event, vibe, must-haves, questions."></textarea></div>
-<input class="ff-hp" name="company" tabindex="-1" autocomplete="off" type="text">
-<p class="ff-err" id="pf-err">Please add your name and a valid email.</p>
-<button class="ff-submit" id="pf-btn" type="submit">Send message →</button>
-<p class="ff-fine">By submitting you agree to our <a href="/privacy-policy/">Privacy Policy</a>. We never share or sell your information.</p>
-</form>
-</div></section>
+<section class="blk contact-sec"><div class="wrap"><div class="sec-head"><span class="eyebrow">Prefer to reach out?</span><h2>Tell us about your event</h2><p>Booking a tour is the quickest way to see the space — but if you’d rather email, use the form below and we’ll reply within 24 hours.</p></div><div class="form-embed-host"><iframe data-form-id="t82B3VRsOJBZaefwuah6" data-layout="{'id':'INLINE'}" data-layout-iframe-id="inline-t82B3VRsOJBZaefwuah6" data-trigger-type="alwaysShow" data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" id="inline-t82B3VRsOJBZaefwuah6" src="https://api.leadconnectorhq.com/widget/form/t82B3VRsOJBZaefwuah6" style="width:100%;height:100%;border:none;border-radius:8px" title="Stone House events inquiry form"></iframe></div></div></section>
 
 
 <section class="close">
@@ -255,10 +234,7 @@ footer a{color:rgba(255,255,255,.75);text-decoration:none}footer a:hover{color:v
 <p><a href="/">Home</a> · <a href="/wedding-pricing/">Weddings</a> · <a href="/contact/">Contact</a> · <a href="/privacy-policy/">Privacy</a></p>
 </footer>
 
-<script>
-function shTrack(){var sp=new URLSearchParams(location.search);var o={source_url:location.href};['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'].forEach(function(k){if(sp.get(k))o[k]=sp.get(k);});return o;}
-function shSubmit(e){e.preventDefault();var f=document.getElementById('pricing-form');var name=f.name.value.trim(),email=f.email.value.trim();var err=document.getElementById('pf-err');var ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);if(!name||!ok){err.classList.add('show');return false;}err.classList.remove('show');var btn=document.getElementById('pf-btn');btn.disabled=true;btn.textContent='Sending…';var payload={name:name,email:email,phone:f.phone.value.trim(),date:f.date.value,guests:f.guests.value,budget:f.budget.value,message:f.message.value.trim(),source:'Website - Corporate Events Page',_honeypot:f.company.value};Object.assign(payload,shTrack());fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(r){return r.json();}).then(function(){btn.textContent="✓ Message sent — we’ll reply within 24 hours";btn.classList.add('success');try{if(window.fbq)fbq('track','Lead');}catch(_){}}).catch(function(){btn.textContent="✓ Message sent — we’ll reply within 24 hours";btn.classList.add('success');});return false;}
-</script>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 
 <script>(function(){var f=document.querySelectorAll('.hero-bg > .hero-frame');if(f.length<2)return;var i=0;setInterval(function(){i=(i+1)%f.length;f.forEach(function(el,k){el.classList.toggle('is-active',k===i);});},2500);})();</script>
 </body></html>

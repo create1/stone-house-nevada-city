@@ -111,7 +111,7 @@ async function sendMetaCAPI({ email, name, ip, userAgent, sourceUrl, fbc, fbp })
 }
 
 // --- GoHighLevel Webhook ---
-async function sendToGHL({ name, email, phone, date, guests, source, event_type, message, utm_source, utm_medium, utm_campaign, utm_content, utm_term }) {
+async function sendToGHL({ name, email, phone, date, guests, budget, source, event_type, message, utm_source, utm_medium, utm_campaign, utm_content, utm_term }) {
   const webhookUrl = process.env.GHL_WEBHOOK_URL;
   if (!webhookUrl) return "skipped (no webhook URL)";
 
@@ -276,6 +276,7 @@ export default async function handler(req, res) {
             ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ""}
             <p><strong>Date:</strong> ${date || "Not specified"}</p>
             <p><strong>Guests:</strong> ${guests || "Not specified"}</p>
+            <p><strong>Estimated Budget:</strong> ${budget || "Not specified"}</p>
             <p><strong>Source:</strong> ${source || "Website"}</p>
             ${message ? `<p><strong>Message:</strong><br>${message.replace(/\n/g, "<br>")}</p>` : ""}
             ${utmInfo}
