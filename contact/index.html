@@ -913,6 +913,17 @@ onTTFB(({name, value, id}) => report(name, value, id));
         </div>
 
         <div class="c-form-single">
+          <label class="c-label" for="c-budget">Estimated budget</label>
+          <select class="c-select" id="c-budget" name="budget">
+            <option value="">Select range</option>
+            <option>Under $20,000</option>
+            <option>$20,000–$35,000</option>
+            <option>$35,000–$50,000</option>
+            <option>$50,000+</option>
+          </select>
+        </div>
+
+        <div class="c-form-single">
           <label class="c-label" for="c-message">Tell us a little about it</label>
           <textarea class="c-textarea" id="c-message" name="message" placeholder="Vision, must-haves, questions — give us the headline."></textarea>
         </div>
@@ -1278,6 +1289,7 @@ function submitContact(e) {
   const phone = f.phone.value.trim();
   const date = f.date.value;
   const guests = f.guests.value;
+  const budget = f.budget.value;
   const message = f.message.value.trim();
   const honeypot = f.company.value;
   const err = document.getElementById('c-err');
@@ -1295,7 +1307,7 @@ function submitContact(e) {
 
   const sourceLabel = 'Website - Contact Page';
   const payload = {
-    name, email, phone, date, guests,
+    name, email, phone, date, guests, budget,
     message,
     source: sourceLabel,
     _honeypot: honeypot,
