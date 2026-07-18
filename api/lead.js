@@ -117,7 +117,7 @@ async function sendToGHL({ name, email, phone, date, guests, budget, source, eve
 
   // Hitched is wedding-focused. Skip GHL/Hitched for non-wedding event types so they don't clutter the wedding CRM.
   // Private/corporate leads stay in Notion + Resend notify; tour leads were skipped here from the start.
-  const skipGhlEventTypes = ["tour", "private", "corporate"];
+  const skipGhlEventTypes = ["tour"];  // private/corporate now flow to Hitched with event_type (contact form routes them)
   if (skipGhlEventTypes.includes((event_type || "").toLowerCase())) {
     return `skipped (${event_type} leads don't go to Hitched)`;
   }

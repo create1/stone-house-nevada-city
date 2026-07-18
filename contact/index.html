@@ -878,6 +878,16 @@ onTTFB(({name, value, id}) => report(name, value, id));
       <p class="form-sub">Tell us about your event and we'll send back availability + relevant pricing.</p>
 
       <form class="c-form" id="contact-form" onsubmit="return submitContact(event)">
+        <div class="c-form-single">
+          <label class="c-label" for="c-event-type">What are you planning?</label>
+          <select class="c-select" id="c-event-type" name="event_type" required>
+            <option value="" disabled selected>Select event type</option>
+            <option value="wedding">Wedding</option>
+            <option value="private">Private event</option>
+            <option value="corporate">Corporate event</option>
+          </select>
+        </div>
+
         <div class="c-form-row">
           <div>
             <label class="c-label" for="c-name">Your name</label>
@@ -931,7 +941,7 @@ onTTFB(({name, value, id}) => report(name, value, id));
         <!-- Honeypot (anti-bot) -->
         <input autocomplete="off" class="c-honeypot" name="company" tabindex="-1" type="text"/>
 
-        <p class="c-error" id="c-err">Please fill in name and a valid email.</p>
+        <p class="c-error" id="c-err">Please choose an event type and fill in your name and a valid email.</p>
 
         <button class="c-submit" id="c-submit-btn" type="submit">Send message →</button>
 
@@ -1291,11 +1301,12 @@ function submitContact(e) {
   const guests = f.guests.value;
   const budget = f.budget.value;
   const message = f.message.value.trim();
+  const eventType = document.getElementById('c-event-type').value;
   const honeypot = f.company.value;
   const err = document.getElementById('c-err');
 
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  if (!name || !emailOk) {
+  if (!name || !emailOk || !eventType) {
     err.classList.add('show');
     return false;
   }
@@ -1308,6 +1319,7 @@ function submitContact(e) {
   const sourceLabel = 'Website - Contact Page';
   const payload = {
     name, email, phone, date, guests, budget,
+    event_type: eventType,
     message,
     source: sourceLabel,
     _honeypot: honeypot,
