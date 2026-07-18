@@ -111,7 +111,7 @@ async function sendMetaCAPI({ email, name, ip, userAgent, sourceUrl, fbc, fbp })
 }
 
 // --- GoHighLevel Webhook ---
-async function sendToGHL({ name, email, phone, date, guests, budget, source, event_type, message, utm_source, utm_medium, utm_campaign, utm_content, utm_term }) {
+async function sendToGHL({ name, first_name, last_name, email, phone, date, guests, budget, source, event_type, message, utm_source, utm_medium, utm_campaign, utm_content, utm_term }) {
   const webhookUrl = process.env.GHL_WEBHOOK_URL;
   if (!webhookUrl) return "skipped (no webhook URL)";
 
@@ -124,8 +124,8 @@ async function sendToGHL({ name, email, phone, date, guests, budget, source, eve
 
   const evt = (event_type || "wedding").toLowerCase();
   const payload = {
-    first_name: name ? name.trim().split(/\s+/)[0] : "",
-    last_name: name && name.trim().split(/\s+/).length > 1 ? name.trim().split(/\s+/).slice(1).join(" ") : "",
+    first_name: first_name || (name ? name.trim().split(/\s+/)[0] : ""),
+    last_name: last_name || (name && name.trim().split(/\s+/).length > 1 ? name.trim().split(/\s+/).slice(1).join(" ") : ""),
     email: email,
     phone: phone || "",
     source: source || "Website",
@@ -185,7 +185,7 @@ export default async function handler(req, res) {
 
   try {
     const {
-      name, email, phone, date, guests, budget, source, event_type, message,
+      name, first_name, last_name, email, phone, date, guests, budget, source, event_type, message,
       // UTM parameters
       utm_source, utm_medium, utm_campaign, utm_content, utm_term,
       // Meta tracking IDs (passed from client)
@@ -248,7 +248,7 @@ export default async function handler(req, res) {
       sendMetaCAPI({ email, name, ip, userAgent, sourceUrl: source_url, fbc, fbp }),
 
       // 3. GoHighLevel CRM
-      sendToGHL({ name, email, phone, date, guests, budget, source, event_type: eventType, message, utm_source, utm_medium, utm_campaign, utm_content, utm_term }),
+      sendToGHL({ name, first_name, last_name, email, phone, date, guests, budget, source, event_type: eventType, message, utm_source, utm_medium, utm_campaign, utm_content, utm_term }),
     ]);
 
     results.notion = notionResult.status === "fulfilled" ? notionResult.value : `error: ${notionResult.reason?.message}`;
