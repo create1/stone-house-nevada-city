@@ -4,7 +4,13 @@ import { createHash } from "crypto";
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const resend = new Resend(process.env.RESEND_API_KEY);
-const LEADS_DB = process.env.NOTION_LEADS_DB_ID;
+
+// --- Environment isolation ---
+// Preview/test deploys (VERCEL_ENV !== "production") route external side effects to *_PREVIEW
+// targets so the test environment can be wired to our own venue GHL sub-account WITHOUT touching
+// production systems or tipping off Hitched. Production behavior is byte-for-byte unchanged.
+const IS_PROD = process.env.VERCEL_ENV === "production";
+const LEADS_DB = IS_PROD ? process.env.NOTION_LEADS_DB_ID : (process.env.NOTION_LEADS_DB_ID_PREVIEW || null);
 
 // --- CORS ---
 const ALLOWED_ORIGINS = [
@@ -62,8 +68,9 @@ function hashForMeta(value) {
 
 // --- Meta Conversions API ---
 async function sendMetaCAPI({ email, name, ip, userAgent, sourceUrl, fbc, fbp }) {
-  const pixelId = process.env.META_PIXEL_ID;
-  const accessToken = process.env.META_ACCESS_TOKEN;
+  // Preview deploys use a separate pixel (or none) so test leads never pollute the live ad pixel.
+  const pixelId = IS_PROD ? process.env.META_PIXEL_ID : process.env.META_PIXEL_ID_PREVIEW;
+  const accessToken = IS_PROD ? process.env.META_ACCESS_TOKEN : process.env.META_ACCESS_TOKEN_PREVIEW;
   if (!pixelId || !accessToken) return "skipped (no credentials)";
 
   const eventData = {
@@ -112,8 +119,12 @@ async function sendMetaCAPI({ email, name, ip, userAgent, sourceUrl, fbc, fbp })
 
 // --- GoHighLevel Webhook ---
 async function sendToGHL({ name, first_name, last_name, email, phone, date, guests, budget, source, event_type, message, utm_source, utm_medium, utm_campaign, utm_content, utm_term }) {
-  const webhookUrl = process.env.GHL_WEBHOOK_URL;
-  if (!webhookUrl) return "skipped (no webhook URL)";
+  // CRITICAL ISOLATION: production posts to Hitched's inbound webhook (GHL_WEBHOOK_URL);
+  // preview/test posts to OUR venue sub-account test webhook (GHL_WEBHOOK_URL_PREVIEW).
+  // If the preview webhook is unset, GHL is skipped entirely — so a test deploy can NEVER
+  // create a contact in Hitched. Cutover = point GHL_WEBHOOK_URL at our venue webhook.
+  const webhookUrl = IS_PROD ? process.env.GHL_WEBHOOK_URL : process.env.GHL_WEBHOOK_URL_PREVIEW;
+  if (!webhookUrl) return IS_PROD ? "skipped (no webhook URL)" : "skipped (preview: no test webhook configured)";
 
   // Hitched is wedding-focused. Skip GHL/Hitched for non-wedding event types so they don't clutter the wedding CRM.
   // Private/corporate leads stay in Notion + Resend notify; tour leads were skipped here from the start.
