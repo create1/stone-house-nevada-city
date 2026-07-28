@@ -564,12 +564,15 @@ onTTFB(({name, value, id}) => report(name, value, id));
 
     if (!valid) return;
 
-    // Fire Meta Pixel Lead event
+    // Shared event id so the browser Meta "Lead" and the server CAPI "Lead" de-duplicate.
+    var __eid = 'lead.' + Date.now().toString(36) + '.' + Math.random().toString(36).slice(2, 11);
+
+    // Fire Meta Pixel Lead event (eventID shared with server CAPI)
     if (typeof fbq === 'function') {
       fbq('track', 'Lead', {
         content_name: 'Venue Pricing Form',
         content_category: 'Lead Capture'
-      });
+      }, { eventID: __eid });
     }
 
     // Fire GA4 event
@@ -589,6 +592,7 @@ onTTFB(({name, value, id}) => report(name, value, id));
         email: email,
         phone: phone,
         source: 'Venue Pricing Form',
+        event_id: __eid,
         source_url: window.location.href,
         fbc: (document.cookie.match(/_fbc=([^;]+)/) || [])[1] || '',
         fbp: (document.cookie.match(/_fbp=([^;]+)/) || [])[1] || '',

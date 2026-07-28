@@ -1288,13 +1288,17 @@ function getMetaCookies() {
   return { fbc: cookies._fbc || '', fbp: cookies._fbp || '' };
 }
 
+// Shared event id so the browser Meta "Lead" and the server-side CAPI "Lead" de-duplicate.
+let __cLeadEventId = '';
 function getTrackingPayload() {
   const meta = getMetaCookies();
+  __cLeadEventId = 'lead.' + Date.now().toString(36) + '.' + Math.random().toString(36).slice(2, 11);
   return {
     ...__cUtm,
     fbc: meta.fbc,
     fbp: meta.fbp,
     source_url: window.location.href,
+    event_id: __cLeadEventId,
   };
 }
 
@@ -1346,7 +1350,9 @@ function submitContact(e) {
     .then(() => {
       btn.textContent = "✓ Message sent — we'll respond within 24 hours";
       btn.classList.add('success');
-      if (typeof fbq === 'function') { try { fbq('track', 'Lead'); } catch(e) {} }
+      var __eid = __cLeadEventId || ('lead.' + Date.now().toString(36) + '.' + Math.random().toString(36).slice(2, 11));
+      if (typeof gtag === 'function') { try { gtag('event', 'generate_lead', { event_category: 'Lead', event_label: 'Website - Contact Page' }); } catch(e) {} }
+      if (typeof fbq === 'function') { try { fbq('track', 'Lead', { content_name: 'Website - Contact Page' }, { eventID: __eid }); } catch(e) {} }
     })
     .catch(() => {
       btn.textContent = "✓ Message sent — we'll respond within 24 hours";

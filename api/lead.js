@@ -61,13 +61,15 @@ function hashForMeta(value) {
 }
 
 // --- Meta Conversions API ---
-async function sendMetaCAPI({ email, name, ip, userAgent, sourceUrl, fbc, fbp }) {
+async function sendMetaCAPI({ email, name, ip, userAgent, sourceUrl, fbc, fbp, eventId }) {
   const pixelId = process.env.META_PIXEL_ID;
   const accessToken = process.env.META_ACCESS_TOKEN;
   if (!pixelId || !accessToken) return "skipped (no credentials)";
 
   const eventData = {
     event_name: "Lead",
+    // event_id must match the browser fbq('track','Lead', …, { eventID }) so Meta de-duplicates.
+    ...(eventId ? { event_id: eventId } : {}),
     event_time: Math.floor(Date.now() / 1000),
     event_source_url: sourceUrl || "https://stonehouse.io",
     action_source: "website",
@@ -189,7 +191,7 @@ export default async function handler(req, res) {
       // UTM parameters
       utm_source, utm_medium, utm_campaign, utm_content, utm_term,
       // Meta tracking IDs (passed from client)
-      fbc, fbp, source_url
+      fbc, fbp, source_url, event_id
     } = req.body;
 
     // Normalize event_type — default to 'wedding' for backward compat with old date-checker payloads.
@@ -245,7 +247,7 @@ export default async function handler(req, res) {
       })(),
 
       // 2. Meta Conversions API
-      sendMetaCAPI({ email, name, ip, userAgent, sourceUrl: source_url, fbc, fbp }),
+      sendMetaCAPI({ email, name, ip, userAgent, sourceUrl: source_url, fbc, fbp, eventId: event_id }),
 
       // 3. GoHighLevel CRM
       sendToGHL({ name, first_name, last_name, email, phone, date, guests, budget, source, event_type: eventType, message, utm_source, utm_medium, utm_campaign, utm_content, utm_term }),

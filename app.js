@@ -31,26 +31,50 @@ function getMetaCookies() {
   return { fbc: cookies._fbc || '', fbp: cookies._fbp || '' };
 }
 
-// Build the tracking payload that gets included in every form POST
+// Google Ads Lead conversion send_to. Leave '' until the conversion action exists.
+// Create it in Google Ads > Goals > Conversions > New conversion action > Website,
+// then paste the value here in the form 'AW-873753229/XXXXXXXXXXX'. Until set, the
+// Ads conversion is skipped (GA4 generate_lead still fires and can be imported).
+const ADS_LEAD_SEND_TO = '';
+
+// Shared event id so the browser Meta "Lead" and the server-side CAPI "Lead"
+// de-duplicate in Meta (same event_id on both = counted once).
+let __leadEventId = '';
+function newLeadEventId() {
+  return 'lead.' + Date.now().toString(36) + '.' + Math.random().toString(36).slice(2, 11);
+}
+
+// Build the tracking payload that gets included in every form POST.
+// Mints a fresh event_id per submit and stashes it for the paired trackLead() call.
 function getTrackingPayload() {
   const meta = getMetaCookies();
+  __leadEventId = newLeadEventId();
   return {
     ...__utmParams,
     fbc: meta.fbc,
     fbp: meta.fbp,
     source_url: window.location.href,
+    event_id: __leadEventId,
   };
 }
 
 // ─── CONVERSION TRACKING ───
 function trackLead(source) {
+  // Reuse the event_id minted by getTrackingPayload() for this submit; fall back
+  // to a fresh one for call sites that fire a Lead without a form POST (e.g. popups).
+  const eventId = __leadEventId || newLeadEventId();
+  __leadEventId = '';
   // GA4 generate_lead event
   if (typeof gtag === 'function') {
     gtag('event', 'generate_lead', { event_category: 'Lead', event_label: source });
   }
-  // Meta Pixel Lead event
+  // Meta Pixel Lead event — eventID shared with the server CAPI Lead for de-duplication
   if (typeof fbq === 'function') {
-    fbq('track', 'Lead', { content_name: source });
+    fbq('track', 'Lead', { content_name: source }, { eventID: eventId });
+  }
+  // Google Ads Lead conversion (no-op until ADS_LEAD_SEND_TO is filled in above)
+  if (ADS_LEAD_SEND_TO && typeof gtag === 'function') {
+    gtag('event', 'conversion', { send_to: ADS_LEAD_SEND_TO });
   }
 }
 
