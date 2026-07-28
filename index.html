@@ -3,6 +3,20 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<!-- Consent Mode v2 (region-aware) — added 2026-07-28 -->
+<script>
+(function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=window.gtag||gtag;
+var eu=['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'];
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',region:eu,wait_for_update:500});
+gtag('consent','default',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});
+var s=null;try{s=localStorage.getItem('sh_consent');}catch(e){}
+var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}
+var euTz=/^(Europe\/|Atlantic\/(Azores|Madeira|Canary)|Africa\/Ceuta)/.test(tz);
+if(s==='granted'){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}
+else if(s==='denied'){gtag('consent','update',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});}
+window.__shMetaDeny=(euTz&&s!=='granted');})();
+</script>
+
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Stone House Nevada City | Historic 1857 Wedding Venue</title>
 <meta content="A handbuilt 1857 stone venue in Nevada City — seven unique spaces, elevated seed-oil-free cuisine, weddings and private events. Check your date." name="description"/>
@@ -46,6 +60,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','314527259200604');
 fbq('init','990574910164214');
+if(window.__shMetaDeny){try{fbq('consent','revoke');}catch(e){}}
 fbq('track','PageView');
 </script>
 <noscript>
@@ -2820,6 +2835,7 @@ footer {
 }
 
 </style>
+<script src="/consent.js?v=1" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
