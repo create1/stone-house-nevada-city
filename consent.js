@@ -1,7 +1,8 @@
 /* Stone House — cookie consent banner (region-aware, works with Consent Mode v2)
    Added 2026-07-28. The Consent Mode DEFAULTS run inline in each page <head>
    (before the tags); this file only renders the banner + records the choice.
-   Google (GA4 + Ads): gated via gtag consent update. Meta: grant/revoke.        */
+   Google (GA4 + Ads): gated via gtag consent update. Meta: grant/revoke.
+   2026-07-29: slimmed to a low-profile bar so it no longer overpowers the hero CTAs. */
 (function () {
   var KEY = 'sh_consent';
   var stored = null;
@@ -39,25 +40,26 @@
     bar.setAttribute('role', 'dialog');
     bar.setAttribute('aria-label', 'Cookie consent');
     bar.style.cssText = [
-      'position:fixed', 'left:16px', 'right:16px', 'bottom:16px', 'z-index:2147483000',
-      'max-width:820px', 'margin:0 auto', 'background:#1a1714', 'color:#efe9e0',
-      'border:1px solid rgba(201,168,76,.35)', 'border-radius:12px',
-      'box-shadow:0 12px 40px rgba(0,0,0,.45)', 'padding:18px 20px',
-      'font-family:Georgia,\'Times New Roman\',serif', 'font-size:14px', 'line-height:1.5',
-      'display:flex', 'flex-wrap:wrap', 'align-items:center', 'gap:12px 16px'
+      'position:fixed', 'left:16px', 'right:16px', 'bottom:12px', 'z-index:2147483000',
+      'max-width:640px', 'margin:0 auto', 'background:rgba(26,23,20,.92)', 'color:#efe9e0',
+      'border:1px solid rgba(201,168,76,.22)', 'border-radius:10px',
+      'box-shadow:0 4px 16px rgba(0,0,0,.26)', '-webkit-backdrop-filter:blur(3px)', 'backdrop-filter:blur(3px)',
+      'padding:9px 14px',
+      'font-family:var(--sans,\'Jost\',-apple-system,sans-serif)', 'font-size:12.5px', 'line-height:1.5',
+      'display:flex', 'flex-wrap:wrap', 'align-items:center', 'gap:8px 14px'
     ].join(';');
     var msg = document.createElement('div');
-    msg.style.cssText = 'flex:1 1 320px;min-width:240px';
-    msg.innerHTML = 'We use cookies for analytics and marketing to understand how our site is used and to improve your experience. ' +
-      'You can accept or decline. See our <a href="/privacy-policy/" style="color:#C9A84C;text-decoration:underline">Privacy Policy</a>.';
+    msg.style.cssText = 'flex:1 1 300px;min-width:200px;opacity:.92';
+    msg.innerHTML = 'We use cookies for analytics and marketing. ' +
+      'Accept or decline — see our <a href="/privacy-policy/" style="color:#C9A84C;text-decoration:underline">Privacy Policy</a>.';
     var btns = document.createElement('div');
-    btns.style.cssText = 'display:flex;gap:10px;flex:0 0 auto';
+    btns.style.cssText = 'display:flex;gap:8px;flex:0 0 auto';
     function mkBtn(label, primary) {
       var b = document.createElement('button');
       b.type = 'button'; b.textContent = label;
-      b.style.cssText = 'cursor:pointer;font-family:inherit;font-size:14px;padding:10px 20px;border-radius:8px;border:1px solid ' +
-        (primary ? '#C9A84C' : 'rgba(239,233,224,.4)') + ';' +
-        (primary ? 'background:#C9A84C;color:#1a1714;font-weight:bold' : 'background:transparent;color:#efe9e0');
+      b.style.cssText = 'cursor:pointer;font-family:inherit;font-size:12.5px;padding:6px 14px;border-radius:7px;border:1px solid ' +
+        (primary ? '#C9A84C' : 'rgba(239,233,224,.35)') + ';' +
+        (primary ? 'background:#C9A84C;color:#1a1714;font-weight:600' : 'background:transparent;color:#efe9e0');
       return b;
     }
     var decline = mkBtn('Decline', false);
