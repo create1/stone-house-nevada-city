@@ -280,6 +280,61 @@ footer a:hover{color:var(--g)}
 /* Footer emblem (added 2026-05-06 per nav/footer rule) */
 .footer-brand { display: flex !important; align-items: center; gap: 10px; }
 .footer-emblem { width: 32px; height: 32px; display: block; flex-shrink: 0; }
+
+/* ===== Live-site header + footer (ported from stonehouse.io homepage) ===== */
+*{box-sizing:border-box}
+:root{--nav-h:72px}
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);padding:0 5%;display:flex;justify-content:space-between;align-items:center;transition:background .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent;background:linear-gradient(rgba(26,23,20,.55) 0%,rgba(26,23,20,.25) 60%,transparent 100%)}
+#nav.scrolled{background:rgba(250,247,242,.97);border-bottom-color:rgba(154,125,66,.12);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-img{height:36px;width:auto;opacity:.9;filter:brightness(0) invert(1);transition:filter .35s,opacity .35s}
+#nav.scrolled .nav-logo-img{filter:brightness(0);opacity:.85}
+.nav-wm{font-family:var(--serif);font-size:19px;font-weight:400;letter-spacing:.18em;color:rgba(244,237,224,.92);transition:color .35s,text-shadow .35s;text-shadow:rgba(0,0,0,.35) 0 1px 6px}
+#nav.scrolled .nav-wm{color:var(--c);text-shadow:none}
+.nav-div{width:1px;height:16px;background:rgba(244,237,224,.3);transition:background .35s}
+#nav.scrolled .nav-div{background:rgba(154,125,66,.3)}
+.nav-est{font-family:var(--sans);font-size:10px;letter-spacing:.22em;color:rgba(244,237,224,.6);transition:color .35s;text-transform:none}
+#nav.scrolled .nav-est{color:var(--g);font-weight:300}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-link{font-family:var(--sans);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:rgba(244,237,224,.75);font-weight:400;transition:color .35s,text-shadow .35s;text-decoration:none;text-shadow:rgba(0,0,0,.3) 0 1px 4px}
+.nav-link:hover{color:var(--g)}
+#nav.scrolled .nav-link{color:rgba(26,23,20,.55);text-shadow:none}
+#nav.scrolled .nav-link:hover{color:var(--g)}
+.nav-ctas{display:inline-flex;gap:10px;align-items:center}
+.nav-cta{font-family:var(--sans);padding:10px 22px;background:var(--g);color:#faf7f2;border-radius:2px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;transition:background .3s,transform .3s;display:inline-block}
+.nav-cta:hover{background:var(--gl);transform:translateY(-1px)}
+.mob-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.mob-btn span{display:block;width:22px;height:1.5px;background:#fff;transition:.25s}
+#nav.scrolled .mob-btn span{background:var(--c)}
+#mob-nav{position:fixed;inset:0;z-index:99;background:var(--s);padding:100px 8% 50px;flex-direction:column;gap:6px;transform:translateX(100%);transition:transform .38s var(--ease);display:flex}
+#mob-nav.open{transform:none}
+#mob-nav a{color:var(--c);text-shadow:none;font-size:15px;letter-spacing:.12em;padding:14px 0;border-bottom:1px solid rgba(154,125,66,.12);text-decoration:none;text-transform:uppercase}
+main#main{padding-top:var(--nav-h)}
+footer{background:var(--s2);padding:60px 5.5% 28px;border-top:1px solid rgba(154,125,66,.12);text-align:left}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin:0 auto 44px;max-width:1300px}
+.footer-brand{font-family:var(--serif);font-size:22px;letter-spacing:.14em;margin-bottom:12px;display:flex;align-items:center;gap:10px;color:var(--c)}
+.footer-logo-img{height:40px;width:auto;opacity:.8;filter:brightness(0)}
+.footer-desc{font-size:13px;font-weight:300;color:var(--m);line-height:1.82;max-width:215px;margin-bottom:18px}
+.footer-addr{font-size:13px;color:rgba(154,125,66,.68);line-height:1.84}
+.footer-addr a{color:rgba(154,125,66,.68);text-decoration:none}
+.footer-col-title{font-size:10px;letter-spacing:.22em;color:var(--g);text-transform:uppercase;margin-bottom:14px;font-weight:400}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.footer-link{font-size:13px;font-weight:300;color:var(--m);text-decoration:none;transition:color .2s}
+.footer-link:hover{color:var(--c)}
+.footer-link--lead{letter-spacing:.05em;color:var(--g)!important;font-weight:500!important}
+.footer-link--lead:hover{color:var(--gl)!important}
+.footer-divider{display:block;width:32px;height:1px;background:rgba(154,125,66,.2);margin:8px 0 6px}
+.footer-bottom{border-top:1px solid rgba(154,125,66,.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;max-width:1300px;margin:0 auto}
+.footer-copy{font-size:12px;color:var(--m)}
+.footer-est{font-family:var(--serif);font-size:12px;color:var(--m);font-style:italic;letter-spacing:.1em}
+.footer-legal{font-family:var(--sans);font-size:11px;color:var(--m);letter-spacing:.04em}
+.footer-legal a{color:var(--c);text-decoration:none;opacity:.7}
+.footer-legal a:hover{color:var(--g);opacity:1}
+.footer-legal .sep{opacity:.4;margin:0 4px}
+.nav-wm,.nav-link,.nav-cta{white-space:nowrap}
+@media(max-width:900px){.nav-links{display:none}.mob-btn{display:flex}}
+@media(max-width:820px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.footer-grid{grid-template-columns:1fr;gap:32px}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"Moments — Stone House Nevada City","url":"https://www.stonehouse.io/moments/","description":"A photo gallery of moments at Stone House Nevada City — weddings, chef-driven cuisine, and private celebrations.","isPartOf":{"@type":"WebSite","url":"https://www.stonehouse.io/","name":"Stone House Nevada City"},"about":{"@type":"EventVenue","name":"Stone House Nevada City","url":"https://www.stonehouse.io/"}}
@@ -295,15 +350,12 @@ footer a:hover{color:var(--g)}
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 <!-- ===== NAV ===== -->
-<nav class="nav">
-<a class="nav-logo" href="/" aria-label="Stone House Nevada City — home">
-<img alt="Stone House Nevada City logo — historic 1857 wedding and private event venue" class="nav-logo-img" src="/assets/stone-house-logo.png" width="50" height="50"/>
-<span class="nav-wm">Stone House</span>
-<span class="nav-div" aria-hidden="true"></span>
-<span class="nav-est">Nevada City · Est. 1857</span>
-</a>
-<a class="nav-back" href="/">← Back to home</a>
+<nav id="nav">
+<a class="nav-logo" href="/" aria-label="Stone House Nevada City — home"><img class="nav-logo-img" src="/assets/stone-house-logo.png" alt="Stone House Nevada City" width="50" height="50"><span class="nav-wm">STONE HOUSE</span><span class="nav-div" aria-hidden="true"></span><span class="nav-est">Est. 1857</span></a>
+<div class="nav-links"><a class="nav-link" href="/#spaces">Spaces</a><a class="nav-link" href="/#weddings">Weddings</a><a class="nav-link" href="/#catering">Catering</a><a class="nav-link" href="/moments/">Gallery</a><a class="nav-link" href="/#resources">Library</a><a class="nav-link" href="/#faq">FAQ</a><a class="nav-link" href="/contact/">Contact</a><span class="nav-ctas"><a class="nav-cta" href="/#plan-event">Plan Your Event</a><a class="nav-cta solid" href="/#book-tour">Book a Tour</a></span></div>
+<button id="mob-btn" class="mob-btn" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+<div id="mob-nav"><a href="/#spaces">Spaces</a><a href="/#weddings">Weddings</a><a href="/#catering">Catering</a><a href="/moments/">Gallery</a><a href="/#resources">Library</a><a href="/#faq">FAQ</a><a href="/contact/">Contact</a><a href="/plan-your-event/">Plan Your Event</a><a href="/book-a-tour/">Book a Tour</a></div>
 <main id="main">
 
 
@@ -314,13 +366,11 @@ footer a:hover{color:var(--g)}
 <p class="moments-sub">Stone walls. <em>Stories worth telling.</em></p>
 <p>Browse the spaces and the celebrations, each in its own distinct mood.</p><p class="moments-context">Every gallery below is from real Stone House events — no stock photos, no styled shoots. The spaces shown have hosted intimate elopements of twelve guests, multi-day rehearsal weekends with menus from the venue's private-event chefs, and corporate retreats that took over the entire 1857 estate. Use these galleries to picture your own moment in the room: the way afternoon light moves through The Cavern's stone arches, the courtyard at twilight before the string lights come on, the Showroom's vaulted ceilings during cocktail hour.</p>
 
-<!-- Category toggle. "Public Events" and "Corporate &amp; Private" stay disabled
-     until those galleries are populated. -->
+<!-- Category toggle: Weddings / Food & Beverage / Events -->
 <div class="cat-toggle" role="tablist" aria-label="Filter gallery by category">
 <button type="button" class="active" data-cat="weddings" role="tab" aria-selected="true">Weddings</button>
 <button type="button" data-cat="food-beverage" role="tab" aria-selected="false">Food &amp; Beverage</button>
-<button type="button" data-cat="public-events" role="tab" aria-selected="false" disabled title="Coming soon">Public Events</button>
-<button type="button" data-cat="corporate-private" role="tab" aria-selected="false" disabled title="Coming soon">Corporate &amp; Private</button>
+<button type="button" data-cat="events" role="tab" aria-selected="false">Events</button>
 </div>
 </section>
 
@@ -409,9 +459,30 @@ footer a:hover{color:var(--g)}
 
 </main>
 <footer>
-<div class="footer-brand"><img src="/assets/stone-house-logo.png" alt="Stone House Nevada City" class="footer-emblem" width="32" height="32"/><span class="footer-brand-wm">STONE HOUSE  ·  Est. 1857</span></div>
-<p>107 Sacramento Street · Nevada City, CA 95959 · <a href="tel:+15302655050">530-265-5050</a> · <a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a></p>
-<p style="margin-top:8px"><a href="/">Home</a> · <a href="/#spaces">Spaces</a> · <a href="/#pricing">Pricing</a> · <a href="/#faq">FAQ</a> · <a href="/blog">Blog</a> · <a href="/privacy-policy/">Privacy</a> · <a href="/terms/">Terms</a></p>
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><img class="footer-logo-img" src="/assets/stone-house-logo.png" alt="Stone House Nevada City">Stone House</div>
+<div class="footer-desc">Historic 1857 event venue in Nevada City, California. Where history meets intention.</div>
+<div class="footer-addr">107 Sacramento Street, Nevada City, CA 95959<br><a href="tel:+15302655050">530-265-5050</a><br><a href="mailto:bookings@stonehouse.io">bookings@stonehouse.io</a></div>
+</div>
+<div>
+<h3 class="footer-col-title">Spaces</h3>
+<div class="footer-links"><a class="footer-link" href="/#spaces">The Great Hall</a><a class="footer-link" href="/#spaces">The Cavern</a><a class="footer-link" href="/#spaces">The Penthouse</a><a class="footer-link" href="/#spaces">The Courtyard</a><a class="footer-link" href="/#spaces">The Showroom</a><a class="footer-link" href="/#spaces">The Parlour</a><a class="footer-link" href="/#spaces">The Lounge</a></div>
+</div>
+<div>
+<h4 class="footer-col-title">Plan</h4>
+<div class="footer-links"><a class="footer-link footer-link--lead" href="/#plan-event">Pricing</a><a class="footer-link footer-link--lead" href="/contact/">Contact</a><a class="footer-link footer-link--lead" href="https://api.leadconnectorhq.com/widget/bookings/tourstonehouse">Book a Tour</a><a class="footer-link footer-link--lead" href="/#date-check">Availability</a><span class="footer-divider"></span><a class="footer-link" href="/private-events/">Private Events</a><a class="footer-link" href="/corporate-events/">Corporate Events</a><a class="footer-link" href="/floor-plans.html">Floor Plans</a><a class="footer-link" href="/moments/">Real Weddings</a><a class="footer-link" href="/assets/stone-house-wedding-guide-spring-2026.pdf">Wedding Guide — Spring 2026 (PDF)</a><a class="footer-link" href="/#resources">Planning Library</a><a class="footer-link" href="/#faq">FAQs</a><a class="footer-link" href="/blog">Blog</a><a class="footer-link" href="/#resources">Vendor Partners</a></div>
+</div>
+<div>
+<h4 class="footer-col-title">Connect</h4>
+<div class="footer-links"><a class="footer-link" href="https://www.instagram.com/stonehousenevadacity" rel="noopener">Instagram</a><a class="footer-link" href="https://www.pinterest.com/stonehousenevadacity" rel="noopener">Pinterest</a><a class="footer-link" href="https://www.tiktok.com/@stonehousenevadacity" rel="noopener">TikTok</a><a class="footer-link" href="https://www.facebook.com/stonehousenevadacity" rel="noopener">Facebook</a></div>
+</div>
+</div>
+<div class="footer-bottom">
+<span class="footer-copy">© 2026 Stone House Nevada City. All rights reserved.</span>
+<span class="footer-legal"><a href="/privacy-policy/">Privacy</a><span class="sep">·</span><a href="/terms/">Terms</a></span>
+<span class="footer-est">Est. 1857 · Nevada City, California</span>
+</div>
 </footer>
 
 <!-- ===== FULLSIZE VIEWER ===== -->
@@ -491,8 +562,30 @@ const galleries = {
     { slug: "heirloom-beet-salad-microgreens-private-event-stone-house", w: 6720, h: 4480, type: "unknown", alt: "Heirloom beet salad with microgreens at Stone House Nevada City" },
     { slug: "rosemary-martini-mason-candle-private-event-stone-house", w: 2250, h: 1500, type: "unknown", alt: "Rosemary-garnished martini with candlelit mason jars at Stone House Nevada City" },
   ],
-  "public-events": [],
-  "corporate-private": [],
+  events: [
+    { slug: "concert-crowd-stage-lights-event-stone-house", w: 7342, h: 4153, alt: "Full house under dramatic stage lighting during a concert at Stone House Nevada City" },
+    { slug: "ukulele-vocalist-stage-event-stone-house", w: 5504, h: 8256, alt: "Vocalist playing ukulele under stage lights at Stone House Nevada City" },
+    { slug: "brass-trumpet-player-event-stone-house", w: 8192, h: 4320, alt: "Trumpet player in a bright jacket performing at Stone House Nevada City" },
+    { slug: "fashion-show-headdress-model-event-stone-house", w: 5504, h: 8256, alt: "Model in a floral dress and elaborate headdress at a fashion event at Stone House Nevada City" },
+    { slug: "solo-performer-purple-stage-event-stone-house", w: 7833, h: 5504, alt: "Solo performer on the purple-lit stage before a crowd at Stone House Nevada City" },
+    { slug: "fashion-show-runway-model-event-stone-house", w: 5504, h: 8256, alt: "Model in a fringed gown on the runway during a fashion event at Stone House Nevada City" },
+    { slug: "live-brass-band-stage-event-stone-house", w: 3645, h: 2020, alt: "Live brass band performing on stage during an event at Stone House Nevada City" },
+    { slug: "performer-red-fringe-stage-event-stone-house", w: 5504, h: 8256, alt: "Performer in a red fringe skirt on stage at Stone House Nevada City" },
+    { slug: "acoustic-set-seated-audience-event-stone-house", w: 8139, h: 5504, alt: "Acoustic performer playing to a seated audience at Stone House Nevada City" },
+    { slug: "styled-portrait-white-hat-event-stone-house", w: 5504, h: 8256, alt: "Styled portrait in a wide-brim hat during an event at Stone House Nevada City" },
+    { slug: "saxophone-player-blue-light-event-stone-house", w: 6858, h: 4320, alt: "Saxophonist performing in blue stage light at Stone House Nevada City" },
+    { slug: "dia-de-muertos-altar-cavern-event-stone-house", w: 3024, h: 4032, alt: "Dia de los Muertos altar with marigolds in The Cavern at Stone House Nevada City" },
+    { slug: "performer-silhouette-stage-lights-event-stone-house", w: 8192, h: 4320, alt: "Performer in silhouette against stage lights at Stone House Nevada City" },
+    { slug: "stone-cavern-staircase-event-stone-house", w: 1500, h: 1875, alt: "Reclaimed-wood staircase in the historic stone interior at Stone House Nevada City" },
+    { slug: "duo-performance-warm-light-event-stone-house", w: 8256, h: 5504, alt: "Duo performing in warm light at Stone House Nevada City" },
+    { slug: "candlelit-table-ivy-wall-event-stone-house", w: 5504, h: 8256, alt: "Candlelit dinner table against the ivy wall at Stone House Nevada City" },
+    { slug: "dance-floor-purple-lights-event-stone-house", w: 2100, h: 1400, alt: "Dance floor washed in purple event lighting at Stone House Nevada City" },
+    { slug: "vocalist-microphone-moody-stage-event-stone-house", w: 8256, h: 5504, alt: "Singer at the microphone in moody stage light at Stone House Nevada City" },
+    { slug: "saxophone-solo-spotlight-event-stone-house", w: 7830, h: 4320, alt: "Saxophone solo under a single spotlight at Stone House Nevada City" },
+    { slug: "event-hall-stage-lighting-stone-house", w: 5300, h: 7950, alt: "Event hall set with colored stage lighting at Stone House Nevada City" },
+    { slug: "dance-floor-stage-lights-event-stone-house", w: 2100, h: 1400, alt: "Event dance floor with stage lighting and disco balls at Stone House Nevada City" },
+    { slug: "seated-dinner-film-event-stone-house", w: 1620, h: 1080, alt: "Guests at a seated dinner during a film event at Stone House Nevada City" },
+  ],
 };
 
 /* ============================================================
@@ -608,7 +701,7 @@ document.addEventListener("keydown", (e) => {
 
 /* ============================================================
    CATEGORY TOGGLE + URL DEEP LINK
-   ?cat=weddings | food-beverage | public-events | corporate-private
+   ?cat=weddings | food-beverage | events
    ============================================================ */
 function setCategory(cat, pushState = true){
   if (!galleries[cat]) cat = "weddings";
@@ -640,5 +733,6 @@ const initialCat = new URLSearchParams(location.search).get("cat") || "weddings"
 setCategory(initialCat, false);
 window.addEventListener("load", layoutMasonry);
 </script>
+<script>(function(){var n=document.getElementById('nav');function s(){if(n)n.classList.toggle('scrolled',window.scrollY>30);}addEventListener('scroll',s,{passive:true});s();var b=document.getElementById('mob-btn'),m=document.getElementById('mob-nav');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('open');});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');});});}})();</script>
 </body>
 </html>
