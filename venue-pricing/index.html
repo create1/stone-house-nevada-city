@@ -477,6 +477,8 @@ onTTFB(({name, value, id}) => report(name, value, id));
 <input id="fphone" name="phone" placeholder="(555) 555-5555" required="" type="tel"/>
 <div class="error-msg">Please enter your phone number.</div>
 </div>
+<!-- Honeypot — hidden from people, filled by form-filling bots. /api/lead drops any submission that sets it. -->
+<input type="text" name="_honeypot" id="vp-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
 <button class="form-btn" type="submit">View Pricing</button>
 </form>
 </div>
@@ -608,6 +610,7 @@ onTTFB(({name, value, id}) => report(name, value, id));
         email: email,
         phone: phone,
         source: 'Venue Pricing Form',
+        _honeypot: (document.getElementById('vp-honeypot') || {}).value || '',
         event_id: __eid,
         source_url: window.location.href,
         fbc: (document.cookie.match(/_fbc=([^;]+)/) || [])[1] || '',
