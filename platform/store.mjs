@@ -1,13 +1,14 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-const defaultFile = path.join(path.dirname(fileURLToPath(import.meta.url)), "data", "events.json");
 
 let writeChain = Promise.resolve();
 
+/**
+ * Local-only JSON store used until Postgres is connected.
+ * Resolved from the working directory so it never throws at import time on a host.
+ */
 export function storeFile() {
-  return process.env.PLATFORM_DATA_FILE || defaultFile;
+  return process.env.PLATFORM_DATA_FILE || path.join(process.cwd(), "platform", "data", "events.json");
 }
 
 function queue(task) {
