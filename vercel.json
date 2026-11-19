@@ -3,10 +3,872 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install && cd studio && npm install",
+  "functions": {
+    "api/pamphlet.js": {
+      "includeFiles": "assets/wedding-pricing-pamphlet.pdf"
+    },
+    "api/lead.js": {
+      "includeFiles": "assets/wedding-pricing-pamphlet.pdf"
+    }
+  },
+  "redirects": [
+    {
+      "source": "/gold-country-venues",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/nevada-county-wedding-venues",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/grass-valley-wedding-venues",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/nevada-city-wedding-venue",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/venue-pricing",
+      "destination": "/wedding-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/venue-pricing/",
+      "destination": "/wedding-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/layouts.html",
+      "destination": "/floor-plans",
+      "permanent": true
+    },
+    {
+      "source": "/layouts",
+      "destination": "/floor-plans",
+      "permanent": true
+    },
+    {
+      "source": "/layouts/",
+      "destination": "/floor-plans",
+      "permanent": true
+    },
+    {
+      "source": "/other-event-pricing-pamphlet.html",
+      "destination": "/private-events",
+      "permanent": true
+    },
+    {
+      "source": "/other-event-pricing-pamphlet",
+      "destination": "/private-events",
+      "permanent": true
+    },
+    {
+      "source": "/other-event-pricing-pamphlet/",
+      "destination": "/private-events",
+      "permanent": true
+    },
+    {
+      "source": "/wedding-pricing-pamphlet.html",
+      "destination": "/pricing-pamphlet",
+      "permanent": true
+    },
+    {
+      "source": "/wedding-pricing-pamphlet",
+      "destination": "/pricing-pamphlet",
+      "permanent": true
+    },
+    {
+      "source": "/wedding-pricing-pamphlet/",
+      "destination": "/pricing-pamphlet",
+      "permanent": true
+    },
+    {
+      "source": "/pricing-pamphlet.html",
+      "destination": "/pricing-pamphlet",
+      "permanent": true
+    },
+    {
+      "source": "/pricing-pamphlet/",
+      "destination": "/pricing-pamphlet",
+      "permanent": true
+    },
+    {
+      "source": "/facebook-wedding.html",
+      "destination": "/facebook-wedding",
+      "permanent": true
+    },
+    {
+      "source": "/facebook-wedding/",
+      "destination": "/facebook-wedding",
+      "permanent": true
+    },
+    {
+      "source": "/facebook-events.html",
+      "destination": "/facebook-events",
+      "permanent": true
+    },
+    {
+      "source": "/facebook-events/",
+      "destination": "/facebook-events",
+      "permanent": true
+    },
+    {
+      "source": "/inquire.html",
+      "destination": "/inquire",
+      "permanent": true
+    },
+    {
+      "source": "/inquire/",
+      "destination": "/inquire",
+      "permanent": true
+    },
+    {
+      "source": "/book-a-tour",
+      "destination": "/inquire",
+      "permanent": true
+    },
+    {
+      "source": "/book-a-tour/",
+      "destination": "/inquire",
+      "permanent": true
+    },
+    {
+      "source": "/book-tour",
+      "destination": "/inquire",
+      "permanent": true
+    },
+    {
+      "source": "/book-tour/",
+      "destination": "/inquire",
+      "permanent": true
+    },
+    {
+      "source": "/wedding-pricing/",
+      "destination": "/wedding-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/wedding-pricing.html",
+      "destination": "/wedding-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/assets/wedding-pricing-pamphlet.pdf",
+      "destination": "/pricing-pamphlet",
+      "permanent": false
+    },
+    {
+      "source": "/weddings",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/weddings/",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/moments",
+      "destination": "/gallery",
+      "permanent": true
+    },
+    {
+      "source": "/moments/",
+      "destination": "/gallery",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/seasonal-menu",
+      "destination": "/menus",
+      "permanent": true
+    },
+    {
+      "source": "/seasonal-menu/",
+      "destination": "/menus",
+      "permanent": true
+    },
+    {
+      "source": "/restaurant",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/restaurant/",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms/",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/private-venue-nevada-city",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/private-venue-nevada-city/",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/stone-house-farm",
+      "destination": "/blog/the-dirt-on-stone-house-farms-stone-houses-bold-new-chapter",
+      "permanent": true
+    },
+    {
+      "source": "/stone-house-farm/",
+      "destination": "/blog/the-dirt-on-stone-house-farms-stone-houses-bold-new-chapter",
+      "permanent": true
+    },
+    {
+      "source": "/calendar.html",
+      "destination": "/calendar",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/",
+      "destination": "/calendar",
+      "permanent": true
+    },
+    {
+      "source": "/shows",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/shows/",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/entertainment",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/entertainment/",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/public-events",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/public-events/",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/blog/the-rich-history-of-stone-house-a-legacy-of-innovation-gathering",
+      "permanent": true
+    },
+    {
+      "source": "/about/",
+      "destination": "/blog/the-rich-history-of-stone-house-a-legacy-of-innovation-gathering",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/blog/the-rich-history-of-stone-house-a-legacy-of-innovation-gathering",
+      "permanent": true
+    },
+    {
+      "source": "/farm-shares",
+      "destination": "/blog/the-dirt-on-stone-house-farms-stone-houses-bold-new-chapter",
+      "permanent": true
+    },
+    {
+      "source": "/farm-shares/",
+      "destination": "/blog/the-dirt-on-stone-house-farms-stone-houses-bold-new-chapter",
+      "permanent": true
+    },
+    {
+      "source": "/private-event-weddings",
+      "destination": "/wedding-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/private-event-weddings/",
+      "destination": "/wedding-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/wedding-guide",
+      "destination": "/wedding-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/wedding-guide/",
+      "destination": "/wedding-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/accommodations.html",
+      "destination": "/accommodations",
+      "permanent": true
+    },
+    {
+      "source": "/blog.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/brunch.html",
+      "destination": "/brunch",
+      "permanent": true
+    },
+    {
+      "source": "/wedding-brunch",
+      "destination": "/brunch",
+      "permanent": true
+    },
+    {
+      "source": "/wedding-brunch/",
+      "destination": "/brunch",
+      "permanent": true
+    },
+    {
+      "source": "/wedding-brunch.html",
+      "destination": "/brunch",
+      "permanent": true
+    },
+    {
+      "source": "/catering.html",
+      "destination": "/catering",
+      "permanent": true
+    },
+    {
+      "source": "/check-your-date.html",
+      "destination": "/check-your-date",
+      "permanent": true
+    },
+    {
+      "source": "/chef-story.html",
+      "destination": "/chef-story",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/elopement.html",
+      "destination": "/elopement",
+      "permanent": true
+    },
+    {
+      "source": "/events.html",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/faq.html",
+      "destination": "/faq",
+      "permanent": true
+    },
+    {
+      "source": "/floor-plans.html",
+      "destination": "/floor-plans",
+      "permanent": true
+    },
+    {
+      "source": "/gallery.html",
+      "destination": "/gallery",
+      "permanent": true
+    },
+    {
+      "source": "/getting-ready.html",
+      "destination": "/getting-ready",
+      "permanent": true
+    },
+    {
+      "source": "/gold-country-venues.html",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/grass-valley-wedding-venues.html",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/library.html",
+      "destination": "/library",
+      "permanent": true
+    },
+    {
+      "source": "/local-guide.html",
+      "destination": "/local-guide",
+      "permanent": true
+    },
+    {
+      "source": "/menus.html",
+      "destination": "/menus",
+      "permanent": true
+    },
+    {
+      "source": "/nevada-city-wedding-venue.html",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/nevada-county-wedding-venues.html",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/press.html",
+      "destination": "/press",
+      "permanent": true
+    },
+    {
+      "source": "/pricing.html",
+      "destination": "/pricing",
+      "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/private-events.html",
+      "destination": "/private-events",
+      "permanent": true
+    },
+    {
+      "source": "/rehearsal-dinner.html",
+      "destination": "/rehearsal-dinner",
+      "permanent": true
+    },
+    {
+      "source": "/spaces.html",
+      "destination": "/spaces",
+      "permanent": true
+    },
+    {
+      "source": "/timeline.html",
+      "destination": "/timeline",
+      "permanent": true
+    },
+    {
+      "source": "/vendors.html",
+      "destination": "/vendors",
+      "permanent": true
+    },
+    {
+      "source": "/weather-guide.html",
+      "destination": "/weather-guide",
+      "permanent": true
+    },
+    {
+      "source": "/accommodations/",
+      "destination": "/accommodations",
+      "permanent": true
+    },
+    {
+      "source": "/brunch/",
+      "destination": "/brunch",
+      "permanent": true
+    },
+    {
+      "source": "/catering/",
+      "destination": "/catering",
+      "permanent": true
+    },
+    {
+      "source": "/check-your-date/",
+      "destination": "/check-your-date",
+      "permanent": true
+    },
+    {
+      "source": "/chef-story/",
+      "destination": "/chef-story",
+      "permanent": true
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/elopement/",
+      "destination": "/elopement",
+      "permanent": true
+    },
+    {
+      "source": "/events/",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/faq/",
+      "destination": "/faq",
+      "permanent": true
+    },
+    {
+      "source": "/floor-plans/",
+      "destination": "/floor-plans",
+      "permanent": true
+    },
+    {
+      "source": "/gallery/",
+      "destination": "/gallery",
+      "permanent": true
+    },
+    {
+      "source": "/getting-ready/",
+      "destination": "/getting-ready",
+      "permanent": true
+    },
+    {
+      "source": "/gold-country-venues/",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/grass-valley-wedding-venues/",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/library/",
+      "destination": "/library",
+      "permanent": true
+    },
+    {
+      "source": "/local-guide/",
+      "destination": "/local-guide",
+      "permanent": true
+    },
+    {
+      "source": "/menus/",
+      "destination": "/menus",
+      "permanent": true
+    },
+    {
+      "source": "/nevada-city-wedding-venue/",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/nevada-county-wedding-venues/",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/press/",
+      "destination": "/press",
+      "permanent": true
+    },
+    {
+      "source": "/pricing/",
+      "destination": "/pricing",
+      "permanent": true
+    },
+    {
+      "source": "/privacy/",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/private-events/",
+      "destination": "/private-events",
+      "permanent": true
+    },
+    {
+      "source": "/rehearsal-dinner/",
+      "destination": "/rehearsal-dinner",
+      "permanent": true
+    },
+    {
+      "source": "/spaces/",
+      "destination": "/spaces",
+      "permanent": true
+    },
+    {
+      "source": "/timeline/",
+      "destination": "/timeline",
+      "permanent": true
+    },
+    {
+      "source": "/vendors/",
+      "destination": "/vendors",
+      "permanent": true
+    },
+    {
+      "source": "/weather-guide/",
+      "destination": "/weather-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/private-venue",
+      "destination": "/private-events",
+      "permanent": true
+    },
+    {
+      "source": "/private-venue/",
+      "destination": "/private-events",
+      "permanent": true
+    },
+    {
+      "source": "/corporate-events.html",
+      "destination": "/corporate-events",
+      "permanent": true
+    },
+    {
+      "source": "/corporate-events/",
+      "destination": "/corporate-events",
+      "permanent": true
+    },
+    {
+      "source": "/holiday-party-venue.html",
+      "destination": "/holiday-party-venue",
+      "permanent": true
+    },
+    {
+      "source": "/holiday-party-venue/",
+      "destination": "/holiday-party-venue",
+      "permanent": true
+    },
+    {
+      "source": "/private-buyout.html",
+      "destination": "/private-buyout",
+      "permanent": true
+    },
+    {
+      "source": "/private-buyout/",
+      "destination": "/private-buyout",
+      "permanent": true
+    },
+    {
+      "source": "/wedding-venue-cost-nevada-city.html",
+      "destination": "/wedding-venue-cost-nevada-city",
+      "permanent": true
+    },
+    {
+      "source": "/wedding-venue-cost-nevada-city/",
+      "destination": "/wedding-venue-cost-nevada-city",
+      "permanent": true
+    },
+    {
+      "source": "/corporate-events-ad",
+      "destination": "/corporate-events",
+      "permanent": true
+    },
+    {
+      "source": "/corporate-events-ad/",
+      "destination": "/corporate-events",
+      "permanent": true
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/calendar/past",
+      "destination": "/api/calendar?past=1"
+    },
+    {
+      "source": "/calendar/:slug/checkout",
+      "destination": "/api/calendar?slug=:slug&checkout=1"
+    },
+    {
+      "source": "/calendar/:slug",
+      "destination": "/api/calendar?slug=:slug"
+    },
+    {
+      "source": "/calendar",
+      "destination": "/api/calendar"
+    },
+    {
+      "source": "/admin/events",
+      "destination": "/api/admin-events"
+    },
+    {
+      "source": "/wedding-venue-cost-nevada-city",
+      "destination": "/wedding-venue-cost-nevada-city.html"
+    },
+    {
+      "source": "/private-buyout",
+      "destination": "/private-buyout.html"
+    },
+    {
+      "source": "/holiday-party-venue",
+      "destination": "/holiday-party-venue.html"
+    },
+    {
+      "source": "/corporate-events",
+      "destination": "/corporate-events.html"
+    },
+    {
+      "source": "/wedding-pricing",
+      "destination": "/wedding-pricing.html"
+    },
+    {
+      "source": "/pricing-pamphlet",
+      "destination": "/pricing-pamphlet.html"
+    },
+    {
+      "source": "/facebook-wedding",
+      "destination": "/facebook-wedding.html"
+    },
+    {
+      "source": "/facebook-events",
+      "destination": "/facebook-events.html"
+    },
+    {
+      "source": "/inquire",
+      "destination": "/inquire.html"
+    },
+    {
+      "source": "/private-events",
+      "destination": "/private-events.html"
+    },
+    {
+      "source": "/floor-plans",
+      "destination": "/floor-plans.html"
+    },
+    {
+      "source": "/elopement",
+      "destination": "/elopement.html"
+    },
+    {
+      "source": "/pricing",
+      "destination": "/pricing.html"
+    },
+    {
+      "source": "/events",
+      "destination": "/events.html"
+    },
+    {
+      "source": "/spaces",
+      "destination": "/spaces.html"
+    },
+    {
+      "source": "/catering",
+      "destination": "/catering.html"
+    },
+    {
+      "source": "/gallery",
+      "destination": "/gallery.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/menus",
+      "destination": "/menus.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
     {
       "source": "/blog",
       "destination": "/blog.html"
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.html"
+    },
+    {
+      "source": "/library",
+      "destination": "/library.html"
+    },
+    {
+      "source": "/accommodations",
+      "destination": "/accommodations.html"
+    },
+    {
+      "source": "/vendors",
+      "destination": "/vendors.html"
+    },
+    {
+      "source": "/chef-story",
+      "destination": "/chef-story.html"
+    },
+    {
+      "source": "/local-guide",
+      "destination": "/local-guide.html"
+    },
+    {
+      "source": "/weather-guide",
+      "destination": "/weather-guide.html"
+    },
+    {
+      "source": "/timeline",
+      "destination": "/timeline.html"
+    },
+    {
+      "source": "/getting-ready",
+      "destination": "/getting-ready.html"
+    },
+    {
+      "source": "/rehearsal-dinner",
+      "destination": "/rehearsal-dinner.html"
+    },
+    {
+      "source": "/brunch",
+      "destination": "/brunch.html"
+    },
+    {
+      "source": "/press",
+      "destination": "/press.html"
+    },
+    {
+      "source": "/check-your-date",
+      "destination": "/check-your-date.html"
     },
     {
       "source": "/studio",
@@ -15,6 +877,62 @@
     {
       "source": "/studio/(.*)",
       "destination": "/studio/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)\\.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/assets/stonehouse_content_inventory_v2.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/assets/stonehouse-reception-packages.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)\\.pdf",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/assets/floor-plans/(.*)\\.pdf",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }

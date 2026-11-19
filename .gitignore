@@ -7,3 +7,7 @@ studio/.sanity/
 studio/.env
 .env
 .env.local
+.env*
+!.env.example
+platform/data/
+.impeccable-cache/

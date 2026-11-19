@@ -2,13 +2,17 @@
   "name": "stone-house-nevada-city",
   "private": true,
   "engines": {
-    "node": ">=18"
+    "node": "24.x"
   },
   "scripts": {
     "build": "node scripts/build-all.mjs",
     "build:studio": "node scripts/studio-only-build.mjs",
     "dev:studio": "node scripts/run-studio-dev.mjs",
-    "migrate:photos": "node scripts/migrate-photos.mjs"
+    "migrate:photos": "node scripts/migrate-photos.mjs",
+    "lint:hrefs": "node scripts/lint-hrefs.mjs",
+    "test": "node --test platform/*.test.mjs",
+    "dev:platform": "node scripts/platform-server.mjs",
+    "seo:round3": "node scripts/seo-round3.mjs"
   },
   "devDependencies": {
     "@sanity/client": "^6.24.1"
