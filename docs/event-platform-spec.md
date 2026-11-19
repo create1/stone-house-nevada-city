@@ -20,7 +20,7 @@ Stonehouse LLC, doing business as Stone House, owns ticket sales and receives St
 | `/tickets/{order-token}` | Buyer order and QR tickets |
 | `/calendar/past` | Completed events |
 
-`/calendar` currently redirects to `/events`. Remove that redirect only when the new calendar page is ready to replace it. The homepage says private buyouts only and no shared events. Change that copy before public ticket sales launch.
+On `stonehouse.io`, `/calendar`, `/calendar/*`, and `/admin/events` temporarily redirect to `/events` (the first three entries in `vercel.json` redirects, gated by host). Preview deployments serve the real calendar. Remove those three redirects when the calendar is ready to go live. The homepage says private buyouts only and no shared events. Change that copy before public ticket sales launch.
 
 ## Roles
 

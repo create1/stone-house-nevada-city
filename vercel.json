@@ -13,6 +13,24 @@
   },
   "redirects": [
     {
+      "source": "/calendar",
+      "has": [{ "type": "host", "value": "(www\\.)?stonehouse\\.io" }],
+      "destination": "/events",
+      "permanent": false
+    },
+    {
+      "source": "/calendar/(.*)",
+      "has": [{ "type": "host", "value": "(www\\.)?stonehouse\\.io" }],
+      "destination": "/events",
+      "permanent": false
+    },
+    {
+      "source": "/admin/events",
+      "has": [{ "type": "host", "value": "(www\\.)?stonehouse\\.io" }],
+      "destination": "/events",
+      "permanent": false
+    },
+    {
       "source": "/gold-country-venues",
       "destination": "/events",
       "permanent": true
