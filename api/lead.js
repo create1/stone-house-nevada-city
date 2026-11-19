@@ -1,5 +1,6 @@
 import { Client } from "@notionhq/client";
 import { Resend } from "resend";
+import { logLeadSubmission } from "./log-lead.js";
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -79,7 +80,7 @@ export default async function handler(req, res) {
     // Honeypot — if this hidden field has a value, it's a bot
     if (_honeypot) {
       // Return 200 so bots think it worked, but do nothing
-      return res.status(200).json({ ok: true, results: { notion: "ok", notifyEmail: "ok", autoReply: "ok" } });
+      return res.status(200).json({ ok: true, results: { notion: "ok", notifyEmail: "ok", autoReply: "ok", log: "ok" } });
     }
 
     if (!email || !email.includes("@")) {
@@ -91,7 +92,25 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Valid email required" });
     }
 
-    const results = { notion: null, notifyEmail: null, autoReply: null };
+    const results = { notion: null, notifyEmail: null, autoReply: null, log: null };
+
+    // 0. Log to persistent storage (Vercel Blob) — always log first
+    try {
+      const logResult = await logLeadSubmission({
+        name: name || null,
+        email,
+        date: date || null,
+        guests: guests || null,
+        source: source || "Website",
+        ip,
+        userAgent: req.headers["user-agent"] || null,
+        referer: req.headers.referer || null,
+      });
+      results.log = logResult.logged ? "ok" : `skipped: ${logResult.reason}`;
+    } catch (logErr) {
+      console.error("Lead logging failed:", logErr.message);
+      results.log = `error: ${logErr.message}`;
+    }
 
     // 1. Write to Notion leads database (non-blocking — don't kill the whole request)
     if (LEADS_DB && process.env.NOTION_API_KEY) {
@@ -172,7 +191,7 @@ export default async function handler(req, res) {
     }
 
     // Return 200 with details — the lead was captured even if some steps failed
-    return res.status(200).json({ ok: true, results });
+    return res.status(200).json({ ok: true, results, logId: results.log === "ok" ? "logged" : null });
   } catch (err) {
     console.error("Lead API unexpected error:", err);
     return res.status(500).json({ error: "Internal error" });
