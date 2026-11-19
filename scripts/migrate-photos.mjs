@@ -26,9 +26,10 @@ const PHOTOS = [
   },
   {
     key: "photo-great-hall",
+    // Site now uses assets/stone-house-nevada-city-great-hall-wedding-reception.jpg
     path: "697e61f92beaf320fb3c45ea_thegreathall5.webp",
-    alt: "The Great Hall",
-    lightboxCaption: "The Great Hall — up to 200 guests",
+    alt: "Wedding reception in the Great Hall at Stone House Nevada City",
+    lightboxCaption: "The Great Hall — wedding reception",
   },
   {
     key: "photo-cavern",

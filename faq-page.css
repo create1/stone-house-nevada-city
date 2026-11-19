@@ -1,0 +1,236 @@
+/* ═══════════════════════════════════════
+   FAQ PAGE — dark charcoal + SH tile pattern
+═══════════════════════════════════════ */
+body.page-faq {
+  background: #1a1714;
+  color: var(--on-dark);
+}
+
+body.page-faq #nav {
+  background: rgba(28, 25, 22, 0.96);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+body.page-faq #nav .nav-logo,
+body.page-faq #nav .nav-wm,
+body.page-faq #nav .nav-est {
+  color: var(--on-dark);
+}
+body.page-faq #nav .nav-logo-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+body.page-faq #nav .nav-div {
+  background: rgba(208, 204, 198, 0.3);
+}
+body.page-faq #nav .nav-est {
+  color: var(--gll);
+}
+body.page-faq #nav .nav-link {
+  color: rgba(201, 168, 106, 0.88);
+  font-weight: 600;
+}
+body.page-faq #nav .nav-link:hover,
+body.page-faq #nav .nav-link.is-active,
+body.page-faq #nav .nav-link[aria-current='page'] {
+  color: var(--gll);
+}
+body.page-faq #nav .mob-btn span {
+  background: var(--on-dark);
+}
+body.page-faq #nav.scrolled {
+  background: rgba(28, 25, 22, 0.96);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.18);
+}
+body.page-faq #nav.scrolled .nav-logo,
+body.page-faq #nav.scrolled .nav-wm,
+body.page-faq #nav.scrolled .nav-est {
+  color: var(--on-dark);
+}
+body.page-faq #nav.scrolled .nav-logo-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+body.page-faq #nav.scrolled .nav-est {
+  color: var(--gll);
+}
+body.page-faq #nav.scrolled .nav-div {
+  background: rgba(208, 204, 198, 0.3);
+}
+body.page-faq #nav.scrolled .nav-link {
+  color: rgba(201, 168, 106, 0.88);
+  font-weight: 600;
+}
+body.page-faq #nav.scrolled .nav-link:hover,
+body.page-faq #nav.scrolled .nav-link.is-active,
+body.page-faq #nav.scrolled .nav-link[aria-current='page'] {
+  color: var(--gll);
+}
+body.page-faq #nav.scrolled .mob-btn span {
+  background: var(--on-dark);
+}
+
+body.page-faq .btn-gold {
+  background: var(--gll);
+  color: #1a1714;
+}
+body.page-faq .btn-gold:hover {
+  background: #d4c49a;
+  color: #1a1714;
+}
+body.page-faq .btn-ghost {
+  color: var(--on-dark);
+  border-color: rgba(208, 204, 198, 0.35);
+}
+body.page-faq .btn-ghost:hover {
+  border-color: var(--gll);
+  color: var(--gll);
+}
+
+body.page-faq #mob-nav {
+  background: #1c1916;
+}
+body.page-faq .mob-link {
+  color: var(--on-dark);
+  border-bottom-color: rgba(154, 125, 66, 0.18);
+}
+body.page-faq .mob-link:hover {
+  color: var(--gll);
+}
+
+/* Main FAQ band — charcoal + mark tile pattern */
+body.page-faq .faq-section {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(154, 125, 66, 0.09), transparent 55%),
+    #1a1714;
+  border-top: none;
+  border-bottom: none;
+  padding: clamp(48px, 7vw, 80px) 5.5% clamp(56px, 8vw, 88px);
+}
+body.page-faq .faq-section.sh-pattern::before {
+  opacity: 0.1;
+  filter: brightness(1.5) saturate(0.85);
+  background-size: 180px 180px;
+}
+body.page-faq .faq-inner {
+  position: relative;
+  z-index: 1;
+}
+
+body.page-faq .split-page-head {
+  background: transparent;
+  padding: 0 0 8px;
+  max-width: none;
+}
+body.page-faq .split-page-head .sl {
+  color: var(--gll);
+}
+body.page-faq .split-page-head .sl::before {
+  background: var(--gll);
+}
+body.page-faq .split-page-head .dh {
+  color: var(--on-dark);
+}
+body.page-faq .split-page-head .di {
+  color: var(--gll);
+}
+
+body.page-faq .faq-intro {
+  color: rgba(208, 204, 198, 0.68);
+}
+body.page-faq .faq-pdf-sep {
+  color: rgba(208, 204, 198, 0.4);
+}
+body.page-faq .body-link {
+  color: var(--gll);
+  border-bottom-color: rgba(201, 168, 106, 0.35);
+}
+body.page-faq .body-link:hover {
+  color: #d4c49a;
+  border-bottom-color: var(--gll);
+}
+
+body.page-faq .faq-cat {
+  color: var(--gll);
+  border-top-color: rgba(154, 125, 66, 0.2);
+}
+
+body.page-faq .faq-item {
+  border-bottom-color: rgba(154, 125, 66, 0.16);
+}
+body.page-faq .faq-q-text {
+  color: rgba(208, 204, 198, 0.92);
+}
+body.page-faq .faq-q:hover .faq-q-text {
+  color: var(--gll);
+}
+body.page-faq .faq-icon {
+  border-color: rgba(154, 125, 66, 0.35);
+}
+body.page-faq .faq-q:hover .faq-icon {
+  border-color: var(--gll);
+}
+body.page-faq .faq-icon::before,
+body.page-faq .faq-icon::after {
+  background: var(--gll);
+}
+body.page-faq .faq-a-inner {
+  color: rgba(208, 204, 198, 0.65);
+}
+body.page-faq .faq-a-inner strong {
+  color: rgba(208, 204, 198, 0.92);
+  font-weight: 500;
+}
+body.page-faq .faq-a-inner a {
+  color: var(--gll) !important;
+}
+
+/* CTA strip */
+body.page-faq .page-cta-strip {
+  background: #161412;
+  border-top: 1px solid rgba(154, 125, 66, 0.14);
+}
+
+/* Footer */
+body.page-faq .footer-quote {
+  background: #161412;
+  border-top-color: rgba(154, 125, 66, 0.14);
+}
+body.page-faq .footer-quote .footer-quote-text {
+  color: rgba(208, 204, 198, 0.35);
+}
+body.page-faq footer {
+  background: #1c1916;
+  border-top-color: rgba(154, 125, 66, 0.14);
+  color: var(--on-dark);
+}
+body.page-faq footer .footer-logo-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+body.page-faq footer .footer-brand {
+  color: var(--on-dark);
+}
+body.page-faq footer .footer-desc,
+body.page-faq footer .footer-addr,
+body.page-faq footer .footer-copy,
+body.page-faq footer .footer-est {
+  color: rgba(208, 204, 198, 0.55);
+}
+body.page-faq footer .footer-addr a,
+body.page-faq footer .footer-link {
+  color: rgba(208, 204, 198, 0.62);
+}
+body.page-faq footer .footer-link:hover,
+body.page-faq footer .footer-addr a:hover {
+  color: var(--gll);
+}
+body.page-faq footer .footer-col-title {
+  color: var(--gll);
+}
+body.page-faq footer .footer-bottom {
+  border-top-color: rgba(154, 125, 66, 0.12);
+}

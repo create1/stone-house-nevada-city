@@ -18,6 +18,7 @@ function run(cmd, args, cwd) {
   }
 }
 
+run("node", [path.join(root, "scripts", "lint-hrefs.mjs")], root);
 run("npm", ["install"], studio);
 run("npm", ["run", "build"], studio);
 run("node", [path.join(root, "scripts", "assemble-dist.mjs")], root);

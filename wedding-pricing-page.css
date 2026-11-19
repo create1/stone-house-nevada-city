@@ -1,0 +1,234 @@
+/* Wedding pricing pamphlet — match site chrome (dark pricing family) */
+body.page-wedding-pricing {
+  background: #1a1714;
+  color: var(--on-dark, #f5f0e8);
+  padding-top: var(--nav-h, 72px);
+}
+
+body.page-wedding-pricing #nav {
+  background: rgba(28, 25, 22, 0.96);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+body.page-wedding-pricing #nav .nav-logo,
+body.page-wedding-pricing #nav .nav-wm,
+body.page-wedding-pricing #nav .nav-est {
+  color: var(--on-dark, #f5f0e8);
+}
+body.page-wedding-pricing #nav .nav-logo-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+body.page-wedding-pricing #nav .nav-link {
+  color: rgba(201, 168, 106, 0.88);
+  font-weight: 600;
+}
+body.page-wedding-pricing #nav .nav-link:hover,
+body.page-wedding-pricing #nav .nav-link.is-active,
+body.page-wedding-pricing #nav .nav-link[aria-current="page"] {
+  color: var(--gll, #c9a86a);
+}
+body.page-wedding-pricing #nav .mob-btn span {
+  background: var(--on-dark, #f5f0e8);
+}
+body.page-wedding-pricing #nav.scrolled {
+  background: rgba(28, 25, 22, 0.94);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.18);
+}
+
+.wp-page {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 56px) clamp(16px, 4vw, 40px) clamp(48px, 8vw, 96px);
+}
+
+.wp-gate {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(28px, 4vw, 48px);
+  align-items: center;
+}
+
+.wp-gate-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.wp-cover {
+  display: block;
+  width: auto;
+  max-width: min(280px, 72vw);
+  max-height: min(52vh, 480px);
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(154, 125, 66, 0.12);
+  border: 1px solid rgba(154, 125, 66, 0.18);
+}
+
+.wp-label {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gll, #c9a86a);
+  margin-bottom: 10px;
+}
+
+.wp-gate-panel h1 {
+  font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+  font-weight: 300;
+  font-size: clamp(1.75rem, 3.8vw, 2.5rem);
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  color: #faf7f2;
+  margin: 0 0 12px;
+}
+
+.wp-lede {
+  font-size: 15px;
+  color: rgba(245, 240, 232, 0.72);
+  line-height: 1.65;
+  margin: 0 0 20px;
+  max-width: 42ch;
+}
+
+.wp-form-wrap {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(154, 125, 66, 0.22);
+  border-radius: 8px;
+  padding: clamp(16px, 2.2vw, 24px) clamp(14px, 2vw, 22px);
+}
+
+.wp-form-wrap h2 {
+  font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+  color: #faf7f2;
+  margin: 0 0 14px;
+}
+
+.ts-form-embed {
+  width: 100%;
+  max-width: 520px;
+  min-height: 420px;
+  color: #1a1714;
+  background: #faf7f2;
+  border-radius: 6px;
+  padding: 12px 14px 8px;
+}
+
+.ts-form-embed #tripleseat_link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: #5a5347;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(154, 125, 66, 0.3);
+}
+
+.ts-form-embed #tripleseat_link:hover {
+  color: #9a7d42;
+}
+
+.ts-form-embed iframe,
+.ts-form-embed form,
+.ts-form-embed .ts_form,
+.ts-form-embed [id*="tripleseat"] {
+  max-width: 100%;
+}
+
+.wp-aside {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: rgba(245, 240, 232, 0.62);
+  line-height: 1.55;
+}
+
+.wp-aside a {
+  color: var(--gll, #c9a86a);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 168, 106, 0.35);
+}
+
+.wp-aside a:hover {
+  color: #e0c98a;
+}
+
+.pamphlet-success {
+  display: none;
+  text-align: center;
+  margin: 18px 0 0;
+  padding: 18px 16px 6px;
+  border-top: 1px solid rgba(154, 125, 66, 0.22);
+}
+
+.pamphlet-success.is-visible {
+  display: block;
+}
+
+.pamphlet-success-msg {
+  font-size: 14px;
+  color: rgba(245, 240, 232, 0.72);
+  margin: 0 0 14px;
+  line-height: 1.55;
+}
+
+.pamphlet-success-dl {
+  display: inline-block;
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  background: var(--gll, #c9a86a);
+  color: #1a1714 !important;
+  border-radius: 4px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  border: 0 !important;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.pamphlet-success-dl:hover {
+  background: #d4c49a;
+  color: #1a1714 !important;
+}
+
+@media (min-width: 900px) {
+  .wp-gate {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(32px, 4vw, 64px);
+    min-height: calc(100dvh - var(--nav-h, 72px) - 8rem);
+  }
+  .wp-gate-visual {
+    justify-content: flex-end;
+  }
+  .wp-cover {
+    max-width: min(400px, 36vw);
+    max-height: min(78vh, 700px);
+  }
+}
+
+@media (max-width: 899px) {
+  .wp-gate-panel {
+    text-align: center;
+  }
+  .wp-lede {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ts-form-embed {
+    margin: 0 auto;
+  }
+  .wp-form-wrap h2,
+  .wp-aside {
+    text-align: center;
+  }
+}

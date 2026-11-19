@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" fill="none">
+  <!-- Spaced tile of Stone House compass-star mark for wallpaper backgrounds -->
+  <g transform="translate(36 36)" fill="none" stroke="#9a7d42" stroke-linecap="round" stroke-linejoin="round">
+    <!-- long cardinal points -->
+    <path d="M44 2 L48 34 L44 38 L40 34 Z" fill="#9a7d42" stroke="none"/>
+    <path d="M44 86 L40 54 L44 50 L48 54 Z" fill="#9a7d42" stroke="none"/>
+    <path d="M2 44 L34 40 L38 44 L34 48 Z" fill="#9a7d42" stroke="none"/>
+    <path d="M86 44 L54 48 L50 44 L54 40 Z" fill="#9a7d42" stroke="none"/>
+    <!-- short diagonals -->
+    <path d="M16 16 L32 32" stroke-width="1.4" opacity="0.75"/>
+    <path d="M72 16 L56 32" stroke-width="1.4" opacity="0.75"/>
+    <path d="M72 72 L56 56" stroke-width="1.4" opacity="0.75"/>
+    <path d="M16 72 L32 56" stroke-width="1.4" opacity="0.75"/>
+    <circle cx="18" cy="18" r="1.6" fill="#9a7d42" stroke="none" opacity="0.8"/>
+    <circle cx="70" cy="18" r="1.6" fill="#9a7d42" stroke="none" opacity="0.8"/>
+    <circle cx="70" cy="70" r="1.6" fill="#9a7d42" stroke="none" opacity="0.8"/>
+    <circle cx="18" cy="70" r="1.6" fill="#9a7d42" stroke="none" opacity="0.8"/>
+    <!-- rings -->
+    <circle cx="44" cy="44" r="20" stroke-width="1.15" opacity="0.9"/>
+    <circle cx="44" cy="44" r="13" stroke-width="0.9" opacity="0.55"/>
+    <!-- monogram: H verticals + S curve -->
+    <path d="M38 36 V52 M50 36 V52 M38 36 H42 M50 36 H54 M38 52 H42 M50 52 H54" stroke-width="1.7"/>
+    <path d="M41 38 C37 38 35 40.5 36.5 43 C38 45.5 44 46 47 47.5 C50 49 51.5 51.5 48.5 53.5 C45.5 55.5 40 54.5 38 52" stroke-width="1.65"/>
+  </g>
+</svg>
