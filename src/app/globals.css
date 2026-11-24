@@ -1,0 +1,341 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+/* ── Base Layer ─────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-jost), var(--font-inter), "Jost", "Inter", sans-serif;
+    background-color: #1a1714;
+    color: #f4ede0;
+    line-height: 1.6;
+    cursor: none;
+  }
+
+  /* Hide custom cursor on touch devices */
+  @media (pointer: coarse) {
+    body {
+      cursor: auto;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+    font-weight: 300;
+    line-height: 1.1;
+  }
+
+  ::selection {
+    background-color: #c9a84c;
+    color: #0a0a0a;
+  }
+
+  :focus-visible {
+    outline: 2px solid #c9a84c;
+    outline-offset: 2px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Restore cursor for interactive elements on desktop */
+  @media (pointer: fine) {
+    a,
+    button,
+    [role="button"],
+    input,
+    select,
+    textarea,
+    label {
+      cursor: none;
+    }
+  }
+}
+
+/* ── Component Layer ────────────────────────────── */
+@layer components {
+  /* Gold gradient text */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #c9a84c, #dfc078);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Section container */
+  .section-container {
+    width: 100%;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1rem, 3vw, 2rem);
+    padding-right: clamp(1rem, 3vw, 2rem);
+  }
+
+  /* Gold divider line */
+  .gold-divider {
+    width: 4rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+  }
+
+  /* Small label (Jon's .sl class) */
+  .small-label {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c9a84c;
+  }
+
+  /* Gold button */
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2.5rem;
+    background-color: #c9a84c;
+    color: #0a0a0a;
+    font-family: var(--font-jost), var(--font-inter), "Jost", "Inter", sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    cursor: none;
+    transition:
+      background-color 300ms cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 150ms ease;
+  }
+
+  .btn-gold:hover {
+    background-color: #dfc078;
+    transform: translateY(-1px);
+  }
+
+  .btn-gold:active {
+    transform: translateY(0);
+  }
+
+  /* Outline button */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2.5rem;
+    background-color: transparent;
+    color: #c9a84c;
+    font-family: var(--font-jost), var(--font-inter), "Jost", "Inter", sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid #c9a84c;
+    cursor: none;
+    transition:
+      background-color 300ms cubic-bezier(0.22, 0.61, 0.36, 1),
+      color 300ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .btn-outline:hover {
+    background-color: #c9a84c;
+    color: #0a0a0a;
+  }
+
+  /* Dark section */
+  .section-dark {
+    background-color: #1a1714;
+    color: #f4ede0;
+  }
+
+  /* Stone section */
+  .section-stone {
+    background-color: #1e1c18;
+    color: #f4ede0;
+  }
+
+  /* Overlay for hero images */
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 23, 20, 0.3) 0%,
+      rgba(26, 23, 20, 0.6) 100%
+    );
+  }
+
+  /* Grain overlay */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.028;
+  }
+
+  /* Scroll progress bar */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #c9a84c, #dfc078);
+    z-index: 9998;
+    transition: width 50ms linear;
+  }
+
+  /* Custom cursor */
+  .cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: #c9a84c;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+  }
+
+  .cursor-ring {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(201, 167, 76, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+  }
+
+  .cursor-ring.hovering {
+    width: 48px;
+    height: 48px;
+    border-color: rgba(201, 167, 76, 0.7);
+  }
+
+  /* Scroll animation helpers */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .animate-on-scroll-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .animate-on-scroll-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .animate-on-scroll-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .animate-on-scroll-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Prose styles for blog content */
+  .prose-stonehouse {
+    color: #f4ede0;
+    line-height: 1.75;
+  }
+
+  .prose-stonehouse h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+  }
+
+  .prose-stonehouse h3 {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .prose-stonehouse p {
+    margin-bottom: 1.25em;
+  }
+
+  .prose-stonehouse a {
+    color: #c9a84c;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 300ms ease;
+  }
+
+  .prose-stonehouse a:hover {
+    color: #dfc078;
+  }
+
+  .prose-stonehouse img {
+    border-radius: 2px;
+    margin: 2em 0;
+  }
+
+  .prose-stonehouse blockquote {
+    border-left: 2px solid #c9a84c;
+    padding-left: 1.5em;
+    font-style: italic;
+    color: #a89a88;
+  }
+}
+
+/* ── Utility Layer ──────────────────────────────── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* ── Hide custom cursor on touch/mobile ─────────── */
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
