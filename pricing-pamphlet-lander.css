@@ -1,0 +1,497 @@
+/* ═══════════════════════════════════════
+   PRICING PAMPHLET LANDER
+   Structure mirrors premiervenuepricing.com/pricing-pamphlet-stone-house
+═══════════════════════════════════════ */
+
+:root {
+  --pp-gold: #af9453;
+  --pp-gold-lt: #c9a84c;
+  --pp-cream: #fffcf6;
+  --pp-ink: #292929;
+  --pp-brown: #503629;
+  --pp-green: #5f6f5e;
+  --pp-green-d: #4a5a49;
+  --pp-muted: #6b645c;
+}
+
+body.page-pamphlet-lander {
+  margin: 0;
+  background: var(--pp-cream);
+  color: var(--pp-ink);
+  font-family: 'Jost', system-ui, sans-serif;
+  padding-top: 0;
+  cursor: auto;
+}
+
+body.page-pamphlet-lander #cursor,
+body.page-pamphlet-lander #cursor-ring,
+body.page-pamphlet-lander #grain,
+body.page-pamphlet-lander #scroll-progress,
+body.page-pamphlet-lander #btt,
+body.page-pamphlet-lander #float-cta {
+  display: none !important;
+}
+
+body.page-pamphlet-lander * {
+  cursor: auto;
+}
+
+/* Top bar */
+.pp-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 5.5%;
+}
+.pp-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.pp-logo img {
+  height: 36px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+.pp-top-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding-bottom: 2px;
+}
+.pp-top-link:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* Hero */
+.pp-hero {
+  position: relative;
+  min-height: min(92vh, 860px);
+  display: grid;
+  place-items: center;
+  padding: 100px 5.5% 72px;
+  overflow: hidden;
+  color: #fff;
+}
+.pp-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+}
+.pp-hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, rgba(20, 16, 12, 0.88) 0%, rgba(20, 16, 12, 0.55) 48%, rgba(20, 16, 12, 0.35) 100%),
+    linear-gradient(to top, rgba(20, 16, 12, 0.75), transparent 45%);
+}
+.pp-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1140px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+}
+.pp-kicker {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--pp-gold-lt);
+  margin: 0 0 14px;
+  font-weight: 500;
+}
+.pp-hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5.2vw, 3.75rem);
+  line-height: 1.08;
+  margin: 0 0 18px;
+  letter-spacing: 0.01em;
+}
+.pp-hero h1 em {
+  font-style: italic;
+  color: var(--pp-gold-lt);
+}
+.pp-hero-lead {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.86);
+  max-width: 40ch;
+  margin: 0 0 28px;
+}
+.pp-btn {
+  appearance: none;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 14px 28px;
+  background: var(--pp-green);
+  color: #fff;
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.pp-btn:hover {
+  background: var(--pp-green-d);
+}
+.pp-btn--ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+.pp-btn--ghost:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+.pp-btn--block {
+  width: 100%;
+}
+
+/* Phone mockup */
+.pp-device {
+  justify-self: center;
+  width: min(280px, 70vw);
+  aspect-ratio: 9 / 18.5;
+  border-radius: 36px;
+  padding: 12px;
+  background: linear-gradient(160deg, #2a2622, #111);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+.pp-device::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 8px;
+  border-radius: 99px;
+  background: #1a1714;
+  z-index: 2;
+}
+.pp-device-screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #1a1714;
+  position: relative;
+}
+.pp-device-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pp-device-label {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 16px;
+  padding: 12px 10px;
+  background: rgba(20, 16, 12, 0.82);
+  color: #fff;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Quote strip */
+.pp-quote {
+  background: #fff;
+  padding: clamp(40px, 7vw, 72px) 5.5%;
+  text-align: center;
+}
+.pp-stars {
+  color: var(--pp-gold);
+  letter-spacing: 0.15em;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+.pp-quote blockquote {
+  margin: 0 auto 16px;
+  max-width: 52ch;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--pp-ink);
+}
+.pp-quote cite {
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pp-muted);
+}
+
+/* Benefits */
+.pp-benefits {
+  padding: clamp(48px, 8vw, 88px) 5.5%;
+  background:
+    radial-gradient(ellipse 60% 50% at 100% 0%, rgba(175, 148, 83, 0.12), transparent 55%),
+    #f7f3ea;
+}
+.pp-benefits-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.pp-section-kicker {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--pp-gold);
+  margin: 0 0 10px;
+  text-align: center;
+}
+.pp-section-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+  line-height: 1.15;
+  text-align: center;
+  margin: 0 0 36px;
+  color: var(--pp-brown);
+}
+.pp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.pp-list li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 16px 0;
+  border-top: 1px solid rgba(80, 54, 41, 0.12);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--pp-muted);
+  font-weight: 300;
+}
+.pp-list li:last-child {
+  border-bottom: 1px solid rgba(80, 54, 41, 0.12);
+}
+.pp-list strong {
+  color: var(--pp-ink);
+  font-weight: 500;
+}
+.pp-bullet {
+  width: 10px;
+  height: 10px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: var(--pp-gold);
+}
+
+/* Welcome split */
+.pp-welcome {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: 520px;
+  background: #1c1916;
+  color: #fff;
+}
+.pp-welcome-media {
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+}
+.pp-welcome-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(36px, 6vw, 72px);
+}
+.pp-welcome-copy h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  margin: 0 0 12px;
+  color: var(--pp-gold-lt);
+}
+.pp-welcome-copy .pp-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 14px;
+}
+.pp-welcome-copy p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 14px;
+  max-width: 42ch;
+}
+
+/* Reviews grid */
+.pp-reviews {
+  padding: clamp(48px, 8vw, 88px) 5.5%;
+  background: #fff;
+}
+.pp-reviews-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.pp-card {
+  padding: 24px 20px;
+  background: #f7f3ea;
+  border-top: 2px solid var(--pp-gold);
+}
+.pp-card p {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--pp-ink);
+  margin: 0 0 16px;
+}
+.pp-card span {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pp-muted);
+}
+
+/* Bottom CTA band */
+.pp-cta-band {
+  position: relative;
+  padding: clamp(64px, 10vw, 100px) 5.5%;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+.pp-cta-band-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+.pp-cta-band-shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 16, 12, 0.78);
+}
+.pp-cta-band-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.pp-cta-band h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+  margin: 0 0 14px;
+}
+.pp-cta-band p {
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 0 28px;
+}
+
+/* Footer */
+.pp-footer {
+  background: #161412;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 40px 5.5%;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+.pp-footer a {
+  color: var(--pp-gold-lt);
+  text-decoration: none;
+}
+.pp-footer strong {
+  display: block;
+  color: #fff;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 11px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .pp-hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .pp-hero-lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pp-device {
+    order: -1;
+    width: min(220px, 58vw);
+  }
+  .pp-welcome {
+    grid-template-columns: 1fr;
+  }
+  .pp-welcome-media {
+    min-height: 280px;
+    order: -1;
+  }
+  .pp-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .pp-hero {
+    min-height: auto;
+    padding: 88px 5% 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-btn {
+    transition: none;
+  }
+}
