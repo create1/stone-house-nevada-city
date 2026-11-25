@@ -1,0 +1,188 @@
+/* ═══════════════════════════════════════
+   Pricing pamphlet gate modal (shared)
+═══════════════════════════════════════ */
+:root {
+  --pp-gold: #af9453;
+  --pp-ink: #292929;
+  --pp-green: #5f6f5e;
+  --pp-green-d: #4a5a49;
+  --pp-muted: #6b645c;
+}
+
+.pp-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background: rgba(12, 10, 8, 0.72);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.pp-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.pp-modal-panel {
+  width: min(440px, 100%);
+  max-height: min(92vh, 720px);
+  overflow: auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 24px 24px;
+  position: relative;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  transform: translateY(10px);
+  transition: transform 0.25s ease;
+  color: var(--pp-ink);
+  font-family: 'Jost', system-ui, sans-serif;
+}
+.pp-modal.is-open .pp-modal-panel {
+  transform: translateY(0);
+}
+.pp-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  color: var(--pp-ink);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.pp-modal-close:hover {
+  background: #f5f5f5;
+}
+.pp-modal h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  font-size: 1.45rem;
+  line-height: 1.25;
+  text-align: center;
+  margin: 8px 28px 22px;
+  color: var(--pp-ink);
+}
+.pp-form {
+  display: grid;
+  gap: 12px;
+}
+.pp-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pp-ink);
+  margin-bottom: 6px;
+}
+.pp-field label span {
+  color: #c04040;
+}
+.pp-field input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d5d0c8;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--pp-ink);
+  background: #fff;
+  outline: none;
+}
+.pp-field input:focus {
+  border-color: var(--pp-gold);
+  box-shadow: 0 0 0 3px rgba(175, 148, 83, 0.18);
+}
+.pp-field input[type="date"] {
+  min-height: 46px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.pp-field input[type="date"]::-webkit-date-and-time-value {
+  text-align: left;
+}
+.pp-field input.is-invalid {
+  border-color: #c06060;
+}
+.pp-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.pp-status {
+  min-height: 1.1em;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--pp-muted);
+  margin: 0;
+}
+.pp-status.is-error {
+  color: #b04040;
+}
+.pp-status.is-success {
+  color: #2d6a4f;
+}
+.pp-status a {
+  color: var(--pp-gold);
+}
+.pp-hp {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+.pp-submit {
+  appearance: none;
+  border: 0;
+  width: 100%;
+  min-height: 50px;
+  margin-top: 4px;
+  background: var(--pp-green);
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.pp-submit:hover:not(:disabled) {
+  background: var(--pp-green-d);
+}
+.pp-submit:disabled {
+  opacity: 0.75;
+  cursor: wait;
+}
+.pp-submit.is-success {
+  background: #2d6a4f;
+}
+
+@media (max-width: 560px) {
+  .pp-modal-panel {
+    padding: 24px 16px 18px;
+  }
+  .pp-field input {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .pp-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-modal,
+  .pp-modal-panel {
+    transition: none;
+  }
+}

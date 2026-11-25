@@ -1,0 +1,420 @@
+/* Lead forms on light (cream / white) cards: inquire, pricing pamphlet and private-events landers. */
+.lf-form {
+  display: grid;
+  gap: 14px;
+  text-align: left;
+  color: #1a1714;
+  font-family: var(--sans, 'Jost', -apple-system, sans-serif);
+}
+
+.lf-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.lf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.lf-field label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #3d372f;
+}
+
+.lf-field label span {
+  color: #9a7d42;
+  margin-left: 2px;
+}
+
+.lf-field input,
+.lf-field select,
+.lf-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 44px;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(154, 125, 66, 0.38);
+  border-radius: 4px;
+  background: #fff;
+  color: #1a1714;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  color-scheme: light;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lf-field select {
+  background-image: linear-gradient(45deg, transparent 50%, #9a7d42 50%),
+    linear-gradient(135deg, #9a7d42 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(50% - 2px), calc(100% - 12px) calc(50% - 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 36px;
+}
+
+.lf-field input[type="date"]::-webkit-date-and-time-value {
+  text-align: left;
+}
+
+.lf-field textarea {
+  min-height: 104px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.lf-field input::placeholder,
+.lf-field textarea::placeholder {
+  color: #9b9284;
+  opacity: 1;
+}
+
+.lf-field input:focus,
+.lf-field select:focus,
+.lf-field textarea:focus {
+  border-color: #9a7d42;
+  box-shadow: 0 0 0 3px rgba(154, 125, 66, 0.16);
+}
+
+.lf-field .is-invalid,
+.lf-field .is-invalid:focus {
+  border-color: #b04a4a;
+  box-shadow: 0 0 0 3px rgba(176, 74, 74, 0.12);
+}
+
+.lf-field :disabled {
+  opacity: 0.6;
+}
+
+.lf-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lf-privacy {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #6b6357;
+}
+
+.lf-privacy a {
+  color: #7d6433;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(154, 125, 66, 0.35);
+}
+
+.lf-status {
+  display: none;
+  margin: 0;
+  padding: 11px 13px;
+  border-radius: 4px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.lf-status.is-error {
+  display: block;
+  color: #7f2f2f;
+  background: rgba(176, 74, 74, 0.08);
+  border: 1px solid rgba(176, 74, 74, 0.35);
+}
+
+.lf-status.is-success {
+  display: block;
+  color: #1f5a41;
+  background: rgba(45, 106, 79, 0.08);
+  border: 1px solid rgba(45, 106, 79, 0.32);
+  font-size: 14.5px;
+}
+
+.lf-submit {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  min-height: 50px;
+  margin: 0;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--gll, #c9a86a);
+  color: #1a1714;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.lf-submit:hover:not(:disabled) {
+  background: #d4c49a;
+}
+
+.lf-submit:focus-visible {
+  outline: 2px solid #7d6433;
+  outline-offset: 2px;
+}
+
+.lf-submit:disabled {
+  opacity: 0.75;
+  cursor: wait;
+}
+
+.lf-submit.is-success,
+.lf-submit.is-success:disabled {
+  background: #2d6a4f;
+  color: #fff;
+  opacity: 1;
+  cursor: default;
+}
+
+@media (max-width: 520px) {
+  .lf-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .lf-field input,
+  .lf-field select,
+  .lf-field textarea {
+    font-size: 16px;
+  }
+}
+
+/* Post-submit pop-up: the agent's reply email in short, with its tour / call / pamphlet links. */
+.lf-pop {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: rgba(12, 10, 8, 0.72);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.lf-pop.is-open {
+  opacity: 1;
+}
+
+.lf-pop-panel {
+  position: relative;
+  width: min(500px, 100%);
+  box-sizing: border-box;
+  margin: auto 0;
+  padding: 34px 28px 18px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(165deg, #fbf8f3 0%, #f4eee4 60%, #ede5d6 100%);
+  color: #1a1714;
+  font-family: var(--sans, 'Jost', -apple-system, sans-serif);
+  text-align: left;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(154, 125, 66, 0.22);
+  outline: none;
+  transform: translateY(14px);
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.lf-pop.is-open .lf-pop-panel {
+  transform: none;
+}
+
+.lf-pop-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #7d6433, #c9a86a, #7d6433);
+}
+
+.lf-pop-x {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid rgba(26, 23, 20, 0.12);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  color: #1a1714;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lf-pop-x:hover {
+  background: #fff;
+}
+
+.lf-pop-eyebrow {
+  margin: 0 0 8px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9a7d42;
+}
+
+.lf-pop-title {
+  margin: 0 40px 10px 0;
+  font-family: var(--serif, 'Cormorant Garamond', Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 4.6vw, 1.9rem);
+  line-height: 1.15;
+  color: #1a1714;
+}
+
+.lf-pop-intro {
+  margin: 0 0 18px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #4a443b;
+}
+
+.lf-pop-steps {
+  margin: 0 0 16px;
+  border-top: 1px solid rgba(154, 125, 66, 0.2);
+}
+
+.lf-pop-step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(154, 125, 66, 0.2);
+}
+
+.lf-pop-step-text {
+  flex: 1;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #3d372f;
+}
+
+.lf-pop-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 156px;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 11px 16px;
+  border: 1px solid #9a7d42;
+  border-radius: 4px;
+  background: transparent;
+  color: #7d6433;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.lf-pop-btn:hover {
+  background: rgba(154, 125, 66, 0.1);
+}
+
+.lf-pop-btn.is-primary {
+  border-color: var(--gll, #c9a86a);
+  background: var(--gll, #c9a86a);
+  color: #1a1714;
+}
+
+.lf-pop-btn.is-primary:hover {
+  border-color: #d4c49a;
+  background: #d4c49a;
+}
+
+.lf-pop-x:focus-visible,
+.lf-pop-btn:focus-visible,
+.lf-pop-close:focus-visible,
+.lf-pop-foot a:focus-visible {
+  outline: 2px solid #7d6433;
+  outline-offset: 2px;
+}
+
+.lf-pop-foot {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #6b6357;
+}
+
+.lf-pop-foot a {
+  white-space: nowrap;
+  color: #7d6433;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(154, 125, 66, 0.35);
+}
+
+.lf-pop-close {
+  display: block;
+  margin: 12px auto 0;
+  padding: 8px 14px;
+  border: 0;
+  background: none;
+  color: #6b6357;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.lf-pop-close:hover {
+  color: #1a1714;
+}
+
+@media (max-width: 480px) {
+  .lf-pop {
+    padding: 12px;
+  }
+  .lf-pop-panel {
+    padding: 30px 20px 14px;
+  }
+  .lf-pop-step {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .lf-pop-btn {
+    width: 100%;
+    min-height: 46px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lf-pop,
+  .lf-pop-panel {
+    transition: none;
+  }
+}

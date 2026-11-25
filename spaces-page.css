@@ -1,0 +1,165 @@
+/* ═══════════════════════════════════════
+   SPACES PAGE — dark charcoal (match home / catering / pricing)
+═══════════════════════════════════════ */
+body.page-spaces {
+  background: #1a1714;
+  color: var(--on-dark);
+}
+
+body.page-spaces #nav {
+  background: rgba(28, 25, 22, 0.96);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+body.page-spaces #nav .nav-logo,
+body.page-spaces #nav .nav-wm,
+body.page-spaces #nav .nav-est {
+  color: var(--on-dark);
+}
+body.page-spaces #nav .nav-logo-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+body.page-spaces #nav .nav-div {
+  background: rgba(208, 204, 198, 0.3);
+}
+body.page-spaces #nav .nav-est {
+  color: var(--gll);
+}
+body.page-spaces #nav .nav-link {
+  color: rgba(201, 168, 106, 0.88);
+  font-weight: 600;
+}
+body.page-spaces #nav .nav-link:hover,
+body.page-spaces #nav .nav-link.is-active,
+body.page-spaces #nav .nav-link[aria-current='page'] {
+  color: var(--gll);
+}
+body.page-spaces #nav .mob-btn span {
+  background: var(--on-dark);
+}
+body.page-spaces #nav.scrolled {
+  background: rgba(28, 25, 22, 0.96);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.18);
+}
+body.page-spaces #nav.scrolled .nav-logo,
+body.page-spaces #nav.scrolled .nav-wm,
+body.page-spaces #nav.scrolled .nav-est {
+  color: var(--on-dark);
+}
+body.page-spaces #nav.scrolled .nav-logo-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+body.page-spaces #nav.scrolled .nav-est {
+  color: var(--gll);
+}
+body.page-spaces #nav.scrolled .nav-div {
+  background: rgba(208, 204, 198, 0.3);
+}
+body.page-spaces #nav.scrolled .nav-link {
+  color: rgba(201, 168, 106, 0.88);
+  font-weight: 600;
+}
+body.page-spaces #nav.scrolled .nav-link:hover,
+body.page-spaces #nav.scrolled .nav-link.is-active,
+body.page-spaces #nav.scrolled .nav-link[aria-current='page'] {
+  color: var(--gll);
+}
+body.page-spaces #nav.scrolled .mob-btn span {
+  background: var(--on-dark);
+}
+
+body.page-spaces .btn-gold {
+  background: var(--gll);
+  color: #1a1714;
+}
+body.page-spaces .btn-gold:hover {
+  background: #d4c49a;
+  color: #1a1714;
+}
+body.page-spaces .btn-ghost {
+  color: var(--on-dark);
+  border-color: rgba(208, 204, 198, 0.35);
+}
+body.page-spaces .btn-ghost:hover {
+  border-color: var(--gll);
+  color: var(--gll);
+}
+
+body.page-spaces #mob-nav {
+  background: #1c1916;
+}
+body.page-spaces .mob-link {
+  color: var(--on-dark);
+  border-bottom-color: rgba(154, 125, 66, 0.18);
+}
+body.page-spaces .mob-link:hover {
+  color: var(--gll);
+}
+
+/* Page intro */
+body.page-spaces .split-page-head {
+  background: #1a1714;
+  padding: clamp(48px, 7vw, 80px) 5.5% 36px;
+}
+body.page-spaces .split-page-head .sl {
+  color: var(--gll);
+}
+body.page-spaces .split-page-head .sl::before {
+  background: var(--gll);
+}
+body.page-spaces .split-page-head .dh {
+  color: var(--on-dark);
+}
+body.page-spaces .split-page-head .di {
+  color: var(--gll);
+}
+
+/* CTA strip */
+body.page-spaces .page-cta-strip {
+  background: #1a1714;
+  border-top-color: rgba(154, 125, 66, 0.14);
+}
+
+/* Footer */
+body.page-spaces .footer-quote {
+  background: #161412;
+  border-top-color: rgba(154, 125, 66, 0.14);
+}
+body.page-spaces .footer-quote .footer-quote-text {
+  color: rgba(208, 204, 198, 0.35);
+}
+body.page-spaces footer {
+  background: #1c1916;
+  border-top-color: rgba(154, 125, 66, 0.14);
+  color: var(--on-dark);
+}
+body.page-spaces footer .footer-logo-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+body.page-spaces footer .footer-brand {
+  color: var(--on-dark);
+}
+body.page-spaces footer .footer-desc,
+body.page-spaces footer .footer-addr,
+body.page-spaces footer .footer-copy,
+body.page-spaces footer .footer-est {
+  color: rgba(208, 204, 198, 0.55);
+}
+body.page-spaces footer .footer-addr a,
+body.page-spaces footer .footer-link {
+  color: rgba(208, 204, 198, 0.62);
+}
+body.page-spaces footer .footer-link:hover,
+body.page-spaces footer .footer-addr a:hover {
+  color: var(--gll);
+}
+body.page-spaces footer .footer-col-title {
+  color: var(--gll);
+}
+body.page-spaces footer .footer-bottom {
+  border-top-color: rgba(154, 125, 66, 0.12);
+}

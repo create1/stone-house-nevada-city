@@ -1,0 +1,389 @@
+/* Wedding pricing pamphlet — match site chrome (dark pricing family) */
+body.page-wedding-pricing {
+  background: #1a1714;
+  color: var(--on-dark, #f5f0e8);
+  padding-top: var(--nav-h, 72px);
+}
+
+body.page-wedding-pricing #nav {
+  background: rgba(28, 25, 22, 0.96);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+body.page-wedding-pricing #nav .nav-logo,
+body.page-wedding-pricing #nav .nav-wm,
+body.page-wedding-pricing #nav .nav-est {
+  color: var(--on-dark, #f5f0e8);
+}
+body.page-wedding-pricing #nav .nav-logo-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+body.page-wedding-pricing #nav .nav-link {
+  color: rgba(201, 168, 106, 0.88);
+  font-weight: 600;
+}
+body.page-wedding-pricing #nav .nav-link:hover,
+body.page-wedding-pricing #nav .nav-link.is-active,
+body.page-wedding-pricing #nav .nav-link[aria-current="page"] {
+  color: var(--gll, #c9a86a);
+}
+body.page-wedding-pricing #nav .mob-btn span {
+  background: var(--on-dark, #f5f0e8);
+}
+body.page-wedding-pricing #nav.scrolled {
+  background: rgba(28, 25, 22, 0.94);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.18);
+}
+
+body.page-wedding-pricing #mob-nav {
+  background: #1c1916;
+}
+body.page-wedding-pricing .mob-link {
+  color: var(--on-dark, #f5f0e8);
+  border-bottom-color: rgba(154, 125, 66, 0.18);
+}
+body.page-wedding-pricing .mob-link:hover {
+  color: var(--gll, #c9a86a);
+}
+
+body.page-wedding-pricing .footer-quote {
+  background: #161412;
+  border-top-color: rgba(154, 125, 66, 0.14);
+}
+body.page-wedding-pricing .footer-quote .footer-quote-text {
+  color: rgba(208, 204, 198, 0.35);
+}
+body.page-wedding-pricing footer {
+  background: #1c1916;
+  border-top-color: rgba(154, 125, 66, 0.14);
+  color: var(--on-dark, #f5f0e8);
+}
+body.page-wedding-pricing footer .footer-logo-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+body.page-wedding-pricing footer .footer-brand {
+  color: var(--on-dark, #f5f0e8);
+}
+body.page-wedding-pricing footer .footer-desc,
+body.page-wedding-pricing footer .footer-addr,
+body.page-wedding-pricing footer .footer-copy,
+body.page-wedding-pricing footer .footer-est {
+  color: rgba(208, 204, 198, 0.55);
+}
+body.page-wedding-pricing footer .footer-addr a,
+body.page-wedding-pricing footer .footer-link {
+  color: rgba(208, 204, 198, 0.62);
+}
+body.page-wedding-pricing footer .footer-link:hover,
+body.page-wedding-pricing footer .footer-addr a:hover {
+  color: var(--gll, #c9a86a);
+}
+body.page-wedding-pricing footer .footer-col-title {
+  color: var(--gll, #c9a86a);
+}
+body.page-wedding-pricing footer .footer-bottom {
+  border-top-color: rgba(154, 125, 66, 0.12);
+}
+
+.wp-page {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 56px) clamp(16px, 4vw, 40px) clamp(48px, 8vw, 96px);
+}
+
+.wp-gate {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(28px, 4vw, 48px);
+  align-items: center;
+}
+
+.wp-gate-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.wp-cover {
+  display: block;
+  width: auto;
+  max-width: min(280px, 72vw);
+  max-height: min(52vh, 480px);
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(154, 125, 66, 0.12);
+  border: 1px solid rgba(154, 125, 66, 0.18);
+}
+
+.wp-label {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gll, #c9a86a);
+  margin-bottom: 10px;
+}
+
+.wp-gate-panel h1 {
+  font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+  font-weight: 300;
+  font-size: clamp(1.75rem, 3.8vw, 2.5rem);
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  color: #faf7f2;
+  margin: 0 0 12px;
+}
+
+.wp-lede {
+  font-size: 15px;
+  color: rgba(245, 240, 232, 0.72);
+  line-height: 1.65;
+  margin: 0 0 20px;
+  max-width: 42ch;
+}
+
+.wp-form-wrap {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(154, 125, 66, 0.22);
+  border-radius: 8px;
+  padding: clamp(16px, 2.2vw, 24px) clamp(14px, 2vw, 22px);
+}
+
+.wp-form-wrap h2 {
+  font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+  color: #faf7f2;
+  margin: 0 0 14px;
+}
+
+.lf-card {
+  width: 100%;
+  max-width: 520px;
+  box-sizing: border-box;
+  color: #1a1714;
+  background: #faf7f2;
+  border-radius: 6px;
+  padding: clamp(16px, 2.4vw, 22px) clamp(14px, 2.2vw, 20px);
+}
+
+.wp-aside {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: rgba(245, 240, 232, 0.62);
+  line-height: 1.55;
+}
+
+.wp-aside a {
+  color: var(--gll, #c9a86a);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 168, 106, 0.35);
+}
+
+.wp-aside a:hover {
+  color: #e0c98a;
+}
+
+@media (min-width: 900px) {
+  .wp-gate {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(32px, 4vw, 64px);
+    min-height: calc(100dvh - var(--nav-h, 72px) - 8rem);
+  }
+  .wp-gate-visual {
+    justify-content: flex-end;
+  }
+  .wp-cover {
+    max-width: min(400px, 36vw);
+    max-height: min(78vh, 700px);
+  }
+}
+
+@media (max-width: 899px) {
+  .wp-gate-panel {
+    text-align: center;
+  }
+  .wp-lede {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .lf-card {
+    margin: 0 auto;
+  }
+  .wp-form-wrap h2,
+  .wp-aside {
+    text-align: center;
+  }
+}
+
+/* Wedding pamphlet form pages: a cover drawn in the web pamphlet's style, and on phones a
+   small cover beside the headline so the form starts on the first screen (ad traffic). */
+.wp-cover-art {
+  position: relative;
+  container-type: inline-size;
+  width: min(280px, 72vw);
+  aspect-ratio: 1191 / 1685;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid rgba(201, 168, 106, 0.3);
+  background: #1a1714;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(154, 125, 66, 0.12);
+  color: #faf7f2;
+}
+
+.wp-cover-art picture,
+.wp-cover-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wp-cover-art img {
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+.wp-cover-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12, 10, 8, 0.62) 0%, rgba(12, 10, 8, 0) 26%, rgba(12, 10, 8, 0) 44%, rgba(12, 10, 8, 0.92) 100%);
+}
+
+.wp-cover-inner {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 22px 26px;
+  padding: 9cqi 9cqi 10cqi;
+}
+
+.wp-cover-brand {
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+  font-size: 4.4cqi;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 242, 0.92);
+}
+
+.wp-cover-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  gap: 4.5cqi;
+}
+
+.wp-cover-title {
+  font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+  font-weight: 300;
+  font-size: 32px;
+  font-size: 11.6cqi;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.wp-cover-title em {
+  display: block;
+  font-style: italic;
+  color: #c9a86a;
+}
+
+.wp-cover-place {
+  padding-top: 12px;
+  padding-top: 4.5cqi;
+  border-top: 1px solid rgba(201, 168, 106, 0.45);
+  font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+  font-style: italic;
+  font-size: 15px;
+  font-size: 5.6cqi;
+  color: rgba(245, 240, 232, 0.82);
+}
+
+@container (max-width: 160px) {
+  .wp-cover-inner {
+    justify-content: flex-end;
+    padding: 11cqi;
+  }
+  .wp-cover-brand,
+  .wp-cover-place {
+    display: none;
+  }
+  .wp-cover-title {
+    font-size: 17cqi;
+    white-space: normal;
+  }
+}
+
+@media (min-width: 900px) {
+  .wp-gate--pamphlet .wp-cover-art {
+    width: min(400px, 36vw, calc((100vh - 220px) * 0.7068));
+  }
+}
+
+@media (max-width: 899px) {
+  .wp-gate--pamphlet {
+    grid-template-columns: 104px minmax(0, 1fr);
+    column-gap: 18px;
+    row-gap: 0;
+    align-items: start;
+  }
+  .wp-gate--pamphlet .wp-gate-panel {
+    display: contents;
+    text-align: left;
+  }
+  .wp-gate--pamphlet .wp-gate-visual {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: center;
+    justify-content: flex-start;
+  }
+  .wp-gate--pamphlet .wp-cover-art {
+    width: 104px;
+    border-radius: 4px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+  }
+  .wp-gate--pamphlet .wp-label {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    margin-bottom: 8px;
+  }
+  .wp-gate--pamphlet .wp-gate-panel h1 {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    margin: 0;
+  }
+  .wp-gate--pamphlet .wp-lede {
+    grid-column: 1 / -1;
+    max-width: none;
+    margin: 20px 0 18px;
+  }
+  .wp-gate--pamphlet .wp-form-wrap {
+    grid-column: 1 / -1;
+  }
+  .wp-gate--pamphlet .wp-form-wrap h2,
+  .wp-gate--pamphlet .wp-aside {
+    text-align: left;
+  }
+}
+
+@media (max-width: 359px) {
+  .wp-gate--pamphlet {
+    grid-template-columns: 84px minmax(0, 1fr);
+    column-gap: 14px;
+  }
+  .wp-gate--pamphlet .wp-cover-art {
+    width: 84px;
+  }
+}

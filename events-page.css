@@ -1,0 +1,165 @@
+/* ═══════════════════════════════════════
+   EVENTS PAGE — dark charcoal (match home / catering / pricing)
+═══════════════════════════════════════ */
+body.page-events {
+  background: #1a1714;
+  color: var(--on-dark);
+}
+
+body.page-events #nav {
+  background: rgba(28, 25, 22, 0.96);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+body.page-events #nav .nav-logo,
+body.page-events #nav .nav-wm,
+body.page-events #nav .nav-est {
+  color: var(--on-dark);
+}
+body.page-events #nav .nav-logo-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+body.page-events #nav .nav-div {
+  background: rgba(208, 204, 198, 0.3);
+}
+body.page-events #nav .nav-est {
+  color: var(--gll);
+}
+body.page-events #nav .nav-link {
+  color: rgba(201, 168, 106, 0.88);
+  font-weight: 600;
+}
+body.page-events #nav .nav-link:hover,
+body.page-events #nav .nav-link.is-active,
+body.page-events #nav .nav-link[aria-current='page'] {
+  color: var(--gll);
+}
+body.page-events #nav .mob-btn span {
+  background: var(--on-dark);
+}
+body.page-events #nav.scrolled {
+  background: rgba(28, 25, 22, 0.96);
+  border-bottom: 1px solid rgba(154, 125, 66, 0.18);
+}
+body.page-events #nav.scrolled .nav-logo,
+body.page-events #nav.scrolled .nav-wm,
+body.page-events #nav.scrolled .nav-est {
+  color: var(--on-dark);
+}
+body.page-events #nav.scrolled .nav-logo-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+body.page-events #nav.scrolled .nav-est {
+  color: var(--gll);
+}
+body.page-events #nav.scrolled .nav-div {
+  background: rgba(208, 204, 198, 0.3);
+}
+body.page-events #nav.scrolled .nav-link {
+  color: rgba(201, 168, 106, 0.88);
+  font-weight: 600;
+}
+body.page-events #nav.scrolled .nav-link:hover,
+body.page-events #nav.scrolled .nav-link.is-active,
+body.page-events #nav.scrolled .nav-link[aria-current='page'] {
+  color: var(--gll);
+}
+body.page-events #nav.scrolled .mob-btn span {
+  background: var(--on-dark);
+}
+
+body.page-events .btn-gold {
+  background: var(--gll);
+  color: #1a1714;
+}
+body.page-events .btn-gold:hover {
+  background: #d4c49a;
+  color: #1a1714;
+}
+body.page-events .btn-ghost {
+  color: var(--on-dark);
+  border-color: rgba(208, 204, 198, 0.35);
+}
+body.page-events .btn-ghost:hover {
+  border-color: var(--gll);
+  color: var(--gll);
+}
+
+body.page-events #mob-nav {
+  background: #1c1916;
+}
+body.page-events .mob-link {
+  color: var(--on-dark);
+  border-bottom-color: rgba(154, 125, 66, 0.18);
+}
+body.page-events .mob-link:hover {
+  color: var(--gll);
+}
+
+/* Page intro */
+body.page-events .split-page-head {
+  background: #1a1714;
+  padding: clamp(48px, 7vw, 80px) 5.5% 36px;
+}
+body.page-events .split-page-head .sl {
+  color: var(--gll);
+}
+body.page-events .split-page-head .sl::before {
+  background: var(--gll);
+}
+body.page-events .split-page-head .dh {
+  color: var(--on-dark);
+}
+body.page-events .split-page-head .di {
+  color: var(--gll);
+}
+
+/* CTA strip */
+body.page-events .page-cta-strip {
+  background: #1a1714;
+  border-top-color: rgba(154, 125, 66, 0.14);
+}
+
+/* Footer */
+body.page-events .footer-quote {
+  background: #161412;
+  border-top-color: rgba(154, 125, 66, 0.14);
+}
+body.page-events .footer-quote .footer-quote-text {
+  color: rgba(208, 204, 198, 0.35);
+}
+body.page-events footer {
+  background: #1c1916;
+  border-top-color: rgba(154, 125, 66, 0.14);
+  color: var(--on-dark);
+}
+body.page-events footer .footer-logo-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+body.page-events footer .footer-brand {
+  color: var(--on-dark);
+}
+body.page-events footer .footer-desc,
+body.page-events footer .footer-addr,
+body.page-events footer .footer-copy,
+body.page-events footer .footer-est {
+  color: rgba(208, 204, 198, 0.55);
+}
+body.page-events footer .footer-addr a,
+body.page-events footer .footer-link {
+  color: rgba(208, 204, 198, 0.62);
+}
+body.page-events footer .footer-link:hover,
+body.page-events footer .footer-addr a:hover {
+  color: var(--gll);
+}
+body.page-events footer .footer-col-title {
+  color: var(--gll);
+}
+body.page-events footer .footer-bottom {
+  border-top-color: rgba(154, 125, 66, 0.12);
+}
