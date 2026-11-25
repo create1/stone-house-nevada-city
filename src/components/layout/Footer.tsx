@@ -200,9 +200,15 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-[80rem] flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-white/40 sm:flex-row">
           <p>&copy; {new Date().getFullYear()} Stonehouse. All rights reserved.</p>
-          <p>
-            Built in 1857 &middot; Nevada City, California
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            <Link href="/privacy-policy/" className="transition-colors hover:text-gold">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="transition-colors hover:text-gold">
+              Terms of Use
+            </Link>
+            <span>Built in 1857 &middot; Nevada City, California</span>
+          </div>
         </div>
       </div>
     </footer>
